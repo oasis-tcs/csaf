@@ -1,0 +1,41 @@
+id: document-tracking-id-in-title
+kind: test
+level: recommended
+legacy:
+  number: 6.2.22
+  file: tests-02-rcmmndd-22-document-tracking-id-in-title.md
+heading: 3
+title: Document Tracking ID in Title
+statement: It SHALL be tested that the `$.document.title` does not contain the `$.document.tracking.id`.
+paths:
+- $.document.title
+examples:
+- verdict: fails
+  json: |2-
+        "title": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01: Recommended test: Document Tracking ID in Title (failing example 1)",
+        "tracking": {
+          // ...
+          "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-22-01",
+          // ...
+        }
+  explanation:
+  - The document title contains the document tracking id.
+notes:
+- |-
+  > A tool MAY remove the document tracking id from the document title.
+  > It SHOULD also remove any separating characters including white space, colon, dash and brackets.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-22-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-22-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-22-03.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-22-04.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-22-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-22-12.json
+    valid: true

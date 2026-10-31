@@ -1,0 +1,33 @@
+id: multiple-definition-in-revision-history
+kind: test
+level: mandatory
+topics: [revision-history]
+legacy:
+  number: 6.1.22
+  file: tests-01-mndtr-22-multiple-definition-in-revision-history.md
+heading: 3
+title: Multiple Definition in Revision History
+statement: It SHALL be tested that items of the revision history do not contain the same version number.
+paths:
+- $.document.tracking.revision_history
+examples:
+- verdict: fails
+  json: |2-
+       "revision_history": [
+          {
+            "date": "2024-01-20T10:00:00.000Z",
+            "number": "1",
+            "summary": "Initial version."
+          },
+          {
+            "date": "2024-01-21T10:00:00.000Z",
+            "number": "1",
+            "summary": "Some other changes."
+          }
+        ]
+  explanation:
+  - The revision history contains two items with the version number `1`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-22-01.json
+    valid: false

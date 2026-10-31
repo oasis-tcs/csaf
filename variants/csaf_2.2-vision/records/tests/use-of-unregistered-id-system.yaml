@@ -1,0 +1,33 @@
+id: use-of-unregistered-id-system
+kind: test
+level: informative
+legacy:
+  number: 6.3.20
+  file: tests-03-nfrmtv-20-use-of-unregistered-id-system.md
+heading: 3
+title: Use of Unregistered ID System
+statement: |-
+  For each item in `$.vulnerabilities[*].ids` it SHALL be tested that the value of `system_name` belongs to a
+  registered vulnerability ID system in RVISC.
+
+  > The RVISC is available at [cite](#RVISC).
+paths:
+- $.vulnerabilities[*].ids[*].system_name
+examples:
+- verdict: fails
+  json: |2-
+        "ids": [
+          {
+            "system_name": "OASIS Open CSAF TC GitHub Issues",
+            "text": "Issue 1217"
+          }
+        ]
+  explanation:
+  - The `system_name` is not one that is registered in RVISC.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-20-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-20-11.json
+    valid: true

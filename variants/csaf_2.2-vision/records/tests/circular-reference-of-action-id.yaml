@@ -1,0 +1,39 @@
+id: circular-reference-of-action-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.11
+  file: tests-01-mndtr-64-11-circular-reference-of-action-id.md
+heading: 4
+title: Circular Reference of Action ID
+statement: |-
+  For each action containing at least one referenced action id (type `$['$defs'].action_id_t`)
+  it SHALL be tested that the action does not end up in a circle.
+  This also includes actions containing their own `action_id` in the `referenced_action_ids`.
+paths:
+- $.document.involvement.actions[*]
+examples:
+- verdict: fails
+  json: |2-
+      {
+        // ...
+        "action_id": "ACN-1",
+        // ...
+        "referenced_action_ids": [
+          "ACN-1"
+        ],
+        // ...
+      }
+  explanation:
+  - '`ACN-1` refers to itself - this is a circular reference.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-11-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-11-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-11-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-11-12.json
+    valid: true

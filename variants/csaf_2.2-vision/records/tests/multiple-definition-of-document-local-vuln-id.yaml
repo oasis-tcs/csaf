@@ -1,0 +1,37 @@
+id: multiple-definition-of-document-local-vuln-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.65.2
+  file: tests-01-mndtr-65-02-multiple-definition-of-document-local-vuln-id.md
+heading: 4
+title: Multiple Definition of Document-local Vuln ID
+statement: |-
+  For each element of type `$['$defs'].dl_vuln_id_t` in vulnerabilities (`$.vulnerabilities[*].dl_vuln_id`)
+  it SHALL be tested that the `dl_vuln_id` was not already defined within the same document.
+paths:
+- $.vulnerabilities[*].dl_vuln_id
+examples:
+- verdict: fails
+  json: |2-
+      "vulnerabilities": [
+        {
+          "dl_vuln_id": "VULN-1"
+        },
+        {
+          "dl_vuln_id": "VULN-1"
+        }
+      ]
+  explanation:
+  - '`VULN-1` was defined twice.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-02-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-02-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-02-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-02-12.json
+    valid: true

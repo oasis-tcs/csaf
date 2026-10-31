@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/vulnerabilities/0/ids/0/group_ids/0",
+        "message": "definition of group id `CSAFGID-1020314` missing"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/ids/1/group_ids/2",
+        "message": "definition of group id `CSAFGID-1020313` missing"
+      },
+      {
+        "instance_path": "/vulnerabilities/0/ids/2/group_ids/0",
+        "message": "definition of group id `CSAFPID-9080700` missing"
+      }
+    ],
+    "id": "6.1.4",
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}

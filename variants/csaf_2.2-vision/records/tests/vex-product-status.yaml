@@ -1,0 +1,36 @@
+id: vex-product-status
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.7
+  file: tests-01-mndtr-27-07-vex-product-status.md
+heading: 4
+title: VEX Product Status
+statement: |-
+  For each item in `$.vulnerabilities` it SHALL be tested that at least one of the elements `fixed`, `known_affected`, `known_not_affected`,
+  or `under_investigation` is present in `product_status`.
+applies-to:
+  only:
+  - csaf_vex
+paths:
+- $.vulnerabilities[*].product_status.fixed
+- $.vulnerabilities[*].product_status.known_affected
+- $.vulnerabilities[*].product_status.known_not_affected
+- $.vulnerabilities[*].product_status.under_investigation
+examples:
+- verdict: fails
+  json: |2-
+      "product_status": {
+        "first_fixed": [
+          // ...
+        ],
+        "recommended": [
+          // ...
+        ]
+      }
+  explanation:
+  - None of the elements `fixed`, `known_affected`, `known_not_affected`, or `under_investigation` is present in `product_status`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-07-01.json
+    valid: false

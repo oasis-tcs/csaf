@@ -1,0 +1,79 @@
+# Product status group x remediation category: one record, from which derive writes
+#   - the table and both preference lists in the prose (between the anchors of `legacy.region`)
+#   - the fixtures of the tests that `use` this table (one document per cell, test/validator/data/derived/)
+# Invariants checked on every derive: every cell has a verdict; `ranking` lists every allowed cell before
+# every discouraged one, each exactly once, and no prohibited cell.
+
+id: status-remediation
+kind: table
+title: Product Status Remediation Category Combinations
+legacy:
+  label: tab:vulnerabilities-property-remediations-category-2
+  file: schema-elements-02-props-04-vulnerabilities.md
+  region:
+    after: 'The following tables shows the allowed, discouraged and prohibited combinations:'
+    before: CSAF Viewers MAY sort the remediation items accordingly.
+  typesetting: ['\tablefontsize=small ', '\columns=,12%,13%,13%,19%,13%,13%']
+
+verdicts: [allowed, discouraged, prohibited]
+
+# Status groups: `members` are the product_status properties of the group, `fixture` the one the derived
+# fixtures use.
+columns:
+  - {id: affected, title: Affected, members: [first_affected, known_affected, last_affected], fixture: known_affected}
+  - {id: not_affected, title: Not Affected, members: [known_not_affected], fixture: known_not_affected}
+  - {id: fixed, title: Fixed, members: [first_fixed, fixed], fixture: fixed}
+  - {id: under_investigation, title: Under Investigation, members: [under_investigation], fixture: under_investigation}
+  - {id: unknown, title: Unknown, members: [unknown], fixture: unknown}
+  - {id: recommended, title: Recommended, members: [recommended], fixture: recommended}
+
+# Remediation categories, in column order of the prose table.
+cells:
+  workaround:     [allowed, prohibited, prohibited, discouraged, discouraged, allowed]
+  mitigation:     [allowed, prohibited, prohibited, discouraged, discouraged, allowed]
+  vendor_fix:     [allowed, prohibited, prohibited, discouraged, discouraged, allowed]
+  optional_patch: [prohibited, allowed, discouraged, allowed, allowed, allowed]
+  none_available: [allowed, prohibited, prohibited, allowed, allowed, allowed]
+  fix_planned:    [allowed, discouraged, prohibited, discouraged, discouraged, allowed]
+  no_fix_planned: [allowed, discouraged, prohibited, allowed, allowed, allowed]
+
+# RECOMMENDED order for choosing among combinations (1 = preferred); today two lists in the prose.
+lead:
+  allowed: 'The following preference for combinations of remediation categories and product status groups is RECOMMENDED:'
+  discouraged: 'The remaining discouraged combinations are appended at the end of the list:'
+ranking:
+  - [vendor_fix, recommended]
+  - [mitigation, recommended]
+  - [workaround, recommended]
+  - [optional_patch, recommended]
+  - [vendor_fix, affected]
+  - [mitigation, affected]
+  - [workaround, affected]
+  - [optional_patch, under_investigation]
+  - [optional_patch, unknown]
+  - [fix_planned, recommended]
+  - [fix_planned, affected]
+  - [optional_patch, not_affected]
+  - [none_available, recommended]
+  - [no_fix_planned, recommended]
+  - [none_available, affected]
+  - [none_available, under_investigation]
+  - [none_available, unknown]
+  - [no_fix_planned, affected]
+  - [no_fix_planned, under_investigation]
+  - [no_fix_planned, unknown]
+  - [optional_patch, fixed]
+  - [vendor_fix, under_investigation]
+  - [vendor_fix, unknown]
+  - [mitigation, under_investigation]
+  - [mitigation, unknown]
+  - [workaround, under_investigation]
+  - [workaround, unknown]
+  - [fix_planned, under_investigation]
+  - [fix_planned, unknown]
+  - [fix_planned, not_affected]
+  - [no_fix_planned, not_affected]
+
+# The document each derived fixture starts from (an official valid fixture); derive replaces the product
+# status and the remediation of its first vulnerability.
+fixture-base: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-36-11.json

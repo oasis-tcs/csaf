@@ -1,0 +1,48 @@
+# Conformance clauses: what each target builds on, and the roles and capabilities it adds itself.
+# The clause text stays prose (prose/edit/src/conformance-01-cls-*.md); derive
+#   - checks that every `builds-on` appears in the clause as `"<title>" conformance profile`
+#   - computes each clause's roles: its own `roles` plus those of everything it builds on (transitively)
+#   - writes one line naming those roles under the heading of every actor clause, and section 9.2
+#     "Conformance Roles" (conformance-02-roles.md) listing per role its targets and capabilities
+#
+#   kind      actor (a program that takes roles) | artifact (a document, test, schema, ... it is about)
+#   roles     roles the clause adds (records/roles.yaml); most clauses only inherit
+#   presets   capabilities as presets (records/presets.yaml) the clause adds: the tests it runs
+
+clauses:
+  - {id: document, number: 1, title: CSAF Document, kind: artifact}
+  - {id: producer, number: 2, title: CSAF Producer, kind: actor, roles: [producer]}
+  - {id: direct-producer, number: 3, title: CSAF Direct Producer, kind: actor, builds-on: [producer]}
+  - {id: converter, number: 4, title: CSAF Converter, kind: actor, builds-on: [producer]}
+  - {id: cvrf-converter, number: 5, title: CVRF CSAF Converter, kind: actor, builds-on: [producer]}
+  - {id: content-management-system, number: 6, title: CSAF Content Management System, kind: actor, builds-on: [producer, viewer]}
+  - {id: post-processor, number: 7, title: CSAF Post-Processor, kind: actor, builds-on: [consumer, producer]}
+  - {id: modifier, number: 8, title: CSAF Modifier, kind: actor, builds-on: [post-processor]}
+  - {id: translator, number: 9, title: CSAF Translator, kind: actor, builds-on: [post-processor]}
+  - {id: consumer, number: 10, title: CSAF Consumer, kind: actor, roles: [consumer]}
+  - {id: viewer, number: 11, title: CSAF Viewer, kind: actor, builds-on: [consumer]}
+  - {id: management-system, number: 12, title: CSAF Management System, kind: actor, builds-on: [viewer]}
+  - {id: asset-matching-system, number: 13, title: CSAF Asset Matching System, kind: actor, builds-on: [management-system]}
+  - {id: basic-validator, number: 14, title: CSAF Basic Validator, kind: actor, roles: [validator], presets: [basic]}
+  - {id: extended-validator, number: 15, title: CSAF Extended Validator, kind: actor, builds-on: [basic-validator], presets: [extended]}
+  - {id: full-validator, number: 16, title: CSAF Full Validator, kind: actor, builds-on: [extended-validator], presets: [full]}
+  - {id: sbom-matching-system, number: 17, title: CSAF SBOM Matching System, kind: actor, builds-on: [management-system]}
+  - {id: csaf-2-0-converter, number: 18, title: CSAF 2.0 to CSAF 2.1 Converter, kind: actor, builds-on: [producer]}
+  - {id: library, number: 19, title: CSAF Library, kind: actor, roles: [producer, consumer]}
+  - {id: library-with-basic-validation, number: 20, title: CSAF Library with Basic Validation, kind: actor, builds-on: [library, basic-validator]}
+  - {id: library-with-extended-validation, number: 21, title: CSAF Library with Extended Validation, kind: actor, builds-on: [library, extended-validator]}
+  - {id: library-with-full-validation, number: 22, title: CSAF Library with Full Validation, kind: actor, builds-on: [library, full-validator]}
+  - {id: downloader, number: 23, title: CSAF Downloader, kind: actor, roles: [intermediary]}
+  - {id: withdrawer, number: 24, title: CSAF Withdrawer, kind: actor, builds-on: [post-processor]}
+  - {id: superseder, number: 25, title: CSAF Superseder, kind: actor, builds-on: [post-processor]}
+  - {id: rvisc-id-updater, number: 26, title: CSAF RVISC ID Updater, kind: actor, builds-on: [post-processor]}
+  - {id: additional-test, number: 27, title: CSAF Additional Test, kind: artifact}
+  - {id: extension, number: 28, title: CSAF Extension, kind: artifact}
+  - {id: extension-schema, number: 29, title: CSAF Extension Schema, kind: artifact}
+  - {id: extension-overlay-test, number: 30, title: CSAF Extension Overlay Test, kind: artifact}
+  - {id: extension-additional-test, number: 31, title: CSAF Extension Additional Test, kind: artifact}
+  - {id: extension-test, number: 32, title: CSAF Extension Test, kind: artifact, builds-on: [extension-overlay-test, extension-additional-test]}
+  - {id: extension-specification, number: 33, title: CSAF Extension Specification, kind: artifact}
+  - {id: extension-bundle, number: 34, title: CSAF Extension Bundle, kind: artifact}
+  - {id: extension-package, number: 35, title: CSAF Extension Package, kind: artifact}
+  - {id: extension-collection, number: 36, title: CSAF Extension Collection, kind: artifact}

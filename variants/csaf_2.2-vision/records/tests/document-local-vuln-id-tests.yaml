@@ -1,0 +1,14 @@
+id: document-local-vuln-id-tests
+kind: group
+level: mandatory
+legacy:
+  number: 6.1.65
+  file: tests-01-mndtr-65-00-document-local-vuln-id-tests.md
+heading: 3
+title: Document-local Vuln ID Tests
+anchor: mandatory--document-local-vuln-id-tests
+statement: |-
+  This subsubsection structures the mandatory tests for Document-local Vuln ID.
+  Each of the following tests SHOULD be treated as they were listed similar to the other tests.
+
+  > An application MAY group these tests when providing the additional function to only run one or more selected tests.

@@ -1,0 +1,44 @@
+id: vulnerabilities-for-informational-advisory
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.3
+  file: tests-01-mndtr-27-03-vulnerabilities-for-informational-advisory.md
+heading: 4
+title: Vulnerabilities
+anchor: vulnerabilities-for-informational-advisory
+statement: It SHALL be tested that the element `$.vulnerabilities` does not exist.
+applies-to:
+  only:
+  - csaf_informational_advisory
+  - csaf_withdrawn
+  - csaf_superseded
+paths:
+- $.vulnerabilities
+examples:
+- verdict: fails
+  json: |2-
+      "vulnerabilities": [
+        {
+          "title": "A vulnerability item that SHALL NOT exist"
+        }
+      ]
+  explanation:
+  - The element `$.vulnerabilities` exists.
+notes:
+- '> A tool MAY change the `$.document.category` to `csaf_base` as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-03.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-03-13.json
+    valid: true

@@ -1,0 +1,46 @@
+## Typographical Conventions
+
+Keywords defined by this specification use this `monospaced` font.
+
+```
+    Normative source code uses this paragraph style.
+```
+
+The information models of the CSAF schemata are illustrated in the prose in a generic YAML format in the shape of outlines.
+In contrast to extracts of JSON snippets in prior versions of this specification such YAML snippets can be annotated and validated both as being well-formed and matching the schema part.
+These outlines are directly extractable per JSONPaths (see [cite](#RFC9535)) from the corresponding CSAF schema as documented
+in the normative format of this specification.
+The types used are the general `Mapping` (JSON  `object`), `Sequence` (JSON `array`), and `String` types.
+The latter may be further constrained to specific facets like for example enumerations noted as `String.Enum`.
+General instances (like a CSAF document) are noted as such in angle brackets to emphasize the topology.
+Items of sequences are noted as YAML sequence items and annotated per comments naming the kind of sequence item they represent.
+
+JSONPath is also used within the standard as syntax for specifying paths or referring to elements relevant to the current context.
+They can have multiple results when being applied to a JSON instance or schema.
+However, when referring to a schema with one of the keywords `$ref` or `$dynamicRef` the value is a `URI-Reference`
+(cf. section 8.2.3 of [cite](#JSON-Schema-Core)).
+To represent paths which contain the branch recursion below `$.product_tree.branches[*]` the descendant segment syntax
+`$.product_tree..branches[*]` is used.
+Implementations need to ensure that only matching paths with the intended type are selected.
+For example, this could be done by checking that the property names that are omitted through the `..` syntax along the path
+between `product_tree` and `branches` are just `branches`.
+Including but not limited to paths containing `x_extensions` could introduce arbitrary other property names.
+
+Some sections of this specification are illustrated with non-normative examples introduced with "Example" or "Examples" like so:
+
+*Example 1:*
+
+```
+    Informative examples also use this paragraph style but preceded by the text "Example(s)".
+```
+
+All examples in this document are informative only.
+
+All other text is normative unless otherwise labeled e.g. like the following informative comment:
+
+> This is a pure informative comment that may be present, because the information conveyed is deemed useful advice or
+> common pitfalls learned from implementer or operator experience and often given including the rationale.
+
+---
+
+This document adheres to the Modern Language Association (MLA) style guidelines for formatting titles and terms.

@@ -1,0 +1,40 @@
+id: unused-definition-of-product-id
+kind: test
+level: recommended
+legacy:
+  number: 6.2.1
+  file: tests-02-rcmmndd-01-unused-definition-of-product-id.md
+heading: 3
+title: Unused Definition of Product ID
+statement: |-
+  For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it SHALL be tested that
+  the `product_id` is referenced somewhere within the same document.
+applies-to:
+  except:
+  - csaf_informational_advisory
+paths:
+- $.product_tree..branches[*].product.product_id
+- $.product_tree.full_product_names[*].product_id
+- $.product_tree.product_paths[*].full_product_name.product_id
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      }
+  explanation:
+  - '`CSAFPID-9080700` was defined but never used.'
+notes:
+- '> A tool MAY remove the unused definition as a quick fix. However, such quick fix shall not be applied if the test was skipped.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-01-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-01-11.json
+    valid: true

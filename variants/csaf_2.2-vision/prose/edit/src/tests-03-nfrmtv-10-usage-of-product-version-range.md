@@ -1,0 +1,20 @@
+### Usage of Product Version Range
+
+For each element of type `$['$defs'].branches_t` it SHALL be tested that the `category` is not `product_version_range`.
+
+> It is usually hard decide for machines whether a product version matches a product version ranges.
+> Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.product_tree..branches[*].category
+```
+
+*Example 1 (which fails the test):*
+
+```
+                "category": "product_version_range",
+```
+
+> The category `product_version_range` was used.

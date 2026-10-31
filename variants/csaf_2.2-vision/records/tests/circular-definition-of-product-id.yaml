@@ -1,0 +1,59 @@
+id: circular-definition-of-product-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.3
+  file: tests-01-mndtr-03-circular-definition-of-product-id.md
+heading: 3
+title: Circular Definition of Product ID
+statement: |-
+  For each new defined Product ID (type `$['$defs'].product_id_t`) in items of product paths (`$.product_tree.product_paths`) it
+  SHALL be tested that the `product_id` does not end up in a circle.
+paths:
+- $.product_tree.product_paths[*].full_product_name.product_id
+notes:
+- |-
+  > As this can be quite complex a program for large CSAF documents, a program could check first whether
+  > a Product ID defined in a product path item is used as `beginning_product_reference` or `next_product_reference`.
+  > Only for those which fulfill this condition it is necessary to run the full check following the references.
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    "product_tree": {
+      "full_product_names": [
+        {
+          "name": "Product A",
+          "product_id": "CSAFPID-9080700"
+        }
+      ],
+      "product_paths": [
+        {
+          "beginning_product_reference": "CSAFPID-9080700",
+          "full_product_name": {
+            "name": "Product B",
+            "product_id": "CSAFPID-9080701"
+          },
+          "subpaths": [
+            {
+              "category": "installed_on",
+              "next_product_reference": "CSAFPID-9080701"
+            }
+          ]
+        }
+      ]
+    }
+  ```
+- '> `CSAFPID-9080701` refers to itself - this is a circular definition.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-03-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-03-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-03-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-03-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-03-13.json
+    valid: true

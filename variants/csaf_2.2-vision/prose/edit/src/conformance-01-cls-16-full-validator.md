@@ -1,0 +1,13 @@
+### Conformance Clause 16: CSAF Full Validator
+
+This conformance target takes the role Validator (see section [sec](#conformance-roles)).
+
+A CSAF Extended Validator satisfies the "CSAF Full Validator" conformance profile if the CSAF Extended Validator:
+
+- satisfies the "CSAF Extended Validator" conformance profile.
+- additionally performs all tests of the preset `informative` as given in section [sec](#presets-defined-through-test-subsections).
+- provides an option to additionally use a custom dictionary for test [sec](#spell-check).
+- additionally satisfies those normative requirements in section [sec](#informative-tests)
+  that are designated as applying to CSAF validators.
+
+A CSAF Full Validator MAY provide an additional function to only run one or more selected informative tests.

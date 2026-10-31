@@ -1,0 +1,32 @@
+### Contradicting Product Status Remediation Combination
+
+For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that a product is not member of a
+contradicting product status group (see [tab](#tab:vulnerabilities-property-remediations-category-2)).
+This takes indirect relations through product groups into account.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].remediations[*]
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "product_status": {
+        "known_not_affected": [
+          "CSAFPID-9080700"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Update to version >=14.3 to fix the vulnerability.",
+          "product_ids": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+```
+
+> For the product with product ID `CSAFPID-9080700` a `vendor_fix` is given but the product was not affected at all.

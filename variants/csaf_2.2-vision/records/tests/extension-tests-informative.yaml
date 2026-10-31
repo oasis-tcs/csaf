@@ -1,0 +1,335 @@
+id: extension-tests-informative
+kind: test
+level: informative
+legacy:
+  number: 6.3.21
+  file: tests-03-nfrmtv-21-extension-tests.md
+heading: 3
+title: Extension Tests
+anchor: informative-tests--extension-tests
+statement: |-
+  This subsubsection structures the informative tests for extensions.
+  Each of the following tests SHOULD be treated as they were listed similar to the other tests.
+
+  > An application MAY group these tests when providing the additional function to only run one or more selected tests.
+
+  #### Extension Category Essential
+
+  For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that the extension `category` of the item
+  is not `essential`.
+
+  > It is sufficient to check whether the value of `category` is not `essential`.
+paths:
+- $.document.x_extensions[*].category
+- $.product_tree..branches[*].product.x_extensions[*].category
+- $.product_tree.full_product_names[*].x_extensions[*].category
+- $.product_tree.product_paths[*].full_product_name.x_extensions[*].category
+- $.vulnerabilities[*].metrics[*].content.x_extensions[*].category
+- $.vulnerabilities[*].x_extensions[*].category
+- $.x_extensions[*].category
+examples:
+- verdict: fails
+  json: |2-
+      "x_extensions": [
+        {
+          // ...
+          "category": "essential",
+          // ...
+        }
+      ]
+  explanation:
+  - |-
+    The extension category is `essential`.
+    A reader that does not understand this extension might miss information that is essential to understand the content of the CSAF document.
+notes:
+- '#### Usage of Experimental Extension in Non-TLP:CLEAR Document{#usage-of-experimental-extension-in-non-tlp-clear-document}'
+- |-
+  For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested that no experimental extension is used
+  if the document is not labeled `TLP:CLEAR`.
+- 'The relevant paths for this test are:'
+- |-
+  ```list-of-jsonpaths
+    $.document.x_extensions[*]
+    $.product_tree..branches[*].product.x_extensions[*]
+    $.product_tree.full_product_names[*].x_extensions[*]
+    $.product_tree.product_paths[*].full_product_name.x_extensions[*]
+    $.vulnerabilities[*].metrics[*].content.x_extensions[*]
+    $.vulnerabilities[*].x_extensions[*]
+    $.x_extensions[*]
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    {
+      // ...
+      "document": {
+        // ...
+        "distribution": {
+          "tlp": {
+            "label": "GREEN"
+          }
+        },
+        // ...
+      }
+      "x_extensions": [
+        {
+          "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
+          // ...
+        }
+      ]
+    }
+  ```
+- |-
+  > The extension is an experimental CSAF Extension.
+  > Its properties and meaning might therefore not be known to the reader of the document.
+- '#### Usage of Extension at Document Level'
+- It SHALL be tested that the element `$.document.x_extensions` does not exist.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.document.x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    {
+      // ...
+      "document": {
+        // ...
+        "x_extensions": [
+          // ...
+        ]
+      }
+    }
+  ```
+- '> The element `$.document.x_extensions` exists.'
+- '#### Usage of Extension in Product Tree Branch Path'
+- It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.branches`.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.product_tree..branches[*].product.x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    "product_tree": {
+      "branches": [
+        {
+          "branches": [
+            {
+              "branches": [
+                {
+                  // ...
+                  "product": {
+                    // ...
+                    "x_extensions": [
+                      // ...
+                    ]
+                  }
+                }
+              ],
+              // ...
+            }
+          ],
+          // ...
+        }
+      ]
+    }
+  ```
+- '> The element `x_extensions` exists in a path that starts with `$.product_tree.branches`.'
+- '#### Usage of Extension in Product Tree Full Product Names Path'
+- It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.full_product_names`.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.product_tree.full_product_names[*].x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    "product_tree": {
+      "full_product_names": [
+        {
+          // ...
+          "x_extensions": [
+            // ...
+          ]
+        }
+      ]
+    }
+  ```
+- '> The element `x_extensions` exists in a path that starts with `$.product_tree.full_product_names`.'
+- '#### Usage of Extension in Product Tree Product Paths Path'
+- It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.product_tree.product_paths`.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.product_tree.product_paths[*].full_product_name.x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    "product_tree": {
+      // ...
+      "product_paths": [
+        {
+          // ...
+          "full_product_name": {
+            // ...
+            "x_extensions": [
+              // ...
+            ]
+          },
+          // ...
+        }
+      ]
+    }
+  ```
+- '> The element `x_extensions` exists in a path that starts with `$.product_tree.product_paths`.'
+- '#### Usage of Extension in Vulnerabilities Metrics Path'
+- It SHALL be tested that the element `x_extensions` does not exist in any path that starts with `$.vulnerabilities[*].metrics`.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.vulnerabilities[*].metrics[*].content.x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    "vulnerabilities": [
+      {
+        "metrics": [
+          {
+            "content": {
+              "x_extensions": [
+                // ...
+              ]
+            },
+            // ...
+          }
+        ]
+      }
+    ]
+  ```
+- '> The element `x_extensions` exists in a path that starts with `$.vulnerabilities[*].metrics`.'
+- '#### Usage of Extension at Vulnerabilities Level'
+- For each item `$.vulnerabilities` it SHALL be tested that the element `x_extensions` does not exist.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.vulnerabilities[*].x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    {
+      // ...
+      "vulnerabilities": [
+        {
+          // ...
+          "x_extensions": [
+            // ...
+          ]
+        }
+      ]
+    }
+  ```
+- '> The element `x_extensions` exists inside a `vulnerabilities` item.'
+- '#### Usage of Extension at Root Level'
+- It SHALL be tested that the element `$.x_extensions` does not exist.
+- 'The relevant path for this test is:'
+- |-
+  ```list-of-jsonpaths
+    $.x_extensions
+  ```
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    {
+      // ...
+      "x_extensions": [
+        // ...
+      ]
+    }
+  ```
+- '> The element `$.x_extensions` exists.'
+subtests:
+- number: 6.3.21.1
+  topics: [extensions]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-01-01.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-01-02.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-01-11.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-01-12.json
+    valid: true
+- number: 6.3.21.2
+  topics: [extensions]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-02-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-02-11.json
+    valid: true
+- number: 6.3.21.3
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-03-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-03-11.json
+    valid: true
+- number: 6.3.21.4
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-04-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-04-11.json
+    valid: true
+- number: 6.3.21.5
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-05-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-05-11.json
+    valid: true
+- number: 6.3.21.6
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-06-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-06-11.json
+    valid: true
+- number: 6.3.21.7
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-07-01.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-07-01.result.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-07-11.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-07-11.result.json
+    valid: true
+- number: 6.3.21.8
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-08-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-08-11.json
+    valid: true
+- number: 6.3.21.9
+  topics: [extensions, extension-presence]
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-09-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-21-09-11.json
+    valid: true

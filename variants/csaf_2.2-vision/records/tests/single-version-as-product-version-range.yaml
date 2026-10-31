@@ -1,0 +1,38 @@
+id: single-version-as-product-version-range
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.59
+  file: tests-01-mndtr-59-single-version-as-product-version-range.md
+heading: 3
+title: Single Version as Product Version Range
+statement: |-
+  For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested that the value of `name` does not
+  identify only a single version.
+paths:
+- $.product_tree..branches[*].name
+examples:
+- verdict: fails
+  json: |2-
+            {
+              "category": "product_version_range",
+              "name": "vers:intdot/4.2.0",
+              // ...
+            }
+  explanation:
+  - The version range given identifies just a single version.
+notes:
+- '> A tool MAY change the branch category to `product_version` and replace the value for `name` with the version as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-59-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-59-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-59-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-59-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-59-13.json
+    valid: true

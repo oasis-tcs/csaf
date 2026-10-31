@@ -1,0 +1,45 @@
+id: multiple-use-of-same-entity-group-name
+kind: test
+level: informative
+legacy:
+  number: 6.3.26.3
+  file: tests-03-nfrmtv-26-03-multiple-use-of-same-entity-group-name.md
+heading: 4
+title: Multiple Use of Same Entity Group Name
+statement: |-
+  For each `name` in `$.document.involvement.entity_groups[*]`
+  it SHALL be tested that the `name` was not already used for another entity group within the same document.
+
+  > For the justified scenarios, the test should be ignored.
+paths:
+- $.document.involvement.entity_groups[*].name
+examples:
+- verdict: fails
+  json: |2-
+      "entity_groups": [
+        {
+          "entity_group_id": "EGID-9001",
+          "entity_ids": [
+            "EID-0001",
+            "EID-0003"
+          ],
+          "name": "JJ Research"
+        },
+        {
+          "entity_group_id": "EGID-9002",
+          "entity_ids": [
+            "EID-0001",
+            "EID-0003"
+          ],
+          "name": "JJ Research"
+        }
+      ]
+  explanation:
+  - '`JJ Research` was used twice.'
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-03-01.json
+    valid: false
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-03-11.json
+    valid: true

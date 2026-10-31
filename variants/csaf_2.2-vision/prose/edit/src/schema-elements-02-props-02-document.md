@@ -1,0 +1,1168 @@
+### Document Property
+
+Document level meta-data (`document`) of value type `object` with the six mandatory properties Category (`category`),
+CSAF Version (`csaf_version`), Distribution (`distribution`), Publisher (`publisher`), Title (`title`),
+and Tracking (`tracking`) captures the meta-data about this document describing a particular set of security advisories.
+In addition, the `document` object MAY provide the nine optional properties Acknowledgments (`acknowledgments`),
+Aggregate Severity (`aggregate_severity`), Involvement (`involvement`), Language (`lang`),
+License expression (`license_expression`), Notes (`notes`), References (`references`),
+Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
+
+```yaml <!--json-path($..document.properties)-->
+<csaf-instance>:
+  document:
+    acknowledgments: $defs.acknowledgments_t
+    aggregate_severity: Mapping
+    category: String.Pattern
+    csaf_version: String.Const
+    distribution: Mapping
+    involvement: Mapping
+    lang: $defs.lang_t
+    license_expression: String
+    notes: $defs.notes_t
+    publisher: Mapping
+    references: $defs.references_t
+    source_lang: $defs.lang_t
+    title: String
+    tracking: Mapping
+    x_extensions: $defs.extensions_t
+```
+
+#### Document Property - Acknowledgments
+
+Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
+a list of acknowledgment elements associated with the whole document.
+
+```yaml <!--json-paths($..document..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+<csaf-instance>:
+  document:
+    acknowledgements:  # $defs.acknowledgments_t
+    - # <acknowledgement-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
+```
+
+#### Document Property - Aggregate Severity
+
+Aggregate severity (`aggregate_severity`) of value type `object` with the mandatory property `text` and
+the optional property `namespace` is a vehicle that is provided by the document producer to convey the urgency and
+criticality with which the one or more vulnerabilities reported should be addressed.
+It is a document-level metric and applied to the document as a whole — not any specific vulnerability.
+The range of values in this field is defined according to the document producer's policies and procedures.
+
+```yaml <!--json-path($..document..aggregate_severity.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    aggregate_severity:
+      namespace: String
+      text: String
+    # ...
+```
+
+The Namespace of aggregate severity (`namespace`) of value type `string` with format `uri` points to the namespace so referenced.
+
+The Text of aggregate severity (`text`) of value type `string` with `1` or more characters provides a severity which is
+independent of - and in addition to - any other standard metric for determining the impact or severity of a given vulnerability (such as CVSS).
+
+*Examples 1:*
+
+```
+    Critical
+    Important
+    Moderate
+```
+
+#### Document Property - Category
+
+Document category (`category`) has value type `string` of `1` or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+Document category defines a short canonical name, chosen by the document producer, which will inform the end user as to the category of document.
+
+> It is directly related to the profiles defined in section [sec](#profiles).
+
+```yaml <!--json-path($..document.properties.category)-->
+<csaf-instance>:
+  document:
+    # ...
+    category:  String.Pattern
+    # ...
+```
+
+*Examples 1:*
+
+```
+    csaf_base
+    csaf_security_advisory
+    csaf_vulnerability_report
+    csaf_vex
+    Example Company Security Notice
+```
+
+#### Document Property - CSAF Version
+
+CSAF version (`csaf_version`) of value type `string` and `const` gives the version of the CSAF specification which the document was generated for.
+The value for this `const` is:
+
+```
+    2.1
+```
+
+#### Document Property - Distribution
+
+Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
+optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
+
+```yaml <!--json-path($..document..distribution.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group: Mapping
+      text: String
+      tlp: Mapping
+    # ...
+```
+
+If multiple values are present, the TLP information SHOULD be preferred as this aids in automation.
+The Sharing Group SHALL be interpreted as specification to the TLP information.
+Therefore, the Sharing Group MAY also be used to convey special TLP restrictions:
+
+*Examples 1:*
+
+```
+    E-ISAC members-only
+    Only releasable to European Energy sector
+    Releasable to NATO countries
+```
+
+> Note that for such restrictions the Sharing Group Name SHALL exist and all participants SHALL know the associated
+> Sharing Group IDs to allow for automation.
+
+##### Document Property - Distribution - Sharing Group{#document-property---distribution-sharing-group}
+
+Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
+the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
+
+```yaml <!--json-path($..document..distribution..sharing_group.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      sharing_group:
+        id: String.Pattern
+        name: String
+      # ...
+    # ...
+```
+
+Sharing Group ID (`id`) has value type `string` with format `uuid` and `pattern` (regular expression):
+
+```
+    ^(([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12})|([0]{8}-([0]{4}-){3}[0]{12})|([f]{8}-([f]{4}-){3}[f]{12}))$
+```
+
+Sharing Group ID provides the unique ID for the sharing group.
+This ID is intended to be globally unique and MAY also be used by different issuing parties to share CSAF data within a closed group,
+e.g. during a Multi-Party Coordinated Vulnerability Disclosure case.
+
+> Note, that participants in such cases usually differ. Therefore, it is advised to use one ID per case.
+> Otherwise, the consequences of adding or removing parties from a case and the implications to other cases have to be considered.
+
+The ID SHOULD NOT change throughout different CSAF documents, if the same sharing group is addressed.
+It SHALL differ if a different sharing group is addressed.
+
+> It is assumed that the ID is globally unique, if constructed according to the specification for UUID Version 4.
+
+The ID SHALL be valid according to [cite](#RFC9562) and recorded in the 8-4-4-4-12 notation in lowercase.
+The ID SHALL be a UUID Version 4 for any closed sharing group, i.e. `TLP:GREEN` and above.
+
+The following ID values SHOULD NOT be used unless there are technical reasons for them.
+Therefore, they are reserved for implementation-specific situations:
+
+- A system MAY use the Max UUID for `TLP:CLEAR` CSAF documents.
+
+  > For example, the system uses the UUID as an indication whether a user allowed to see the document.
+  > The security considerations from [cite](#RFC9562) should be reflected on.
+
+- A system MAY use the Nil UUID for CSAF documents that SHALL NOT be shared.
+
+  > For example, the CSAF document is just being drafted and the accidental leakage should be prevented.
+
+> Note, that both values do not indicate a closed sharing group.
+
+A CSAF document with `TLP:CLEAR` SHOULD NOT contain a sharing group value and SHALL NOT contain any other value for the
+Sharing Group ID than Max UUID (`ffffffff-ffff-ffff-ffff-ffffffffffff`).
+
+If an issuing party distributes multiple versions of a single CSAF document to different sharing groups, the rules for
+CSAF modifier (cf. section [sec](#conformance-clause-8-csaf-modifier)) regarding the generation of the value of
+`$.document.tracking.id` SHALL be applied.
+This implies that usually the sharing group ID is used as a prefix to the original `$.document.tracking.id`.
+
+Sharing Group Name (`name`) of value type `string` with one or more characters contains a human-readable name for the sharing group.
+
+The Sharing Group Name is optional and can be chosen freely by the entity establishing the sharing group.
+However, the following values are reserved for the conditions below:
+
+- For the Max UUID, the value of `name` SHALL exist and be `Public`.
+- For the Nil UUID, the value of `name` SHALL exist and be `No sharing allowed`.
+
+##### Document Property - Distribution - Text
+
+The Textual description (`text`) of value type `string` with `1` or more characters provides a textual description of additional constraints.
+
+*Examples 1:*
+
+```
+    Copyright 2024, Example Company, All Rights Reserved.
+    Distribute freely.
+    Share only on a need-to-know-basis only.
+```
+
+##### Document Property - Distribution - TLP
+
+Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and
+the optional property URL (`url`) provides details about the TLP classification of the document.
+
+```yaml <!--json-path($..document..distribution..tlp.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    distribution:
+      # ...
+      tlp:
+        label: String
+        url: String.URI
+    # ...
+```
+
+The Label of TLP (`label`) with value type `string` and `enum` provides the TLP label of the document.
+Valid values of the `enum` are:
+
+```
+    AMBER
+    AMBER+STRICT
+    CLEAR
+    GREEN
+    RED
+```
+
+> Note: In the TLP specification, there are only four labels. The part `+STRICT` is an extension to `TLP:AMBER`.
+> To simplify the JSON structure, avoid additional business level tests and aid in parsing, consumption and
+> processing, it is provided as a label to be selected instead of having a separate field.
+
+The default value for `label` is `CLEAR`.
+
+> Note: This provides the suggested default value for anyone writing CSAF documents as the majority of those
+> are intended to be publicly available.
+
+The URL of TLP version (`url`) with value type `string` with format `uri` provides a URL where to find
+the textual description of the TLP version which is used in this document.
+The default value is the URL to the definition by FIRST:
+
+```
+    https://www.first.org/tlp/
+```
+
+*Examples 1:*
+
+```
+    https://www.us-cert.gov/tlp
+    https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/TLP/merkblatt-tlp.pdf
+```
+
+#### Document Property - Involvement
+
+Involvement (`involvement`) of value type `object` with the mandatory properties List of actions (`actions`) and
+List of entities (`entities`) contains the coordination record stating entities and actions between them.
+The optional property is List of entity groups (`entity_groups`).
+
+```yaml <!--json-path($..document..involvement.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      entities: Sequence
+      entity_groups: Sequence
+    # ...
+```
+
+##### Document Property - Involvement - Actions
+
+List of actions (`actions`) of value type `array` with `1` or more unique items (a `set`) contains the timeline of actions.
+
+
+```yaml <!--json-path($..document..involvement..actions)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions: Sequence
+      # ...
+    # ...
+```
+
+Every Action item of value type `object` with the five mandatory properties List of acting entities (`acting_entity_refs`),
+Action ID (`action_id`), Action category (`category`), Date of the action (`date`), and Action status (`status`)
+contains details about a single event in the timeline.
+In addition, any Action item MAY expose the optional properties List of document-local vuln IDs `dl_vuln_ids`, Group IDs (`group_ids`), Product IDs (`product_ids`),
+List of receiving entities (`receiving_entity_refs`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
+
+```yaml <!--json-path($..document..involvement..actions..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      actions:
+      - # <action-instance>:
+        acting_entity_refs: $defs.entity_refs_id_t
+        action_id: $defs.action_id_t
+        category: String.Enum
+        date: String.DateTime
+        dl_vuln_ids: Sequence
+        group_ids: $defs.product_groups_t
+        product_ids: $defs.products_t
+        receiving_entity_refs: $defs.entity_refs_id_t
+        referenced_action_ids: Sequence
+        summary: String
+        status: String.Enum
+      # ...
+    # ...
+```
+
+List of acting entities (`acting_entity_refs`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that act.
+
+Action ID (`action_id`) of value type Action ID (`action_id_t`) contains the reference token for this action.
+Its value SHALL be unique across all action items.
+
+Action category (`category`) of value type `string` and `enum` specifies the category which this action belongs to.
+Valid values are:
+
+```
+    assessment
+    confirmation
+    coordination
+    discovery
+    dispute
+    embargo
+    exploitation
+    fix_deployment
+    fix_release
+    notification
+    observation
+```
+
+The value `assessment` indicates that the actor examines if the vulnerability is correct, how severe it is, or which products it applies to.
+An `assessment` action records that this examination took place, which entities took part in it, and when.
+Any resulting score or rating is given in `$.vulnerabilities[*].metrics` or `$.vulnerabilities[*].threats`, not in the action.
+
+The value `confirmation` indicates that the actor confirms that it received or accepted the action that this action refers to (via `referenced_action_ids`).
+
+The value `coordination` indicates that the parties coordinate their work.
+
+The value `discovery` indicates that the actor found the vulnerability.
+
+The value `dispute` indicates that the actor disputes the action that this action refers to (via `referenced_action_ids`).
+It can dispute that the action is correct, its severity, or that it occurred.
+It can also state that the actor does not accept the action.
+
+The value `embargo` indicates that the actor and the receiving entities agree to not disclose the information before the intended disclosure date.
+The agreed date is the `disclosure_date` of each vulnerability that `dl_vuln_ids` names.
+An `embargo` action SHALL name a minimum of one party in `receiving_entity_refs`,
+and it SHOULD name the vulnerabilities under embargo in `dl_vuln_ids`.
+An agreement to delay disclosure is an `embargo`. Other joint work of the parties stays `coordination`.
+The entities in `receiving_entity_refs` are the parties that the agreement binds.
+They are not necessarily the members of `$.document.distribution.sharing_group`.
+
+The value `exploitation` indicates that the actor used the vulnerability.
+With the status `attempted`, the action states that the actor tried to use the vulnerability and did not succeed.
+
+The value `fix_deployment` indicates that the actor installed a fix.
+
+The value `fix_release` indicates that the actor published a fix, or made a fix available.
+
+The value `notification` indicates that the actor tells a different party about the vulnerability.
+To describe an action for which no suitable specific action category is available,
+the `notification` category SHOULD be used and any specific information SHOULD be described in the `summary` field of the action.
+
+The value `observation` indicates that the actor observed that the vulnerability was used.
+The entities in `acting_entity_refs` are the entities that made the observation, and `date` is the date of the observation.
+An `observation` action MAY name an `exploitation` action in `referenced_action_ids`.
+That action gives the entity that used the vulnerability and the date of that use.
+The scope of an `observation` action that names an `exploitation` action SHOULD be equal to or narrower than the scope of that action,
+after the resolution of product groups.
+An entity that found the vulnerability itself records a `discovery`, not an `observation`.
+
+A `confirmation` and a `dispute` are always about a different action.
+Each of them SHALL have a minimum of one value in `referenced_action_ids`, and each SHALL name a minimum of one party in `receiving_entity_refs`.
+
+For a `confirmation`, each entity in the `acting_entity_refs` set SHALL also be in the `receiving_entity_refs` set of the action that it refers to.
+Entity groups are resolved before this.
+Only a entity that received an action can confirm that action.
+
+Date of the action (`date`) of value type `string` with format `date-time` contains the date when the action occurred.
+
+List of document-local vuln IDs (`dl_vuln_ids`) of value type `array` with `1` or more unique items (a `set`) contains a list of local IDs
+referring to vulnerabilities within the same document that this action applies to.
+Every Document-local Vuln ID item of value type Document-local Vuln ID Type (`dl_vuln_id_t`) specifies a single vulnerability element
+the current action applies to.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current action item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current action item applies to.
+
+List of receiving entities (`receiving_entity_refs`) of value type
+Entity Refs ID (`entity_refs_id_t`) contains a list of entities that receive the action.
+
+List of referenced actions (`referenced_action_ids`) of value type `array` with `1` or more unique items (a `set`)
+contains a list of other actions reference by this action.
+Every referenced action item of value type Action ID (`action_id_t`) refers to a single vulnerability.
+
+Summary of the action (`summary`) of value type `string` with `1` or more characters contains information about the action.
+
+Action status (`status`) of value type `string` and `enum` contains an observation about the action.
+Valid values are:
+
+```
+  attempted
+  completed
+  deferred
+  discontinued
+  in_progress
+  outstanding
+  planned
+```
+
+The value `attempted` indicates that the actor tried to do the action, but it did not reach the recipient.
+
+The value `completed` indicates that the actor completed the action.
+
+The value `deferred` indicates that the actor decided not to act at this time. It will examine the decision again later.
+
+The value `discontinued` indicates that the actor started the work and then stopped it before it was complete.
+
+The value `in_progress` indicates that the actor is doing the work now.
+
+The value `outstanding` indicates that a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+The value `planned` indicates that the a party waits for this action. The status gives an observation and tells you nothing about the work of the actor.
+
+> The commonly agreed order of these `status` values for a `notification` is:
+>
+> 1. `outstanding`
+> 2. `deferred`
+> 3. `planned`
+> 4. `attempted`
+> 5. `in_progress`
+> 6. `completed`
+> 7. `completed` referenced by a `confirmation` with `status` of `completed`
+>
+> The difference between a completed notification and one that also is referenced by a completed confirmation can be an important
+> distinction for the notifying entity.
+> Most likely, the list of actions will not carry every status for each `notification`
+> but will highlight the important steps in the process.
+
+##### Document Property - Involvement - Entities
+
+List of entities (`entities`) of value type `array` with `1` or more unique items (a `set`) contains a list of entities related.
+
+```yaml <!--json-path($..document..involvement..entities)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities: Sequence
+      # ...
+    # ...
+```
+
+Every Entity item of value type `object` with the two mandatory properties Entity category (`category`) and Entity ID (`entity_id`) contains information about a single entity.
+In addition, any Entity item MAY expose the optional properties Contact of the entity (`contact`) and Name of the entity (`name`).
+
+```yaml <!--json-path($..document..involvement..entities..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        category: String.Enum
+        contact: $defs.contact_t
+        entity_id: $defs.entity_id_t
+        name: String
+      # ...
+    # ...
+```
+
+Entity category (`category`) of value type `string` and `enum` specifies the category of the party.
+Valid values are:
+
+```
+    adversary
+    coordinator
+    discoverer
+    multiplier
+    other
+    public
+    reporting_authority
+    user
+    vendor
+```
+
+The value `adversary` indicates an entity that acts against the other parties. It may be identified or not identified.
+
+The value `coordinator` indicates an entity that coordinates the disclosure between several parties, e.g. a CERT.
+
+The value `discoverer` indicates an entity that finds vulnerabilities, for example a researcher.
+
+> It is assume that the discoverer also reports vulnerabilities.
+
+The value `multiplier` indicates an entity that uses or distributes the data about a vulnerability.
+
+The value `other` indicates an entity that has a role that the other values do not give.
+
+The value `public` indicates the general public.
+
+The value `reporting_authority` indicates an entity that receives or requires a report, e.g. a national CSIRT.
+
+The value `user` indicates an entity that uses or operates a product mentioned.
+
+The value `vendor` indicates an entity that develops or maintains of information system products or services.
+This includes all authoritative product vendors, product security incident response teams (PSIRTs),
+open source projects as well as product resellers and distributors, including authoritative vendor partners.
+
+The `category` does not control the role: an entity can act in one action and receive in a different action.
+An `adversary` is permitted as a recipient, because a `notification` to an adversary records that the data went to that adversary.
+
+Contact of the entity (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the entity.
+
+```yaml <!--json-paths($..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entities:
+      - # <entity-instance>:
+        # ...
+        contact:
+          details: String
+          email: String.EMAIL
+          public_openpgp_key_url: String.URI
+          url: String.URI
+        # ...
+      # ...
+    # ...
+```
+
+Entity ID (`entity_id`) value type Entity ID (`entity_id_t`) contains an ID for the entity.
+
+Contains an ID for the entity (`name`) of value type `string` with `1` or more characters contains the name of the entity.
+
+##### Document Property - Involvement - Entity Groups
+
+List of entity groups (`entity_groups`) of value type `array` with `1` or more unique items (a `set`) contains a list of entity groups.
+
+```yaml <!--json-path($..document..involvement..entity_groups)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups: Sequence
+    # ...
+```
+
+Every Entity group item of value type `object` with the three mandatory properties Entity Group ID (`entity_group_id`),
+List of Entity IDs (`entity_ids`), and Name of the entity group (`name`) defines a new logical group of entities
+that can then be referred to in other parts of the document to address a group of entities with a single identifier.
+In addition, any Entity group item MAY expose the optional property Summary of the entity group (`summary`).
+
+```yaml <!--json-path($..document..involvement..entity_groups..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    involvement:
+      # ...
+      entity_groups:
+      - # <entity_group-instance>:
+        entity_group_id: $defs.entity_group_id_t
+        entity_ids: Sequence
+        name: String
+        summary: String
+    # ...
+```
+
+Entity Group ID (`entity_group_id`) value type Entity Group ID (`entity_group_id_t`) contains an ID for the entity group.
+
+List of Entity IDs (`entity_ids`) of value type `array` with `2` or more unique items (a `set`) lists the Entity IDs of those entities which are known as one group in the document.
+Every Entity ID item of value type Entity ID (`entity_id_t`) specifies a single entity being part of the group.
+
+Name of the entity group (`name`) of value type `string` with `1` or more characters contains a human-readable name for the entities grouped.
+
+Summary of the entity group (`summary`) of value type `string` with `1` or more characters contains a human-readable summary stating the purpose of the group.
+
+#### Document Property - Language
+
+Document language (`lang`) of value type Language Type (`lang_t`) identifies the language used by this document,
+corresponding to IETF BCP 47 / RFC 5646.
+
+#### Document Property - License Expression{#document-property---license-expression}
+
+License expression (`license_expression`) of value type `string` with `1` or more characters contains the
+SPDX license expression for the CSAF document.
+It SHALL NOT contain a license text.
+See Annex B of [cite](#SPDX31) for details.
+The `DocumentRef` part given in that ABNF SHALL NOT be used in CSAF.
+Any SPDX license identifier not from the official SPDX license identifier list SHALL contain a prefix of the form
+`LicenseRef-<license-inventoring-entity>-` where `<license-inventoring-entity>` is replaced with a unique name for the
+entity that provided the database this license identifier was found in.
+Unless otherwise previously established, the unique name SHOULD be a domain name.
+The same applies for `AdditionRef-` identifiers.
+
+In addition, the following rules apply:
+
+- License identification:
+  1. The SPDX License List Version 3.26.0 or later SHALL be consulted to identify the appropriate SPDX license identifier or
+     construct an expression based on a SPDX license identifier.
+     Deprecated license identifiers SHOULD NOT be used.
+     SPDX license identifiers that were deprecated before the version listed above SHALL NOT be used.
+
+     > The list is available at [cite](#SPDX-L).
+     > It includes also the exceptions.
+
+  2. If the appropriate license identifier is not found in the SPDX License List or expression been possible to constructed,
+     the license database AboutCode's "ScanCode LicenseDB" SHALL be consulted as a next step.
+     License identifier from this database SHALL use the prefix `LicenseRef-scancode-` and
+     addition expressions the prefix `AdditionRef-scancode-`.
+     The construction of a license expression with such identifiers is also allowed.
+
+     > The database is currently available at [cite](#SCANCODE-LICENSEDB).
+     >
+     > Note that at the time of this writing the AboutCode's "ScanCode LicenseDB" uses `LicenseRef-scancode-` for exceptions
+     > which is the format used in [cite](#SPDX231).
+     > For the usage in CSAF, those values have to be converted.
+
+  3. If the first two steps did not result in an appropriate license identifier or expression and no extant identifier was found,
+     the issuing party SHALL create their own license identifier and necessary addition identifiers following the rules above.
+     The identifier SHOULD contain the version number of the license respectively exception.
+     The license text SHALL be made available through exactly one document note using the `category` `legal_disclaimer`.
+     The `title` SHALL be `License` for English or an unspecified document language.
+     For any other language, it SHOULD be the language specific translation of that term.
+
+- License similarity:
+  - Annex C of [cite](#SPDX31) applies.
+
+- Case sensitivity:
+  CSAF follows the recommendation of SPDX and enforces case sensitivity for SPDX license expressions in CSAF documents.
+
+*Examples 1:*
+
+```
+  CC-BY-4.0
+  LicenseRef-www.example.org-Example-CSAF-License-3.0
+  LicenseRef-scancode-public-domain
+  MIT OR any-OSI
+```
+
+When choosing a license expression, CSAF issuing parties SHALL consider to use a permissive license to enable the flow of information
+through the ecosystem.
+
+> Restrictive licenses can prevent users to easily utilize tools that are hosted in the cloud as the tool providers cannot pre-import
+> CSAF document but users need at least to activate the sources themselves.
+> This is relevant for services and tools, regardless of whether they are commercial or not.
+
+#### Document Property - Notes{#document-property---notes}
+
+Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
+
+```yaml <!--json-paths($..document..notes, $['$defs'].notes_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+    # ...
+```
+
+The following combinations of `category` and `title` have a special meaning and SHALL be used as stated below:
+
+\columns=15%,35%,
+
+| category           | title                            | content of text                                                                                                                                                                                    |
+|:-------------------|:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description        | Product Description              | Contains a description of a product given in the `product_tree` in regard to field of application and core functionality. This SHOULD be bound to the corresponding product or product group.      |
+| general            | AI Usage                         | Contains information on whether and how AI systems were used in discovering, analyzing, remediating, or documenting the content of the whole CSAF document, including the human oversight applied. |
+| general            | General Security Recommendations | Contains general advice and security recommendations that are related, generic and might be applicable independently of the content of the CSAF document.                                          |
+| legal\_disclaimer  | License                          | Contains the only license text of the document license.                                                                                                                                            |
+| summary            | Summary                          | Contains a short summary of the content of the advisory.                                                                                                                                           |
+
+Table: Requirements for combinations of `category` and `title` that have a special meaning.{#tab:document-property-notes}
+
+If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
+
+*Example 1 (for `text` when stating a legal disclaimer):*
+
+```
+  This content is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). If you distribute this content, or a modified version of it, you must provide attribution to Example Organization and provide a link to the original.
+```
+
+*Example 2 (for `text` when stating a legal disclaimer):*
+
+```
+  THIS DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS AND DOES NOT IMPLY ANY KIND OF GUARANTEE OR WARRANTY, INCLUDING THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE. YOUR USE OF THE INFORMATION ON THE DOCUMENT OR MATERIALS LINKED FROM THE DOCUMENT IS AT YOUR OWN RISK. EXAMPLE COMPANY RESERVES THE RIGHT TO CHANGE OR UPDATE THIS DOCUMENT AT ANY TIME.
+```
+
+#### Document Property - Publisher
+
+Publisher (`publisher`) of value type `object` with the mandatory properties Category (`category`), Name (`name`) and
+Namespace (`namespace`) provides information on the publishing entity.
+The two other optional properties are: `contact` and `issuing_authority`.
+
+```yaml <!--json-path($..document..publisher.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    publisher:
+      category: String
+      contact: $defs.contact_t
+      issuing_authority: String
+      name: String
+      namespace: String
+    # ...
+```
+
+##### Document Property - Publisher - Category{#document-property---publisher-category}
+
+The Category of publisher (`category`) of value type `string` and `enum` provides information about the category of
+publisher releasing the document.
+The valid values are:
+
+```
+    coordinator
+    discoverer
+    multiplier
+    other
+    translator
+    user
+    vendor
+```
+
+The value `coordinator` indicates individuals or organizations that
+manage a single vendor’s response or multiple vendors’ responses to a vulnerability, a security flaw, or an incident.
+This includes all Computer Emergency/Incident Response Teams (CERTs/CIRTs) or agents acting on the behalf of a researcher.
+
+The value `discoverer` indicates individuals or organizations that find vulnerabilities or security weaknesses.
+This includes all manner of researchers.
+
+The value `multiplier` indicates individuals or organizations that use existing CSAF documents or information that could
+be represented in CSAF, and create their own CSAF documents for distribution to a specific target audience.
+A single multiplier might have target audiences.
+
+> For example, a National CSIRT might create different CSAF documents for the same vulnerability for critical
+> infrastructure companies in different sectors, government agencies, non-critical industry, and the public based on
+> information sharing agreements and threats to the target group.
+  
+The creation step can make use of a CSAF modifier that replaces metadata, e.g. the document publisher.
+Currently, this value includes multipliers, republishers, and forwarders.
+
+The value `translator` indicates individuals or organizations that translate CSAF documents.
+This includes all manner of language translators, also those who work for the party issuing the original advisory.
+
+The value `other` indicates a catchall for everyone else. Currently this includes editors, reviewers,
+and miscellaneous contributors.
+
+The value `user` indicates anyone using a vendor’s product.
+
+The value `vendor` indicates developers or maintainers of information system products or services.
+This includes all authoritative product vendors, product security incident response teams (PSIRTs),
+open source projects as well as product resellers and distributors, including authoritative vendor partners.
+
+##### Document Property - Publisher - Contact
+
+Contact (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the publisher.
+
+```yaml <!--json-paths($..document..publisher.properties.contact.properties, $['$defs'].contact_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    publisher:
+      # ...
+      contact:
+        details: String
+        email: String.EMAIL
+        public_openpgp_key_url: String.URI
+        url: String.URI
+      # ...
+    # ...
+```
+
+##### Document Property - Publisher - Issuing Authority
+
+Issuing authority (`issuing_authority`) of value type `string` with `1` or more characters Provides information about
+the authority of the issuing party to release the document, in particular, the party's constituency and responsibilities or other obligations.
+
+*Examples 1:*
+
+```
+  Example Company PSIRT is responsible for vulnerability handling across all Example Company products and services.
+  Example CERT as designated CSIRT according to Directive (EU) 2022/2555 Article 12 section 1 acts as coordinator for the purposes of coordinated vulnerability disclosure.
+  Example ISAC publishes security information for products used by or relevant for its constituency enriched by a sector-specific assessment.
+  The Example Organization Security Team is responsible for vulnerability handling across all Example Organization offerings.
+```
+
+##### Document Property - Publisher - Name
+
+The Name of publisher (`name`) of value type `string` with `1` or more characters contains the name of the issuing party.
+
+*Examples 1:*
+
+```
+     BSI
+     Cisco PSIRT
+     Siemens ProductCERT
+```
+
+##### Document Property - Publisher - Namespace
+
+The Namespace of publisher (`namespace`) of value type `string` with format `uri` contains a URL which
+is under control of the issuing party and can be used as a globally unique identifier for that issuing party.
+The URL SHALL be normalized.
+
+An issuing party can choose any URL which fulfills the requirements state above.
+The URL MAY be dereferenceable. If an issuing party has chosen a URL, it SHOULD NOT change.
+Tools can make use of the combination of `$.document.publisher.namespace` and `$.document.tracking.id` as it
+identifies a CSAF document globally unique.
+
+If an issuing party decides to change its Namespace it SHOULD reissue all CSAF documents with
+an incremented (patch) version which has no other changes than:
+
+- the new publisher information
+- the updated revision history
+- the updated item in `$.document.references[*]` which points to the new version of the CSAF document
+- an added item in `$.document.references[*]` which points to the previous version of the CSAF document (if the URL changed)
+
+*Examples 1:*
+
+```
+    https://csaf.io
+    https://www.example.com
+```
+
+#### Document Property - References
+
+Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
+
+```yaml <!--json-paths($..document..references, $['$defs'].references_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String
+      summary: String
+      url: String.URI
+    # ...
+```
+
+#### Document Property - Source Language
+
+Source language (`source_lang`) of value type Language Type (`lang_t`) identifies if this copy of the document is
+a translation then the value of this property describes from which language this document was translated.
+
+The property SHALL be present for any CSAF document with the value `translator` in `$.document.publisher.category`.
+The property SHALL NOT be present if the document was not translated.
+
+If an issuing party publishes a CSAF document with the same content in more than one language,
+one of these documents SHOULD be deemed the "original", the other ones SHOULD be considered translations from the "original".
+The issuing party can retain its original publisher information including the `category`.
+However, other rules defined in the conformance clause "CSAF translator" SHOULD be applied.
+
+#### Document Property - Title
+
+Title of this document (`title`) of value type `string` with `1` or more characters SHOULD be a canonical name for the document,
+and sufficiently unique to distinguish it from similar documents.
+
+*Examples 1:*
+
+```
+    Cisco IPv6 Crafted Packet Denial of Service Vulnerability
+    Example Company Cross-Site-Scripting Vulnerability in Example Generator
+```
+
+#### Document Property - Tracking
+
+Tracking (`tracking`) of value type `object` with the six mandatory properties Current Release Date (`current_release_date`),
+Identifier (`id`), Initial Release Date (`initial_release_date`), Revision History (`revision_history`), Status (`status`),
+and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
+The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
+
+```yaml <!--json-path($..document..tracking.properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      current_release_date: String.DateTime
+      generator: Mapping
+      id: String.Pattern
+      initial_release_date: String.DateTime
+      revision_history: Sequence
+      status: String.Enum
+      version: $defs.version_t
+```
+
+##### Document Property - Tracking - Aliases
+
+Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
+list of alternate names for the same document.
+
+```yaml <!--json-path($..document..tracking..aliases)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      aliases: Sequence
+      # ...
+```
+
+Every such Alternate Name of value type `string` with `1` or more characters specifies a non-empty string that represents a
+distinct optional alternative ID used to refer to the document.
+
+*Example 1:*
+
+```
+    CVE-2019-12345
+```
+
+##### Document Property - Tracking - Current Release Date
+
+Current release date (`current_release_date`) of value type `string` with format `date-time` holds the date when
+the current revision of this document was released.
+
+##### Document Property - Tracking - Generator
+
+Document Generator (`generator`) of value type `object` with mandatory property Engine (`engine`) and
+optional property Date (`date`) is a container to hold all elements related to the generation of the document.
+These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
+
+```yaml <!--json-path($..document..tracking..generator.properties)-->
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        date: String.DateTime
+        engine: Mapping
+      # ...
+```
+
+Date of document generation (`date`) of value type `string` with format `date-time` SHOULD be the current date that the document was generated.
+Because documents are often generated internally by a document producer and exist for a nonzero amount of time before being released,
+this field MAY be different from the Initial Release Date and Current Release Date.
+
+Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and
+optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
+
+```yaml <!--json-path($..document..tracking..generator..engine.properties)-->
+<csaf-instance>:
+  document:
+    tracking:
+      # ...
+      generator:
+        # ...
+        engine:
+          name: String
+          version: String
+      # ...
+```
+
+Engine name (`name`) of value type `string` with `1` or more characters represents the name of the engine that generated the CSAF document.
+
+*Examples 1:*
+
+```
+    Red Hat rhsa-to-cvrf
+    Secvisogram
+    TVCE
+```
+
+Engine version (`version`) of value type `string` with `1` or more characters contains the version of the engine that generated the CSAF document.
+
+> Although it is not formally required, the TC suggests to use a versioning which is compatible with Semantic Versioning as described in
+> the external specification [SemVer]. This could help the end user to identify when CSAF consumers have to be updated.
+
+*Examples 2:*
+
+```
+    0.6.0
+    1.0.0-beta+exp.sha.a1c44f85
+    2
+```
+
+##### Document Property - Tracking - ID
+
+Unique identifier for the document (`id`) has value type `string` of `1` or more characters with `pattern` (regular expression):
+
+```
+    ^[\\S](.*[\\S])?$
+```
+
+Unique identifier for the document holds the Identifier.
+It SHALL NOT start or end with a white space and SHALL NOT contain a newline sequence.
+
+The ID is a simple label that provides for a wide range of numbering values, types, and schemes.
+Its value SHOULD be assigned and maintained by the original document issuing authority.
+It SHALL be unique for that organization.
+
+*Examples 1:*
+
+```
+    Example Company - 2019-YH3234
+    RHBA-2019:0024
+    cisco-sa-20190513-secureboot
+```
+
+This value is also used to determine the filename for the CSAF document (cf. section [sec](#filename)).
+
+> The combination of `$.document.publisher.namespace` and `$.document.tracking.id` identifies a CSAF document globally unique.
+> The combination of `$.document.publisher.namespace`, `$.document.tracking.id`, and `$.document.tracking.version` identifies
+> that specific version of the CSAF document globally unique.
+
+##### Document Property - Tracking - Initial Release Date
+
+Initial release date (`initial_release_date`) of value type `string` with format `date-time` holds the date
+when this document was first released to the specified target group.
+
+> For `TLP:CLEAR` documents, this is usually the timestamp when the document was published.
+> For `TLP:GREEN` and higher, this is the timestamp when it was first made available to the specific group.
+> Note that the initial release date does not change after the initial release even if the document is later on released to a broader audience.
+
+If the timestamp of the initial release date was set incorrectly, it SHALL be corrected.
+This change SHALL be tracked with a new entry in the revision history.
+
+##### Document Property - Tracking - Revision History
+
+The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
+for each version of the CSAF document, including the initial one.
+
+```yaml <!--json-path($..document..tracking..revision_history)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history: Sequence
+      # ...
+```
+
+Each Revision contains all the information elements required to track the evolution of a CSAF document.
+Revision History Entry items are of value type `object` with the three mandatory properties: Date (`date`), Number (`number`),
+and Summary (`summary`).
+In addition, a Revision MAY expose the optional property `legacy_version`.
+
+```yaml <!--json-path($..document..tracking..revision_history..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    tracking:
+      # ...
+      revision_history:
+      - # <revision-instance>:
+        date: String.DateTime
+        legacy_version: String
+        number: $defs.version_t
+        summary: String
+      # ...
+```
+
+The Date of the revision (`date`) of value type `string` with format `date-time` states the date of the revision entry.
+
+Legacy version of the revision (`legacy_version`) of value type `string` with `1` or more characters contains the version string used
+in an existing document with the same content.
+
+> This SHOULD be used to aid in the mapping between existing (human-readable) documents which might use a different version scheme and
+> CSAF documents with the same content.
+> It is recommended, to use the CSAF revision number to describe the revision history for any new human-readable equivalent.
+
+The Number (`number`) has value type Version (`version_t`).
+
+The Summary of the revision (`summary`) of value type `string` with `1` or more characters holds a single non-empty string representing
+a short description of the changes.
+
+Each Revision item which has a `number` of `0` or `0.y.z` SHALL be removed from the document if the document status is `final`.
+Versions of the document which are pre-release SHALL NOT have its own revision item.
+All changes SHALL be tracked in the item for the next release version.
+Build metadata SHOULD NOT be included in the `number` of any revision item.
+
+Any issuing party using a CSAF document as basis and modifying it SHALL create a new revision history tracking the modified document.
+This applies especially to CSAF multiplier.
+
+> The new revision history (and consequently the corresponding ensures `current_release_date`) that the CSAF document can be found
+> and downloaded by CSAF downloaders that retrieve just those CSAF documents that have a newer `current_release_date` than the timestamp
+> of their last visit at this source (incremental download).
+
+##### Document Property - Tracking - Status
+
+Document status (`status`) of value type `string` and `enum` defines the draft status of the document.
+The value SHALL be one of the following:
+
+```
+    draft
+    final
+    interim
+```
+
+The value `draft` indicates, that this is a pre-release, intended for issuing party's internal use only,
+or possibly used externally when the party is seeking feedback or indicating its intentions regarding a specific issue.
+
+The value `final` indicates, that the issuing party asserts the content is unlikely to change.
+"Final" status is an indication only, and does not preclude updates.
+This SHOULD be used if the issuing party expects no, slow or few changes.
+
+The value `interim` indicates, that the issuing party expects rapid updates.
+This SHOULD be used if the expected rate of release for this document is significant higher than for other documents.
+Once the rate slows down it SHALL be changed to `final`. This MAY be done in a patch version.
+
+> This is extremely useful for downstream vendors to constantly inform the end users about ongoing investigation.
+> It can be used as an indication to pull the CSAF document more frequently.
+
+##### Document Property - Tracking - Version
+
+Version has the value type Version (`version_t`).
+
+#### Document Property - Extensions
+
+Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
+at the document property level of the CSAF document and associated with this document metadata.
+
+```yaml <!--json-paths($..document..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  document:
+    # ...
+    x_extensions:  # $defs.extensions_t
+    - # <x_extension-instance>:
+      $schema: String
+      category: String.Enum
+      content: Mapping
+      critical: Boolean
+      # ...
+```

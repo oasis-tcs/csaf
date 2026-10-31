@@ -1,0 +1,35 @@
+id: missing-receiving-entity-refs
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.1
+  file: tests-01-mndtr-64-01-missing-receiving-entity-refs.md
+heading: 4
+title: Missing Receiving Entity Refs
+statement: |-
+  For each item in `$.document.involvement.actions` which has one of the categories `confirmation`, `coordination`, `dispute` or `notification`
+  it SHALL be tested that the element `receiving_entity_refs` exists.
+paths:
+- $.document.involvement.actions[*]
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "acting_entity_refs": [
+          "EID-0001"
+        ],
+        "action_id": "ACN-1",
+        "category": "notification",
+        "date": "2024-01-10T09:00:00Z",
+        "status": "completed",
+        "summary": "Reported vulnerability to vendor."
+      },
+  explanation:
+  - The action does not contain the element `receiving_entity_refs`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-01-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-01-11.json
+    valid: true

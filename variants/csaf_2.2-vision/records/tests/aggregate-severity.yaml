@@ -1,0 +1,35 @@
+id: aggregate-severity
+kind: test
+level: recommended
+legacy:
+  number: 6.2.39.8
+  file: tests-02-rcmmndd-39-08-aggregate-severity.md
+heading: 4
+title: Aggregate Severity
+statement: |-
+  It SHALL be tested that the element `$.document.aggregate_severity` exists.
+
+  > An aggregate severity helps recipients quickly understand the overall urgency of the vulnerability report during coordination.
+applies-to:
+  only:
+  - csaf_vulnerability_report
+paths:
+- $.document.aggregate_severity
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        "category": "csaf_vulnerability_report",
+        // ...
+      }
+  explanation:
+  - The element `$.document.aggregate_severity` does not exist.
+notes:
+- '> A tool MAY add the highest value of all CVSS Severity values of all vulnerabilities as quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-08-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-08-11.json
+    valid: true

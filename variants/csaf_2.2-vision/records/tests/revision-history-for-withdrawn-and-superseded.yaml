@@ -1,0 +1,43 @@
+id: revision-history-for-withdrawn-and-superseded
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.16
+  file: tests-01-mndtr-27-16-revision-history-for-withdrawn-and-superseded.md
+heading: 4
+title: Revision History
+anchor: revision-history-for-withdrawn-and-superseded
+statement: It SHALL be tested that the revision history contains at least two entries.
+applies-to:
+  only:
+  - csaf_withdrawn
+  - csaf_superseded
+paths:
+- $.document.tracking.revision_history
+examples:
+- verdict: fails
+  json: |2-
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+  explanation:
+  - The revision history contains only one entry.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-16-14.json
+    valid: true

@@ -1,0 +1,59 @@
+id: misuse-at-vendor-name
+kind: test
+level: recommended
+legacy:
+  number: 6.2.48
+  file: tests-02-rcmmndd-48-misuse-at-vendor-name.md
+heading: 3
+title: Misuse at Vendor Name
+statement: |-
+  For each item in `branches` with category `vendor` it SHALL be tested that the `name` is not `Open Source`.
+  Any occurrences of dash, hyphen, minus, underscore, white space and invisible characters are removed from the value on both sides
+  before the case insensitive match.
+
+  > Some issuing parties use `Open Source` as a vendor name for all open source products.
+  > This usage hinders efficient matching and is most likely not true.
+  > However, if there is a vendor whose official name is exactly `Open Source` it would be expected and
+  > acceptable to fail this test.
+  > The same applies for any other name that results in `opensource` after the removal step from sentence two.
+  > This does not apply, if the official name differs, e.g. `Open Source Ltd.`.
+  > Users are advised to carefully review the results of this test.
+paths:
+- $.product_tree..branches[*].name
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "branches": [
+          {
+            "branches": [
+              {
+                // ...
+                "category": "product_name",
+                "name": "ISDuBA"
+              }
+            ],
+            "category": "vendor",
+            "name": "Open Source"
+          }
+        ]
+      }
+  explanation:
+  - The issuing party used `Open Source` as vendor name for the open source product `ISDuBA`.
+notes:
+- '> A tool MAY replace the vendor name with the correct one as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-48-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-48-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-48-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-48-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-48-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-48-13.json
+    valid: true

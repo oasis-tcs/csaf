@@ -1,0 +1,40 @@
+id: invalid-sharing-group-name
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.40
+  file: tests-01-mndtr-40-invalid-sharing-group-name.md
+heading: 3
+title: Invalid Sharing Group Name
+statement: It SHALL be tested that the value of sharing group name does not equal the reserved values from section [sec](#document-property---distribution-sharing-group) if the precondition is not fulfilled.
+paths:
+- $.document.distribution.sharing_group.name
+examples:
+- verdict: fails
+  json: |2-
+        "distribution": {
+          "sharing_group": {
+            "id": "5868d6be-b28a-404e-a245-0b5093b31b8b",
+            "name": "Public"
+          },
+          // ...
+        },
+  explanation:
+  - The sharing group name is `Public` but it does not use the Max UUID.
+notes:
+- '> A tool MAY update the sharing group name as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-40-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-40-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-40-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-40-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-40-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-40-14.json
+    valid: true

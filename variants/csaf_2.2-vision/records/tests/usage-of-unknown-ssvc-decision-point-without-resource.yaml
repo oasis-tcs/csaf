@@ -1,0 +1,62 @@
+id: usage-of-unknown-ssvc-decision-point-without-resource
+kind: test
+level: recommended
+topics: [ssvc]
+legacy:
+  number: 6.2.37
+  file: tests-02-rcmmndd-37-usage-of-unknown-ssvc-decision-point-without-resource.md
+heading: 3
+title: Usage of Unknown SSVC Decision Point Namespace without Resource
+statement: |-
+  For each SSVC object containing a decision point with a full `namespace` that is not registered,
+  it SHALL be tested that a Decision Point Resource exists for each one that provides additional context about the
+  decision points from this namespace.
+  Namespaces reserved for special purpose SHALL be treated as per their definition.
+
+  > A full namespace includes any extension.
+  > To implement this test it is deemed sufficient to check whether the `summary` contains the full `namespace`.
+
+  Namespaces reserved for special purpose SHALL be treated as per their definition.
+paths:
+- $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
+examples:
+- verdict: fails
+  json: |2-
+      "content": {
+        "ssvc_v2": {
+          "decision_point_resources": [
+            {
+              "summary": "Specification for Decision Points within 'x_example.test#some-other-collection'",
+              "uri": "https://test.example/ssvc-collection/test-some-other-collection"
+            }
+          ],
+          // ...
+          "selections": [
+            {
+              // ...
+              "namespace": "x_example.test#without-resource/de-DE",
+              // ...
+            }
+          ],
+          // ...
+        }
+      },
+  explanation:
+  - |-
+    The namespace `x_example.test#without-resource/de-DE` is not a registered one,
+    however no `decision_point_resources` mentions the `namespace` in its `summary`.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-37-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-37-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-37-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-37-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-37-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-37-13.json
+    valid: true

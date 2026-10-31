@@ -1,0 +1,60 @@
+id: contradicting-remediations
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.35
+  file: tests-01-mndtr-35-contradicting-remediations.md
+heading: 3
+title: Contradicting Remediations
+statement: |-
+  For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that a product is not member of
+  contradicting remediation categories (see [tab](#tab:vulnerabilities-property-remediations-category-1)).
+  This takes indirect relations through product groups into account.
+paths:
+- $.vulnerabilities[*].remediations[*]
+examples:
+- verdict: fails
+  json: |2-
+          "remediations": [
+            {
+              "category": "no_fix_planned",
+              "details": "The product is end-of-life. Therefore, no fix will be provided.",
+              "product_ids": [
+                "CSAFPID-9080700"
+              ]
+            },
+            {
+              "category": "vendor_fix",
+              "details": "Update to version >=14.3 to fix the vulnerability.",
+              "product_ids": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ]
+  explanation:
+  - The two remediations given for the product with product ID `CSAFPID-9080700` contradict each other.
+notes:
+- |-
+  > A tool MAY apply the conversion rules from the conformance target CSAF 2.0 to CSAF 2.1 converter if applicable or
+  > remove the product from the remediation with the lower priority.
+  > The priority MAY be defined as follows:
+  > `vendor_fix` > `mitigation` > `workaround` > `fix_planned` > `no_fix_planned` > `optional_patch` > `none_available`
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-04.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-35-14.json
+    valid: true

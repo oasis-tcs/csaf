@@ -1,0 +1,284 @@
+{
+  "$id": "https://www.first.org/cvss/cvss-v3.1.json?20211103",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "attackComplexityType": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ],
+      "type": "string"
+    },
+    "attackVectorType": {
+      "enum": [
+        "NETWORK",
+        "ADJACENT_NETWORK",
+        "LOCAL",
+        "PHYSICAL"
+      ],
+      "type": "string"
+    },
+    "ciaRequirementType": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "ciaType": {
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH"
+      ],
+      "type": "string"
+    },
+    "confidenceType": {
+      "enum": [
+        "UNKNOWN",
+        "REASONABLE",
+        "CONFIRMED",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "exploitCodeMaturityType": {
+      "enum": [
+        "UNPROVEN",
+        "PROOF_OF_CONCEPT",
+        "FUNCTIONAL",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedAttackComplexityType": {
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedAttackVectorType": {
+      "enum": [
+        "NETWORK",
+        "ADJACENT_NETWORK",
+        "LOCAL",
+        "PHYSICAL",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedCiaType": {
+      "enum": [
+        "NONE",
+        "LOW",
+        "HIGH",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedPrivilegesRequiredType": {
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NONE",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedScopeType": {
+      "enum": [
+        "UNCHANGED",
+        "CHANGED",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "modifiedUserInteractionType": {
+      "enum": [
+        "NONE",
+        "REQUIRED",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "privilegesRequiredType": {
+      "enum": [
+        "HIGH",
+        "LOW",
+        "NONE"
+      ],
+      "type": "string"
+    },
+    "remediationLevelType": {
+      "enum": [
+        "OFFICIAL_FIX",
+        "TEMPORARY_FIX",
+        "WORKAROUND",
+        "UNAVAILABLE",
+        "NOT_DEFINED"
+      ],
+      "type": "string"
+    },
+    "scopeType": {
+      "enum": [
+        "UNCHANGED",
+        "CHANGED"
+      ],
+      "type": "string"
+    },
+    "scoreType": {
+      "maximum": 10,
+      "minimum": 0,
+      "type": "number"
+    },
+    "severityType": {
+      "enum": [
+        "NONE",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "type": "string"
+    },
+    "userInteractionType": {
+      "enum": [
+        "NONE",
+        "REQUIRED"
+      ],
+      "type": "string"
+    }
+  },
+  "license": [
+    "Copyright (c) 2021, FIRST.ORG, INC.",
+    "All rights reserved.",
+    "",
+    "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the ",
+    "following conditions are met:",
+    "1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following ",
+    "   disclaimer.",
+    "2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the ",
+    "   following disclaimer in the documentation and/or other materials provided with the distribution.",
+    "3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote ",
+    "   products derived from this software without specific prior written permission.",
+    "",
+    "THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, ",
+    "INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE ",
+    "DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, ",
+    "SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR ",
+    "SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, ",
+    "WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE ",
+    "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  ],
+  "properties": {
+    "attackComplexity": {
+      "$ref": "#/definitions/attackComplexityType"
+    },
+    "attackVector": {
+      "$ref": "#/definitions/attackVectorType"
+    },
+    "availabilityImpact": {
+      "$ref": "#/definitions/ciaType"
+    },
+    "availabilityRequirement": {
+      "$ref": "#/definitions/ciaRequirementType"
+    },
+    "baseScore": {
+      "$ref": "#/definitions/scoreType"
+    },
+    "baseSeverity": {
+      "$ref": "#/definitions/severityType"
+    },
+    "confidentialityImpact": {
+      "$ref": "#/definitions/ciaType"
+    },
+    "confidentialityRequirement": {
+      "$ref": "#/definitions/ciaRequirementType"
+    },
+    "environmentalScore": {
+      "$ref": "#/definitions/scoreType"
+    },
+    "environmentalSeverity": {
+      "$ref": "#/definitions/severityType"
+    },
+    "exploitCodeMaturity": {
+      "$ref": "#/definitions/exploitCodeMaturityType"
+    },
+    "integrityImpact": {
+      "$ref": "#/definitions/ciaType"
+    },
+    "integrityRequirement": {
+      "$ref": "#/definitions/ciaRequirementType"
+    },
+    "modifiedAttackComplexity": {
+      "$ref": "#/definitions/modifiedAttackComplexityType"
+    },
+    "modifiedAttackVector": {
+      "$ref": "#/definitions/modifiedAttackVectorType"
+    },
+    "modifiedAvailabilityImpact": {
+      "$ref": "#/definitions/modifiedCiaType"
+    },
+    "modifiedConfidentialityImpact": {
+      "$ref": "#/definitions/modifiedCiaType"
+    },
+    "modifiedIntegrityImpact": {
+      "$ref": "#/definitions/modifiedCiaType"
+    },
+    "modifiedPrivilegesRequired": {
+      "$ref": "#/definitions/modifiedPrivilegesRequiredType"
+    },
+    "modifiedScope": {
+      "$ref": "#/definitions/modifiedScopeType"
+    },
+    "modifiedUserInteraction": {
+      "$ref": "#/definitions/modifiedUserInteractionType"
+    },
+    "privilegesRequired": {
+      "$ref": "#/definitions/privilegesRequiredType"
+    },
+    "remediationLevel": {
+      "$ref": "#/definitions/remediationLevelType"
+    },
+    "reportConfidence": {
+      "$ref": "#/definitions/confidenceType"
+    },
+    "scope": {
+      "$ref": "#/definitions/scopeType"
+    },
+    "temporalScore": {
+      "$ref": "#/definitions/scoreType"
+    },
+    "temporalSeverity": {
+      "$ref": "#/definitions/severityType"
+    },
+    "userInteraction": {
+      "$ref": "#/definitions/userInteractionType"
+    },
+    "vectorString": {
+      "pattern": "^CVSS:3[.]1/((AV:[NALP]|AC:[LH]|PR:[NLH]|UI:[NR]|S:[UC]|[CIA]:[NLH]|E:[XUPFH]|RL:[XOTWU]|RC:[XURC]|[CIA]R:[XLMH]|MAV:[XNALP]|MAC:[XLH]|MPR:[XNLH]|MUI:[XNR]|MS:[XUC]|M[CIA]:[XNLH])/)*(AV:[NALP]|AC:[LH]|PR:[NLH]|UI:[NR]|S:[UC]|[CIA]:[NLH]|E:[XUPFH]|RL:[XOTWU]|RC:[XURC]|[CIA]R:[XLMH]|MAV:[XNALP]|MAC:[XLH]|MPR:[XNLH]|MUI:[XNR]|MS:[XUC]|M[CIA]:[XNLH])$",
+      "type": "string"
+    },
+    "version": {
+      "description": "CVSS Version",
+      "enum": [
+        "3.1"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "vectorString",
+    "baseScore",
+    "baseSeverity"
+  ],
+  "title": "JSON Schema for Common Vulnerability Scoring System version 3.1",
+  "type": "object"
+}

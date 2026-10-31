@@ -1,0 +1,31 @@
+id: use-of-product-version-in-one-path-with-product-version-range
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.58
+  file: tests-01-mndtr-58-use-of-product-version-in-one-path-with-product-version-range.md
+heading: 3
+title: Use of `product_version` in one Path with `product_version_range`
+anchor: use-of-product-version-in-one-path-with-product-version-range
+statement: |-
+  For each `full_product_name_t` element under `$.product_tree.branches`, it SHALL be tested that only one of the branch categories
+  `product_version` and `product_version_range` is used along the path leading to the `full_product_name_t` element.
+paths:
+- $.product_tree..branches[*].category
+examples:
+- verdict: fails
+  json: "    {\n      \"branches\": [\n        {\n          \"category\": \"product_version_range\",\n          \"name\": \"vers:intdot/<1.1.1\",\n          \"product\": {\n            // ...\n          }\n        }\n      ],\n      \"category\": \"product_version\",\n      \"name\": \"1.1\"\n    },       "
+  explanation:
+  - Both categories `product_version` and `product_version_range` were used along the path.
+notes:
+- |-
+  > A tool MAY convert the `product_version` into the `product_name` element which contains the value of the `product_version`
+  > appended to the original product name as a quick fix, if applicable.
+  > In such conversion, a tool MAY convert a previously existing `product_name` element into a `product_family`, if applicable.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-58-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-58-11.json
+    valid: true

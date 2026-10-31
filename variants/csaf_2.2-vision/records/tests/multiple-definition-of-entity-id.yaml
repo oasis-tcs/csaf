@@ -1,0 +1,38 @@
+id: multiple-definition-of-entity-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.6
+  file: tests-01-mndtr-64-06-multiple-definition-of-entity-id.md
+heading: 4
+title: Multiple Definition of Entity ID
+statement: |-
+  For each Entity ID (type: `$['$defs'].entity_id_t`) in Entity elements (`$.document.involvement.entities[*]`)
+  it SHALL be tested that the `entity_id` was not already defined within the same document.
+paths:
+- $.document.involvement.entities[*].entity_id
+examples:
+- verdict: fails
+  json: |2-
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        // ...
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Joe Researcher"
+        }
+      ]
+  explanation:
+  - '`EID-0001` was defined twice.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-06-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-06-11.json
+    valid: true

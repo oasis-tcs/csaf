@@ -1,0 +1,28 @@
+id: multiple-use-of-same-cve
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.23
+  file: tests-01-mndtr-23-multiple-use-of-same-cve.md
+heading: 3
+title: Multiple Use of Same CVE
+statement: It SHALL be tested that a CVE is not used in multiple vulnerability items.
+paths:
+- $.vulnerabilities[*].cve
+examples:
+- verdict: fails
+  json: |2-
+      "vulnerabilities": [
+        {
+          "cve": "CVE-2017-0145"
+        },
+        {
+          "cve": "CVE-2017-0145"
+        }
+      ]
+  explanation:
+  - The vulnerabilities array contains two items with the same CVE identifier `CVE-2017-0145`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-23-01.json
+    valid: false

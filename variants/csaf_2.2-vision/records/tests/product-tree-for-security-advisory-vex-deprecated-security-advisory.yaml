@@ -1,0 +1,41 @@
+id: product-tree-for-security-advisory-vex-deprecated-security-advisory
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.4
+  file: tests-01-mndtr-27-04-product-tree-for-security-advisory-vex-deprecated-security-advisory.md
+heading: 4
+title: Product Tree
+anchor: product-tree-for-security-advisory-vex-deprecated-security-advisory
+statement: It SHALL be tested that the element `$.product_tree` exists.
+applies-to:
+  only:
+  - csaf_security_advisory
+  - csaf_vex
+  - csaf_deprecated_security_advisory
+  - csaf_vulnerability_report
+paths:
+- $.product_tree
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "document": {
+          // ...
+        },
+        "vulnerabilities": [
+          // ...
+        ]
+      }
+  explanation:
+  - The element `$.product_tree` does not exist.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-04-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-04-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-04-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-04-04.json
+    valid: false

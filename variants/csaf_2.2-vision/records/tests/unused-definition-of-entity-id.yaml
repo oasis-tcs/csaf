@@ -1,0 +1,63 @@
+id: unused-definition-of-entity-id
+kind: test
+level: recommended
+legacy:
+  number: 6.2.56.3
+  file: tests-02-rcmmndd-56-03-unused-definition-of-entity-id.md
+heading: 4
+title: Unused Definition of Entity ID
+statement: |-
+  For each Entity ID (type: `$['$defs'].entity_id_t`) in Entity elements (`$.document.involvement.entities[*]`)
+  it SHALL be tested that the `entity_id` is referenced somewhere within the same document.
+paths:
+- $.document.involvement.entities[*].entity_id
+examples:
+- verdict: fails
+  json: |2-
+      "involvement": {
+        "actions": [
+          {
+            "acting_entity_refs": [
+              "EID-0001"
+            ],
+            // ...
+            "receiving_entity_refs": [
+              "EID-0002"
+            ],
+            // ...
+          },
+          {
+            "acting_entity_refs": [
+              "EID-0002"
+            ],
+            // ...
+            "receiving_entity_refs": [
+              "EID-0001"
+            ],
+            // ...
+          }
+        ],
+        "entities": [
+          // ...
+          {
+            "category": "discoverer",
+            "entity_id": "EID-0003",
+            "name": "Joe Researcher"
+          }
+        ]
+      },
+  explanation:
+  - '`EID-0003` was defined but never used.'
+notes:
+- '> A tool MAY remove the unused definition as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-03-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-03-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-03-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-03-12.json
+    valid: true

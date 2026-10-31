@@ -1,0 +1,1123 @@
+### Vulnerabilities Property
+
+Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
+properties represents a list of all relevant vulnerability information items.
+
+```yaml <!--json-path($..vulnerabilities)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities: Sequence
+```
+
+The Vulnerability item of value type `object` with `1` or more properties is a container for the aggregation of all fields that are related to
+a single vulnerability in the document.
+Any vulnerability MAY provide the optional properties Acknowledgments (`acknowledgments`), Common Vulnerabilities and Exposures (CVE) (`cve`),
+Common Weakness Enumeration (CWE) (`cwes`), Disclosure Date (`disclosure_date`), Discovery Date (`discovery_date`),
+Document-local Vuln ID (`dl_vuln_id`), List of first known exploitation dates (`first_known_exploitation_dates`), Flags (`flags`), IDs (`ids`),
+Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
+Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
+
+```yaml <!--json-path($..vulnerabilities..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgments: $defs.acknowledgments_t
+    cve: String.Pattern
+    cwes: Sequence
+    disclosure_date: String.DateTime
+    discovery_date: String.DateTime
+    dl_vuln_id: $defs.dl_vuln_id_t
+    first_known_exploitation_dates: Sequence
+    flags: Sequence
+    ids: Sequence
+    metrics: Sequence
+    notes: $defs.notes_t
+    product_status: Mapping
+    references: $defs.references_t
+    remediations: Sequence
+    threats: Sequence
+    title: String
+    x_extensions: $defs.extensions_t
+  # ...
+```
+
+#### Vulnerabilities Property - Acknowledgments
+
+Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
+acknowledgment elements associated with this vulnerability item.
+
+```yaml <!--json-paths($..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    acknowledgments:  # $defs.acknowledgments_t
+    - # <acknowledgment-instance>:
+      names: Sequence
+      organization: String
+      summary: String
+      urls: Sequence
+      # ...
+    # ...
+```
+
+#### Vulnerabilities Property - CVE
+
+CVE (`cve`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^CVE-[0-9]{4}-[0-9]{4,}$
+```
+
+CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability.
+
+#### Vulnerabilities Property - CWEs
+
+List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
+
+```yaml <!--json-path($..vulnerabilities..cwes)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes: Sequence
+    # ...
+```
+
+If more than one CWE is specified, the most applicable weakness ID SHOULD be listed first.
+A CSAF viewer MAY decide to display just the first CWE item.
+
+Every CWE item of value type `object` with the three mandatory properties Weakness ID (`id`), Weakness Name (`name`), CWE version (`version`)
+holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
+For more information cf. [cite](#CWE).
+
+```yaml <!--json-path($..vulnerabilities..cwes..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    cwes:
+    - # <cwe-instance>:
+      id: String.Pattern
+      name: String.Pattern
+      version: String.Pattern
+    # ...
+```
+
+The Weakness ID (`id`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^CWE-[1-9]\\d{0,5}$
+```
+
+It holds the ID for the weakness associated.
+
+*Examples 1:*
+
+```
+    CWE-22
+    CWE-352
+    CWE-79
+```
+
+The Weakness name (`name`) has value type `string` of `1` or more characters with `pattern` (regular expression):
+
+```
+    ^[^\\s\\-_\\.](.*[^\\s\\-_\\.])?$
+```
+
+The Weakness name holds the full name of the weakness as given in the CWE specification.
+
+*Examples 2:*
+
+```
+    Cross-Site Request Forgery (CSRF)
+    Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')
+    Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')
+```
+
+The CWE version (`version`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^[1-9]\\d*\\.([0-9]|([1-9]\\d+))(\\.([0-9]|([1-9]\\d+)))?$
+```
+
+It holds the version string of the CWE specification this weakness was extracted from.
+When creating or modifying a CSAF document, the latest published version of the CWE specification SHOULD be used.
+
+*Examples 3:*
+
+```
+    "1.0",
+    "3.4.1",
+    "4.0",
+    "4.11",
+    "4.12"
+```
+
+#### Vulnerabilities Property - Disclosure Date
+
+Disclosure date (`disclosure_date`) of value type `string` with format `date-time` holds the date and time
+the vulnerability was originally disclosed to the public.
+
+For vulnerabilities not yet disclosed to the public, a disclosure date in the future SHOULD indicate the
+intended date for disclosure of the vulnerability.
+This is also sometimes called embargo date.
+As disclosure dates may change during a vulnerability disclosure process, an issuing party SHOULD produce an updated CSAF document
+to confirm that the vulnerability was in fact disclosed to the public at that time or update the `disclosure_date` with the new
+intended date in the future.
+
+If a vulnerability was patched without stating that it is a vulnerability,
+the vulnerability is in the context of this specification not considered to be disclosed.
+As a consequence, the `discovery_date` needs to be earlier than or equal to the `disclosure_date`.
+
+#### Vulnerabilities Property - Discovery Date
+
+Discovery date (`discovery_date`) of value type `string` with format `date-time` holds the date and time the vulnerability was originally discovered.
+
+#### Vulnerability Property - Document-local Vuln ID
+
+Document-local Vuln ID (`dl_vuln_id`) of value type Document-local Vuln ID (`dl_vuln_id_t`) contains the local ID
+referring to this vulnerability from another part of the same document.
+Its value SHALL be unique across all vulnerability items within the document.
+
+#### Vulnerabilities Property - First Known Exploitation Dates
+
+List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
+contains a list of dates of first known exploitations.
+
+```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates: Sequence
+    # ...
+```
+
+Every First known exploitation date item of value type `object` with the two mandatory properties Date of the information (`date`) and
+Date of the exploitation (`exploitation_date`) holds at least `3` properties and contains information on when this vulnerability was
+first known to be exploited in the wild in the products specified.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which products or
+product groups this date is applicable.
+
+> This information can be helpful to determine the risk of compromise.
+> It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
+
+```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    first_known_exploitation_dates:
+    - # <event-instance>:
+      date: String.DateTime
+      exploitation_date: String.DateTime
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
+```
+
+Date of the information (`date`) of value type `string` with format `date-time` contains the date when the information was last updated.
+
+Date of the exploitation (`exploitation_date`) of value type `string` with format `date-time` contains the date when the exploitation happened.
+
+> Different document issuers might have different knowledge about exploitations in the wild that happened.
+> Therefore, the `exploitation_date` can differ.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current
+first known exploitation date item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current first known exploitation date item
+applies to.
+
+#### Vulnerabilities Property - Flags{#vulnerabilities-property-flags}
+
+List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
+
+```yaml <!--json-path($..vulnerabilities..flags)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    flags: Sequence
+    # ...
+```
+
+Every Flag item of value type `object` with the mandatory property Label (`label`) contains product specific information in regard to
+this vulnerability as a single machine readable flag.
+For example, this could be a machine readable justification code why a product is not affected.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which products or
+product groups this flag is applicable.
+
+> These flags enable the receiving party to automate the selection of actions to take.
+
+In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
+
+```yaml <!--json-path($..vulnerabilities..flags..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    flags:
+    - # <flag-instance>:
+      date: String.DateTime
+      group_ids: $defs.product_groups_t
+      label: String.Enum
+      product_ids: $defs.products_t
+    # ...
+```
+
+Date of the flag (`date`) of value type `string` with format `date-time` contains the date when assessment was done or the flag was assigned.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current flag item applies to.
+
+Label of the flag (`label`) of value type `string` and `enum` specifies the machine readable label. Valid `enum` values are:
+
+```
+    component_not_present
+    inline_mitigations_already_exist
+    vulnerable_code_cannot_be_controlled_by_adversary
+    vulnerable_code_not_in_execute_path
+    vulnerable_code_not_present
+```
+
+The given values reflect the VEX not affected justifications.
+See [cite](#VEX-Justification) for more details.
+The values SHALL be used as follows:
+
+- `component_not_present`: The software is not affected because the vulnerable component is not in the product.
+- `vulnerable_code_not_present`: The product is not affected because the code underlying the vulnerability is not present in the product.
+
+  > Unlike `component_not_present`, the component in question is present, but for whatever reason (e.g. compiler options)
+  > the specific code causing the vulnerability is not present in the component.
+
+- `vulnerable_code_cannot_be_controlled_by_adversary`: The vulnerable component is present, and the component contains the vulnerable code.
+  However, vulnerable code is used in such a way that an attacker cannot mount any anticipated attack.
+- `vulnerable_code_not_in_execute_path`: The affected code is not reachable through the execution of the code,
+  including non-anticipated states of the product.
+
+  > Components that are neither used nor executed by the product.
+
+- `inline_mitigations_already_exist`: Built-in inline controls or mitigations prevent an adversary from leveraging the vulnerability.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current flag item applies to.
+
+#### Vulnerabilities Property - IDs
+
+List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
+tracking IDs for the vulnerability (if such information exists).
+
+```yaml <!--json-path($..vulnerabilities..ids)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    ids: Sequence
+    # ...
+```
+
+Every ID item of value type `object` with the two mandatory properties System Name (`system_name`) and Text (`text`) contains a single
+unique label or tracking ID for the vulnerability.
+In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
+
+```yaml <!--json-path($..vulnerabilities..ids..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    ids:
+    - # <id-instance>:
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      system_name: String
+      text: String
+    # ...
+```
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of product groups.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current ID item applies to.
+
+> This can be used to provide the information that this specific ID applies only to a specific set of products.
+
+System name (`system_name`) of value type `string` with `1` or more characters indicates the name of the vulnerability tracking or numbering system.
+
+*Examples 1:*
+
+```
+    Cisco Bug ID
+    GitHub Issue
+    https://github.com/oasis-tcs/csaf
+```
+
+Text (`text`) of value type `string` with `1` or more characters is unique label or tracking ID for the vulnerability (if such information exists).
+
+*Examples 2:*
+
+```
+    CSCso66472
+    oasis-tcs/csaf#210
+    #1217
+```
+
+> General examples may include an identifier from a vulnerability tracking system that is available to customers, such as:
+>
+> - a Cisco bug ID,
+> - a GitHub Issue number,
+> - an ID from a Bugzilla system, or
+> - an ID from a public vulnerability database such as the X-Force Database.
+>
+> The list of registered vulnerability id systems is available via [cite](#RVISC).
+>
+> The ID MAY be a vendor-specific value but is not to be used to publish the CVE tracking numbers
+> (MITRE standard Common Vulnerabilities and Exposures), as these are specified inside the dedicated CVE element.
+
+#### Vulnerabilities Property - Metrics
+
+List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
+contains metric objects for the current vulnerability.
+
+```yaml <!--json-path($..vulnerabilities..metrics)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics: Sequence
+    # ...
+```
+
+Every Metric item of value type `object` with the mandatory properties `content` and `products` and
+the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
+
+```yaml <!--json-path($..vulnerabilities..metrics[*].properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content: Mapping
+      products: $defs.products_t
+      source: String.URI
+    # ...
+```
+
+##### Vulnerabilities Property - Metrics - Content
+
+Content (`content`) of value type `object` with the optional properties CVSS v2 (`cvss_v2`), CVSS v3 (`cvss_v3`), CVSS v4 (`cvss_v4`),
+EPSS (`epss`), Qualitative Severity Rating (`qualitative_severity_rating`), SSVC v2 (`ssvc_v2`),
+and Metrics-content-level Extensions (`x_extensions`) specifies information about (at least one) metric or score
+for the given products regarding the current vulnerability.
+A Content object has at least `1` property.
+
+```yaml <!--json-path($..vulnerabilities..metrics..content.properties)-->
+# &CERTCC-SSVC https://certcc.github.io/SSVC/data/schema/v2/
+# &FIRST-CVSS https://www.first.org/cvss/
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        cvss_v2: $ref.eval(concat( *FIRST-CVSS 'cvss-v2.0.json' ))
+        cvss_v3:
+          # !OneOf<
+          - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.0.json' ))
+          - $ref.eval(concat( *FIRST-CVSS 'cvss-v3.1.json' ))
+          # >
+        cvss_v4: $ref.eval(concat( *FIRST-CVSS 'cvss-v4.0.json' ))
+        epss: Mapping
+        qualitative_severity_rating: String.Enum
+        ssvc_v2:
+          $ref.eval(concat(
+            *CERTCC-SSVC 'Decision_Point_Value_Selection-2-0-0.schema.json'
+          ))
+        x_extensions: $defs.extensions_t
+      # ...
+    # ...
+```
+
+The property CVSS v2 (`cvss_v2`) holding a CVSS v2.0 value abiding by the schema at
+<https://www.first.org/cvss/cvss-v2.0.json>.
+See [cite](#CVSS2) for details.
+
+The property CVSS v3 (`cvss_v3`) holding a CVSS v3.x value abiding by one of the schemas at
+<https://www.first.org/cvss/cvss-v3.0.json> or
+<https://www.first.org/cvss/cvss-v3.1.json>.
+See [cite](#CVSS30) respectively [cite](#CVSS31) for details.
+
+The property CVSS v4 (`cvss_v4`) holding a CVSS v4.0 value abiding by the schema at
+<https://www.first.org/cvss/cvss-v4.0.json>.
+See [cite](#CVSS40) for details.
+
+The property EPSS (`epss`) of value type `object` with the three mandatory properties Percentile (`percentile`), Probability (`probability`)
+and EPSS timestamp (`timestamp`) contains the EPSS data.
+See [cite](#EPSS) for details.
+
+```yaml <!--json-path($..vulnerabilities..metrics..content..epss.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        # ...
+        epss:
+          percentile: String.Pattern
+          probability: String.Pattern
+          timestamp: String.DateTime
+        # ...
+      # ...
+    # ...
+```
+
+Percentile (`percentile`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^(([0]\\.([0-9])+)|([1]\\.[0]+))$
+```
+
+The value contains the rank ordering of probabilities from highest to lowest.
+
+Probability (`probability`) has value type `string` with `pattern` (regular expression):
+
+```
+    ^(([0]\\.([0-9])+)|([1]\\.[0]+))$
+```
+
+The value contains the likelihood that any exploitation activity for this Vulnerability is being observed in the 30 days following the given timestamp.
+
+EPSS timestamp (`timestamp`) of value type `string` with format `date-time` holds the date and time the EPSS value was recorded.
+
+The property Qualitative Severity Rating (`qualitative_severity_rating`) of value type `string` and `enum` contains an assessment
+of the severity of the vulnerability regarding the products on a qualitative scale.
+Valid `enum` values are:
+
+```
+    critical
+    high
+    low
+    medium
+    none
+```
+
+The value `critical` indicates that this vulnerability allows attackers to fully compromise a system or access sensitive data
+with little or no user interaction.
+
+The value `high` indicates that this vulnerability can lead to significant impact such as unauthorized access or data loss,
+but usually require some conditions or user interaction.
+
+The value `low` indicates that this vulnerability has a minimal impact and low likelihood of exploitation,
+usually causing minor issues or informational leaks.
+
+The value `medium` indicates that this vulnerability can result in moderate impact like partial data exposure or denial of service,
+often needing specific circumstances.
+
+The value `none` indicates that this flaw pose no security risk or impact like false positives or
+informational findings without real threat.
+
+> The Qualitative Severity Rating is not a replacement for CVSS.
+> It is intended to be used for sources that provide an assessment on a qualitative scale but no full CVSS vector.
+
+CSAF consumer SHOULD give preference to CVSS if both, Qualitative Severity Rating and CVSS, are present.
+Issuing parties SHOULD consider using the SSVC decision point `Provider Urgency` from the `cvss` namespace to convey
+an additional assessment provided by a party.
+
+The property SSVC v2 (`ssvc_v2`) holding an SSVC Selection List v2.0.0 value abiding by the schema at
+<https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json>.
+See [cite](#SSVC) for details.
+
+The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
+valid at the metrics-content-level of the CSAF document and associated with this metric element.
+
+```yaml <!--json-paths($..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    metrics:
+    - # <metric-instance>:
+      content:
+        # ...
+        x_extensions:  # $defs.extensions_t
+        - # <x_extension-instance>:
+          $schema: String
+          category: String.Enum
+          content: Mapping
+          critical: Boolean
+          # ...
+      # ...
+    # ...
+  # ...
+```
+
+> This extension point can be used for metrics that are not supported in the CSAF standard (yet).
+> For new versions of an official supported standard, the OASIS CSAF TC will consider providing an official extension
+> to ensure interoperability.
+
+##### Vulnerabilities Property - Metrics - Products
+
+Product IDs (`products`) of value type `products_t` with `1` or more items indicates for which products the given content applies.
+A metric object SHOULD reflect the associated product's status (for example,
+a fixed product no longer contains a vulnerability and should have a CVSS score of `0`, or simply no score listed;
+the known affected versions of that product can list the vulnerability score as it applies to them).
+
+##### Vulnerabilities Property - Metrics - Source
+
+Source (`source`) of value type `string` with format `uri` contains the URL of the source that originally determined the metric.
+If no source is given, then the metric was assigned by the document author.
+
+> For example, this could point to the vendor advisory, discoverer blog post, a multiplier's assessment or other sources that provide metric information.
+
+#### Vulnerabilities Property - Notes{#vulnerabilities-property-notes}
+
+Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
+
+```yaml <!--json-paths($..vulnerabilities..notes, $['$defs'].notes_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    notes:  # $defs.notes_t
+    - # <note-instance>:
+      audience: String
+      category: String.Enum
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      text: String
+      title: String
+    # ...
+  # ...
+```
+
+The following combinations of `category` and `title` have a special meaning and SHALL be used as stated below:
+
+\columns=12%,24%,
+
+| category    |  title                | content of text                                                                                                                                                                           |
+|:------------|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| description | CVE Description       | Contains the official and unchanged CVE description for this specific vulnerability.                                                                                                      |
+| description | Preconditions         | Contains a description of the preconditions that have to be fulfilled to be able to exploit this specific vulnerability, e.g. user account or physical access.                            |
+| general     | AI Usage              | Contains a information on whether and how AI systems were used in discovering, analyzing, remediating, or documenting this specific vulnerability, including the human oversight applied. |
+| summary     | Vulnerability Summary | Contains a summary of this specific vulnerability which is not the official CVE description.                                                                                              |
+
+Table: Combinations of `category` and `title` with special meaning.{#tab:vulnerabilities-property-notes}
+
+If a note is specific to a product or product group it SHALL be bound via the `group_ids` respectively `product_ids`.
+
+#### Vulnerabilities Property - Product Status{#vulnerabilities-property-product-status}
+
+Product status (`product_status`) of value type `object` with `1` or more properties contains different lists of `product_ids` which
+provide details on the status of the referenced product related to the current vulnerability.
+The nine defined properties are First affected (`first_affected`), First fixed (`first_fixed`), Fixed (`fixed`), Known affected (`known_affected`),
+Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
+Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
+
+```yaml <!--json-path($..vulnerabilities..product_status.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    product_status:
+      first_affected: $defs.products_t
+      first_fixed: $defs.products_t
+      fixed: $defs.products_t
+      known_affected: $defs.products_t
+      known_not_affected: $defs.products_t
+      last_affected: $defs.products_t
+      recommended: $defs.products_t
+      under_investigation: $defs.products_t
+      unknown: $defs.products_t
+    # ...
+```
+
+First affected (`first_affected`) of value type Products (`products_t`) represents that these are the first versions of the releases known to be
+affected by the vulnerability.
+
+First fixed (`first_fixed`) of value type Products (`products_t`) represents that these versions contain the first fix for the vulnerability but
+may not be the recommended fixed versions.
+
+Fixed (`fixed`) of value type Products (`products_t`) represents that these versions contain a fix for the vulnerability but
+may not be the recommended fixed versions.
+
+Known affected (`known_affected`) of value type Products (`products_t`) represents that these versions are known to be affected by the vulnerability.
+Actions are recommended to remediate or address this vulnerability.
+
+> This could include for instance learning more about the vulnerability and context,
+> and/or making a risk-based decision to patch or apply defense-in-depth measures.
+> See `$.vulnerabilities[*].remediations`, `$.vulnerabilities[*].notes` and `$.vulnerabilities[*].threats` for more details.
+
+Known not affected (`known_not_affected`) of value type Products (`products_t`) represents that these versions are known not to be affected by
+the vulnerability.
+No remediation is required regarding this vulnerability.
+
+> This could for instance be because the code referenced in the vulnerability is not present, not exposed, compensating controls exist,
+> or other factors.
+> See `$.vulnerabilities[*].flags` and `$.vulnerabilities[*].threats` in category `impact` for more details.
+
+Last affected (`last_affected`) of value type Products (`products_t`) represents that these are the last versions in a release train known to be
+affected by the vulnerability. Subsequently released versions would contain a fix for the vulnerability.
+
+Recommended (`recommended`) of value type Products (`products_t`) represents that these versions have a fix for the vulnerability and are
+the vendor-recommended versions for fixing the vulnerability.
+
+Under investigation (`under_investigation`) of value type Products (`products_t`) represents that it is not known yet whether these versions are or
+are not affected by the vulnerability.
+However, it is still under investigation - the result will be provided in a later release of the document.
+
+Unknown (`unknown`) of value type Products (`products_t`) represents that it is not known whether these versions are or are not affected by the
+vulnerability.
+There is also no investigation and therefore the status might never be determined.
+
+The individual properties form the following product status groups:
+
+- Affected:
+
+  ```
+  $.vulnerabilities[*].product_status.first_affected[*]
+  $.vulnerabilities[*].product_status.known_affected[*]
+  $.vulnerabilities[*].product_status.last_affected[*]
+  ```
+
+- Not affected:
+
+  ```
+  $.vulnerabilities[*].product_status.known_not_affected[*]
+  ```
+
+- Fixed:
+
+  ```
+  $.vulnerabilities[*].product_status.first_fixed[*]
+  $.vulnerabilities[*].product_status.fixed[*]
+  ```
+
+- Under investigation:
+
+  ```
+  $.vulnerabilities[*].product_status.under_investigation[*]
+  ```
+
+- Unknown:
+
+  ```
+  $.vulnerabilities[*].product_status.unknown[*]
+  ```
+
+As the aforementioned product status groups contradict each other,
+the sets formed by the contradicting groups within one vulnerability item SHALL be pairwise disjoint.
+
+> Note: An issuer might recommend (`$.vulnerabilities[*].product_status.recommended`) a product version from any group - also from the affected group,
+> i.e. if it was discovered that fixed versions introduce a more severe vulnerability.
+
+#### Vulnerabilities Property - References
+
+Vulnerability references (`references`) of value type References Type (`references_t`) holds a
+list of references associated with this vulnerability item.
+
+```yaml <!--json-paths($..vulnerabilities..references, $['$defs'].references_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    references:  # $defs.references_t
+    - # <reference-instance>:
+      category: String.Enum
+      summary: String
+      url: String.URI
+    # ...
+  # ...
+```
+
+#### Vulnerabilities Property - Remediations
+
+List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
+
+```yaml <!--json-path($..vulnerabilities..remediations)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations: Sequence
+    # ...
+```
+
+Every Remediation item of value type `object` with the two mandatory properties Category (`category`) and
+Details (`details`) specifies details on how to handle (and presumably, fix) a vulnerability.
+At least one of the optional elements Group IDs (`group_ids`) and Product IDs (`product_ids`) SHALL be present to state for which
+products or product groups this remediation is applicable.
+
+In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
+Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
+
+```yaml <!--json-path($..vulnerabilities..remediations[*].properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      entitlements: Sequence
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+      restart_required: Mapping
+      url: String.URI
+    # ...
+```
+
+##### Vulnerabilities Property - Remediations - Category{#vulnerabilities-property-remediations-category}
+
+Category of the remediation (`category`) of value type `string` and `enum` specifies the category which this remediation belongs to.
+Valid values are:
+
+```
+    fix_planned
+    mitigation
+    no_fix_planned
+    none_available
+    optional_patch
+    vendor_fix
+    workaround
+```
+
+The value `workaround` indicates that the remediation contains information about a configuration or specific deployment scenario that
+can be used to avoid exposure to the vulnerability. There MAY be none, one, or more workarounds available.
+This is typically the "first line of defense" against a new vulnerability before a mitigation or vendor fix has been issued or even discovered.
+
+The value `mitigation` indicates that the remediation contains information about a configuration or deployment scenario that
+helps to reduce the risk of the vulnerability but that does not resolve the vulnerability on the affected product.
+Mitigations MAY include using devices or access controls external to the affected product.
+Mitigations MAY or MAY NOT be issued by the original author of the affected product,
+and they MAY or MAY NOT be officially sanctioned by the document producer.
+
+The value `vendor_fix` indicates that the remediation contains information about an official fix that
+is issued by the original author of the affected product.
+Unless otherwise noted, it is assumed that this fix fully resolves the vulnerability.
+
+The value `optional_patch` indicates that the remediation contains information about an patch that
+is issued by the original author of the affected product.
+Its application is not necessary, but might be desired by the user, e.g. to calm a security scanner by
+updating a dependency to a fixed version even though the dependency in the affected version was used
+in the product in a way that the product itself was not affected.
+Unless otherwise noted, it is assumed that this does not change the state regarding the vulnerability.
+
+> This is sometimes also referred to as a "regulatory compliance patch".
+
+The value `none_available` indicates that there is currently no fix or other remediation available.
+The text in field `details` SHOULD contain details about why there is no fix or other remediation.
+
+The value `fix_planned` indicates that there is a fix for the vulnerability planned but not yet ready.
+An issuing party might choose to use this category to announce that a fix is currently developed.
+The text in field `details` SHOULD contain details including a date when a customer can expect the fix to be ready and distributed.
+
+The value `no_fix_planned` indicates that there is no fix for the vulnerability and it is not planned to provide one at any time.
+This is often the case when a product has been orphaned, declared end-of-life, or otherwise deprecated.
+The text in field `details` SHOULD contain details about why there will be no fix issued.
+
+Some category values contradict each other and thus are mutually exclusive per product.
+Therefore, such a combination SHALL NOT be used in the list of remediations for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed and prohibited combinations:
+
+\tablefontsize=small 
+\columns=-----------------,----------,----------,-----------,---------------,---------------,------------,----------------
+
+| category value   | workaround | mitigation | vendor\_fix | optional\_patch | none\_available | fix\_planned | no\_fix\_planned |
+|:-----------------|:----------:|:----------:|:-----------:|:---------------:|:---------------:|:------------:|:----------------:|
+| workaround       |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |   allowed    |     allowed      |
+| mitigation       |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |   allowed    |     allowed      |
+| vendor\_fix      |  allowed   |  allowed   |   allowed   |   prohibited    |   prohibited    |  prohibited  |    prohibited    |
+| optional\_patch  | prohibited | prohibited | prohibited  |     allowed     |   prohibited    |  prohibited  |    prohibited    |
+| none\_available  | prohibited | prohibited | prohibited  |   prohibited    |     allowed     |  prohibited  |    prohibited    |
+| fix\_planned     |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |   allowed    |    prohibited    |
+| no\_fix\_planned |  allowed   |  allowed   | prohibited  |   prohibited    |   prohibited    |  prohibited  |     allowed      |
+
+Table: Remediation Combinations{#tab:vulnerabilities-property-remediations-category-1}
+
+Some category values contradict certain product status groups.
+Therefore, such a combination SHALL NOT exist in a vulnerability item for the same product.
+This is independent from whether the product is referenced directly or indirectly through a product group.
+The following tables shows the allowed, discouraged and prohibited combinations:
+
+\tablefontsize=small 
+\columns=,12%,13%,13%,19%,13%,13%
+
+| category value   |  Affected  | Not Affected |    Fixed    | Under Investigation |   Unknown   | Recommended |
+|:-----------------|:----------:|:------------:|:-----------:|:-------------------:|:-----------:|:-----------:|
+| workaround       |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| mitigation       |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| vendor\_fix      |  allowed   |  prohibited  | prohibited  |     discouraged     | discouraged |   allowed   |
+| optional\_patch  | prohibited |   allowed    | discouraged |       allowed       |   allowed   |   allowed   |
+| none\_available  |  allowed   |  prohibited  | prohibited  |       allowed       |   allowed   |   allowed   |
+| fix\_planned     |  allowed   | discouraged  | prohibited  |     discouraged     | discouraged |   allowed   |
+| no\_fix\_planned |  allowed   | discouraged  | prohibited  |       allowed       |   allowed   |   allowed   |
+
+Table: Product Status Remediation Category Combinations{#tab:vulnerabilities-property-remediations-category-2}
+
+The following preference for combinations of remediation categories and product status groups is RECOMMENDED:
+
+1. `vendor_fix` and Recommended
+2. `mitigation` and Recommended
+3. `workaround` and Recommended
+4. `optional_patch` and Recommended
+5. `vendor_fix` and Affected
+6. `mitigation` and Affected
+7. `workaround` and Affected
+8. `optional_patch` and Under Investigation
+9. `optional_patch` and Unknown
+10. `fix_planned` and Recommended
+11. `fix_planned` and Affected
+12. `optional_patch` and Not Affected
+13. `none_available` and Recommended
+14. `no_fix_planned` and Recommended
+15. `none_available` and Affected
+16. `none_available` and Under Investigation
+17. `none_available` and Unknown
+18. `no_fix_planned` and Affected
+19. `no_fix_planned` and Under Investigation
+20. `no_fix_planned` and Unknown
+
+The remaining discouraged combinations are appended at the end of the list:
+
+1. `optional_patch` and Fixed
+2. `vendor_fix` and Under Investigation
+3. `vendor_fix` and Unknown
+4. `mitigation` and Under Investigation
+5. `mitigation` and Unknown
+6. `workaround` and Under Investigation
+7. `workaround` and Unknown
+8. `fix_planned` and Under Investigation
+9. `fix_planned` and Unknown
+10. `fix_planned` and Not Affected
+11. `no_fix_planned` and Not Affected
+
+CSAF Viewers MAY sort the remediation items accordingly.
+
+##### Vulnerabilities Property - Remediations - Date
+
+Date of the remediation (`date`) of value type `string` with format `date-time` contains the date from which the remediation is available.
+
+##### Vulnerabilities Property - Remediations - Details
+
+Details of the remediation (`details`) of value type `string` with `1` or more characters contains a thorough human-readable
+discussion of the remediation.
+
+##### Vulnerabilities Property - Remediations - Entitlements
+
+List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
+with `1` or more characters contains a list of entitlements.
+
+```yaml <!--json-path($..vulnerabilities..remediations..entitlements)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      # ...
+      entitlements: Sequence
+      # ...
+    # ...
+```
+
+Every Entitlement of the remediation contains any possible vendor-defined constraints for obtaining fixed software or hardware that
+fully resolves the vulnerability.
+
+##### Vulnerabilities Property - Remediations - Group IDs
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of
+Product Groups the current remediation item applies to.
+
+##### Vulnerabilities Property - Remediations - Product IDs
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current remediation item applies to.
+
+##### Vulnerabilities Property - Remediations - Restart Required
+
+Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
+the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
+
+```yaml <!--json-path($..vulnerabilities..remediations..restart_required.properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    remediations:
+    - # <remediation-instance>:
+      # ...
+      restart_required:
+        category: String.Enum
+        details: String
+      # ...
+    # ...
+```
+
+Category of restart (`category`) of value type `string` and `enum` specifies what category of restart is required by
+this remediation to become effective.
+Valid values are:
+
+```
+    connected
+    dependencies
+    machine
+    none
+    parent
+    service
+    system
+    vulnerable_component
+    zone
+```
+
+The values SHALL be used as follows:
+
+- `none`: No restart required.
+- `vulnerable_component`: Only the vulnerable component (as given by the elements of `product_ids` or `group_ids` in the current remediation item)
+   needs to be restarted.
+- `service`: The vulnerable component and the background service used by the vulnerable component need to be restarted.
+- `parent`: The vulnerable component and its parent process need to be restarted. This could be the case if the parent process has no build-in way
+  to restart the vulnerable component or process values / context is only given at the start of the parent process.
+- `dependencies`: The vulnerable component and all components which require the vulnerable component to work need to be restarted.
+  This could be the case e.g. for a core service of a software.
+- `connected`: The vulnerable component and all components connected (via network or any type of inter-process communication)
+  to the vulnerable component need to be restarted.
+- `machine`: The machine on which the vulnerable component is installed on needs to be restarted.
+  This is the value which SHOULD be used if an OS needs to be restarted.
+  It is typically the case for OS upgrades.
+- `zone`: The security zone in which the machine resides on which the vulnerable component is installed needs to be restarted.
+  This value might be useful for a remediation if no patch is available.
+  If the malware can be wiped out by restarting the infected machines but the infection spreads fast the controlled shutdown of all machines at
+  the same time and restart afterwards can leave one with a clean system.
+- `system`: The whole system which the machine resides on which the vulnerable component is installed needs to be restarted.
+  This MAY include multiple security zones. This could be the case for a major system upgrade in an ICS system or a protocol change.
+
+Additional restart information (`details`) of value type `string` with `1` or more characters provides additional information for the restart.
+This can include details on procedures, scope or impact.
+
+##### Vulnerabilities Property - Remediations - URL
+
+URL (`url`) of value type `string` with format `uri` contains the URL where to obtain the remediation.
+
+#### Vulnerabilities Property - Threats
+
+List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
+information about a vulnerability that can change with time.
+
+```yaml <!--json-path($..vulnerabilities..threats)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    threats: Sequence
+    # ...
+  # ...
+```
+
+Every Threat item of value type `object` with the two mandatory properties Category (`category`) and Details (`details`) contains
+the vulnerability kinetic information.
+This information can change as the vulnerability ages and new information becomes available.
+In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
+
+```yaml <!--json-path($..vulnerabilities..threats..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    threats:
+      category: String.Enum
+      date: String.DateTime
+      details: String
+      group_ids: $defs.product_groups_t
+      product_ids: $defs.products_t
+    # ...
+  # ...
+```
+
+Category of the threat (`category`) of value type `string` and `enum` categorizes the threat according to the rules of the specification.
+Valid values are:
+
+```
+    exploit_status
+    impact
+    target_set
+```
+
+The value `exploit_status` indicates that the `details` field contains a description of the degree to which an exploit for the vulnerability is known.
+This knowledge can range from information privately held among a very small group to an issue that has been described to the public at
+a major conference or is being widely exploited globally.
+For consistency and simplicity, this section can be a mirror image of the CVSS `exploitMaturity` (v4.0),
+respectively `exploitCodeMaturity` (v3.1 and v3.0) or `exploitability` (v2.0) metric.
+However, it can also contain a more contextual status, such as "Weaponized" or "Functioning Code".
+
+The value `impact` indicates that the `details` field contains an assessment of the impact on the user or the target set if
+the vulnerability is successfully exploited or a description why it cannot be exploited.
+If applicable, for consistency and simplicity, this section can be a textual summary of the three CVSS impact metrics.
+These metrics measure how a vulnerability detracts from the three core security properties of an information system:
+Confidentiality, Integrity, and Availability.
+
+The value `target_set` indicates that the `details` field contains a description of
+the currently known victim population in whatever terms are appropriate.
+Such terms MAY include: operating system platform, types of products, user segments, and geographic distribution.
+
+Date of the threat (`date`) of value type `string` with format `date-time` contains the date when the assessment was done or the threat appeared.
+
+Details of the threat (`details`) of value type `string` with `1` or more characters represents a thorough human-readable discussion of the threat.
+
+Group IDs (`group_ids`) are of value type Product Groups (`product_groups_t`) and contain a list of Product Groups the current threat item applies to.
+
+Product IDs (`product_ids`) are of value type Products (`products_t`) and contain a list of Products the current threat item applies to.
+
+#### Vulnerabilities Property - Title
+
+Title (`title`) has value type `string` with `1` or more characters and gives the document producer the ability to apply a canonical name or
+title to the vulnerability.
+
+#### Vulnerabilities Property - Extensions
+
+Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
+at the vulnerability item level of the CSAF document and associated with this vulnerability element.
+
+```yaml <!--json-paths($..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties)-->
+<csaf-instance>:
+  # ...
+  vulnerabilities:
+  - # <vulnerability-instance>:
+    # ...
+    x_extensions:  # $defs.extensions_t
+    - # <x_extension-instance>:
+      $schema: String
+      category: String.Enum
+      content: Mapping
+      critical: Boolean
+      # ...
+```

@@ -1,0 +1,27 @@
+id: document-status-draft
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.17
+  file: tests-01-mndtr-17-document-status-draft.md
+heading: 3
+title: Document Status Draft
+statement: It SHALL be tested that document status is `draft` if the document version is `0` or `0.y.z` or contains the pre-release part.
+paths:
+- $.document.tracking.status
+examples:
+- verdict: fails
+  json: |2-
+        "tracking": {
+          // ...
+          "status": "final",
+          "version": "0.9.5"
+        }
+  explanation:
+  - The `$.document.tracking.version` is `0.9.5` but the document status is `final`.
+notes:
+- '> A tool MAY set the document status to `draft` as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-17-01.json
+    valid: false

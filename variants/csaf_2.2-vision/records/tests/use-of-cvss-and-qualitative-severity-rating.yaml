@@ -1,0 +1,83 @@
+id: use-of-cvss-and-qualitative-severity-rating
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.56
+  file: tests-01-mndtr-56-use-of-cvss-and-qualitative-severity-rating.md
+heading: 3
+title: Use of CVSS and Qualitative Severity Rating
+statement: |-
+  For each item in `$.vulnerabilities` it SHALL be tested that no Qualitative Severity Rating and CVSS values are listed for the tuple of Product ID
+  and source.
+
+  > Different source might assign different metrics for the same product.
+paths:
+- $.vulnerabilities[*].metrics[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "metrics": [
+            {
+              "content": {
+                "cvss_v3": {
+                  // ...
+                }
+              },
+              "products": [
+                "CSAFPID-9080700"
+              ]
+            },
+            {
+              "content": {
+                "qualitative_severity_rating": "critical"
+              },
+              "products": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ]
+        }
+      ]
+  explanation:
+  - A CVSS v3.1 score and a Qualitative Severity Rating is given for `CSAFPID-9080700` by the document author.
+notes:
+- '> A tool MAY remove the `qualitative_severity_rating` as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-05.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-16.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-17.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-56-18.json
+    valid: true

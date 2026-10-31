@@ -1,0 +1,50 @@
+id: same-timestamps-in-revision-history
+kind: test
+level: recommended
+topics: [revision-history]
+legacy:
+  number: 6.2.21
+  file: tests-02-rcmmndd-21-same-timestamps-in-revision-history.md
+heading: 3
+title: Same Timestamps in Revision History
+statement: |-
+  It SHALL be tested that the timestamps of all items in the revision history are pairwise disjoint.
+  As the timestamps might use different timezones, the comparison SHALL take timezones into account.
+paths:
+- $.document.tracking.revision_history[*].date
+examples:
+- verdict: fails
+  json: |2-
+      "revision_history": [
+        {
+          "date": "2024-01-21T10:00:00.000Z",
+          "number": "2.0.0",
+          "summary": "Second version."
+        },
+        {
+          "date": "2024-01-21T10:00:00.000Z",
+          "number": "1.0.0",
+          "summary": "Initial version."
+        }
+      ]
+  explanation:
+  - The first and second revision have the same timestamp.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-03.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-04.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-05.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-21-13.json
+    valid: true

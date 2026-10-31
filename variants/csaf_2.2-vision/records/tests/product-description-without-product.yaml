@@ -1,0 +1,46 @@
+id: product-description-without-product
+kind: test
+level: recommended
+legacy:
+  number: 6.2.40
+  file: tests-02-rcmmndd-40-product-description-without-product.md
+heading: 3
+title: Product Description without Product Reference
+statement: |-
+  For each product description it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+
+  > If the document language is English or unspecified, the product description can be identified by checking for a note containing the corresponding
+  > `category` and `title` combination from [sec](#document-property---notes).
+  > For other languages, the language specific translation is used.
+
+  If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no translation for
+  product description is known.
+paths:
+- $.document.notes[*]
+examples:
+- verdict: fails
+  json: |2-
+        "notes": [
+          {
+            "category": "description",
+            "text": "Product A is a local time tracking tool. It is mainly used by software developers and can be connected with most modern time-tracking systems.",
+            "title": "Product Description"
+          }
+        ],
+  explanation:
+  - The given note item does not specify to which products it applies to.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-40-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-40-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-40-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-40-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-40-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-40-13.json
+    valid: true

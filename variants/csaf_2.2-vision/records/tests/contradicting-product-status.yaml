@@ -1,0 +1,65 @@
+id: contradicting-product-status
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.6
+  file: tests-01-mndtr-06-contradicting-product-status.md
+heading: 3
+title: Contradicting Product Status
+statement: |-
+  For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID is not a member of contradicting
+  product status groups (see section [sec](#vulnerabilities-property-product-status)).
+paths:
+- $.vulnerabilities[*].product_status
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "product_status": {
+            "known_affected": [
+              "CSAFPID-9080700"
+            ],
+            "known_not_affected": [
+              "CSAFPID-9080700"
+            ]
+          }
+        }
+      ]
+  explanation:
+  - '`CSAFPID-9080700` is a member of the two contradicting groups "Affected" and "Not affected".'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-05.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-06.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-06-16.json
+    valid: true

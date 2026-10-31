@@ -1,0 +1,35 @@
+id: product-tree-for-withdrawn-and-superseded
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.15
+  file: tests-01-mndtr-27-15-product-tree-for-withdrawn-and-superseded.md
+heading: 4
+title: Product Tree
+anchor: product-tree-for-withdrawn-and-superseded
+statement: It SHALL be tested that the element `$.product_tree` does not exist.
+applies-to:
+  only:
+  - csaf_withdrawn
+  - csaf_superseded
+paths:
+- $.product_tree
+examples:
+- verdict: fails
+  json: |2-
+        "product_tree": [
+          // ...
+        ]
+  explanation:
+  - The element `$.product_tree` exists.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-15-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-15-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-15-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-15-12.json
+    valid: true

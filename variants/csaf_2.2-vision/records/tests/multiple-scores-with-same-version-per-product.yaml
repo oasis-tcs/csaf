@@ -1,0 +1,53 @@
+id: multiple-scores-with-same-version-per-product
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.7
+  file: tests-01-mndtr-07-multiple-scores-with-same-version-per-product.md
+heading: 3
+title: Multiple Scores with Same Version per Product
+statement: |-
+  For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID is not a member of more than one CVSS vector with the same version and same source.
+
+  > Different sources might assign different scores for the same product.
+
+  > The test also applies for versions not included in CSAF.
+paths:
+- $.vulnerabilities[*].metrics[*]
+examples:
+- verdict: fails
+  json: "  \"product_tree\": {\n    \"full_product_names\": [\n      {\n        \"product_id\": \"CSAFPID-9080700\",\n        \"name\": \"Product A\"\n      }\n    ]\n  },\n  \"vulnerabilities\": [\n    {\n      \"metrics\": [\n        {\n          \"content\": {\n            \"cvss_v3\": {\n              \"version\": \"3.1\",\n              \"vectorString\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H\",\n              \"baseScore\": 10,\n              \"baseSeverity\": \"CRITICAL\"\n           }\n          },\n          \"products\": [\n            \"CSAFPID-9080700\"\n          ]          \n        },\n        {\n          \"content\": {\n            \"cvss_v3\": {\n              \"version\": \"3.1\",\n              \"vectorString\": \"CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H\",\n              \"baseScore\": 6.5,\n              \"baseSeverity\": \"MEDIUM\"\n            }\n          },\n          \"products\": [\n            \"CSAFPID-9080700\"\n          ]          \n        }\n\
+    \      ]\n    }\n  ]"
+  explanation:
+  - Two CVSS v3.1 scores are given for `CSAFPID-9080700` by the document author.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-05.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-06.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-16.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-17.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-07-18.json
+    valid: true

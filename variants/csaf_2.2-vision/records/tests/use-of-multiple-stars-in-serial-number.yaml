@@ -1,0 +1,37 @@
+id: use-of-multiple-stars-in-serial-number
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.44
+  file: tests-01-mndtr-44-use-of-multiple-stars-in-serial-number.md
+heading: 3
+title: Use of Multiple Stars in Serial Number
+statement: |-
+  For each serial number it SHALL be tested that it does not contain multiple unescaped stars.
+
+  > Multiple `*` that match zero or multiple characters within a serial number introduce ambiguity and are therefore prohibited.
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]
+- $.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
+examples:
+- verdict: fails
+  json: |2-
+              "serial_numbers": [
+                "P*A*"
+              ]
+  explanation:
+  - The serial number contains two unescaped stars.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-44-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-44-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-44-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-44-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-44-13.json
+    valid: true

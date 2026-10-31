@@ -1,0 +1,36 @@
+id: multiple-definition-of-product-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.2
+  file: tests-01-mndtr-02-multiple-definition-of-product-id.md
+heading: 3
+title: Multiple Definition of Product ID
+statement: |-
+  For each Product ID (type `$['$defs'].product_id_t`) in Full Product Name elements (type: `$['$defs'].full_product_name_t`) it
+  SHALL be tested that the `product_id` was not already defined within the same document.
+paths:
+- $.product_tree..branches[*].product.product_id
+- $.product_tree.full_product_names[*].product_id
+- $.product_tree.product_paths[*].full_product_name.product_id
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          },
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product B"
+          }
+        ]
+      }
+  explanation:
+  - '`CSAFPID-9080700` was defined twice.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-02-01.json
+    valid: false

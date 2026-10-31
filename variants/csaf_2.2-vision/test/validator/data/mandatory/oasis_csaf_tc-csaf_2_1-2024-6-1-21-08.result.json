@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": false,
+  "primary_result": {
+    "errors": [
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `4.0.2` between `2023-08-22T10:00:00.001Z` and `2023-08-22T10:00:00.100Z`"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `5.0.0` between `2023-08-22T10:00:00.100Z` and `2024-01-21T10:00:00.000Z`"
+      },
+      {
+        "instance_path": "/document/tracking/revision_history",
+        "message": "missing revision history item with number `5.0.1` between `2023-08-22T10:00:00.100Z` and `2024-01-21T10:00:00.000Z`"
+      }
+    ],
+    "id": "6.1.21",
+    "passed": false
+  },
+  "resultschema_version": "2.1",
+  "secondary_results": [
+    {
+      "errors": [
+        {
+          "instance_path": "/document/tracking/revision_history/1/number",
+          "message": "mixed integer and semantic versioning (expected: semantic; actual: integer)"
+        }
+      ],
+      "id": "6.1.30",
+      "passed": false
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+id: inconsistent-disclosure-date
+kind: test
+level: mandatory
+topics: [date-time]
+legacy:
+  number: 6.1.45
+  file: tests-01-mndtr-45-inconsistent-disclosure-date.md
+heading: 3
+title: Inconsistent Disclosure Date
+statement: |-
+  For each vulnerability, it SHALL be tested that the `disclosure_date` is earlier than or equal to the `date` of the newest item
+  of the `revision_history` if the document is labeled `TLP:CLEAR` and the document status is `final` or `interim`.
+  As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
+paths:
+- $.vulnerabilities[*].disclosure_date
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        // ...
+        "distribution": {
+          "tlp": {
+            "label": "CLEAR"
+          }
+        },
+        // ...
+        "tracking": {
+          // ...
+          "revision_history": [
+            {
+              "date": "2024-01-24T10:00:00.000Z",
+              "number": "1",
+              "summary": "Initial version."
+            }
+          ],
+          "status": "final",
+          // ...
+        }
+      },
+      "vulnerabilities": [
+        {
+          "disclosure_date": "2024-02-24T10:00:00.000Z"
+        }
+      ]
+  explanation:
+  - The document is labeled `TLP:CLEAR` and in status `final` but the `disclosure_date` is newer than the `date` of newest item in the `revision_history`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-03.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-45-14.json
+    valid: true

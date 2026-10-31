@@ -1,0 +1,275 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Inconsistent Hash Value Length (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-63-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "17.4",
+                "product": {
+                  "name": "Example Company Product A 17.4",
+                  "product_id": "CSAFPID-9080700",
+                  "product_identification_helper": {
+                    "hashes": [
+                      {
+                        "file_hashes": [
+                          {
+                            "algorithm": "md5",
+                            "value": "6ae24620ea9656230f49234efd0789350"
+                          },
+                          {
+                            "algorithm": "sha512",
+                            "value": "fe77f10eddb0f514e465b3ba7365afd598e3686cd64bb4d488111e8971321a620be6fe51bd756abaa12783a57bce58eec1b576624da0f082"
+                          },
+                          {
+                            "algorithm": "mdc2",
+                            "value": "ac4c5df94363431bf9967a517124f2de1"
+                          },
+                          {
+                            "algorithm": "rmd160",
+                            "value": "26e0e5336f7b6737d3523d4c0fa92fbd25c897c88"
+                          },
+                          {
+                            "algorithm": "shake128",
+                            "value": "9613a2ca6a4230545481d0a0ae88ee2a43bec4bc21779d2577fb41b266b73a94c"
+                          }
+                        ],
+                        "filename": "product_a.so"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "17.3",
+                "product": {
+                  "name": "Example Company Product A 17.3",
+                  "product_id": "CSAFPID-9080701",
+                  "product_identification_helper": {
+                    "hashes": [
+                      {
+                        "file_hashes": [
+                          {
+                            "algorithm": "blake2s256",
+                            "value": "61ab90fc8d796d6deed7c9cf187b6669740d41b4ce2db25c639de5513fefa46d4"
+                          },
+                          {
+                            "algorithm": "md5-sha1",
+                            "value": "672f1c307534d9197cb3a0a507795b98ead3bdea96b057a9d596ac6f768b1ac8"
+                          },
+                          {
+                            "algorithm": "sha3-384",
+                            "value": "d74550c7b8d64e32c96013abeaa110cb8c1f519d16a674b332e8b17ad4cc1da05fdc15bb07adc69a589f72cac31f01bd5"
+                          },
+                          {
+                            "algorithm": "shake256",
+                            "value": "f9bcb4b4ea88189a4b806e59ac55471c87968ab6c85c68f47b77b6c2b7843ec607584ca2fcb6114051b15b6258612c4d44f845faafb7a303aec7fba92c6dac503"
+                          }
+                        ],
+                        "filename": "product_a.so"
+                      },
+                      {
+                        "file_hashes": [
+                          {
+                            "algorithm": "md4",
+                            "value": "ddaef9da397eb3c7b7dd964ee3785a827"
+                          }
+                        ],
+                        "filename": "product_a_legacy.so"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "category": "product_name",
+            "name": "Product A"
+          }
+        ],
+        "category": "vendor",
+        "name": "Example Company"
+      }
+    ],
+    "full_product_names": [
+      {
+        "name": "Example Company Product B 1.0",
+        "product_id": "CSAFPID-9080702",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "ripemd160",
+                  "value": "272e830ec881d9b9c800c7a036ec06336e464126c"
+                },
+                {
+                  "algorithm": "ssl3-md5",
+                  "value": "6d1f3ed01644216b9674b18282982274c"
+                },
+                {
+                  "algorithm": "sha3-512",
+                  "value": "b64d5e5c396b427b81e677184c3315e65d6ebb37c58921eeb1f773edeeece084b0ef00d52862fec10d29e281e142875e56f23c7cb83a76"
+                },
+                {
+                  "algorithm": "whirlpool",
+                  "value": "7b6d09c28fe36319d9fcd3b372f5483800a81032ce7279775f29c4e641fd0605afbb885a38655910dc5e91ba62bfd7b409c46f92574ec"
+                }
+              ],
+              "filename": "product-b"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Example Company Product B 1.1",
+        "product_id": "CSAFPID-9080703",
+        "product_identification_helper": {
+          "hashes": [
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "sha256",
+                  "value": "b6ae75a933fdda6c48026fd5be535fa4bfc78ef2cfb91fa0b024d461462d1647b"
+                }
+              ],
+              "filename": "product-b"
+            },
+            {
+              "file_hashes": [
+                {
+                  "algorithm": "ripemd",
+                  "value": "8b1e7f6b88011e7d810e74522b7df5ebcc104f525"
+                },
+                {
+                  "algorithm": "sha3-224",
+                  "value": "59e16144da84c169e703cfe8d9850ad68658418500719d787b67"
+                },
+                {
+                  "algorithm": "sha512-224",
+                  "value": "9a7362b659ee571f67c62e6c22c0742e103fb14899e0b5a647ff"
+                }
+              ],
+              "filename": "product-b_legacy"
+            }
+          ]
+        }
+      }
+    ],
+    "product_paths": [
+      {
+        "beginning_product_reference": "CSAFPID-9080701",
+        "full_product_name": {
+          "name": "Example Company Product A 17.3 default component of Example Company Product B 1.0",
+          "product_id": "CSAFPID-9080704",
+          "product_identification_helper": {
+            "hashes": [
+              {
+                "file_hashes": [
+                  {
+                    "algorithm": "blake2b512",
+                    "value": "6583aaa77fccb8fa69eab94549defcabac9c0d7cbab476256ec214a5cf9cdc7572a72139ab69f7891b92e55055475de020a4325d5baa5301f39760cc2"
+                  },
+                  {
+                    "algorithm": "sha3-256",
+                    "value": "5e3cd8bd75fd2ebc1168c395d49c9bf661a144970712feb20633cc0d338"
+                  },
+                  {
+                    "algorithm": "sha512-256",
+                    "value": "5781dccc43229d7611f7059f39479e7ddce5afd841a86bb29fd5ab4d406"
+                  }
+                ],
+                "filename": "product-a-of-b"
+              },
+              {
+                "file_hashes": [
+                  {
+                    "algorithm": "sha1",
+                    "value": "cc7ae5f93eb7e3b0d440506a2750459888ddd52ec"
+                  }
+                ],
+                "filename": "product-a-of-b-legacy"
+              }
+            ]
+          }
+        },
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "CSAFPID-9080702"
+          }
+        ]
+      },
+      {
+        "beginning_product_reference": "CSAFPID-9080700",
+        "full_product_name": {
+          "name": "Example Company Product A 17.4 default component of Example Company Product B 1.1",
+          "product_id": "CSAFPID-9080705",
+          "product_identification_helper": {
+            "hashes": [
+              {
+                "file_hashes": [
+                  {
+                    "algorithm": "sm3",
+                    "value": "d8ee08a5b9cd4d4da3e95765c3b8b7c1ee77b990f3d85ea01b55855984f"
+                  },
+                  {
+                    "algorithm": "sha224",
+                    "value": "1ace7483fceea6e595e1fb44c6ebd50dbccd31410fabbdfc5"
+                  },
+                  {
+                    "algorithm": "sha384",
+                    "value": "25222e538a6c9256ee4f8d4fc443f7b7ade2b1ab81d43d007e159fbbca21bb54bfbc7c1ca9bf93a95b73bd6ed"
+                  },
+                  {
+                    "algorithm": "ssl3-sha1",
+                    "value": "0ea8daf2551fdd075aefa894e8c51b99b71e1be0def"
+                  }
+                ],
+                "filename": "product-a-of-b"
+              }
+            ]
+          }
+        },
+        "subpaths": [
+          {
+            "category": "default_component_of",
+            "next_product_reference": "CSAFPID-9080703"
+          }
+        ]
+      }
+    ]
+  }
+}

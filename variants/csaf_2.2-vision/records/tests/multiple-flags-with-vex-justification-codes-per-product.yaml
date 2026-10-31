@@ -1,0 +1,76 @@
+id: multiple-flags-with-vex-justification-codes-per-product
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.33
+  file: tests-01-mndtr-33-multiple-flags-with-vex-justification-codes-per-product.md
+heading: 3
+title: Multiple Flags with VEX Justification Codes per Product
+statement: |-
+  For each item in `$.vulnerabilities[*]` it SHALL be tested that a Product is not member of more than one Flag item with
+  a VEX justification code (see section [sec](#vulnerabilities-property-flags)).
+  This takes indirect relations through Product Groups into account.
+
+  > Additional flags with a different purpose might be provided in later versions of CSAF.
+  > Through the explicit reference of VEX justification codes the test is specified to be forward-compatible.
+paths:
+- $.vulnerabilities[*].flags
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          },
+          {
+            "product_id": "CSAFPID-9080701",
+            "name": "Product B"
+          }
+        ],
+        "product_groups": [
+          {
+            "group_id": "CSAFGID-0001",
+            "product_ids": [
+              "CSAFPID-9080700",
+              "CSAFPID-9080701"
+            ]
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          // ...
+          "flags": [
+            {
+              "label": "component_not_present",
+              "group_ids": [
+                "CSAFGID-0001"
+              ]
+            },
+            {
+              "label": "vulnerable_code_cannot_be_controlled_by_adversary",
+              "product_ids": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ],
+          // ...
+          "product_status": {
+            "known_not_affected": [
+              "CSAFPID-9080700",
+              "CSAFPID-9080701"
+            ]
+          }
+        }
+      ]
+  explanation:
+  - There are two flags given for `CSAFPID-9080700` - one indirect through `CSAFGID-0001` and one direct.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-33-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-33-11.json
+    valid: true

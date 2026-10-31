@@ -1,0 +1,23 @@
+### Use of Multiple Stars in Model Number
+
+For each model number it SHALL be tested that it does not contain multiple unescaped stars.
+
+> Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
+
+The relevant paths for this test are:
+
+```list-of-jsonpaths
+  $.product_tree..branches[*].product.product_identification_helper.model_numbers[*]
+  $.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
+```
+
+*Example 1 (which fails the test):*
+
+```
+          "model_numbers": [
+            "P*A*"
+          ]
+```
+
+> The model number contains two unescaped stars.

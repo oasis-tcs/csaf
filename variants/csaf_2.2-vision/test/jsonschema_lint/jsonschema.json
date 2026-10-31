@@ -1,0 +1,24 @@
+{
+  "lint": {
+    "exclude": [
+      "const_with_type",
+      "description_trailing_period",
+      "enum_with_type",
+      "simple_properties_identifiers",
+      "top_level_examples"
+    ]
+  },
+  "resolve": {
+    "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json": "../../json_schema/csaf.json",
+    "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json": "../../json_schema/extension-content.json",
+    "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json": "../../json_schema/extension-metaschema.json",
+    "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json": "../../json_schema/meta.json",
+    "https://certcc.github.io/SSVC/data/schema/v2/DecisionPoint_2_0_0.schema.json": "../../referenced_schema/certcc/DecisionPoint_2_0_0.schema.json",
+    "https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json": "../../referenced_schema/certcc/SelectionList_2_0_0.schema.json",
+    "https://www.first.org/cvss/cvss-v2.0.json": "../../referenced_schema/first/cvss-v2.0_strict.json",
+    "https://www.first.org/cvss/cvss-v3.0.json": "../../referenced_schema/first/cvss-v3.0_strict.json",
+    "https://www.first.org/cvss/cvss-v3.1.json": "../../referenced_schema/first/cvss-v3.1_strict.json",
+    "https://www.first.org/cvss/cvss-v4.0.json": "../../referenced_schema/first/cvss-v4.0.json",
+    "https://www.first.org/cvss/meta.json": "../../referenced_schema/first/meta.json"
+  }
+}

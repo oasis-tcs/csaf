@@ -1,0 +1,68 @@
+id: hardware-and-software
+kind: test
+level: recommended
+legacy:
+  number: 6.2.31
+  file: tests-02-rcmmndd-31-hardware-and-software.md
+heading: 3
+title: Hardware and Software
+statement: |-
+  For each product containing at least one of the Product Identification Helpers `serial_numbers` or `model_numbers` it SHALL be tested
+  that a product path exists referencing this product.
+
+  > This tests detects a potential situation where hardware and software have been mixed in the `product_tree`.
+  > Note: This test will fail if the CSAF document contains in its `product_tree` only hardware.
+  > However, this is expected and considered a good reason for the test to fail.
+  > This does not make the CSAF document invalid.
+paths:
+- $.product_tree..branches[*].product
+- $.product_tree.full_product_names[*]
+- $.product_tree.product_paths[*].full_product_name
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "branches": [
+          {
+            "branches": [
+              {
+                "branches": [
+                  {
+                    "category": "product_version",
+                    "name": "4.1",
+                    "product": {
+                      "name": "Example Company Controller A Firmware 4.1",
+                      "product_id": "CSAFPID-908070601",
+                      "product_identification_helper": {
+                        "serial_numbers": [
+                          "143-D-354"
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "category": "product_name",
+                "name": "Controller A"
+              }
+            ],
+            "category": "vendor",
+            "name": "Example Company"
+          }
+        ]
+      }
+  explanation:
+  - The `product_tree` mentions the hardware product Example Company Controller A and combines it with the Firmware version 4.1.
+  - |-
+    A correct representation for hardware and software in the `product_tree` is given in example
+    [eg](#hardware-and-software-within-the-product-tree-eg-1).
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-31-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-31-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-31-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-31-13.json
+    valid: true

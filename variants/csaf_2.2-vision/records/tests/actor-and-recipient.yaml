@@ -1,0 +1,47 @@
+id: actor-and-recipient
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.4
+  file: tests-01-mndtr-64-04-actor-and-recipient.md
+heading: 4
+title: Actor and Recipient
+statement: |-
+  For each item in `$.document.involvement.actions` it SHALL be tested that an entity is not actor and recipient.
+  This takes indirect relations through entity groups into account.
+paths:
+- $.document.involvement.actions[*]
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "acting_entity_refs": [
+          "EID-0001"
+        ],
+        "action_id": "ACN-1",
+        "category": "notification",
+        "date": "2024-01-10T09:00:00Z",
+        "receiving_entity_refs": [
+          "EID-0001"
+        ],
+        "status": "completed",
+        "summary": "Reported vulnerability to vendor."
+      },
+  explanation:
+  - The action contains `EID-0001` as acting and receiving entity.
+  - |-
+    CSAF focusses on the exchange of information.
+    Consequently, for vulnerabilities found internal, i.e. a vendor finds a vulnerability in its own product,
+    either the `discoverer` part is listed independent of the `vendor` part which results in two entities
+    or action is omitted as no information exchange happened, i.e. both parts are the same.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-04-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-04-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-04-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-04-12.json
+    valid: true

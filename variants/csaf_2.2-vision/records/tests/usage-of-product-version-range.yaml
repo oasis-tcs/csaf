@@ -1,0 +1,27 @@
+id: usage-of-product-version-range
+kind: test
+level: informative
+legacy:
+  number: 6.3.10
+  file: tests-03-nfrmtv-10-usage-of-product-version-range.md
+heading: 3
+title: Usage of Product Version Range
+statement: |-
+  For each element of type `$['$defs'].branches_t` it SHALL be tested that the `category` is not `product_version_range`.
+
+  > It is usually hard decide for machines whether a product version matches a product version ranges.
+  > Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
+paths:
+- $.product_tree..branches[*].category
+examples:
+- verdict: fails
+  json: '                "category": "product_version_range",'
+  explanation:
+  - The category `product_version_range` was used.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-10-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-10-11.json
+    valid: true

@@ -1,0 +1,48 @@
+id: non-public-sharing-group-with-max-uuid
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.38
+  file: tests-01-mndtr-38-non-public-sharing-group-with-max-uuid.md
+heading: 3
+title: Non-Public Sharing Group with Max UUID
+statement: It SHALL be tested that a CSAF document using Max UUID as sharing group ID has the TLP label `CLEAR`.
+paths:
+- $.document.distribution.tlp.label
+examples:
+- verdict: fails
+  json: |2-
+        "distribution": {
+          "sharing_group": {
+            "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+            "name": "Public"
+          },
+          "tlp": {
+            "label": "RED"
+          }
+        },
+  explanation:
+  - The sharing group uses the Max UUID but the CSAF document is labeled as `TLP:RED`.
+notes:
+- '> A tool MAY remove the property `sharing_group` as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-04.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-38-15.json
+    valid: true

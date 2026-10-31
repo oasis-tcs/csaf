@@ -1,0 +1,49 @@
+id: older-initial-release-date-than-revision-history
+kind: test
+level: recommended
+topics: [revision-history]
+legacy:
+  number: 6.2.5
+  file: tests-02-rcmmndd-05-older-initial-release-date-than-revision-history.md
+heading: 3
+title: Older Initial Release Date than Revision History
+statement: |-
+  It SHALL be tested that the Initial Release Date is not older than the `date` of the oldest item in Revision History.
+  As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
+paths:
+- $.document.tracking.initial_release_date
+examples:
+- verdict: fails
+  json: |2-
+        "tracking": {
+          // ...
+          "initial_release_date": "2023-08-22T10:00:00.000Z",
+          "revision_history": [
+            {
+              "date": "2023-09-06T10:00:00.000Z",
+              "number": "1",
+              "summary": "Initial version."
+            },
+            {
+              "date": "2024-01-21T11:00:00.000Z",
+              "number": "2",
+              "summary": "Second version."
+            }
+          ],
+          // ...
+        }
+  explanation:
+  - |-
+    The initial release date `2023-08-22T10:00:00.000Z` is older than `2023-09-06T10:00:00.000Z` which is the `date` of
+    the oldest item in Revision History.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-05-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-05-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-05-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-05-12.json
+    valid: true

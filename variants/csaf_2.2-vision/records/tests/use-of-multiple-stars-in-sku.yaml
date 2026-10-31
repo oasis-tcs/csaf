@@ -1,0 +1,37 @@
+id: use-of-multiple-stars-in-sku
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.61
+  file: tests-01-mndtr-61-use-of-multiple-stars-in-sku.md
+heading: 3
+title: Use of Multiple Stars in SKU
+statement: |-
+  For each stock keeping unit it SHALL be tested that it does not contain multiple unescaped stars.
+
+  > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.skus[*]
+- $.product_tree.full_product_names[*].product_identification_helper.skus[*]
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]
+examples:
+- verdict: fails
+  json: |2-
+              "skus": [
+                "NL*12*"
+              ]
+  explanation:
+  - The stock keeping unit contains two unescaped stars.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-61-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-61-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-61-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-61-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-61-13.json
+    valid: true

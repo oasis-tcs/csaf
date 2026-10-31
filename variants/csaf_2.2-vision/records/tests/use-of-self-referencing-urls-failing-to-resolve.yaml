@@ -1,0 +1,37 @@
+id: use-of-self-referencing-urls-failing-to-resolve
+kind: test
+level: informative
+topics: [external-request]
+legacy:
+  number: 6.3.7
+  file: tests-03-nfrmtv-07-use-of-self-referencing-urls-failing-to-resolve.md
+heading: 3
+title: Use of Self Referencing URLs Failing to Resolve
+statement: |-
+  For each item in an array of type `references_t` with the category `self` it SHALL be tested that
+  the URL referenced resolves with a HTTP status code less than 400.
+
+  > This test will most likely fail if the CSAF document is in a status before the initial release.
+  > For details about the HTTP status code classes see [cite](#RFC7231).
+paths:
+- $.document.references[*].url
+- $.vulnerabilities[*].references[*].url
+examples:
+- verdict: fails
+  json: |2-
+        "references": [
+          {
+            "category": "self",
+            "summary": "A URL that does not resolve with HTTP status code in the interval between (including) 200 and (excluding) 400.",
+            "url": "https://example.invalid"
+          }
+        ]
+  explanation:
+  - The `category` is `self` and a request to that URL does not resolve with a status code from the 2xx (Successful) or 3xx (Redirection) class.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-07-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-07-11.json
+    valid: true

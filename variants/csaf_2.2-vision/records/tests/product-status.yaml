@@ -1,0 +1,33 @@
+id: product-status
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.6
+  file: tests-01-mndtr-27-06-product-status.md
+heading: 4
+title: Product Status
+statement: For each item in `$.vulnerabilities` it SHALL be tested that the element `product_status` exists.
+applies-to:
+  only:
+  - csaf_security_advisory
+  - csaf_deprecated_security_advisory
+paths:
+- $.vulnerabilities[*].product_status
+examples:
+- verdict: fails
+  json: |2-
+      "vulnerabilities": [
+        {
+          "title": "A vulnerability item without a product status"
+        }
+      ]
+  explanation:
+  - The vulnerability item has no `product_status` element.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-06-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-06-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-06-03.json
+    valid: false

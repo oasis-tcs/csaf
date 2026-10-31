@@ -1,0 +1,259 @@
+{
+  "title": "SelectionList",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json",
+  "description": "This schema defines the structure to represent an SSVC SelectionList object.",
+  "type": "object",
+  "$defs": {
+    "MinimalDecisionPointValue": {
+      "title": "MinimalDecisionPointValue",
+      "additionalProperties": false,
+      "description": "A minimal representation of a decision point value.\nIntended to parallel the DecisionPointValue object, but with fewer required fields.\nA decision point value is uniquely identified within a decision point by its key.\nGlobally, the combination of Decision Point namespace, key, and version coupled with the value key\nuniquely identifies a value across all decision points and values.\nOther required fields in the DecisionPointValue object, such as name and description, are optional here.",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "minLength": 1,
+          "type": "string"
+        },
+        "definition": {
+          "title": "Definition",
+          "minLength": 1,
+          "type": "string"
+        },
+        "key": {
+          "title": "Key",
+          "description": "A short, non-empty string identifier for the object. Keys must start with an alphanumeric, contain only alphanumerics and `_`, and end with an alphanumeric.(`T*` is explicitly grandfathered in as a valid key, but should not be used for new objects.)",
+          "examples": [
+            "E",
+            "A",
+            "SI",
+            "L",
+            "M",
+            "H",
+            "Mixed_case_OK",
+            "alph4num3ric"
+          ],
+          "minLength": 1,
+          "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9])|(T\\*))$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "Reference": {
+      "title": "Reference",
+      "additionalProperties": false,
+      "description": "A reference to a resource that provides additional context about the decision points or selections.\nThis object is intentionally minimal and contains only the URL and an optional description.",
+      "properties": {
+        "uri": {
+          "title": "Uri",
+          "format": "uri",
+          "minLength": 1,
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri",
+        "summary"
+      ],
+      "type": "object"
+    },
+    "Selection": {
+      "title": "Selection",
+      "additionalProperties": false,
+      "description": "A minimal selection object that contains the decision point ID and the selected values.\nWhile the Selection object parallels the DecisionPoint object, it is intentionally minimal, with\nfewer required fields and no additional metadata, as it is meant to represent a selection made from a\npreviously defined decision point. The expectation is that a Selection object will usually have\nfewer values than the original decision point, as it represents a specific evaluation\nat a specific time and may therefore rule out some values that were previously considered.\nOther fields like name and description may be copied from the decision point, but are not required.",
+      "properties": {
+        "namespace": {
+          "title": "Namespace",
+          "description": "The namespace of the SSVC object.",
+          "examples": [
+            "ssvc",
+            "cisa",
+            "x_example.test#test//.example.test#private-extension",
+            "ssvc/de-DE/.example.organization#reference-arch-1"
+          ],
+          "maxLength": 1000,
+          "minLength": 3,
+          "pattern": "^(x_([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*|[a-z]([a-z]|[0-9])(((\\.|-))?(([a-z]|[0-9]))+)+(#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*)?)((/|/(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){0,2})?|[a-zA-Z]{4,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){2,8})+)?|[xX](-([a-zA-Z0-9]){2,8})+|i-default|i-mingo))((/((([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){0,2})?|[a-zA-Z]{4,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){2,8})+)?|[xX](-([a-zA-Z0-9]){2,8})+|i-default|i-mingo)|\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*|\\.(([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+|([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?(\\.([a-z]|[0-9])(((([a-z]|[0-9])|-)){0,61}([a-z]|[0-9]))?)+#(([a-z]|[0-9]))+((\\.|-)(([a-z]|[0-9]))+)*)\\$(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){0,2})?|[a-zA-Z]{4,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){2,8})+)?|[xX](-([a-zA-Z0-9]){2,8})+|i-default|i-mingo)))+)?)?$",
+          "type": "string"
+        },
+        "key": {
+          "title": "Key",
+          "description": "A short, non-empty string identifier for the object. Keys must start with an alphanumeric, contain only alphanumerics and `_`, and end with an alphanumeric.(`T*` is explicitly grandfathered in as a valid key, but should not be used for new objects.)",
+          "examples": [
+            "E",
+            "A",
+            "SI",
+            "L",
+            "M",
+            "H",
+            "Mixed_case_OK",
+            "alph4num3ric"
+          ],
+          "minLength": 1,
+          "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9])|(T\\*))$",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "description": "The version of the SSVC object. This must be a valid semantic version string.",
+          "examples": [
+            "1.0.0",
+            "2.1.3"
+          ],
+          "minLength": 5,
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "minLength": 1,
+          "type": "string"
+        },
+        "definition": {
+          "title": "Definition",
+          "minLength": 1,
+          "type": "string"
+        },
+        "values": {
+          "title": "Values",
+          "description": "A list of selected value keys from the decision point values.",
+          "examples": [
+            [
+              {
+                "key": "N"
+              },
+              {
+                "key": "Y"
+              }
+            ],
+            [
+              {
+                "key": "A"
+              },
+              {
+                "key": "B"
+              },
+              {
+                "key": "C"
+              }
+            ]
+          ],
+          "items": {
+            "$ref": "#/$defs/MinimalDecisionPointValue"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "namespace",
+        "key",
+        "version",
+        "values"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "timestamp": {
+      "title": "Timestamp",
+      "description": "Timestamp of the selections, in RFC 3339 format.",
+      "examples": [
+        "2025-01-01T12:00:00Z",
+        "2025-01-02T15:30:45-04:00"
+      ],
+      "format": "date-time",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "title": "Schemaversion",
+      "const": "2.0.0",
+      "description": "The schema version of this selection list.",
+      "type": "string"
+    },
+    "target_ids": {
+      "title": "Target Ids",
+      "description": "Optional list of identifiers for the item or items (vulnerabilities, reports, advisories, systems, assets, etc.) being evaluated by these selections.",
+      "examples": [
+        [
+          "CVE-1900-0000"
+        ],
+        [
+          "VU#999999",
+          "GHSA-0123-4567-89ab"
+        ]
+      ],
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "selections": {
+      "title": "Selections",
+      "description": "List of selections made from decision points. Each selection item corresponds to value keys contained in a specific decision point identified by its namespace, key, and version. Note that selection objects are deliberately minimal objects and do not contain the full decision point details.",
+      "items": {
+        "$ref": "#/$defs/Selection"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "decision_point_resources": {
+      "title": "Decision Point Resources",
+      "description": "A list of resources that provide additional context about the decision points found in this selection.",
+      "examples": [
+        [
+          {
+            "summary": "Documentation for a set of decision points",
+            "uri": "https://example.com/decision_points"
+          },
+          {
+            "summary": "JSON representation of decision point 2",
+            "uri": "https://example.org/definitions/dp2.json"
+          },
+          {
+            "summary": "A JSON file containing extension decision points in the x_com.example namespace",
+            "uri": "https://example.com/ssvc/x_com.example/decision_points.json"
+          }
+        ]
+      ],
+      "items": {
+        "$ref": "#/$defs/Reference"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "references": {
+      "title": "References",
+      "description": "A list of references that provide additional context about the specific values selected.",
+      "examples": [
+        [
+          {
+            "summary": "A report on which the selections were based",
+            "uri": "https://example.com/report"
+          }
+        ]
+      ],
+      "items": {
+        "$ref": "#/$defs/Reference"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "timestamp",
+    "schemaVersion",
+    "selections"
+  ],
+  "additionalProperties": false
+}

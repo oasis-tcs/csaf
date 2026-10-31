@@ -1,0 +1,46 @@
+id: usage-of-v-as-version-indicator
+kind: test
+level: informative
+legacy:
+  number: 6.3.11
+  file: tests-03-nfrmtv-11-usage-of-v-as-version-indicator.md
+heading: 3
+title: Usage of V as Version Indicator
+statement: |-
+  For each element of type `$['$defs'].branches_t` with `category` of `product_version` it SHALL be tested that
+  the value of `name` does not start with `v` or `V` before the version.
+
+  > To implement this test it is deemed sufficient that the value of `name` does not match the following regex:
+  >
+  > ```
+  >   ^[vV][0-9]
+  > ```
+paths:
+- $.product_tree..branches[*].name
+examples:
+- verdict: fails
+  json: |2-
+                "branches": [
+                  {
+                    "category": "product_version",
+                    "name": "v4.2",
+                    // ...
+                  }
+                ]
+  explanation:
+  - The product version starts with a `v`.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-01.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-01.result.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-02.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-02.result.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-11.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-11.result.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-12.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-11-12.result.json
+    valid: true

@@ -1,0 +1,33 @@
+id: remediation-without-product-reference
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.29
+  file: tests-01-mndtr-29-remediation-without-product-reference.md
+heading: 3
+title: Remediation without Product Reference
+statement: For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+paths:
+- $.vulnerabilities[*].remediations[*]
+examples:
+- verdict: fails
+  json: |2-
+          "remediations": [
+            {
+              "category": "no_fix_planned",
+              "details": "These products are end-of-life. Therefore, no fix will be provided."
+            }
+          ]
+  explanation:
+  - The given remediation does not specify to which products it should be applied.
+notes:
+- '> A tool MAY add all products of the affected group of this vulnerability to the remediation as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-29-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-29-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-29-12.json
+    valid: true

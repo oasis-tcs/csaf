@@ -1,0 +1,55 @@
+# Roles: who a requirement binds. Four roles; which conformance clauses take a role is derived from
+# records/conformance.yaml (own roles plus everything a clause builds on), not listed here.
+#
+#   duties              what a test of each level asks of this role, unless the test record states `roles:` itself
+#   distribution-roles  the roles of section "Roles" in "Distributing CSAF Documents" (7.2) this role covers;
+#                       they are not conformance clauses
+#
+# derive writes section 9.2 "Conformance Roles" (prose/edit/src/conformance-02-roles.md) and views/roles/*.md.
+
+intro: >-
+  Every conformance target that is a program takes one or more of the following roles, either directly or
+  through the conformance profiles it satisfies. A role states what the tests of each level mean for a target
+  in that role. The conformance clause of a target names its roles below its heading.
+
+roles:
+  - id: producer
+    title: Producer
+    summary: >-
+      Creates or changes CSAF Documents: writes them by hand or tool, converts from other formats,
+      translates, withdraws or supersedes them.
+    distribution-roles: [CSAF Publisher]
+    duties:
+      mandatory: A producer MUST NOT emit a document that fails one of these tests.
+      recommended: A producer SHOULD NOT emit a document that fails one of these tests.
+
+  - id: intermediary
+    title: Intermediary
+    summary: >-
+      Moves CSAF Documents between producers and consumers without changing them: publishes, mirrors,
+      lists, aggregates, downloads; may filter and index.
+    distribution-roles: [CSAF Provider, CSAF Trusted Provider, CSAF Lister, CSAF Aggregator]
+    duties:
+      mandatory: >-
+        An intermediary MUST NOT offer a document failing one of these tests as valid; it MAY offer it
+        flagged as invalid.
+
+  - id: consumer
+    title: Consumer
+    summary: >-
+      Reads CSAF Documents and acts on them: displays them, matches them against assets or SBOMs, and
+      derives (automated) decisions from them.
+    duties:
+      mandatory: >-
+        A consumer MAY rely on these tests holding for a valid document; it MUST NOT derive an automated
+        action from a part of a document that fails one of them.
+
+  - id: validator
+    title: Validator
+    summary: >-
+      Runs the tests and reports results; selects them through presets; may apply quick fixes when
+      explicitly asked.
+    duties:
+      mandatory: A validator MUST run these tests (preset `mandatory`, basic validator and up) and report a failure as error.
+      recommended: A validator MUST run these tests in preset `recommended` (extended validator and up) and report a failure as warning.
+      informative: A validator MUST run these tests in preset `informative` (full validator) and report a failure as information.

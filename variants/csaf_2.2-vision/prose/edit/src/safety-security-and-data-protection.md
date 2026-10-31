@@ -1,0 +1,93 @@
+# Safety, Security, and Data Protection Considerations
+
+All safety, security, and data protection requirements relevant to the context in which CSAF documents are used SHALL be translated into,
+and consistently enforced through, CSAF implementations and processes.
+
+CSAF documents are based on JSON, thus the security considerations of [cite](#RFC8259) apply and are repeated here as service for the reader:
+
+> Generally, there are security issues with scripting languages.  JSON is a subset of JavaScript but excludes assignment and invocation.
+>
+> Since JSON's syntax is borrowed from JavaScript, it is possible to use that language's `eval()` function to parse most JSON texts
+> (but not all; certain characters such as `U+2028 LINE SEPARATOR` and `U+2029 PARAGRAPH SEPARATOR` are legal in JSON but not JavaScript).
+> This generally constitutes an unacceptable security risk, since the text could contain executable code along with data declarations.
+> The same consideration applies to the use of eval()-like functions in any other programming language in which JSON texts conform to
+> that language's syntax.
+
+[cite](#RFC8259) also states that JSON keys SHOULD be unique.
+However, this is not enforced.
+As some CSAF documents are created with human interaction, there is a risk of duplicate JSON keys.
+CSAF documents with duplicate JSON keys can lead situations where one JSON key is displayed but the other one is processed
+which can lead to unexpected outcomes - especially if automated actions are triggered.
+CSAF tools SHOULD handle this situation appropriately.
+Appropriate actions can differ depending on the intended use and environment.
+
+In addition, CSAF documents may be rendered by consumers in various human-readable formats like HTML or PDF.
+Thus, for security reasons, CSAF producers and consumers SHALL adhere to the following:
+
+- CSAF producers SHOULD NOT emit messages that contain HTML, even though GitHub-flavored Markdown is permitted.
+  To include HTML, source code, or any other content that may be interpreted or executed by a CSAF consumer,
+  e.g. to provide a proof-of-concept, the issuing party SHALL use Markdown's fenced code blocks or inline code option.
+- Deeply nested markup can cause a stack overflow in the Markdown processor [cite](#GFMENG).
+  To reduce this risk, CSAF consumers SHALL use a Markdown processor that is hardened against such attacks.
+  **Note**: One example is the GitHub fork of the `cmark` Markdown processor [cite](#GFMCMARK).
+- To reduce the risk posed by possibly malicious CSAF files that do contain arbitrary HTML (including, for example, `data:image/svg+xml`),
+  CSAF consumers SHALL either disable HTML processing (for example, by using the `--safe` option in the `cmark` Markdown processor)
+  or run the resulting HTML through an HTML sanitizer.
+- To reduce the risk posed by possibly malicious links within a CSAF document (including, for example, `javascript:` links),
+  CSAF consumers SHALL either remove all actions from links (for example, by displaying them as standard text)
+or render only those actionable that are known to be safe (for example, determining that via the media type).
+CSAF consumers that are not prepared to deal with the security implications of formatted messages SHALL NOT attempt to
+render them and SHALL instead fall back to the corresponding plain text messages. As also any other programming code can
+be contained within a CSAF document, CSAF consumers SHALL ensure that none of the values of a CSAF document is run as code.
+Moreover, it SHALL be treated as unsafe (user) input.
+
+  > Additional, supporting mitigation measures like retrieving only CSAF documents from trusted sources and check their integrity and
+  > signature before parsing the document SHOULD be in place to reduce the risk further.
+
+The distribution requirements of CSAF data allow to specify domains as the value of the HTTP header `Access-Control-Allow-Origin`.
+While a wildcard (`*`) as header value usually prevents implementing browsers from sending credentials during the CORS request,
+the restriction to specified domains often enables sending credentials.
+Allowing several specified domains results in using dynamics on the server, which can widen the attack surface by using more code and configuration.
+Furthermore, this might reveal information about internal structures, e.g. which domains are allowed to send credentials, or which tools are used.
+Given that credentials from a browser are a potent tool in the event of an attack, restricting the origins seems to imply a higher risk and
+therefore less secure than allowing all domains without credentials.
+
+As setting the `Access-Control-Allow-Origin` header potentially allows for cross site request forgery,
+it SHOULD only be served on files and directories containing CSAF data.
+For any restricted feeds, standard authentication methods SHOULD be used that are not send by web browsers if the wildcard is used as header value.
+
+Implementors are reminded that the evaluation of JSONPath can lead to multiple elements within the result array.
+Especially CSAF validators SHALL NOT stop the evaluation of the result array after the first instance unless instructed explicitly
+by a non-default option even though the specification might just expect one instance.
+Otherwise, test results could be incomplete or wrong.
+To avoid ambiguity, it is RECOMMENDED to use JSON pointer (see [cite](#RFC6901)) when identifying or referring to a specific key or instance
+within a CSAF document.
+
+CSAF tools SHALL have carefully chosen default options when processing CSAF Documents.
+Especially CSAF validators have a risk of falling for DoS attacks as they could process data from untrusted sources.
+Therefore, it is RECOMMENDED to limit the amount of messages that can be issued by a test or during a run to a reasonable default.
+In such case, the CSAF validator SHALL indicate that there might have been more messages but processing stopped because of the limit.
+
+CSAF producers, CSAF consumers and CSAF validators SHOULD NOT automatically retrieve JSON schemas from a URL declared in CSAF documents
+as this poses a security risk.
+Loading files from an untrusted source can result in information leakage or remotely triggered automated exploitation.
+If CSAF producers, CSAF consumers or CSAF validators provide an option to interactively or automatically load missing schemes,
+they SHALL point out the risks of setting the option and actively warn the user about it.
+Such option SHALL NOT be set by default.
+CSAF producers, CSAF consumers and CSAF validators SHOULD keep a local copy of all schemas necessary to fulfill their tasks.
+Tool developers SHOULD ensure to regularly check that those copies still reflect the current version of those schemas as they could
+have been altered, e.g. by an Errata to fix a bug.
+Such checks and potential updates SHOULD be done at least before a release.
+The same applies for necessary data from registries and other sources.
+
+> Such checks can be automated, e.g. in the CI/CD pipeline.
+
+CSAF documents can contain personally identifiable information.
+This includes but is not limited to names, e.g. in acknowledgments, as well as email addresses, e.g. in involvement.
+Issuing parties SHALL ensure that they are allowed to publish such information.
+
+> Acknowledging entities or individuals is always possible with their consent.
+> Functional email addresses are usually not consider to be personally identifiable information.
+> The same applies for names of organizations.
+
+---

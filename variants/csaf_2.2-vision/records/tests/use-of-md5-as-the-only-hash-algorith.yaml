@@ -1,0 +1,49 @@
+id: use-of-md5-as-the-only-hash-algorith
+kind: test
+level: recommended
+legacy:
+  number: 6.2.8
+  file: tests-02-rcmmndd-08-use-of-md5-as-the-only-hash-algorith.md
+heading: 3
+title: Use of MD5 As the Only Hash Algorithm
+statement: |-
+  It SHALL be tested that the hash algorithm `md5` is not the only one present.
+
+  > Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash.
+  > This will allow users to double check the results.
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
+- $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "name": "Product A",
+            "product_id": "CSAFPID-9080700",
+            "product_identification_helper": {
+              "hashes": [
+                {
+                  "file_hashes": [
+                    {
+                      "algorithm": "md5",
+                      "value": "6ae24620ea9656230f49234efd078935"
+                    }
+                  ],
+                  "filename": "product_a.so"
+                }
+              ]
+            }
+          }
+        ]
+      }
+  explanation:
+  - The hash algorithm `md5` is used in one item of hashes without being accompanied by a second hash algorithm.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-08-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-08-02.json
+    valid: true

@@ -1,0 +1,105 @@
+id: cvss-for-fixed-products
+kind: test
+level: recommended
+legacy:
+  number: 6.2.19
+  file: tests-02-rcmmndd-19-cvss-for-fixed-products.md
+heading: 3
+title: CVSS for Fixed Products
+statement: |-
+  For each item the fixed products group (`first_fixed` and `fixed`) it SHALL be tested that
+  a CVSS applying to this product has an overall score of `0`.
+  The test SHALL pass if none of the Product IDs listed within product status `fixed` or
+  `first_fixed` is found in `products` of any item of the `metrics` element.
+paths:
+- $.vulnerabilities[*].product_status.first_fixed[*]
+- $.vulnerabilities[*].product_status.fixed[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "product_status": {
+            "fixed": [
+              "CSAFPID-9080700"
+            ]
+          },
+          "metrics": [
+            {
+              "content": {
+                "cvss_v3": {
+                  "baseScore": 6.5,
+                  "baseSeverity": "MEDIUM",
+                  "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+                  "version": "3.1"
+                }
+              }          ,
+              "products": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ]
+        }
+      ]
+  explanation:
+  - |-
+    Neither the `environmentalScore` nor the properties `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, `modifiedIntegrityImpact` nor
+    the corresponding attributes in the `vectorString` have been set.
+notes:
+- |-
+  > A tool MAY remove any Product IDs listed within product status `fixed` or `first_fixed` from `products` of all items of the `metrics` element.
+  >
+  > Alternatively, a tool MAY set those environmental properties according to the CVSS version used that reduce the overall score to `0`
+  > and compute the respective score and severity as a quick fix.
+  > The following environmental properties have been identified:
+  >
+  > - CVSS v2: `targetDistribution` to `NONE`
+  > - CVSS v3: all of `modifiedAvailabilityImpact`, `modifiedConfidentialityImpact`, and `modifiedIntegrityImpact` to `NONE`
+  > - CVSS v4: all of
+  >   - `modifiedVulnAvailabilityImpact`, `modifiedVulnConfidentialityImpact`, and `modifiedVulnIntegrityImpact` to `NONE` and
+  >   - `modifiedSubAvailabilityImpact`, `modifiedSubConfidentialityImpact`, and `modifiedSubIntegrityImpact` to `NEGLIGIBLE`
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-03.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-04.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-05.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-06.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-07.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-08.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-13.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-14.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-15.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-16.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-17.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-18.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-19-19.json
+    valid: true

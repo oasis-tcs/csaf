@@ -1,0 +1,52 @@
+id: usage-of-unknown-ssvc-decision
+kind: test
+level: recommended
+topics: [ssvc]
+legacy:
+  number: 6.2.34
+  file: tests-02-rcmmndd-34-usage-of-unknown-ssvc-decision.md
+heading: 3
+title: Usage of Unknown SSVC Decision Point Base Namespace
+statement: |-
+  For each SSVC decision point given under `selections`, it SHALL be tested that the base `namespace` is a registered one.
+  Namespaces reserved for special purpose SHALL be treated as per their definition.
+
+  > This test fails on unregistered namespaces as well as registered ones not yet supported by the implementation.
+  >
+  > To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+  > and after the first `/`.
+paths:
+- $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
+examples:
+- verdict: fails
+  json: |2-
+      "ssvc_v2": {
+        "schemaVersion": "2.0.0",
+        "selections": [
+          {
+            // ...
+            "namespace": "x_example.unregistered#some-yet-unknown-or-maybe-private-namespace",
+            // ...
+          }
+        ],
+        // ...
+      }
+  explanation:
+  - |-
+    The namespace `x_example.unregistered#some-yet-unknown-or-maybe-private-namespace` is not a registered namespace.
+    Its decision point definitions might therefore not be known to the reader of the document.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-34-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-34-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-34-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-34-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-34-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-34-13.json
+    valid: true

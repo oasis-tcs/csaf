@@ -1,0 +1,65 @@
+id: confirmation-from-unmentioned-entity
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.12
+  file: tests-01-mndtr-64-12-confirmation-from-unmentioned-entity.md
+heading: 4
+title: Confirmation from Unmentioned Entity
+statement: |-
+  For each item in `$.document.involvement.actions` with the `category` value of `confirmation`
+  it SHALL be tested that all acting entities are mentioned as receiving entities in each action referenced through `referenced_action_ids`.
+  This takes indirect relations through entity groups into account.
+paths:
+- $.document.involvement.actions[*]
+examples:
+- verdict: fails
+  json: |2-
+      "actions": [
+        {
+          // ...
+          "action_id": "ACN-1",
+          // ...
+          "receiving_entity_refs": [
+            "EID-0002"
+          ],
+          // ...
+        },
+        // ...
+        {
+          "acting_entity_refs": [
+            "EID-0003"
+          ],
+          "action_id": "ACN-3",
+          "category": "confirmation",
+          // ...
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          // ...
+        }
+      ],
+  explanation:
+  - |-
+    `EID-0003` confirms in `ACN-3` receiving action `ACN-1`.
+    However, `ACN-1` does not list `EID-0003` as receiving entity of this action.
+notes:
+- |-
+  If an entity receives an unsolicited confirmation,
+  it is likely that the acting entity has received the corresponding information through a third party, e.g. a notification was forwarded.
+  However, such a representation could also result from mistake while authoring the CSAF document.
+  To maintain consistency, a confirmation from unmentioned entity is not allowed to be denoted as confirmation
+  but SHALL be represented as notification.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-12-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-12-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-12-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-12-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-12-13.json
+    valid: true

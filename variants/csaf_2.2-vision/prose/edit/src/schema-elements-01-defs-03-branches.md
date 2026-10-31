@@ -1,0 +1,230 @@
+### Branches Type
+
+List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
+
+```yaml <!--json-path($['$defs'].branches_t)-->
+$defs:
+  # ...
+  branches_t: Sequence
+  # ...
+```
+
+Every Branch holds exactly `3` properties and is a part of the hierarchical structure of the product tree.
+The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
+
+```yaml <!--json-path($['$defs'].branches_t[*].properties)-->
+$defs:
+  # ...
+  branches_t:
+  - # <branch-instance>:
+    branches: $defs.branches_t
+    category: String.Enum
+    name: String
+    product: $defs.full_product_name_t
+  # ...
+```
+
+> `branches_t` supports building a hierarchical structure of products that allows to indicate the relationship of products to each other and
+> enables grouping for simpler referencing.
+> As an example, the structure MAY use the following levels: `vendor` -> `product_family` -> `product_name` -> `product_version`.
+> It is recommended to use the hierarchical structure of `vendor` -> `product_name` -> `product_version` whenever possible to support
+> the identification and matching of products on the consumer side.
+
+#### Branches Type - Branches
+
+List of branches (`branches`) has the value type `branches_t`.
+
+#### Branches Type - Category
+
+Category of the branch (`category`) of value type `string` and `enum` describes the characteristics of the labeled branch.
+Valid `enum` values are:
+
+```
+    architecture
+    host_name
+    language
+    patch_level
+    platform
+    product_family
+    product_name
+    product_version
+    product_version_range
+    service_pack
+    specification
+    vendor
+```
+
+The value `architecture` indicates the architecture for which the product is intended.
+
+> This usually identifies the CPU instruction-set architecture.
+> See also example [eg](#branches-type---name-eg-2) in section [sec](#branches-type---name).
+
+The value `host_name` indicates the host name of a system/service.
+
+The value `language` indicates the language of the product.
+
+The value `patch_level` indicates the patch level of the product.
+
+The value `platform` indicates the (CPU) platform for which the product is intended.
+
+> As the same architecture is used in different platforms, this allows a differentiation.
+> See also example [eg](#branches-type---name-eg-3) in section [sec](#branches-type---name).
+
+The value `product_family` indicates the product family that the product falls into.
+
+The value `product_name` indicates the name of the product.
+
+The value `product_version` indicates exactly a single version of the product.
+The value of the adjacent `name` property can be numeric or some other descriptor.
+However, it SHALL NOT contain version ranges of any kind.
+
+> It is recommended to enumerate versions wherever possible.
+> Nevertheless, the TC understands that this is sometimes impossible.
+> To reflect that in the specification and aid in automatic processing of CSAF documents the value `product_version_range` was introduced.
+> See next section for details.
+
+The value `product_version_range` indicates a range of versions for the product.
+The value of the adjacent `name` property SHALL NOT be used to convey a single version.
+
+> In most cases, product version ranges hinder the use of product identification helpers as they need to identify a product completely.
+> In such case, the product identification and also therefore matching, independent whether that is against SBOMs or assets,
+> solely relies on the categorized strings.
+> This contradicts the goal of using unique product identifiers which would resolve the naming and identification issue for products
+> and are a next major step towards more automation and providing only relevant information to users.
+> Therefore, the use of product version ranges should be avoided, whenever possible.
+
+The value `service_pack` indicates the service pack of the product.
+
+The value `specification` indicates the specification such as a standard, best common practice, etc.
+
+The value `vendor` indicates the name of the vendor or manufacturer that makes the product.
+
+#### Branches Type - Name
+
+Name of the branch (`name`) of value type `string` with `1` or more characters contains the canonical descriptor or 'friendly name' of the branch.
+
+*Examples 1:*
+
+```
+    10
+    365
+    Microsoft
+    Office
+    PCS 7
+    SIMATIC
+    Siemens
+    Windows
+```
+
+A leading `v` or `V` in the value of `name` SHOULD only exist for the categories `product_version` or `product_version_range` if it is
+part of the product version as given by the vendor.
+
+*Examples 2 (for `name` when using `architecture`):*
+
+```
+    AArch32
+    AArch64
+    AMD64
+    ARMv7
+    ARMv8-R
+    ARMv9.7-A
+    IA-64
+    MISP32
+    m68k
+    ppc64el
+    RV64
+    s390
+    SPARC
+    x86
+```
+
+*Examples 3 (for `name` when using `platform`):*
+
+```
+    AMD
+    ARM
+    Intel
+```
+
+##### Branches Type - Name under Product Version
+
+If adjacent property `category` has the value `product_version`, the value of `name` SHALL NOT contain version ranges of any kind.
+
+*Examples 1 (for `name` when using `product_version`):*
+
+```
+    10
+    17.4
+    v3
+```
+
+> The `product_version` is the easiest way for users to determine whether their version is meant
+> (provided that the given ancestors in the product tree matched):
+> If both version strings are the same, it is a match - otherwise not.
+> Therefore, it is always recommended to enumerate product versions instead of providing version ranges.
+
+*Examples 2 (for `name` when using `product_version` which are invalid):*
+
+```
+    8.0.0 - 8.0.1
+    8.1.5 and later
+    <= 2
+    prior to 4.2
+    All versions < V3.0.29
+    V3.0, V4.0, V4.1, V4.2
+```
+
+> All the examples above contain some kind of a version range and are therefore invalid under the category `product_version`.
+
+##### Branches Type - Name under Product Version Range{#branches-type---name-under-product-version-range}
+
+If adjacent property `category` has the value `product_version_range`, the value of `name` SHALL contain version ranges.
+The value of SHALL obey to exactly one of the following options:
+
+1. VErsion Range Specifier (VERS)
+
+    > VERS is an ongoing community effort to address the problem of version ranges.
+    > Its draft specification is available at [cite](#VERS).
+
+    VERS SHALL be used in its canonical form. To convey the term "all versions", the special string `vers:all/*` SHALL be used.
+
+   > According to the interpretation used here, the canonical form requires that the VERS is normalized.
+
+    *Examples 1 (for `name` when using `product_version_range` with VERS):*
+
+    ```
+        vers:gem/>=2.2.0|!=2.2.1|<2.3.0
+        vers:npm/1.2.3|>=2.0.0|<5.0.0
+        vers:pypi/0.0.0|0.0.1|0.0.2|0.0.3|1.0|2.0pre1
+        vers:tomee/>=8.0.0-M1|<=8.0.1
+    ```
+
+    > Through the definitions of the VERS specification a user can compute whether a given version is in a given range.
+
+2. VERS-like Specifier (vls)
+
+    This option uses only the `constraint` part from the VERS specification; special requirements regarding VERS state above apply.
+    It SHALL NOT have the `scheme` nor the `type` part.
+    Neither `*` nor a constraint denoting a single version is valid.
+    Even though `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate the versions instead.
+    It is a fallback option and SHOULD NOT be used unless really necessary.
+
+    > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+    > Also, different tools might come to different results regarding this question.
+
+    Tools MAY support this on best effort basis.
+
+    *Examples 2 (for `name` when using `product_version_range` with vls):*
+
+    ```
+        <=2
+        <4.2
+        <V3.0.29
+        >=8.1.5
+        >10.9a|!=10.9c|!=10.9f|<=10.9k
+        <2024-4-pabc0019|>2024-10-pefd0010|<2024-12-pjkl2010|>2024-12-pjkl5010|<=2025-1-pghi1001
+    ```
+
+#### Branches Type - Product
+
+Product (`product`) has the value type Full Product Name (`full_product_name_t`).

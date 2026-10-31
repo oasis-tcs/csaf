@@ -1,0 +1,72 @@
+id: date-and-time
+kind: test
+level: mandatory
+topics:
+- revision-history
+- date-time
+legacy:
+  number: 6.1.37
+  file: tests-01-mndtr-37-date-and-time.md
+heading: 3
+title: Date and Time
+anchor: mandatory-tests--date-and-time
+statement: For each item of type `string` and format `date-time` it SHALL be tested that it conforms to the rules given in section [sec](#date-and-time).
+paths:
+- $.document.involvement.actions[*].date
+- $.document.tracking.current_release_date
+- $.document.tracking.generator.date
+- $.document.tracking.initial_release_date
+- $.document.tracking.revision_history[*].date
+- $.vulnerabilities[*].disclosure_date
+- $.vulnerabilities[*].discovery_date
+- $.vulnerabilities[*].first_known_exploitation_dates[*].date
+- $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
+- $.vulnerabilities[*].flags[*].date
+- $.vulnerabilities[*].metrics[*].content.epss.timestamp
+- $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
+- $.vulnerabilities[*].remediations[*].date
+- $.vulnerabilities[*].threats[*].date
+examples:
+- verdict: fails
+  json: '      "current_release_date": "2024-01-24 10:00:00.000Z",'
+  explanation:
+  - The `current_release_date` uses a white space as separator instead the letter `T`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-05.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-06.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-07.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-08.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-09.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-21.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-22.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-16.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-37-17.json
+    valid: true

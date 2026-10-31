@@ -1,0 +1,39 @@
+id: public-sharing-group-with-no-max-uuid
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.39
+  file: tests-01-mndtr-39-public-sharing-group-with-no-max-uuid.md
+heading: 3
+title: Public Sharing Group with No Max UUID
+statement: |-
+  It SHALL be tested that a CSAF document with the TLP label `CLEAR` use the Max UUID as sharing group ID if any.
+  The test SHALL pass if no sharing group is present or the Nil UUID is used and the document status is `draft`.
+paths:
+- $.document.distribution.sharing_group.id
+examples:
+- verdict: fails
+  json: |2-
+        "distribution": {
+          "sharing_group": {
+            "id": "5868d6be-b28a-404e-a245-0b5093b31b8b"
+          },
+          "tlp": {
+            "label": "CLEAR"
+          }
+        },
+  explanation:
+  - The sharing group is present for the `TLP:CLEAR` document but it differs from the Max UUID.
+notes:
+- '> A tool MAY update the sharing group id as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-39-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-39-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-39-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-39-12.json
+    valid: true

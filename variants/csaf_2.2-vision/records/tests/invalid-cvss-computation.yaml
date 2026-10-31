@@ -1,0 +1,65 @@
+id: invalid-cvss-computation
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.9
+  file: tests-01-mndtr-09-invalid-cvss-computation.md
+heading: 3
+title: Invalid CVSS Computation
+statement: |-
+  It SHALL be tested that the given CVSS object has the values computed correctly according to the definition.
+
+  > The `vectorString` SHOULD take precedence.
+paths:
+- $.vulnerabilities[*].metrics[*].content.cvss_v2.baseScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v2.temporalScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v2.environmentalScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.baseScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.baseSeverity
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.temporalScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.temporalSeverity
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.environmentalScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.environmentalSeverity
+- $.vulnerabilities[*].metrics[*].content.cvss_v4.baseScore
+- $.vulnerabilities[*].metrics[*].content.cvss_v4.baseSeverity
+notes:
+- |-
+  > Note: CVSS v4 does not define `threatScore`, `threatSeverity`, `environmentalScore` and `environmentalSeverity`.
+  > The existence of these JSON keys in an older version of the schema was fixed with version `4.0.1`.
+- '*Example 1 (which fails the test):*'
+- |-
+  ```
+    "cvss_v3": {
+      "version": "3.1",
+      "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+      "baseScore": 10.0,
+      "baseSeverity": "LOW"
+    }
+  ```
+- '> Neither `baseScore` nor `baseSeverity` has the correct value according to the specification.'
+- '> A tool MAY set the correct values as computed according to the specification as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-05.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-09-16.json
+    valid: true

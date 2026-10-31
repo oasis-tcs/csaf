@@ -1,0 +1,42 @@
+id: vulnerabilities-for-security-advisory-or-vex
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.11
+  file: tests-01-mndtr-27-11-vulnerabilities-for-security-advisory-or-vex.md
+heading: 4
+title: Vulnerabilities
+anchor: vulnerabilities-for-security-advisory-or-vex
+statement: It SHALL be tested that the element `$.vulnerabilities` exists.
+applies-to:
+  only:
+  - csaf_security_advisory
+  - csaf_vex
+  - csaf_deprecated_security_advisory
+  - csaf_vulnerability_report
+paths:
+- $.vulnerabilities
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+        "document": {
+          // ...
+        },
+        "product_tree": [
+          // ...
+        ]
+      }
+  explanation:
+  - The element `$.vulnerabilities` does not exist.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-11-04.json
+    valid: false

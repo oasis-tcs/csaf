@@ -1,0 +1,28 @@
+id: build-metadata-in-revision-history
+kind: test
+level: recommended
+topics: [revision-history]
+legacy:
+  number: 6.2.4
+  file: tests-02-rcmmndd-04-build-metadata-in-revision-history.md
+heading: 3
+title: Build Metadata in Revision History
+statement: For each item in revision history it SHALL be tested that `number` does not include build metadata.
+paths:
+- $.document.tracking.revision_history[*].number
+examples:
+- verdict: fails
+  json: |2-
+        "revision_history": [
+          {
+            "date": "2023-08-23T10:00:00.000Z",
+            "number": "1.0.0+exp.sha.ac00785",
+            "summary": "Initial version."
+          }
+        ]
+  explanation:
+  - The revision history contains an item which has a `number` that includes the build metadata `+exp.sha.ac00785`.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-04-01.json
+    valid: true

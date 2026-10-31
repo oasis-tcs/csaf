@@ -1,0 +1,57 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "cs\u00AD\u034F\u180E\u200B\u200C\u200D\u2060\u2062\u2063\u2064\uFEFFaf_informat\u00AD\u034F\u180E\u200B\u200C\u200D\u2060\u2062\u2063\u2064\uFEFFional_advisory",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "notes": [
+      {
+        "category": "summary",
+        "text": "This CSAF document contained example data and pretends to be an Informational Advisory to create test data. This note would summarize the issue.",
+        "title": "Summary"
+      },
+      {
+        "audience": "Implementers",
+        "category": "other",
+        "text": "The document category contains invisible characters as currently identified by the TC.",
+        "title": "Explanation for Implementers"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "The canonical URL.",
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-26-16.json"
+      },
+      {
+        "category": "external",
+        "summary": "General Advise to Minimize Risks of Phishing",
+        "url": "https://files.example.com/knowledge/prevent-phishing"
+      }
+    ],
+    "title": "Mandatory Test: Prohibited Document Category Name (failing example 13)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-26-24",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  }
+}

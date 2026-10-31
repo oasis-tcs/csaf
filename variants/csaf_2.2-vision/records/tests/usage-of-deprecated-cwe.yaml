@@ -1,0 +1,40 @@
+id: usage-of-deprecated-cwe
+kind: test
+level: recommended
+legacy:
+  number: 6.2.23
+  file: tests-02-rcmmndd-23-usage-of-deprecated-cwe.md
+heading: 3
+title: Usage of Deprecated CWE
+statement: For each item in the CWE array it SHALL be tested that the CWE is not deprecated in the given version.
+paths:
+- $.vulnerabilities[*].cwes[*]
+examples:
+- verdict: fails
+  json: |2-
+         "cwes": [
+            {
+              "id": "CWE-596",
+              "name": "DEPRECATED: Incorrect Semantic Object Comparison",
+              "version": "4.13"
+            }
+          ]
+  explanation:
+  - The `CWE-596` is deprecated in version `4.13`.
+notes:
+- '> A tool MAY suggest to replace the deprecated CWE with its replacement or closest equivalent.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-23-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-23-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-23-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-23-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-23-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-23-13.json
+    valid: true

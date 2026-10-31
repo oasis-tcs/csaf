@@ -1,0 +1,24 @@
+### Product Version Range Rules
+
+For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested
+that the value of `name` complies with the rules given in section [sec](#branches-type---name-under-product-version-range).
+VERS types not supported by the implementation SHALL result in a warning which SHALL include the VERS type name used.
+Nevertheless, all other rules SHALL be checked to the extent possible.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.product_tree..branches[*].name
+```
+
+*Example 1 (which fails the test):*
+
+```
+        {
+          "category": "product_version_range",
+          "name": "all versions < 4.2.0",
+          // ...
+        }
+```
+
+> The version range given does not comply with the rules given in section [sec](#branches-type---name-under-product-version-range).

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "c\u005F\u02CD\uFF3F\u0332\u0333\u2017\u203F\u2581\u23B5\u23BD\uFE4D\uFE4E\uFE4Fsa\uD82F\uDC03\uD82F\uDC08\uD82F\uDC0D\uD82F\uDC11\uD82F\uDC12\uD82F\uDC13\uD82F\uDC96\uD82F\uDC97\uD82F\uDC99f_informa\u005F\u02CD\uFF3F\u0332\u0333\u2017\u203F\u2581\u23B5\u23BD\uFE4D\uFE4E\uFE4Ftional_advi\uD82F\uDC03\uD82F\uDC08\uD82F\uDC0D\uD82F\uDC11\uD82F\uDC12\uD82F\uDC13\uD82F\uDC96\uD82F\uDC97\uD82F\uDC99sory",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "notes": [
+      {
+        "category": "summary",
+        "text": "This CSAF document contained example data and pretends to be an Informational Advisory to create test data. This note would summarize the issue.",
+        "title": "Summary"
+      },
+      {
+        "audience": "Implementers",
+        "category": "other",
+        "text": "The document category contains underscore characters as currently identified by the TC.",
+        "title": "Explanation for Implementers"
+      }
+    ],
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "references": [
+      {
+        "category": "self",
+        "summary": "The canonical URL.",
+        "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2_1-2024-6-1-26-16.json"
+      },
+      {
+        "category": "external",
+        "summary": "General Advise to Minimize Risks of Phishing",
+        "url": "https://files.example.com/knowledge/prevent-phishing"
+      }
+    ],
+    "title": "Mandatory Test: Prohibited Document Category Name (failing example 12)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-26-23",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  }
+}

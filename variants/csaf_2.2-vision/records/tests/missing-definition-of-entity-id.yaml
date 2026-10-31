@@ -1,0 +1,58 @@
+id: missing-definition-of-entity-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.5
+  file: tests-01-mndtr-64-05-missing-definition-of-entity-id.md
+heading: 4
+title: Missing Definition of Entity ID
+statement: |-
+  For each element of type `$['$defs'].entity_id_t` which is not inside the list of entities (`$.document.involvement.entities`)
+  and therefore references an item within the list of entities
+  it SHALL be tested that the Entity element with the matching `entity_id` exists.
+  This test SHALL ignore elements of type `$['$defs'].entity_group_id_t` in items of elements of type `$['$defs'].entity_refs_id_t`.
+paths:
+- $.document.involvement.actions[*].acting_entity_refs[*]
+- $.document.involvement.actions[*].receiving_entity_refs[*]
+- $.document.involvement.entity_groups[*].entity_ids[*]
+examples:
+- verdict: fails
+  json: |2-
+        "involvement": {
+          "actions": [
+            {
+              "acting_entity_refs": [
+                "EID-0001"
+              ],
+              "action_id": "ACN-1",
+              "category": "notification",
+              "date": "2024-01-10T09:00:00Z",
+              "receiving_entity_refs": [
+                "EID-0002"
+              ],
+              "status": "completed",
+              "summary": "Reported vulnerability to vendor."
+            },
+            // ...
+          ],
+          "entities": [
+            {
+              "category": "discoverer",
+              "entity_id": "EID-0001",
+              "name": "Jane Researcher"
+            }
+          ]
+        },
+  explanation:
+  - The action `ACN-1` contains `EID-0002` as receiving entity which is not defined in the list of entities.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-05-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-05-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-05-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-05-12.json
+    valid: true

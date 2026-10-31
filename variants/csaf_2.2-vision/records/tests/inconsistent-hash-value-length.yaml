@@ -1,0 +1,55 @@
+id: inconsistent-hash-value-length
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.63
+  file: tests-01-mndtr-63-inconsistent-hash-value-length.md
+heading: 3
+title: Inconsistent Hash Value Length
+statement: |-
+  For each file hash object, it SHALL be tested that the `value` length aligns with the `algorithm`.
+  The test SHALL be skipped for algorithms with variable length output.
+  Algorithms not supported by the implementation SHALL result in a warning which SHALL include the value of `algorithm`.
+  The warning SHALL differentiate between the values mentioned in section [sec](#full-product-name-type---product-identification-helper---hashes)
+  and those not mentioned there.
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*]
+- $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*]
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "name": "Product A",
+            "product_id": "CSAFPID-9080700",
+            "product_identification_helper": {
+              "hashes": [
+                {
+                  "file_hashes": [
+                    {
+                      "algorithm": "sha256",
+                      "value": "026a37919b182ef7c63791e82c9645e2f897a3f0b73c7a6028c7febf62e93838d0143"
+                    }
+                  ],
+                  "filename": "product_a.so"
+                }
+              ]
+            }
+          }
+        ]
+      }
+  explanation:
+  - The hash claims to be an MD4 but its length (69 characters) is longer than the expected length (64 characters).
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-63-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-63-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-63-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-63-12.json
+    valid: true

@@ -1,0 +1,41 @@
+id: invalid-ssvc
+kind: test
+level: mandatory
+topics: [ssvc]
+legacy:
+  number: 6.1.46
+  file: tests-01-mndtr-46-invalid-ssvc.md
+heading: 3
+title: Invalid SSVC
+statement: |-
+  It SHALL be tested that the given SSVC object is valid according to the referenced schema.
+  If the object contains a language code, for example as a part of a `namespace`,
+  it SHALL also be tested that the language code is valid and exists.
+  A CSAF validator SHALL differentiate in the error message between the language code that contain subtags not in the registry
+  and those that contain only subtags from the registry but the compiled language code is invalid.
+paths:
+- $.vulnerabilities[*].metrics[*].content.ssvc_v2
+examples:
+- verdict: fails
+  json: |2-
+      "ssvc_v2": {
+        "schemaVersion": "2.0.0",
+        "timestamp": "2024-01-24T10:00:00.000Z"
+      }
+  explanation:
+  - The required element `selections` is missing.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-46-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-46-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-46-03.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-46-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-46-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-46-13.json
+    valid: true

@@ -1,0 +1,25 @@
+### Use of Unregistered ID System
+
+For each item in `$.vulnerabilities[*].ids` it SHALL be tested that the value of `system_name` belongs to a
+registered vulnerability ID system in RVISC.
+
+> The RVISC is available at [cite](#RVISC).
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.vulnerabilities[*].ids[*].system_name
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "ids": [
+      {
+        "system_name": "OASIS Open CSAF TC GitHub Issues",
+        "text": "Issue 1217"
+      }
+    ]
+```
+
+> The `system_name` is not one that is registered in RVISC.

@@ -1,0 +1,76 @@
+id: usage-of-ssvc-decision-point-namespa
+kind: test
+level: recommended
+topics: [ssvc]
+legacy:
+  number: 6.2.36
+  file: tests-02-rcmmndd-36-usage-of-ssvc-decision-point-namespa.md
+heading: 3
+title: Usage of SSVC Decision Point Namespace with Extension in TLP:CLEAR Document
+anchor: usage-of-ssvc-decision-point-namespace-with-extension-in-tlp-clear-document
+statement: |-
+  For each SSVC decision point given under `selections`, it SHALL be tested that the `namespace` does not use an extension
+  if the document is labeled `TLP:CLEAR`.
+  Namespaces reserved for special purpose SHALL be treated as per their definition.
+
+  > To implement the check for an extensions part in the `namespace`,
+  > it is deemed sufficient to check whether the `namespace` contains a `/`.
+paths:
+- $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "document": {
+          // ...
+          "distribution": {
+            "tlp": {
+              "label": "CLEAR"
+            }
+          },
+          // ...
+        }
+        "vulnerabilities": [
+          {
+            "metrics": [
+              {
+                "content": {
+                "ssvc_v2": {
+                  // ...
+                  "selections": [
+                    {
+                      // ...
+                      "namespace": "ssvc//.example.test#refined-technical-impacts",
+                      // ...
+                    }
+                    ],
+                    // ...
+                  }
+                },
+                // ...
+              }
+            ]
+          }
+        ]
+      }
+  explanation:
+  - |-
+    The namespace contains the extension `.example.test#refined-technical-impacts`.
+    Its decision point definitions might therefore not be known to the reader of the document.
+    However, as per SSVC specification, extensions cannot extend an existing decision point with new values.
+    Thus, they can be treated as decision points from the base namespace, if the extension is unknown.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-36-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-36-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-36-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-36-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-36-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-36-13.json
+    valid: true

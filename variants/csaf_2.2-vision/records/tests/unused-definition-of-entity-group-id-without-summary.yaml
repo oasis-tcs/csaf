@@ -1,0 +1,69 @@
+id: unused-definition-of-entity-group-id-without-summary
+kind: test
+level: recommended
+legacy:
+  number: 6.2.56.2
+  file: tests-02-rcmmndd-56-02-unused-definition-of-entity-group-id-without-summary.md
+heading: 4
+title: Unused Definition of Entity Group ID without Summary
+statement: |-
+  For each Entity Group ID (type: `$['$defs'].entity_group_id_t`) in Entity Group elements (`$.document.involvement.entity_groups[*]`)
+  which does not contain a `summary` element
+  it SHALL be tested that the `entity_group_id` is referenced somewhere within the same document.
+
+  > Without being referenced or containing a `summary`, a reader has no clue how the group is related to the document and why it was added.
+paths:
+- $.document.involvement.entity_groups[*].entity_group_id
+examples:
+- verdict: fails
+  json: |2-
+      "involvement": {
+        "actions": [
+          {
+            "acting_entity_refs": [
+              "EID-0001"
+            ],
+            // ...
+            "receiving_entity_refs": [
+              "EID-0002"
+            ],
+            // ...
+          },
+          {
+            "acting_entity_refs": [
+              "EID-0002"
+            ],
+            // ...
+            "receiving_entity_refs": [
+              "EID-0001"
+            ],
+            // ...
+          }
+        ],
+        // ...
+        "entity_groups": [
+          {
+            "entity_group_id": "EGID-9001",
+            "entity_ids": [
+              "EID-0001",
+              "EID-0003"
+            ],
+            "name": "JJ Research"
+          }
+        ]
+      },
+  explanation:
+  - The unreferenced entity group `EGID-9001` does not contain a `summary`.
+notes:
+- '> A tool MAY suggest to add a summary to such definition as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-56-02-12.json
+    valid: true

@@ -1,0 +1,31 @@
+id: affected-products
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.12
+  file: tests-01-mndtr-27-12-affected-products.md
+heading: 4
+title: Affected Products
+statement: For each item in `$.vulnerabilities` it SHALL be tested that the element `product_status/known_affected` exists.
+applies-to:
+  only:
+  - csaf_security_advisory
+paths:
+- $.vulnerabilities[*].product_status.known_affected
+examples:
+- verdict: fails
+  json: |2-
+          "product_status": {
+            "under_investigation": [
+              "CSAFPID-9080700"
+            ]
+          }
+  explanation:
+  - The product status does not contain the `known_affected` element.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-12-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-12-11.json
+    valid: true

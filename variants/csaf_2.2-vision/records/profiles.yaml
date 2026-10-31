@@ -1,0 +1,19 @@
+# Profiles: the document categories a test's `applies-to` may name. The normative profile definitions are
+# still the prose of profiles.md (`legacy`); this record only names them.
+#
+#   id     the value of `$.document.category`
+#   title  the profile name as the prose uses it
+#   open   true for CSAF Base: it also covers every category value that belongs to no other profile
+
+legacy: {file: profiles.md}
+
+profiles:
+  - {id: csaf_base, title: CSAF Base, open: true}
+  - {id: csaf_security_incident_response, title: Security Incident Response}
+  - {id: csaf_informational_advisory, title: Informational Advisory}
+  - {id: csaf_security_advisory, title: Security Advisory}
+  - {id: csaf_vex, title: VEX}
+  - {id: csaf_deprecated_security_advisory, title: Deprecated Security Advisory}
+  - {id: csaf_withdrawn, title: Withdrawn}
+  - {id: csaf_superseded, title: Superseded}
+  - {id: csaf_vulnerability_report, title: Vulnerability Report}

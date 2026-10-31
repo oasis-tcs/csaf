@@ -1,0 +1,42 @@
+id: use-of-cvss-v3-0
+kind: test
+level: informative
+legacy:
+  number: 6.3.2
+  file: tests-03-nfrmtv-02-use-of-cvss-v3-0.md
+heading: 3
+title: Use of CVSS v3.0
+statement: For each item in the list of metrics which contains the `cvss_v3` object under `content` it SHALL be tested that CVSS v3.0 is not used.
+paths:
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.version
+- $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
+examples:
+- verdict: fails
+  json: |2-
+      "cvss_v3": {
+        "version": "3.0",
+        "vectorString": "CVSS:3.0/AV:L/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+        "baseScore": 6.5,
+        "baseSeverity": "MEDIUM"
+      }
+  explanation:
+  - The CVSS v3.0 is used.
+notes:
+- 'Recommendation:'
+- It is recommended to upgrade to CVSS v3.1.
+- |-
+  > A tool MAY upgrade to CVSS v3.1 as a quick fix.
+  > However, if such quick fix is supported the tool SHALL also recompute the `baseScore` and `baseSeverity`.
+  > The same applies for `temporalScore` and `temporalSeverity` respectively `environmentalScore` and `environmentalSeverity` if
+  > the necessary fields for computing their value are present and set.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-02-01.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-02-02.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-02-11.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-02-12.json
+    valid: true

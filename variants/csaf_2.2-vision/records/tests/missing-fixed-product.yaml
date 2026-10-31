@@ -1,0 +1,62 @@
+id: missing-fixed-product
+kind: test
+level: recommended
+legacy:
+  number: 6.2.39.1
+  file: tests-02-rcmmndd-39-01-missing-fixed-product.md
+heading: 4
+title: Missing Fixed Product
+statement: |-
+  For each product listed in the product status group affected in any vulnerability,
+  it SHALL be tested that a corresponding version of the product is listed as fixed in the same vulnerability.
+  The test SHALL be skipped if there is a clear indication, that such a version of the product does not exist.
+  Indicators include a remediation item with one of the categories `fix_planned`, `no_fix_planned` or `none_available` referring to the affected product.
+  The test SHALL NOT be skipped, if there is an indication, that such a version of the product might exist.
+  Indicators include an affected product version range with the comparator `<` in the last version constraint and
+  a remediation item with the categories `vendor_fix` referring to the affected product.
+applies-to:
+  only:
+  - csaf_security_advisory
+paths:
+- $.vulnerabilities[*].product_status
+examples:
+- verdict: fails
+  json: |2-
+      "vulnerabilities": [
+        {
+          // ...
+          "product_status": {
+            "known_affected": [
+              "CSAFPID-9080700"
+            ]
+          },
+          "remediations": [
+            {
+              "category": "vendor_fix",
+              "details": "Update to the latest version, at least version 4.2.",
+              "product_ids": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ]
+        }
+      ]
+  explanation:
+  - |-
+    The fixed product is not listed in the advisory but there is a clear indication that such product exists as there is a remediation
+    with category `vendor_fix`.
+notes:
+- '> A tool MAY create the missing fixed product based on the data available in the advisory as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-01-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-01-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-01-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-01-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-01-13.json
+    valid: true

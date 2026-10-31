@@ -1,0 +1,30 @@
+### Date and Time{#mandatory-tests--date-and-time}
+
+For each item of type `string` and format `date-time` it SHALL be tested that it conforms to the rules given in section [sec](#date-and-time).
+
+The relevant paths for this test are:
+
+```list-of-jsonpaths
+  $.document.involvement.actions[*].date
+  $.document.tracking.current_release_date
+  $.document.tracking.generator.date
+  $.document.tracking.initial_release_date
+  $.document.tracking.revision_history[*].date
+  $.vulnerabilities[*].disclosure_date
+  $.vulnerabilities[*].discovery_date
+  $.vulnerabilities[*].first_known_exploitation_dates[*].date
+  $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
+  $.vulnerabilities[*].flags[*].date
+  $.vulnerabilities[*].metrics[*].content.epss.timestamp
+  $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
+  $.vulnerabilities[*].remediations[*].date
+  $.vulnerabilities[*].threats[*].date
+```
+
+*Example 1 (which fails the test):*
+
+```
+      "current_release_date": "2024-01-24 10:00:00.000Z",
+```
+
+> The `current_release_date` uses a white space as separator instead the letter `T`.

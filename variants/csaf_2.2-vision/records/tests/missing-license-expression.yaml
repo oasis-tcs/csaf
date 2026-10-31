@@ -1,0 +1,38 @@
+id: missing-license-expression
+kind: test
+level: recommended
+legacy:
+  number: 6.2.43
+  file: tests-02-rcmmndd-43-missing-license-expression.md
+heading: 3
+title: Missing License Expression
+statement: |-
+  It SHALL be tested that the license expression is present and set.
+  A CSAF validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+  not being present at all.
+paths:
+- $.document.license_expression
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        // ...
+        "lang": "en-US",
+        "publisher": {
+          // ...
+        },
+        // ...
+      }
+  explanation:
+  - The license expression is not defined.
+notes:
+- |-
+  > A tool MAY add the key as a quick fix.
+  > In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-43-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-43-11.json
+    valid: true

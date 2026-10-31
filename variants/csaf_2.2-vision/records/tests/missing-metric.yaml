@@ -1,0 +1,42 @@
+id: missing-metric
+kind: test
+level: recommended
+topics: [ssvc]
+legacy:
+  number: 6.2.3
+  file: tests-02-rcmmndd-03-missing-metric.md
+heading: 3
+title: Missing Metric
+statement: |-
+  For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected it SHALL be tested that
+  a metric object exists which covers this product.
+paths:
+- $.vulnerabilities[*].product_status.first_affected[*]
+- $.vulnerabilities[*].product_status.known_affected[*]
+- $.vulnerabilities[*].product_status.last_affected[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "product_status": {
+            "first_affected": [
+              "CSAFPID-9080700"
+            ]
+          }
+        }
+      ]
+  explanation:
+  - '`CSAFPID-9080700` has in Product Status `first_affected` but there is no metric object which covers this Product ID.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-03-01.json
+    valid: true

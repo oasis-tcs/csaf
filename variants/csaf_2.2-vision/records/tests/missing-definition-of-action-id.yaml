@@ -1,0 +1,44 @@
+id: missing-definition-of-action-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.9
+  file: tests-01-mndtr-64-09-missing-definition-of-action-id.md
+heading: 4
+title: Missing Definition of Action ID
+statement: |-
+  For each element of type `$['$defs'].action_id_t` which is not defining an action (`$.document.involvement.actions[*].action_id`)
+  and therefore references an action
+  it SHALL be tested that the Action element with the matching `action_id` exists.
+paths:
+- $.document.involvement.actions[*].referenced_action_ids[*]
+examples:
+- verdict: fails
+  json: |2-
+      "actions": [
+        {
+          "acting_entity_refs": [
+            "EID-0002"
+          ],
+          "action_id": "ACN-2",
+          "category": "confirmation",
+          "date": "2024-01-10T15:00:00Z",
+          "receiving_entity_refs": [
+            "EID-0001"
+          ],
+          "referenced_action_ids": [
+            "ACN-1"
+          ],
+          "status": "completed",
+          "summary": "Confirmed receipt of the report."
+        }
+      ],
+  explanation:
+  - The action `ACN-2` references action `ACN-1` which is not defined in the list of actions.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-09-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-09-11.json
+    valid: true

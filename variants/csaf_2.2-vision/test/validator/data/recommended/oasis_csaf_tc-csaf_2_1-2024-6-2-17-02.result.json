@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": true,
+  "primary_result": {
+    "id": "6.2.17",
+    "passed": false,
+    "warnings": [
+      {
+        "instance_path": "/vulnerabilities/0/ids/0/text",
+        "message": "`\u00AD\u034F\u180E\u200B\u200C\u200D\u2060\u2062\u2063\u2064\uFEFFCVE- 2021\t-44228\u00AD\u034F\u180E\u200B\u200C\u200D\u2060\u2062\u2063\u2064\uFEFF` looks like a CVE ID; use the `cve` property instead of `ids`"
+      }
+    ]
+  },
+  "resultschema_version": "2.1"
+}

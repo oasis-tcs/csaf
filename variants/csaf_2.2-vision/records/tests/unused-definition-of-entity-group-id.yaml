@@ -1,0 +1,66 @@
+id: unused-definition-of-entity-group-id
+kind: test
+level: informative
+legacy:
+  number: 6.3.26.2
+  file: tests-03-nfrmtv-26-02-unused-definition-of-entity-group-id.md
+heading: 4
+title: Unused Definition of Entity Group ID
+statement: |-
+  For each Entity Group ID (type: `$['$defs'].entity_group_id_t`) in Entity Group elements (`$.document.involvement.entity_groups[*]`)
+  it SHALL be tested that the `entity_group_id` is referenced somewhere within the same document.
+paths:
+- $.document.involvement.entity_groups[*].entity_group_id
+examples:
+- verdict: fails
+  json: |2-
+      "involvement": {
+        "actions": [
+          {
+            "acting_entity_refs": [
+              "EID-0001"
+            ],
+            // ...
+            "receiving_entity_refs": [
+              "EID-0002"
+            ],
+            // ...
+          },
+          {
+            "acting_entity_refs": [
+              "EID-0002"
+            ],
+            // ...
+            "receiving_entity_refs": [
+              "EID-0001"
+            ],
+            // ...
+          }
+        ],
+        // ...
+        "entity_groups": [
+          {
+            "entity_group_id": "EGID-9001",
+            "entity_ids": [
+              "EID-0001",
+              "EID-0003"
+            ],
+            "name": "JJ Research"
+          }
+        ]
+      },
+  explanation:
+  - '`EGID-9001` was not referenced elsewhere in the document.'
+notes:
+- '> A tool MAY remove the unused definition as a quick fix.'
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-02-01.json
+    valid: false
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-02-02.json
+    valid: false
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-02-11.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-02-12.json
+    valid: true

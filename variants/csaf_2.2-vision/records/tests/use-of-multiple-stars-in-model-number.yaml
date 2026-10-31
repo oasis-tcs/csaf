@@ -1,0 +1,37 @@
+id: use-of-multiple-stars-in-model-number
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.43
+  file: tests-01-mndtr-43-use-of-multiple-stars-in-model-number.md
+heading: 3
+title: Use of Multiple Stars in Model Number
+statement: |-
+  For each model number it SHALL be tested that it does not contain multiple unescaped stars.
+
+  > Multiple `*` that match zero or multiple characters within a model number introduce ambiguity and are therefore prohibited.
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.model_numbers[*]
+- $.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
+examples:
+- verdict: fails
+  json: |2-
+              "model_numbers": [
+                "P*A*"
+              ]
+  explanation:
+  - The model number contains two unescaped stars.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-43-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-43-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-43-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-43-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-43-13.json
+    valid: true

@@ -1,0 +1,48 @@
+id: reasoning-for-withdrawal
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.27.17
+  file: tests-01-mndtr-27-17-reasoning-for-withdrawal.md
+heading: 4
+title: Reasoning for Withdrawal
+statement: |-
+  If the document language is English or unspecified, it SHALL be tested that exactly one item in document notes exists
+  that has the title `Reasoning for Withdrawal`.
+  The `category` of this item SHALL be `description`.
+applies-to:
+  only:
+  - csaf_withdrawn
+paths:
+- $.document.notes
+examples:
+- verdict: fails
+  json: |2-
+      "notes": [
+        {
+          "category": "summary",
+          "text": "This CSAF document contained example data and was withdrawn to create test data.",
+          "title": "Reasoning for Withdrawal"
+        }
+      ],
+  explanation:
+  - The note has the correct title. However, it uses the wrong category.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-05.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-27-17-13.json
+    valid: true

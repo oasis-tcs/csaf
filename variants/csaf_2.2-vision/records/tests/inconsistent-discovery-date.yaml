@@ -1,0 +1,53 @@
+id: inconsistent-discovery-date
+kind: test
+level: mandatory
+topics: [date-time]
+legacy:
+  number: 6.1.62
+  file: tests-01-mndtr-62-inconsistent-discovery-date.md
+heading: 3
+title: Inconsistent Discovery Date
+statement: |-
+  For each vulnerability, it SHALL be tested that the `discovery_date` is earlier than or equal to the `date` of the newest item
+  of the `revision_history` if the document status is `final` or `interim`.
+  Also, the `discovery_date` SHALL be earlier than or equal to the `disclosure_date` of the same vulnerability.
+
+  As the timestamps might use different timezones, the sorting and comparison SHALL take timezones into account.
+paths:
+- $.vulnerabilities[*].discovery_date
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        // ...
+        "tracking": {
+          // ...
+          "revision_history": [
+            {
+              "date": "2024-01-24T10:00:00.000Z",
+              "number": "1",
+              "summary": "Initial version."
+            }
+          ],
+          "status": "final",
+          // ...
+        }
+      },
+      "vulnerabilities": [
+        {
+          "discovery_date": "2024-02-24T10:00:00.000Z"
+        }
+      ]
+  explanation:
+  - The document is in status `final` but the `discovery_date` is newer than the `date` of newest item in the `revision_history`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-62-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-62-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-62-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-62-12.json
+    valid: true

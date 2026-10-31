@@ -1,0 +1,27 @@
+id: non-draft-document-version
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.20
+  file: tests-01-mndtr-20-non-draft-document-version.md
+heading: 3
+title: Non-Draft Document Version
+statement: It SHALL be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
+paths:
+- $.document.tracking.version
+examples:
+- verdict: fails
+  json: |2-
+        "tracking": {
+          // ...
+          "status": "interim",
+          "version": "1.0.0-alpha"
+        }
+  explanation:
+  - The document status is `interim` but the document version contains the pre-release part `-alpha`.
+notes:
+- '> A tool MAY remove the pre-release part from the document version as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-20-01.json
+    valid: false

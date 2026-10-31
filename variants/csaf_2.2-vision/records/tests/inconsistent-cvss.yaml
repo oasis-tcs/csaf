@@ -1,0 +1,53 @@
+id: inconsistent-cvss
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.10
+  file: tests-01-mndtr-10-inconsistent-cvss.md
+heading: 3
+title: Inconsistent CVSS
+statement: It SHALL be tested that the given CVSS properties do not contradict the CVSS vector.
+paths:
+- $.vulnerabilities[*].metrics[*].content.cvss_v2
+- $.vulnerabilities[*].metrics[*].content.cvss_v3
+- $.vulnerabilities[*].metrics[*].content.cvss_v4
+examples:
+- verdict: fails
+  json: |2-
+      "cvss_v3": {
+        "version": "3.1",
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        "baseScore": 9.8,
+        "baseSeverity": "CRITICAL",
+        "attackVector": "LOCAL",
+        "attackComplexity": "LOW",
+        "privilegesRequired": "NONE",
+        "userInteraction": "NONE",
+        "scope": "CHANGED",
+        "confidentialityImpact": "HIGH",
+        "integrityImpact": "HIGH",
+        "availabilityImpact": "LOW"
+      }
+  explanation:
+  - The values in the CVSS vector differ from values of the properties `attackVector`, `scope` and `availabilityImpact`.
+notes:
+- '> A tool MAY overwrite contradicting values according to the `vectorString` as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-04.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-10-14.json
+    valid: true

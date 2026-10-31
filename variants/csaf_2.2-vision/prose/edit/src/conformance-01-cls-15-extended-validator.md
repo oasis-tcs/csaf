@@ -1,0 +1,12 @@
+### Conformance Clause 15: CSAF Extended Validator
+
+This conformance target takes the role Validator (see section [sec](#conformance-roles)).
+
+A CSAF Basic Validator satisfies the "CSAF Extended Validator" conformance profile if the CSAF Basic Validator:
+
+- satisfies the "CSAF Basic Validator" conformance profile.
+- additionally performs all tests of the preset `recommended` as given in section [sec](#presets-defined-through-test-subsections).
+- additionally satisfies those normative requirements in sections [sec](#recommended-tests) and [sec](#test-result-elevation)
+  that are designated as applying to CSAF validators.
+
+A CSAF Extended Validator MAY provide an additional function to only run one or more selected recommended tests.

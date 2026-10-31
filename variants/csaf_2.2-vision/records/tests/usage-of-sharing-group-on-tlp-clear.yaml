@@ -1,0 +1,37 @@
+id: usage-of-sharing-group-on-tlp-clear
+kind: test
+level: recommended
+legacy:
+  number: 6.2.30
+  file: tests-02-rcmmndd-30-usage-of-sharing-group-on-tlp-clear.md
+heading: 3
+title: Usage of Sharing Group on TLP:CLEAR
+anchor: usage-of-sharing-group-on-tlp-clear
+statement: It SHALL be tested that no sharing group is used if the document is `TLP:CLEAR`.
+paths:
+- $.document.distribution.sharing_group
+examples:
+- verdict: fails
+  json: |2-
+        "distribution": {
+          "sharing_group": {
+            "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+            "name": "Public"
+          },
+          "tlp": {
+            "label": "CLEAR"
+          }
+        },
+  explanation:
+  - The CSAF document is `TLP:CLEAR` but a sharing group is given.
+notes:
+- '> A tool MAY remove the property `sharing_group` as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-30-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-30-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-30-12.json
+    valid: true

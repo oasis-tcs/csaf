@@ -1,0 +1,34 @@
+id: usage-of-nil-uuid
+kind: test
+level: recommended
+legacy:
+  number: 6.2.29
+  file: tests-02-rcmmndd-29-usage-of-nil-uuid.md
+heading: 3
+title: Usage of Nil UUID
+statement: It SHALL be tested that the Nil UUID is not used as sharing group id.
+paths:
+- $.document.distribution.sharing_group.id
+examples:
+- verdict: fails
+  json: |2-
+        "distribution": {
+          "sharing_group": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "name": "No sharing allowed"
+          },
+          // ...
+        },
+  explanation:
+  - The sharing group id uses the Nil UUID.
+notes:
+- '> A tool MAY remove the property `sharing_group` as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-29-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-29-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-29-12.json
+    valid: true

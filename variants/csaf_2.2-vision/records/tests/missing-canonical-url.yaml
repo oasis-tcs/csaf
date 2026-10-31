@@ -1,0 +1,62 @@
+id: missing-canonical-url
+kind: test
+level: recommended
+legacy:
+  number: 6.2.11
+  file: tests-02-rcmmndd-11-missing-canonical-url.md
+heading: 3
+title: Missing Canonical URL
+statement: |-
+  It SHALL be tested that the CSAF document has a canonical URL.
+
+  > To implement this test it is deemed sufficient that one item in `$.document.references` fulfills all of the following:
+  >
+  > - It has the category `self`.
+  > - The `url` starts with `https://`.
+  > - The `url` ends with the valid filename for the CSAF document according to the rules in section [sec](#filename)
+  >   which is preceded by a `/`.
+  > - The hostname is not empty.
+paths:
+- $.document.references
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        // ...
+        "references": [
+          {
+            "category": "self",
+            "summary": "A non-canonical URL.",
+            "url": "https://example.com/security/data/csaf/2024/oasis_csaf_tc-csaf_2.1-2024-6-2-11-01_1.json"
+          }
+        ],
+        // ...
+        "tracking": {
+          // ...
+          "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-11-01",
+          // ...
+          "version": "1"
+        },
+        // ...
+      }
+  explanation:
+  - The only element where the `category` is `self` has a URL that does not fulfill the requirement of a valid filename for a CSAF document.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-03.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-04.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-05.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-11-13.json
+    valid: true

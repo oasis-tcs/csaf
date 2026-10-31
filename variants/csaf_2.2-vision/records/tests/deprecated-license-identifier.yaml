@@ -1,0 +1,30 @@
+id: deprecated-license-identifier
+kind: test
+level: recommended
+legacy:
+  number: 6.2.44
+  file: tests-02-rcmmndd-44-deprecated-license-identifier.md
+heading: 3
+title: Deprecated License Identifier
+statement: |-
+  It SHALL be tested that all license identifier and exceptions used are not deprecated.
+  This SHALL be tested for the SPDX license list and AboutCode's "ScanCode LicenseDB".
+  The test MAY be skipped for other license inventoring entities.
+paths:
+- $.document.license_expression
+examples:
+- verdict: fails
+  json: '  "license_expression": "GFDL-1.1",'
+  explanation:
+  - The license identifier `GFDL-1.1` was deprecated as of version 3.0.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-44-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-44-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-44-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-44-12.json
+    valid: true

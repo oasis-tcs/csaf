@@ -1,0 +1,27 @@
+id: language
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.12
+  file: tests-01-mndtr-12-language.md
+heading: 3
+title: Language
+statement: |-
+  For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code is valid and exists.
+  A CSAF validator SHALL differentiate in the error message between the language code that contain subtags not in the registry
+  and those that contain only subtags from the registry but the compiled language code is invalid.
+
+  > For example, this happens if a subtag for a region is used as primary language subtag.
+paths:
+- $.document.lang
+- $.document.source_lang
+examples:
+- verdict: fails
+  json: '  "lang": "EZ"'
+  explanation:
+  - '`EZ` is not a valid language. It is the subtag for the region "Eurozone".'
+  - For any deprecated subtag, a tool MAY replace it with its preferred value as a quick fix.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-12-01.json
+    valid: false

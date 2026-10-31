@@ -1,0 +1,23 @@
+### Non-Draft Document Version
+
+It SHALL be tested that document version does not contain a pre-release part if the document status is `final` or `interim`.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.tracking.version
+```
+
+*Example 1 (which fails the test):*
+
+```
+    "tracking": {
+      // ...
+      "status": "interim",
+      "version": "1.0.0-alpha"
+    }
+```
+
+> The document status is `interim` but the document version contains the pre-release part `-alpha`.
+
+> A tool MAY remove the pre-release part from the document version as a quick fix.

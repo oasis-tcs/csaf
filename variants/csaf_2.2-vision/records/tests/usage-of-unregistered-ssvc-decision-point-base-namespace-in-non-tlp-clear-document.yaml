@@ -1,0 +1,66 @@
+id: usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document
+kind: test
+level: informative
+topics: [ssvc]
+legacy:
+  number: 6.3.14
+  file: tests-03-nfrmtv-14-usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document.md
+heading: 3
+title: Usage of Unregistered SSVC Decision Point Base Namespace in Non-TLP:CLEAR Document
+anchor: usage-of-unregistered-ssvc-decision-point-base-namespace-in-non-tlp-clear-document
+statement: |-
+  For each SSVC decision point given under `selections`, it SHALL be tested that the base `namespace` is not an unregistered one
+  if the document is not labeled `TLP:CLEAR`.
+  Namespaces reserved for special purpose SHALL be treated as per their definition.
+
+  > To implement this determine the base namespace in this test, it is deemed sufficient to remove any characters including
+  > and after the first `/`.
+paths:
+- $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "document": {
+          // ...
+          "distribution": {
+            "tlp": {
+              "label": "GREEN"
+            }
+          },
+          // ...
+        }
+        "vulnerabilities": [
+          {
+            "metrics": [
+              {
+                "content": {
+                  "ssvc_v2": {
+                    // ...
+                    "selections": [
+                      {
+                        // ...
+                        "namespace": "x_example.unregistered#namespace",
+                        // ...
+                      }
+                    ],
+                    // ...
+                  }
+                },
+                // ...
+              }
+            ]
+          }
+        ]
+      }
+  explanation:
+  - |-
+    The namespace `x_example.unregistered#namespace` is an unregistered base namespace.
+    Its decision point definitions might therefore not be known to the reader of the document.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-14-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-14-11.json
+    valid: true

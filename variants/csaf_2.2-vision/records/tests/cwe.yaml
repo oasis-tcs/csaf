@@ -1,0 +1,59 @@
+id: cwe
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.11
+  file: tests-01-mndtr-11-cwe.md
+heading: 3
+title: CWE
+anchor: mandatory-tests--cwe
+statement: |-
+  For each CWE it SHALL be tested that the given CWE exists and is valid in the `version` provided.
+  Any `id` that refers to a CWE Category or View SHALL fail the test.
+
+  > A list of all CWE release archives is available at [cite](#CWE-A).
+paths:
+- $.vulnerabilities[*].cwes[*]
+examples:
+- verdict: fails
+  json: |2-
+      "cwes": [
+        {
+          "id": "CWE-79",
+          "name": "Improper Input Validation",
+          "version": "4.13"
+        }
+      ]
+  explanation:
+  - The `CWE-79` exists. However, its name in version `4.13` is `Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-05.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-06.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-16.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-17.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-11-18.json
+    valid: true

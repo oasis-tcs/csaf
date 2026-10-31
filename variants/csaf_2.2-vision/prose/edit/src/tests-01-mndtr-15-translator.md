@@ -1,0 +1,31 @@
+### Translator
+
+It SHALL be tested that `$.document.source_lang` is present and set if the value `translator` is used for `$.document.publisher.category`.
+A CSAF validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+not being present at all.
+
+The relevant path for this test is:
+
+```list-of-jsonpaths
+  $.document.source_lang
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "document": {
+    // ...
+    "publisher": {
+      "category": "translator",
+      "name": "CSAF TC Translator",
+      "namespace": "https://csaf.io/translator"
+    },
+    "title": "Mandatory test: Translator (failing example 1)",
+    // ...
+  }
+```
+
+> The required element `source_lang` is missing.
+
+> A tool MAY add the key as a quick fix.
+> In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.

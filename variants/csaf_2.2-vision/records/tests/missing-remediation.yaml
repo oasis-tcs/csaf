@@ -1,0 +1,44 @@
+id: missing-remediation
+kind: test
+level: recommended
+legacy:
+  number: 6.2.2
+  file: tests-02-rcmmndd-02-missing-remediation.md
+heading: 3
+title: Missing Remediation
+statement: |-
+  For each Product ID (type `$['$defs'].product_id_t`) in the Product Status groups Affected and Under investigation it SHALL be tested that
+  a remediation exists.
+
+  > The remediation might be of the category `none_available` or `no_fix_planned`.
+paths:
+- $.vulnerabilities[*].product_status.first_affected[*]
+- $.vulnerabilities[*].product_status.known_affected[*]
+- $.vulnerabilities[*].product_status.last_affected[*]
+- $.vulnerabilities[*].product_status.under_investigation[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "product_status": {
+            "last_affected": [
+              "CSAFPID-9080700"
+            ]
+          }
+        }
+      ]
+  explanation:
+  - '`CSAFPID-9080700` has in Product Status `last_affected` but there is no remediation object for this Product ID.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-02-01.json
+    valid: true

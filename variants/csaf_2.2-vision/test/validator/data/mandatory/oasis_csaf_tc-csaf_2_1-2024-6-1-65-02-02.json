@@ -1,0 +1,68 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Mandatory Test: Multiple Definition of Document-local Vuln ID (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-65-02-12",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-0001",
+      "dl_vuln_id": "VULN-3",
+      "title": "A vulnerability with a document-local vuln ID and CVE."
+    },
+    {
+      "dl_vuln_id": "VULN-4",
+      "ids": [
+        {
+          "system_name": "Document-local Vuln ID",
+          "text": "VULN-2"
+        }
+      ],
+      "title": "A vulnerability with a document-local vuln ID and a vulnerability ids entry."
+    },
+    {
+      "cve": "CVE-1900-0002",
+      "dl_vuln_id": "VULN-3",
+      "ids": [
+        {
+          "system_name": "Document-local Vuln ID",
+          "text": "VULN-3"
+        }
+      ],
+      "title": "A vulnerability with a document-local vuln ID, CVE and vulnerability ids entry."
+    },
+    {
+      "dl_vuln_id": "VULN-4",
+      "title": "A vulnerability with a document-local vuln ID."
+    },
+    {
+      "dl_vuln_id": "VULN-4",
+      "title": "Another vulnerability with a document-local vuln ID."
+    }
+  ]
+}

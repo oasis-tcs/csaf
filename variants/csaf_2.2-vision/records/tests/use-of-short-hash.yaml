@@ -1,0 +1,60 @@
+id: use-of-short-hash
+kind: test
+level: informative
+legacy:
+  number: 6.3.5
+  file: tests-03-nfrmtv-05-use-of-short-hash.md
+heading: 3
+title: Use of Short Hash
+statement: It SHALL be tested that the length of the hash value is not shorter than 64 characters.
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value
+- $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "name": "Product A",
+            "product_id": "CSAFPID-9080700",
+            "product_identification_helper": {
+              "hashes": [
+                {
+                  "file_hashes": [
+                    {
+                      "algorithm": "md4",
+                      "value": "3202b50e2e5b2fcd75e284c3d9d5f8d6"
+                    }
+                  ],
+                  "filename": "product_a.so"
+                }
+              ]
+            }
+          }
+        ]
+      }
+  explanation:
+  - The length of the hash value is only 32 characters long.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-01.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-01.result.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-02.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-02.result.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-03.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-03.result.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-11.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-11.result.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-12.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-12.result.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-13.json
+    result: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-05-13.result.json
+    valid: true

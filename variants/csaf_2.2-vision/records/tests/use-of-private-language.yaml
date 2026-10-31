@@ -1,0 +1,42 @@
+id: use-of-private-language
+kind: test
+level: recommended
+legacy:
+  number: 6.2.14
+  file: tests-02-rcmmndd-14-use-of-private-language.md
+heading: 3
+title: Use of Private Language
+statement: For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code does not contain subtags reserved for private use.
+paths:
+- $.document.lang
+- $.document.source_lang
+examples:
+- verdict: fails
+  json: '  "lang": "qtx"'
+  explanation:
+  - The language code `qtx` is reserved for private use.
+notes:
+- '> A tool MAY remove such subtag as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-03.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-04.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-05.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-06.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-07.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-08.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-14-12.json
+    valid: true

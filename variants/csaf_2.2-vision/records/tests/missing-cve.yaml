@@ -1,0 +1,41 @@
+id: missing-cve
+kind: test
+level: informative
+legacy:
+  number: 6.3.3
+  file: tests-03-nfrmtv-03-missing-cve.md
+heading: 3
+title: Missing CVE
+statement: |-
+  It SHALL be tested that the element `cve` is present and set.
+  A CSAF validator SHALL differentiate in the error message between the key being present but having no or an empty value
+  and not being present at all.
+paths:
+- $.vulnerabilities[*].cve
+examples:
+- verdict: fails
+  json: |2-
+      "vulnerabilities": [
+        {
+          "title": "BlueKeep"
+        }
+      ]
+  explanation:
+  - The element `cve` is not present.
+notes:
+- 'Recommendation:'
+- |-
+  It is recommended to provide a CVE number to support the users efforts to find more details about a vulnerability and
+  potentially track it through multiple advisories.
+  If no CVE exists for that vulnerability, it is recommended to get one assigned.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-03-01.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-03-02.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-03-11.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-03-12.json
+    valid: true

@@ -1,0 +1,48 @@
+id: purl
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.13
+  file: tests-01-mndtr-13-purl.md
+heading: 3
+title: PURL
+anchor: mandatory--purl
+statement: |-
+  It SHALL be tested that all given PURLs are valid.
+
+  > It is not sufficient to just test against the `pattern` provided in section [sec](#full-product-name-type-product-identification-helper-purls).
+  > The PURL must be validated against the requirements in the [cite](#ECMA-427) specification and the additional constraints given in
+  > section [sec](#full-product-name-type-product-identification-helper-purls).
+paths:
+- $.product_tree..branches[*].product.product_identification_helper.purls[*]
+- $.product_tree.full_product_names[*].product_identification_helper.purls[*]
+- $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "name": "Product A",
+            "product_id": "CSAFPID-9080700",
+            "product_identification_helper": {
+              "purls": [
+                "pkg:maven/@1.3.4"
+              ]
+            }
+          }
+        ]
+      }
+  explanation:
+  - Any valid PURL has a name component.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-13-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-13-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-13-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-13-12.json
+    valid: true

@@ -1,0 +1,16 @@
+id: missing-date-of-the-action
+kind: test
+level: recommended
+legacy:
+  number: 6.2.7
+  file: tests-02-rcmmndd-07-missing-date-of-the-action.md
+heading: 3
+title: Missing Date of the Action (Obsolete)
+anchor: missing-date-of-the-action
+status: obsolete
+reason: |-
+  The date stating when an involvement action occurred ("Date of the action": `$.document.involvement.actions[*].date)
+  is now required by the schema.
+  Therefore, the recommended test is obsolete.
+  This section is kept to document that change and keep the numbering of the remaining sections stable.
+  The test is excluded from any preset and requirement to be executed.

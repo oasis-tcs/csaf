@@ -1,0 +1,38 @@
+id: unknown-vers-type
+kind: test
+level: recommended
+legacy:
+  number: 6.2.51
+  file: tests-02-rcmmndd-51-unknown-vers-type.md
+heading: 3
+title: Unknown VERS Type
+statement: "For each element of type `$['$defs'].branches_t` with `category` of `product_version_range` which indicates that it is using vers,\nit SHALL be tested that the VERS type is officially registered and supported by the implementation.\nThe warning SHALL differentiate between officially registered VERS types and those that are not in this state.\n\n> Different implementations might support different VERS types.\n> Usually, unknown VERS types hinder the automated evaluation of VERS.\n> However, it is expected that the test is able to recognize all officially registered VERS types.\n> The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  "
+paths:
+- $.product_tree..branches[*].name
+examples:
+- verdict: fails
+  json: |2-
+        {
+          "category": "product_version_range",
+          "name": "vers:someweirdunknownverstype/<4.2.0|>3.91.1|!=3.2.0|<1.2",
+          // ...
+        }
+  explanation:
+  - |-
+    The VERS type `someweirdunknownverstype` is a not an officially registered one.
+    Note: An implementation would also have to state whether it supports this VERS type.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-01.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-01.result.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-02.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-02.result.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-11.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-11.result.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-12.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-51-12.result.json
+    valid: true

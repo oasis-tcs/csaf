@@ -1,0 +1,53 @@
+id: use-of-qualitative-severity-rating
+kind: test
+level: informative
+legacy:
+  number: 6.3.18
+  file: tests-03-nfrmtv-18-use-of-qualitative-severity-rating.md
+heading: 3
+title: Use of Qualitative Severity Rating
+statement: |-
+  For each item in `metrics` it SHALL be tested that it does not use the qualitative severity rating.
+
+  > This covers all items in `metrics` regardless of their origin.
+  > Even though the Qualitative Severity Rating is a specified property, its usage is discouraged as it provides
+  > no information about the assessment inputs.
+  > Nevertheless, it can be useful to provide the such limited assessment result, especially for supply chain vulnerabilities
+  > where the upstream product just provides a qualitative severity rating.
+paths:
+- $.vulnerabilities[*].metrics[*]
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "metrics": [
+            {
+              "content": {
+                "qualitative_severity_rating": "low"
+              },
+              "products": [
+                "CSAFPID-9080700"
+              ],
+              "source": "https://upstream.example/advisories/42/an-advisory-with-just-a-severity-without-other-metrics"
+            }
+          ]
+        }
+      ]
+  explanation:
+  - The upstream provided metric for `CSAFPID-9080700` uses a `qualitative_severity_rating`.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-18-01.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-18-11.json
+    valid: true

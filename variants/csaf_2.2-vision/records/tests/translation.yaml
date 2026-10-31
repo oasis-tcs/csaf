@@ -1,0 +1,36 @@
+id: translation
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.28
+  file: tests-01-mndtr-28-translation.md
+heading: 3
+title: Translation
+statement: It SHALL be tested that the given source language and document language are not the same.
+paths:
+- $.document.lang
+- $.document.source_lang
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        // ...
+        "lang": "en-US",
+        // ...
+        "source_lang": "en-US",
+        // ...
+      }
+  explanation:
+  - |-
+    The document language and the source language have the same value `en-US`.
+
+    Note: A translation from `en-US` to `en-GB` would pass the test.
+notes:
+- '> A tool MAY remove the source language as a quick fix.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-28-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-28-11.json
+    valid: true

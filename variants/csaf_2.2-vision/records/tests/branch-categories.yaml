@@ -1,0 +1,68 @@
+id: branch-categories
+kind: test
+level: informative
+legacy:
+  number: 6.3.9
+  file: tests-03-nfrmtv-09-branch-categories.md
+heading: 3
+title: Branch Categories
+statement: |-
+  For each element of type `$['$defs'].full_product_name_t` in `$.product_tree.branches` it SHALL be tested that
+  ancestor nodes along the path exist which use the following branch categories `vendor` -> `product_name` -> `product_version` in that
+  order starting with the Product tree node.
+
+  > Other branch categories can be used before, after or between the aforementioned branch categories without making the test invalid.
+paths:
+- $.product_tree.branches
+examples:
+- verdict: fails
+  json: |2-
+        "branches": [
+          {
+            "category": "vendor",
+            "name": "Example Company",
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "Product A",
+                "branches": [
+                  {
+                    "category": "patch_level",
+                    "name": "91",
+                    "product": {
+                      "product_id": "CSAFPID-0002",
+                      "name": "Example Company Product A Update 91"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+  explanation:
+  - The product `CSAFPID-0002` does not have any ancestor with the branch category `product_version`.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-01.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-02.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-03.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-04.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-05.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-06.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-11.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-12.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-13.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-14.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-09-15.json
+    valid: true

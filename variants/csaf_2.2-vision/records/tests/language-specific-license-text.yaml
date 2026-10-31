@@ -1,0 +1,28 @@
+id: language-specific-license-text
+kind: test
+level: recommended
+legacy:
+  number: 6.2.46
+  file: tests-02-rcmmndd-46-language-specific-license-text.md
+heading: 3
+title: Language Specific License Text
+statement: |-
+  If the document language is specified but not English,
+  and the `license_expression` contains license identifiers or exceptions that are not listed in the SPDX license list or AboutCode's "ScanCode LicenseDB",
+  it SHALL be tested that exactly one item in document notes exists that has the language specific translation of the term `License` as title.
+  The category of this item SHALL be `legal_disclaimer`.
+  If no language specific translation has been recorded, the test SHALL be skipped and output an information to the user that no such translation is known.
+paths:
+- $.document.notes
+examples:
+- verdict: fails
+  json: "  \"document\": {\n    // ...\n    \"lang\": \"de-DE\",\n    \"license_expression\": \"LicenseRef-www.example.com-no-work\",\n    \"notes\": [\n      {\n        \"category\": \"summary\",\n        \"text\": \"Es handelt sich nicht um ein urheberrechtliches Werk, da die Schöpfungshöhe nicht erreicht ist.\",\n        \"title\": \"Lizenz\"\n      }\n    ],\n    // ...\n  }  "
+  explanation:
+  - The note has the correct title. However, it uses the wrong category.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-46-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-46-11.json
+    valid: true

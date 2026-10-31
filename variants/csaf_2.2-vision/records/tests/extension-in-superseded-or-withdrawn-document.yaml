@@ -1,0 +1,53 @@
+id: extension-in-superseded-or-withdrawn-document
+kind: test
+level: recommended
+topics:
+- extensions
+legacy:
+  number: 6.2.39.5
+  file: tests-02-rcmmndd-39-05-extension-in-superseded-or-withdrawn-document.md
+heading: 4
+title: Extension in Superseded or Withdrawn Document
+statement: It SHALL be tested that the document does not contain an extension.
+applies-to:
+  only:
+  - csaf_withdrawn
+  - csaf_superseded
+paths:
+- $.document.x_extensions
+- $.x_extensions
+examples:
+- verdict: fails
+  json: |2-
+      {
+        // ...
+        "x_extensions": [
+          {
+            "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/extension/data/valid/documentation-11/documentation-11-content_1.0.0.json",
+            // ...
+          }
+        ]
+      }
+  explanation:
+  - The document contains a CSAF Extension.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-03.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-04.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-05.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-06.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-39-05-13.json
+    valid: true

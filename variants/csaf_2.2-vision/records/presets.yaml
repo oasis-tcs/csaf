@@ -1,0 +1,78 @@
+# Presets: named sets of tests, defined by selection, never by a hand-kept list of section numbers.
+# A test joins a preset by its record (`level`, `topics`); adding a test never edits this file.
+#
+#   select   {level: <level>} or {topics: [<topic>, ...]}: the tests (and sub-tests) whose record matches
+#   union    presets combined with `+` (the prose's union operator)
+#   minus    {from: <preset>, without: <preset>}
+#   schema   true: the JSON schema check, no test
+#   see      the conformance clause defining the preset (anchor), rendered as "(see section ...)"
+#   text     verbatim item text where the definition is prose, not a selection (`schema`, `additional`)
+#
+# derive writes the three lists of tests-04-presets.md (one region per group) and views/presets.json.
+
+regions:
+  subsections:
+    after: 'The following presets are defined through subsections of the test section:'
+    before: '### Presets Defined through Conformance Targets'
+  conformance:
+    after: 'The following presets are defined through conformance targets:'
+    before: As presets are sets, the operator `+` SHALL be interpreted as the union operation.
+  additional:
+    after: 'Additional presets are defined as follows:'
+    before: null
+
+presets:
+  - {id: mandatory, group: subsections, select: {level: mandatory}}
+  - {id: recommended, group: subsections, select: {level: recommended}}
+  - {id: informative, group: subsections, select: {level: informative}}
+
+  - id: schema
+    group: conformance
+    schema: true
+    text: Check against the JSON schema (see section [sec](#conformance-clause-14-csaf-basic-validator))
+  - {id: basic, group: conformance, union: [schema, mandatory], see: conformance-clause-14-csaf-basic-validator}
+  - {id: extended, group: conformance, union: [basic, recommended], see: conformance-clause-15-csaf-extended-validator}
+  - {id: full, group: conformance, union: [extended, informative], see: conformance-clause-16-csaf-full-validator}
+  - id: additional
+    group: conformance
+    implementation-defined: true
+    text: |-
+      all implemented tests that satisfy the CSAF Additional Test conformance profile (see section
+        [sec](#conformance-clause-27-csaf-additional-test))
+    note: 'Note: The last preset MAY vary between different implementations as it is implementation specific.'
+
+  - id: non-external-request-free
+    group: additional
+    description: Any test that cannot be executed without a request into the Internet or a different network.
+    select: {topics: [external-request]}
+  - id: external-request-free
+    group: additional
+    description: Any test that can be executed without a request into the Internet or a different network.
+    note: |-
+      This is intended to be used for browser-based tools as external requests may result in CORS issues.
+      Request over network to a tool that is delivered with or an install requirement for a CSAF validator are not considered external.
+    minus: {from: full, without: non-external-request-free}
+  - id: consistent-revision-history
+    group: additional
+    description: Any test that is related to the revision history and ensures consistence within it.
+    select: {topics: [revision-history]}
+  - id: consistent-date-times
+    group: additional
+    description: Any test that is related to timestamps in CSAF and avoids invalid situations.
+    select: {topics: [date-time]}
+  - id: ssvc
+    group: additional
+    description: Any test that is related to SSVC in CSAF.
+    select: {topics: [ssvc]}
+  - id: extensions
+    group: additional
+    description: Any test that is related to CSAF Extensions.
+    select: {topics: [extensions]}
+  - id: extensions-exist
+    group: additional
+    description: Detects CSAF Extensions in all places.
+    select: {topics: [extension-presence]}
+  - id: validation-time
+    group: additional
+    description: Any test whose result depends on the time it is run.
+    select: {topics: [validation-time]}

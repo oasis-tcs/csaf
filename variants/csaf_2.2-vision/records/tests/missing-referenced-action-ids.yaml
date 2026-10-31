@@ -1,0 +1,42 @@
+id: missing-referenced-action-ids
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.64.13
+  file: tests-01-mndtr-64-13-missing-referenced-action-ids.md
+heading: 4
+title: Missing Referenced Action IDs
+statement: |-
+  For each item in `$.document.involvement.actions` which has one of the categories `confirmation` or `dispute`
+  it SHALL be tested that the element `referenced_action_ids` exists.
+paths:
+- $.document.involvement.actions[*]
+examples:
+- verdict: fails
+  json: |2-
+      {
+        "acting_entity_refs": [
+          "EID-0002"
+        ],
+        "action_id": "ACN-2",
+        "category": "confirmation",
+        "date": "2024-01-10T15:00:00Z",
+        "receiving_entity_refs": [
+          "EID-0001"
+        ],
+        "status": "completed",
+        "summary": "Confirmed receipt of the report."
+      }
+  explanation:
+  - The action does not contain the element `referenced_action_ids`.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-13-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-13-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-13-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-64-13-12.json
+    valid: true

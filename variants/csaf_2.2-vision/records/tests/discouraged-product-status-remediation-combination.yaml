@@ -1,0 +1,51 @@
+id: discouraged-product-status-remediation-combination
+kind: test
+level: recommended
+legacy:
+  number: 6.2.27
+  file: tests-02-rcmmndd-27-discouraged-product-status-remediation-combination.md
+uses: [status-remediation]
+# One derived fixture per table cell, by verdict (appended to the official fixtures in testcases.json)
+derive: {table: status-remediation, failures: [discouraged], valid: [allowed]}
+heading: 3
+title: Discouraged Product Status Remediation Combination
+statement: |-
+  For each item in `$.vulnerabilities[*].remediations`, it SHALL be tested that a Product is not member of a discouraged product status group
+  remediation category combination (see [tab](#tab:vulnerabilities-property-remediations-category-2)).
+  This takes indirect relations through Product Groups into account.
+paths:
+- $.vulnerabilities[*].remediations[*]
+examples:
+- verdict: fails
+  json: |2-
+          "product_status": {
+            "known_not_affected": [
+              "CSAFPID-9080700"
+            ]
+          },
+          "remediations": [
+            {
+              "category": "fix_planned",
+              "details": "The fix should be available in Q4 2024.",
+              "product_ids": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ]
+  explanation:
+  - For the product with product ID `CSAFPID-9080700` a fix is planned but the product was not affected at all.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-27-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-27-02.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-27-03.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-27-11.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-27-12.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-27-13.json
+    valid: true

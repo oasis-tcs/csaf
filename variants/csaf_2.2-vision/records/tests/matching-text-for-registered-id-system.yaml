@@ -1,0 +1,36 @@
+id: matching-text-for-registered-id-system
+kind: test
+level: recommended
+legacy:
+  number: 6.2.53
+  file: tests-02-rcmmndd-53-matching-text-for-registered-id-system.md
+heading: 3
+title: Matching Text for Registered ID System
+statement: |-
+  For each item in `$.vulnerabilities[*].ids` that has the value of a registered vulnerability ID system as `system_name`,
+  it SHALL be tested that the `text` in the CSAF document matches the `text_pattern` given by the
+  "Registry for Vulnerability ID Systems for CSAF" (RVISC).
+
+  > The RVISC is available at [cite](#RVISC).
+paths:
+- $.vulnerabilities[*].ids[*].text
+examples:
+- verdict: fails
+  json: |2-
+        "ids": [
+          {
+            "system_name": "https://github.com/oasis-tcs/csaf",
+            "text": "Issue 1217"
+          }
+        ]
+  explanation:
+  - |-
+    The `system_name` contains a registered vulnerability ID system but the value of `text` does not match the `text_pattern`
+    stated for "OASIS Open CSAF TC GitHub Issues" in the RVISC.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-53-01.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-53-11.json
+    valid: true

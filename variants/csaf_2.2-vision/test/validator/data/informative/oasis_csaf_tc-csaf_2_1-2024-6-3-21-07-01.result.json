@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/csaf/master/csaf_2.1/test/validator/testresult_json_schema.json",
+  "overall_valid": true,
+  "primary_result": {
+     "infos": [
+      {
+        "instance_path": "/vulnerabilities/0/metrics/0/content/x_extensions",
+        "message": "usage of extensions"
+      }
+    ],
+    "id": "6.3.21.7",
+    "passed": false
+  },
+  "resultschema_version": "2.1"
+}

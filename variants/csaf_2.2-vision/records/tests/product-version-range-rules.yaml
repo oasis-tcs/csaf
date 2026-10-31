@@ -1,0 +1,52 @@
+id: product-version-range-rules
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.50
+  file: tests-01-mndtr-50-product-version-range-rules.md
+heading: 3
+title: Product Version Range Rules
+statement: |-
+  For each element of type `$['$defs'].branches_t` with `category` of `product_version_range`, it SHALL be tested
+  that the value of `name` complies with the rules given in section [sec](#branches-type---name-under-product-version-range).
+  VERS types not supported by the implementation SHALL result in a warning which SHALL include the VERS type name used.
+  Nevertheless, all other rules SHALL be checked to the extent possible.
+paths:
+- $.product_tree..branches[*].name
+examples:
+- verdict: fails
+  json: |2-
+            {
+              "category": "product_version_range",
+              "name": "all versions < 4.2.0",
+              // ...
+            }
+  explanation:
+  - The version range given does not comply with the rules given in section [sec](#branches-type---name-under-product-version-range).
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-02.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-03.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-04.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-05.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-06.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-12.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-13.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-14.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-15.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-50-16.json
+    valid: true

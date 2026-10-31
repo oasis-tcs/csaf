@@ -1,0 +1,69 @@
+id: use-of-cvss-v2-as-the-only-scoring-system
+kind: test
+level: informative
+legacy:
+  number: 6.3.1
+  file: tests-03-nfrmtv-01-use-of-cvss-v2-as-the-only-scoring-system.md
+heading: 3
+title: Use of CVSS v2 As the Only Scoring System
+statement: |-
+  For each item in the list of metrics which contains the `cvss_v2` object under `content` it SHALL be tested that is not the only scoring item present.
+  The test SHALL pass if a second scoring object is available regarding the specific product.
+
+  > One source might just provide CVSS v2.
+  > As long as at least one different source provides a different scoring system for the same products, the test passes.
+paths:
+- $.vulnerabilities[*].metrics
+examples:
+- verdict: fails
+  json: |2-
+      "product_tree": {
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+      },
+      "vulnerabilities": [
+        {
+          "metrics": [
+            {
+              "content": {
+                "cvss_v2": {
+                  "version": "2.0",
+                  "vectorString": "AV:N/AC:L/Au:N/C:C/I:C/A:C",
+                  "baseScore": 10
+                }
+              },
+              "products": [
+                "CSAFPID-9080700"
+              ]
+            }
+          ]
+        }
+      ]
+  explanation:
+  - There is only a CVSS v2 score given for `CSAFPID-9080700`.
+notes:
+- 'Recommendation:'
+- It is recommended to (also) use the CVSS v4.0.
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-01.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-02.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-03.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-04.json
+    valid: true
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-11.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-12.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-13.json
+    valid: true
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-01-14.json
+    valid: true

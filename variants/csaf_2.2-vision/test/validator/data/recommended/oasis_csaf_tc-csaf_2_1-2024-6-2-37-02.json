@@ -1,0 +1,101 @@
+{
+  "$schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
+  "document": {
+    "category": "csaf_base",
+    "csaf_version": "2.1",
+    "distribution": {
+      "tlp": {
+        "label": "CLEAR"
+      }
+    },
+    "publisher": {
+      "category": "other",
+      "name": "OASIS CSAF TC",
+      "namespace": "https://csaf.io"
+    },
+    "title": "Recommended Test: Usage of Unknown SSVC Decision Point Namespace without Resource (failing example 2)",
+    "tracking": {
+      "current_release_date": "2024-01-24T10:00:00.000Z",
+      "id": "OASIS_CSAF_TC-CSAF_2.1-2024-6-2-37-02",
+      "initial_release_date": "2024-01-24T10:00:00.000Z",
+      "revision_history": [
+        {
+          "date": "2024-01-24T10:00:00.000Z",
+          "number": "1",
+          "summary": "Initial version."
+        }
+      ],
+      "status": "final",
+      "version": "1"
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "CSAFPID-9080700",
+        "name": "Product A"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "metrics": [
+        {
+          "content": {
+            "ssvc_v2": {
+              "decision_point_resources": [
+                {
+                  "summary": "Specification for Decision Points within 'x_example.test#with-resource'",
+                  "uri": "https://test.example/ssvc-collection/test#with-resource"
+                }
+              ],
+              "schemaVersion": "2.0.0",
+              "selections": [
+                {
+                  "key": "TI",
+                  "name": "Technical Impact",
+                  "namespace": "test#without-resource/de-DE",
+                  "values": [
+                    {
+                      "key": "T",
+                      "name": "Total"
+                    }
+                  ],
+                  "version": "1.0.0"
+                },
+                {
+                  "key": "E",
+                  "name": "Exploitation",
+                  "namespace": "x_example.test#without-resource/en-AU",
+                  "values": [
+                    {
+                      "key": "P",
+                      "name": "Public PoC"
+                    }
+                  ],
+                  "version": "1.1.0"
+                },
+                {
+                  "key": "A",
+                  "name": "Automatable",
+                  "namespace": "x_example.test#with-resource",
+                  "values": [
+                    {
+                      "key": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "version": "1.0.0"
+                }
+              ],
+              "timestamp": "2024-01-24T10:00:00.000Z"
+            }
+          },
+          "products": [
+            "CSAFPID-9080700"
+          ]
+        }
+      ]
+    }
+  ]
+}

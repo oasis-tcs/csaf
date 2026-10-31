@@ -1,0 +1,28 @@
+id: use-of-default-language
+kind: test
+level: recommended
+legacy:
+  number: 6.2.15
+  file: tests-02-rcmmndd-15-use-of-default-language.md
+heading: 3
+title: Use of Default Language
+statement: For each element of type `$['$defs'].lang_t` it SHALL be tested that the language code is not `i-default`.
+paths:
+- $.document.lang
+- $.document.source_lang
+examples:
+- verdict: fails
+  json: '  "lang": "i-default"'
+  explanation:
+  - The language code `i-default` is used.
+notes:
+- '> A tool MAY remove such element as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-15-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-15-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-15-11.json
+    valid: true

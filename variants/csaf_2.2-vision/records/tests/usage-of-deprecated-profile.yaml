@@ -1,0 +1,39 @@
+id: usage-of-deprecated-profile
+kind: test
+level: recommended
+legacy:
+  number: 6.2.38
+  file: tests-02-rcmmndd-38-usage-of-deprecated-profile.md
+heading: 3
+title: Usage of Deprecated Profile
+statement: |-
+  It SHALL be tested that the `$.document.category` does not start with `csaf_deprecated_`.
+
+  > To implement this test, it is deemed sufficient to do a "starts with" check.
+  > In contrast to test [sec](#prohibited-document-category-name), this test detects the use of a profile defined by CSAF that is deprecated.
+paths:
+- $.document.category
+examples:
+- verdict: fails
+  json: |2
+        "category": "csaf_deprecated_security_advisory",
+  explanation:
+  - The document category starts with `csaf_deprecated_`.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-01.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-01.result.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-02.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-02.result.json
+    valid: false
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-11.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-11.result.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-12.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-12.result.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-13.json
+    result: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-38-13.result.json
+    valid: false

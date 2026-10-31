@@ -1,0 +1,32 @@
+### PURL Qualifiers
+
+For each `product_identification_helper` object containing multiple PURLs it SHALL be tested that the PURLs only differ in their qualifiers.
+
+The relevant paths for this test are:
+
+```list-of-jsonpaths
+  $.product_tree..branches[*].product.product_identification_helper.purls[*]
+  $.product_tree.full_product_names[*].product_identification_helper.purls[*]
+  $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
+```
+
+*Example 1 (which fails the test):*
+
+```
+  "product_tree": {
+    "full_product_names": [
+      {
+        "name": "Product A",
+        "product_id": "CSAFPID-9080700",
+        "product_identification_helper": {
+          "purls": [
+            "pkg:maven/com.example/logging@1.3.4",
+            "pkg:maven/com.example/audit@1.3.4"
+          ]
+        }
+      }
+    ]
+  }
+```
+
+> The two PURLs differ in the name component.

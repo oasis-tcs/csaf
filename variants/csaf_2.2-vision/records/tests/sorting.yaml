@@ -1,0 +1,28 @@
+id: sorting
+kind: test
+level: recommended
+legacy:
+  number: 6.2.13
+  file: tests-02-rcmmndd-13-sorting.md
+heading: 3
+title: Sorting
+anchor: recommended-tests--sorting
+statement: It SHALL be tested that all keys in a CSAF document are sorted alphabetically.
+paths:
+- $
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        "csaf_version": "2.1",
+        "category": "csaf_base",
+        // ...
+      }
+  explanation:
+  - The key `csaf_version` is not at the right place.
+notes:
+- '> A tool MAY sort the keys as a quick fix.'
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-13-01.json
+    valid: true

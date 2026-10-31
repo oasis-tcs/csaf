@@ -1,0 +1,42 @@
+id: multiple-use-of-same-entity-name
+kind: test
+level: informative
+legacy:
+  number: 6.3.26.4
+  file: tests-03-nfrmtv-26-04-multiple-use-of-same-entity-name.md
+heading: 4
+title: Multiple Use of Same Entity Name
+statement: |-
+  For each `name` in `$.document.involvement.entities[*]`
+  it SHALL be tested that the `name` was not already used for another entity within the same document.
+
+  > Such a construct is expected to happen, e.g. if a entity is reached out to under multiple addresses or
+  > the entity has different roles.
+  > For the justified scenarios, the test should be ignored.
+paths:
+- $.document.involvement.entities[*].name
+examples:
+- verdict: fails
+  json: |2-
+      "entities": [
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0001",
+          "name": "Jane Researcher"
+        },
+        // ...
+        {
+          "category": "discoverer",
+          "entity_id": "EID-0003",
+          "name": "Jane Researcher"
+        }
+      ]
+  explanation:
+  - '`Jane Researcher` was used twice.'
+fixtures:
+  failures:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-04-01.json
+    valid: false
+  valid:
+  - name: informative/oasis_csaf_tc-csaf_2_1-2024-6-3-26-04-11.json
+    valid: true

@@ -1,0 +1,33 @@
+id: missing-product-identification-helper
+kind: test
+level: recommended
+legacy:
+  number: 6.2.16
+  file: tests-02-rcmmndd-16-missing-product-identification-helper.md
+heading: 3
+title: Missing Product Identification Helper
+statement: For each element of type `$['$defs'].full_product_name_t` it SHALL be tested that it includes the property `product_identification_helper`.
+paths:
+- $.product_tree..branches[*].product
+- $.product_tree.full_product_names[*]
+- $.product_tree.product_paths[*].full_product_name
+examples:
+- verdict: fails
+  json: |2-
+        "full_product_names": [
+          {
+            "product_id": "CSAFPID-9080700",
+            "name": "Product A"
+          }
+        ]
+  explanation:
+  - The product `CSAFPID-9080700` does not provide any Product Identification Helper at all.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-16-01.json
+    valid: true
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-16-02.json
+    valid: true
+  valid:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-16-11.json
+    valid: true

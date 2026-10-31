@@ -1,0 +1,40 @@
+id: missing-document-language
+kind: test
+level: recommended
+legacy:
+  number: 6.2.12
+  file: tests-02-rcmmndd-12-missing-document-language.md
+heading: 3
+title: Missing Document Language
+statement: |-
+  It SHALL be tested that the document language member is present and set.
+  A CSAF validator SHALL differentiate in the error message between the key being present but having no or an empty value and
+  not being present at all.
+paths:
+- $.document.lang
+examples:
+- verdict: fails
+  json: |2-
+      "document": {
+        "category": "csaf_base",
+        "csaf_version": "2.1",
+        "distribution": {
+          "tlp": {
+            "label": "CLEAR"
+          }
+        },
+        "publisher": {
+          // ...
+        },
+        // ...
+      }
+  explanation:
+  - The document language is not defined.
+notes:
+- |-
+  > A tool MAY add the key as a quick fix.
+  > In such case, the value still needs to be set - either manually or by other means from the tool, e.g. through a given configuration.
+fixtures:
+  failures:
+  - name: recommended/oasis_csaf_tc-csaf_2_1-2024-6-2-12-01.json
+    valid: true

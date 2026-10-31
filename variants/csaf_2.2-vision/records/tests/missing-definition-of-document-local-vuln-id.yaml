@@ -1,0 +1,55 @@
+id: missing-definition-of-document-local-vuln-id
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.65.1
+  file: tests-01-mndtr-65-01-missing-definition-of-document-local-vuln-id.md
+heading: 4
+title: Missing Definition of Document-local Vuln ID
+statement: |-
+  For each element of type `$['$defs'].dl_vuln_id_t` which is not inside a vulnerability (`$.vulnerabilities[*].dl_vuln_id`)
+  and therefore references a vulnerability
+  it SHALL be tested that the vulnerability element with the matching `dl_vuln_id` exists.
+paths:
+- $.document.involvement.actions[*].dl_vuln_ids[*]
+examples:
+- verdict: fails
+  json: |2-
+      {
+        // ...
+        "document": {
+          // ...
+          "involvement": {
+            "actions": [
+              {
+                // ...
+                "dl_vuln_ids": [
+                  "VULN-1"
+                ],
+                // ...
+              },
+              // ...
+            ],
+            // ...
+          },
+          // ...
+        },
+        "vulnerabilities": [
+          {
+            "title": "A vulnerability without a document-local vuln ID."
+          }
+        ]
+      }
+  explanation:
+  - '`VULN-1` is not defined in the list of vulnerabilities.'
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-01-01.json
+    valid: false
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-01-02.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-01-11.json
+    valid: true
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-65-01-12.json
+    valid: true

@@ -1,0 +1,15 @@
+{
+  "namespace": "test",
+  "key": "TEST",
+  "version": "2.0.0",
+  "name": "OASIS_CSAF_TC-CSAF_2.1-2024-6-1-48-31 Test",
+  "definition": "This is an ambiguous decision point - just for test purposes. This one is tailored to test file OASIS_CSAF_TC-CSAF_2.1-2024-6-1-48-31 but may be used elsewhere.",
+  "schemaVersion": "2.0.0",
+  "values": [
+    {
+      "definition": "Anything is valid in here as reserved for tests.",
+      "key": "A",
+      "name": "Any"
+    }
+  ]
+}

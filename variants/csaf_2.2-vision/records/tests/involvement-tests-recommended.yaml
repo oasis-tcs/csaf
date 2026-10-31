@@ -1,0 +1,14 @@
+id: involvement-tests-recommended
+kind: group
+level: recommended
+legacy:
+  number: 6.2.56
+  file: tests-02-rcmmndd-56-00-involvement-tests.md
+heading: 3
+title: Involvement Tests
+anchor: recommended--involvement-tests
+statement: |-
+  This subsubsection structures the recommended tests for `$.document.involvement`.
+  Each of the following tests SHOULD be treated as they were listed similar to the other tests.
+
+  > An application MAY group these tests when providing the additional function to only run one or more selected tests.

@@ -1,0 +1,28 @@
+id: flag-without-product-reference
+kind: test
+level: mandatory
+legacy:
+  number: 6.1.32
+  file: tests-01-mndtr-32-flag-without-product-reference.md
+heading: 3
+title: Flag without Product Reference
+statement: For each item in `$.vulnerabilities[*].flags` it SHALL be tested that it includes at least one of the elements `group_ids` or `product_ids`.
+paths:
+- $.vulnerabilities[*].flags[*]
+examples:
+- verdict: fails
+  json: |2-
+          "flags": [
+            {
+              "label": "component_not_present"
+            }
+          ]
+  explanation:
+  - The given flag does not specify to which products it should be applied.
+fixtures:
+  failures:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-32-01.json
+    valid: false
+  valid:
+  - name: mandatory/oasis_csaf_tc-csaf_2_1-2024-6-1-32-11.json
+    valid: true
