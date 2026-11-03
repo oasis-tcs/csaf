@@ -46,8 +46,9 @@ types:
 	command -v mypy >/dev/null 2>&1 || { echo >&2 "make types requires mypy but it's not installed - you can install with: 'pip install mypy'.  Aborting."; exit 1; }
 	$(types)
 
+# The quick loop: every channel, no cleaning, no gates.
 .PHONY: render
-render: html
+render: html pdf
 
 .PHONY: sections
 sections:
@@ -89,13 +90,22 @@ pdf:
 	  { [ -f $(out_pdf_blake3) ] && printf "WARNING: b3sum not installed — $(out_pdf_blake3) is stale.\n" || true; }
 	$(OPEN) $(out_pdf)
 
+# What you hand over (PR, release): from scratch, the records check of the vision first (make check in ../..), quality
+# on the rendered HTML, then the PDF (no viewer), manifest and validation. Never commits, pushes, or uploads.
 .PHONY: release
-release: html pdf
+release:
+	$(MAKE) distclean
+	$(MAKE) -C ../.. check
+	$(MAKE) html
+	nide quality
+	$(MAKE) OPEN=true pdf
 	nide manifest
 	nide validate
-	printf "Release complete. Manifest verified.\n"
 	cp -a build/manifest.json $(out_manifest)
+	printf "Release complete: built from scratch, all gates passed, manifest verified.\n"
 	ls -l $(shared)$(artifact_stem).*
+	printf "Deliverables changed against version control:\n"
+	git status --short $(shared)
 
 .PHONY: build
 build: render status
@@ -127,9 +137,6 @@ diff:
 diff-repro:
 	nide diff --mode repro $(out_pdf) || true
 
-.PHONY: diff-pdf  # Deprecated - use diff-repro
-diff-pdf: diff-repro
-
 .PHONY: context
 context:
 	printf "Clone-info:\n"
@@ -138,21 +145,3 @@ context:
 	printf "%s revision.is(): sha1:%s\n" "-" "$$(git rev-parse HEAD)"
 	printf "%s location.is(): %s\n" "-" "$$(python -c "(lambda _Y: (lambda _mod: (lambda Path: (lambda g: [(lambda x: [(lambda c, p: (lambda _loop1: _loop1(c, p))(_Y(lambda _loop1: (lambda c, p: ([_loop1(c, p) for (p, c) in [x(p, c, g)]][0]) if (c != p) and (str(c) != '/') else print((f\"(orga/repo='{c.parent.name}/{c.name}', rel-path='{o.relative_to(c)}')\" if (c == p) else \"(orga/repo='?/?', rel-path='?')\"))))))(c if 'c' in dir() else None, p if 'p' in dir() else None) for (_, c) in [x(p, c, g)]][0])(lambda p, c, g: (c, c.parent if not (c / g).is_dir() else c)) for o, p, c in [[Path().resolve()] * 3]][0])('.git'))(_mod.Path))(__import__('pathlib', {}, {}, ['Path'])))((lambda f: (lambda x: x(x))(lambda y: f(lambda *args: y(y)(*args)))))")"
 	printf "%s node.id(): '%s'\n" "-" "$$(python -c 'import platform; import uuid; print(str(uuid.uuid3(uuid.NAMESPACE_DNS, platform.node())))')"
-
-.PHONY: name  # Deprecated - backwards compatibility target
-name: context
-
-.PHONY: whoami  # Deprecated - backwards compatibility target
-whoami: context
-
-.PHONY: typst  # Deprecated - use pdf
-typst: pdf
-
-.PHONY: render-html  # Deprecated - backwards compatibility target
-render-html: html
-
-.PHONY: render-markdown  # Deprecated - backwards compatibility target
-render-markdown: gfm-plus
-
-.PHONY: render-pdf  # Deprecated - backwards compatibility target
-render-pdf: pdf

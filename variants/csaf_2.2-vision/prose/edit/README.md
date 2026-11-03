@@ -43,19 +43,109 @@ Never edit the derived files directly and expect the changes to be preserved acr
 | `validate-outlines.py`    | Validates YAML partial information models against their JSON schemas         |
 | `png-logo-to-data-url.sh` | Converts the OASIS logo PNG to an inline data URL for embedding              |
 
+## Records first: the new workflow
+
+In this tree, part of the specification is no longer typed into `src/` but kept as records in `../../records/`
+(the tests, the status/remediation table, presets, document-category applicability, conformance roles).
+`make derive` (in `../..`) writes the prose sections, the test fixtures list and the views from them;
+`make check` fails when any derived file differs from its records. Everything else in `src/` is hand-written
+Markdown, exactly as before. The full list of what is a record, and why, is in `../../VISION.md`.
+
+The loop in one breath:
+
+    $EDITOR ../../records/tests/action-statement.yaml   # 1. edit the record, never the derived .md
+    (cd ../.. && make derive)                           # 2. write every view from the records
+    git diff                                            # 3. review the record and the views it changed
+    (cd ../.. && make check)                            # 4. records and views agree
+    make release                                        # 5. before a PR: everything from scratch, every gate
+
+### Example 1: entered once instead of copied (applicability)
+
+Test 6.1.27.10 Action Statement applies to VEX documents only. In CSD04 that fact was typed by hand into the test
+section ("The relevant value for `$.document.category` is: `csaf_vex`"), and every tool or reader that needed
+"which tests apply to a VEX?" had to collect such sentences again from 37 tests.
+Now the record says it once:
+
+```yaml
+# records/tests/action-statement.yaml
+applies-to:
+  only:
+  - csaf_vex
+```
+
+and `make derive` writes the sentence into the test section and the `x` in the VEX column of
+`../../views/applicability.md` (the test x category matrix). Changing it to `only: [csaf_vex, csaf_security_advisory]`
+changes both in one edit, and the category names are checked against `../../records/profiles.yaml`.
+The diff after `make derive` (a real run) is all a reviewer needs to read:
+
+```diff
+ records/tests/action-statement.yaml
++  - csaf_security_advisory
+ prose/edit/src/tests-01-mndtr-27-10-action-statement.md
+-The relevant value for `$.document.category` is:
++The relevant values for `$.document.category` are:
++  csaf_security_advisory
+ views/applicability.md
+-| `6.1.27.10` Action Statement |  |  |  |  | x |  |  |  |  |
++| `6.1.27.10` Action Statement |  |  |  | x | x |  |  |  |  |
+```
+
+The same holds for a new test: one record (statement, paths, examples, fixtures, `topics`, `applies-to`) gives its
+section, its entries in `testcases.json`, its place in every preset that selects its topics, its row in the
+applicability matrix, and its line in the role views (`../../views/roles/`). In CSD04 these were four to five
+hand edits in different files.
+
+### Example 2: one constraint, refined in three layers
+
+The status/remediation rules are the best real case of a constraint that is refined twice:
+
+| Layer | Says | In CSD04 | Now |
+|:------|:-----|:---------|:----|
+| C42 shape (schema) | a remediation has a `category` from 7 values; a product status has 9 properties | `json_schema/csaf.json` | unchanged: `../../json_schema/csaf.json` |
+| C42.1 mandatory test 6.1.36 | 11 status/category combinations are prohibited | a prose table plus fixtures typed by hand | the `prohibited` cells of `records/tables/status-remediation.yaml` |
+| C42.2 recommended test 6.2.27 | 11 more are discouraged | the same table, read again | the `discouraged` cells of the same record |
+| C42.3 business rule (prose) | a RECOMMENDED preference order of the allowed, then discouraged, combinations | two hand-numbered lists | the `ranking` of the same record |
+
+From that one record, `make derive` writes the prose table and both preference lists, and one fixture per cell
+(42 documents in `../../test/validator/data/derived/`): 6.1.36 must fail the 11 prohibited and pass the other 31,
+6.2.27 must fail the 11 discouraged and pass the 20 allowed. Changing one cell changes the table, the lists, both
+tests' expectations and the fixture in one edit. Free prose around it (such as "CSAF Viewers MAY sort the
+remediation items accordingly.") stays hand-written in `src/`.
+
+To add a new refinement in this world: a new prohibition is a cell changing to `prohibited`; a new business
+preference is a change of `ranking`; a new category is a new row of `cells` and a place in `ranking`, and derive
+insists on both as soon as the schema enum gains the value.
+
+How we know the derivation does what the careful hand collage did (the happy path), and more:
+
+1. **Lossless start.** The records were read from CSD04, and `make check` proved that they reproduce every CSD04 file
+   byte for byte. Each later difference is a reviewable change of a record; the corrections it brought to light are
+   listed in `../../VISION.md`.
+2. **Derive refuses inconsistent records**, e.g. a `ranking` that misses a permitted cell, lists one twice, puts a
+   discouraged one before an allowed one, or names a prohibited one; or a clause that builds on an unknown clause.
+   The table is also held to the schema layer underneath it (`schema:` in the record, JSON Pointers into
+   `json_schema/csaf.json`): its rows must be exactly the remediation category enum and its columns exactly the
+   product status properties. A schema change that adds a category stops derive until the table gives it a verdict.
+3. **A second, independent construction agrees.** prototyyppi implements 6.1.36 and 6.2.27 by hand from the CSD04
+   prose, not from the record. On all 73 derived expectations (42 for 6.1.36, 31 for 6.2.27) its verdicts match
+   (checked 2026-11-03).
+4. **Findings, non-blocking**, go to `../../views/findings.md`: e.g. an explanation naming a product ID its example
+   does not contain, or a test sentence restating hand-written prose (that is how the doubled "pairwise disjoint"
+   SHALL of 6.1.6 was found). Keep it empty before a PR.
+
 ## The authoring loop
 
-    # 1. Edit one or more source files
+    # 1. Edit one or more source files, or a record (then run make derive in ../..)
     $EDITOR src/some-section.md
 
     # 2. Build HTML to review locally
     make html
 
-    # 3. Check document completeness against editorial rules
+    # 3. Check document completeness against editorial rules (after step 2: it reads the rendered output)
     make quality       # per-rule PASS/FAIL/NA report
 
-    # 4. When ready for a round-trip review, build all channels
-    make release
+    # 4. Before a PR or a release: build everything from scratch, with every gate
+    make release       # distclean, records check, html, quality, pdf, manifest, validate; lists changed deliverables
 
     # 5. Verify nothing unintended changed
     make diff          # prose diff of HTML against VCS HEAD
@@ -70,7 +160,8 @@ Never edit the derived files directly and expect the changes to be preserved acr
 
 | Target          | What it does                                                                               |
 |:----------------|:-------------------------------------------------------------------------------------------|
-| `make release`  | Full build: html + pdf + `nide manifest` + `nide validate`                                 |
+| `make release`  | What you hand over (PR, release), from scratch: `distclean`, the records check (`make check` in `../..`), `html`, `nide quality`, `pdf` (no viewer), `nide manifest`, `nide validate`; then lists the deliverables in `../share/` that changed. Never commits, pushes, or uploads |
+| `make render`   | The quick loop: html + pdf, no cleaning, no gates (the default `make` runs it, then `make status`) |
 | `make html`     | GFM+ and HTML (implies `make gfm-plus`)                                                    |
 | `make gfm-plus` | Assembles sources, renders GFM+ markdown and IR                                            |
 | `make pdf`      | Assembles sources, renders PDF via typst; copies typst source and checksums to `../share/` |
@@ -82,10 +173,8 @@ Never edit the derived files directly and expect the changes to be preserved acr
 | `make quality`          | `nide quality` — per-rule PASS/FAIL/NA report against `etc/rules/spec.rules.yaml` |
 | `make diff`             | `nide diff --mode prose` on the HTML — readable word-level diff against VCS HEAD  |
 | `make diff-repro`       | `nide diff --mode repro` on the PDF — timestamp-normalised diff against VCS HEAD  |
-| `make status`           | Fossil status summary                                                             |
-| `make tree`             | Fossil tree view with database hash check                                         |
-| `make show-extra-files` | Lists untracked files not in the ignore list                                      |
-| `make context`          | Reports tool versions and environment details                                     |
+| `make status`           | `git status` summary                                                              |
+| `make context`          | Reports clone, branch, revision, and location details                             |
 
 ### Code quality targets (for `bin/` scripts)
 
@@ -94,21 +183,19 @@ Never edit the derived files directly and expect the changes to be preserved acr
 | `make lint`   | ruff + black check + unmake   |
 | `make format` | ruff --fix + black (in-place) |
 | `make types`  | mypy                          |
-| `make all`    | lint + types + build          |
+| `make all`    | lint + types + render + status |
 
 ### Maintenance targets
 
 | Target           | What it does                                             |
 |:-----------------|:---------------------------------------------------------|
-| `make hash`      | Updates the BLAKE3 hash of the Fossil database           |
-| `make dist-scm`  | Distributes the Fossil database to `$SOURCE_DIST_TARGET` |
 | `make clean`     | Removes build artefacts (keeps `build/` directory)       |
 | `make distclean` | Removes the entire `build/` directory                    |
 
 ## Using `nide quality` directly
 
 The make target runs `nide quality` with the rules file configured in `etc/nide.yaml`.
-For finer control, run it directly after `make gfm-plus` (which writes `build/ir.json`):
+For finer control, run it directly after `make html` (which writes `build/ir.json` and the rendered HTML):
 
     # default: reads quality.rules from etc/nide.yaml
     nide quality
@@ -148,6 +235,41 @@ For finer control, run `nide diff` directly (VCS version is extracted automatica
     nide diff --mode full ../share/csaf-v2.1-draft.html
 
 All mode names and modifier names accept unambiguous prefixes (`nide diff --mode pr` is equivalent to `--mode prose`).
+
+## FAQ
+
+**Where is test 6.1.36 now?**
+In `../../records/tests/`, named by a stable slug, with its number under `legacy:`.
+Find it with `grep -l 'number: 6.1.36$' ../../records/tests/*.yaml`.
+
+**I edited `src/tests-01-mndtr-....md` and `make check` fails.**
+That file is derived from its record. Move the edit to the record, then `(cd ../.. && make derive)`;
+the next derive would overwrite the hand edit anyway.
+
+**How do I add a test?**
+Copy a similar record to a new slug, set `level`, `legacy.number`, `title`, `statement`, `paths`, `examples`,
+`fixtures` and, where they apply, `topics` and `applies-to`; then derive and review the diff. Presets pick the test up
+through its `topics`; `presets.yaml` changes only for a new preset.
+
+**Can I still write prose as before?**
+Yes, everywhere except the derived parts listed in `../../VISION.md`. Those carry a record; the rest of `src/` is
+ordinary Markdown.
+
+**Which `make` do I run where?**
+In `../..`: `make derive`, `make check`, `make prose` (derive, then build here). Here: `make html` to review,
+`make quality` after it, `make release` before a PR (from scratch, with `make check` first).
+
+**What do I need installed?**
+For the records: Python with PyYAML. For the build: nide, pandoc and typst, as listed below; with pyenv, the
+environment `csaf-2.1-dev-py-3-14-5` has nide (`PYENV_VERSION=csaf-2.1-dev-py-3-14-5 make release`).
+
+**Does the derivation change the wording?**
+Not by itself: it started by reproducing CSD04 byte for byte. Differences come from edited records, and the
+corrections against CSD04 are each listed with how they were found in `../../VISION.md`.
+
+**Is this CSAF 2.2?**
+It is a proposal on the branch `csaf-2.2-refactor`, built on CSD04, for the editors and the TC to discuss; nothing
+in it is decided.
 
 ## Tool prerequisites
 

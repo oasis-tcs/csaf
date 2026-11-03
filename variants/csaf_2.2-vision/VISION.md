@@ -36,8 +36,8 @@ under `legacy:` only to map to today. A record holds what today is spread over s
 
 A table record (today: `status-remediation`) holds the cells, the status groups with their member
 properties, and one `ranking` of all non-prohibited combinations; the prose's two preference lists are that
-ranking split by verdict. Derive refuses a table whose ranking does not list every allowed cell, then every
-discouraged cell, each once. A test record links to a table with `uses:` and asks for fixtures with
+ranking split by verdict. Derive refuses a table whose rows and status members are not exactly the JSON schema's
+(`schema:` in the record), or whose ranking does not list every allowed cell, then every discouraged cell, each once. A test record links to a table with `uses:` and asks for fixtures with
 `derive: {table, failures: [verdicts], valid: [verdicts]}`: 6.1.36 fails on the 11 prohibited cells and
 passes the other 31, 6.2.27 fails on the 11 discouraged cells and passes the 20 allowed ones. Changing one
 cell therefore changes the prose table, the preference lists (via the check), both tests' expectations and
@@ -51,6 +51,8 @@ for a new preset. A section that consists of sub-tests (6.1.60, 6.3.21, ...) con
 
 Workflow: edit a record, run `make derive`, review the diff of the record and of the views, run `make check`
 before committing. Editing a derived file directly makes `make check` fail.
+Before a PR or a release, `make release` in `prose/edit` builds everything from scratch with every gate,
+`make check` first, and lists the rendered deliverables that changed.
 
 ## How the roles fit in
 
@@ -160,6 +162,20 @@ Done (phase 2, step 6): findings applied, each as one small edit.
   disjoint" SHALL; the requirement stays in the product status section, the test keeps its test sentence)
 - prose edits: clause 22's lead sentence, the target count in `conformance-00.md`
 - `views/findings.md` is empty now; `prose/share/csaf-v2.1-draft.md` re-rendered
+
+Done (phase 2, step 7): the table record is anchored in the JSON schema.
+
+- `records/tables/status-remediation.yaml` names where its rows and columns come from (`schema:` with JSON
+  Pointers into `json_schema/csaf.json`): the rows are the remediation category enum, the column members the
+  product status properties
+- derive refuses the table unless its rows are exactly that enum and its members exactly those properties, each in
+  one column only, and every column's fixture is one of its members; the check runs before the ranking check, so
+  a renamed value is reported as such
+- why: the table refines the schema's shape constraint twice (6.1.36 prohibited, 6.2.27 discouraged) and once more
+  in prose (the preference ranking); until now nothing noticed a schema value the table does not cover. A new
+  category in 2.2 now stops derive until the table gives it a verdict in every column and a place in the ranking
+- tried against the schema with a new category, a new status property, a renamed row, a member in two columns and
+  a foreign fixture: each stops derive with a message naming it; today's records pass unchanged, no view changed
 
 ## Corrections against CSD04 (to report upstream)
 

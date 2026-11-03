@@ -283,6 +283,7 @@ def table_cells(table: dict[str, Any]) -> list[tuple[str, str, str]]:
 
 
 def check_table(table: dict[str, Any]) -> None:
+    check_table_schema(table)  # first: a row or member the schema lacks would otherwise surface as a ranking error
     cells = table_cells(table)
     bad = [c for c in cells if c[2] not in table['verdicts']]
     verdict = {(cat, col): v for cat, col, v in cells}
@@ -290,6 +291,31 @@ def check_table(table: dict[str, Any]) -> None:
     expected = sorted((v for v in verdict.values() if v != 'prohibited'), key=table['verdicts'].index)
     if bad or ranked != expected or len({tuple(p) for p in table['ranking']}) != len(ranked):
         sys.exit(f'{table["id"]}: unknown verdicts {bad} or ranking is not allowed-then-discouraged, each cell once: {ranked}')
+
+
+def schema_at(file: str, pointer: str) -> Any:
+    """The node a JSON Pointer (RFC 6901) addresses in a schema file of the variant."""
+    node = json.loads((ROOT / file).read_text(encoding='utf-8'))
+    for part in pointer.lstrip('/').split('/'):
+        node = node[part.replace('~1', '/').replace('~0', '~')]
+    return node
+
+
+def check_table_schema(table: dict[str, Any]) -> None:
+    """Rows are exactly the schema enum; column members are exactly the schema properties, each once; fixtures are members."""
+    schema = table['schema']
+    rows, members = set(schema_at(schema['file'], schema['rows'])), set(schema_at(schema['file'], schema['members']))
+    listed = [m for col in table['columns'] for m in col['members']]
+    problems = [
+        *(f'row {r!r} is not in the schema enum at {schema["rows"]}' for r in sorted(set(table['cells']) - rows)),
+        *(f'schema value {r!r} has no row' for r in sorted(rows - set(table['cells']))),
+        *(f'member {m!r} is not a schema property' for m in sorted(set(listed) - members)),
+        *(f'schema property {m!r} is in no column' for m in sorted(members - set(listed))),
+        *(f'member {m!r} is in more than one column' for m in sorted({m for m in listed if listed.count(m) > 1})),
+        *(f'column {c["id"]!r} uses fixture {c["fixture"]!r}, not one of its members' for c in table['columns'] if c['fixture'] not in c['members']),
+    ]
+    if problems:
+        sys.exit(f'{table["id"]} (checked against {schema["file"]}): ' + '; '.join(problems))
 
 
 def _center(text: str, width: int) -> str:

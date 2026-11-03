@@ -1,8 +1,9 @@
 # Product status group x remediation category: one record, from which derive writes
 #   - the table and both preference lists in the prose (between the anchors of `legacy.region`)
 #   - the fixtures of the tests that `use` this table (one document per cell, test/validator/data/derived/)
-# Invariants checked on every derive: every cell has a verdict; `ranking` lists every allowed cell before
-# every discouraged one, each exactly once, and no prohibited cell.
+# Invariants checked on every derive: rows and column members agree with the JSON schema (see `schema`);
+# every cell has a verdict; `ranking` lists every allowed cell before every discouraged one, each exactly once,
+# and no prohibited cell.
 
 id: status-remediation
 kind: table
@@ -16,6 +17,15 @@ legacy:
   typesetting: ['\tablefontsize=small ', '\columns=,12%,13%,13%,19%,13%,13%']
 
 verdicts: [allowed, discouraged, prohibited]
+
+# Where rows and columns come from in the JSON schema (JSON Pointers into `file`, relative to the variant root).
+# Checked on every derive: the rows of `cells` are exactly the `rows` enum, and the `members` of the columns are
+# exactly the `members` properties, each in one column only. A schema change that adds or removes a value
+# therefore stops derive until this table says what the new value means.
+schema:
+  file: json_schema/csaf.json
+  rows: /properties/vulnerabilities/items/properties/remediations/items/properties/category/enum
+  members: /properties/vulnerabilities/items/properties/product_status/properties
 
 # Status groups: `members` are the product_status properties of the group, `fixture` the one the derived
 # fixtures use.
