@@ -55,7 +55,7 @@
             "branches": [
               {
                 "category": "product_version_range",
-                "name": "vers:/all",
+                "name": "vers:all/*",
                 "product": {
                   "product_id": "CSAFPID-9080700",
                   "name": "Example Company Product B - all versions"
