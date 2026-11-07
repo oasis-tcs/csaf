@@ -3,7 +3,7 @@
 It SHALL be tested that the hash algorithm `sha1` is not the only one present.
 
 > Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash.
-> This will allow users to double check the results.
+> This will allow users to double-check the results.
 
 The relevant paths for this test are:
 

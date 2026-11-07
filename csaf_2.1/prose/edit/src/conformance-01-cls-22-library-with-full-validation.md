@@ -1,6 +1,6 @@
 ### Conformance Clause 22: CSAF Library with Full Validation
 
-A CSAF Library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library:
+A CSAF Library satisfies the "CSAF Library with Full Validation" conformance profile if the CSAF Library:
 
 - satisfies the "CSAF Library" conformance profile.
 - satisfies the "CSAF Full Validator" conformance profile.

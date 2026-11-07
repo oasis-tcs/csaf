@@ -5,7 +5,7 @@ registered vulnerability ID system in RVISC.
 
 > The RVISC is available at [cite](#RVISC).
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].ids[*].system_name

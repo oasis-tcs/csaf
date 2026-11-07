@@ -29,4 +29,4 @@ The relevant path for this test is:
       ]
 ```
 
-> For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.
+> For the product with product ID `CSAFPID-9080700` a fix is planned but the product was not affected at all.

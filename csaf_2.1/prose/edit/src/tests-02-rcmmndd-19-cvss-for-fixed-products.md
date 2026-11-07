@@ -5,7 +5,7 @@ a CVSS applying to this product has an overall score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
 `first_fixed` is found in `products` of any item of the `metrics` element.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```list-of-jsonpaths
   $.vulnerabilities[*].product_status.first_fixed[*]

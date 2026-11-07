@@ -5,7 +5,7 @@ For each element of type `$['$defs'].branches_t` it SHALL be tested that the `ca
 > It is usually hard decide for machines whether a product version matches a product version ranges.
 > Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```list-of-jsonpaths
   $.product_tree..branches[*].category
