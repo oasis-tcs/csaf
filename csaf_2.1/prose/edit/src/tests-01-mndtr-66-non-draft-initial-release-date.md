@@ -35,3 +35,6 @@ The relevant path for this test is:
 > than given through the `initial_release_date`.
 
 > A tool MAY set the `initial_release_date` from the `date` of the revision history item with a `number` of `1` or `1.0.0` as a quick fix.
+> This quick fix can lead to a situation where a CSAF document moves from one year folder to another (see [sec](#requirement-11-one-folder-per-year)).
+> Issuing parties are strongly advised to double-check whether this reflects the facts.
+> If that is not the case, the issuing party should correct the mistake by updating the revision history.

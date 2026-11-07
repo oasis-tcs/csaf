@@ -404,6 +404,12 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
   for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
   `date` from the revision history item with a `number` of `1` or `1.0.0`.
+
+  > This conversion can lead to a situation where a CSAF document moves from one year folder to another
+  > (see [sec](#requirement-11-one-folder-per-year)).
+  > Issuing parties are strongly advised to double-check whether that conversion reflects the facts.
+  > If that is not the case, the issuing party should correct the mistake in the input file.
+
 - `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
 - `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter
