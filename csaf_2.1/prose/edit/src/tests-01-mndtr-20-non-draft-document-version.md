@@ -4,7 +4,7 @@ It SHALL be tested that document version does not contain a pre-release part if 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.version
 ```
 

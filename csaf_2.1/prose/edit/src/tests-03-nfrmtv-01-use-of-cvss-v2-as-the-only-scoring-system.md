@@ -8,7 +8,7 @@ The test SHALL pass if a second scoring object is available regarding the specif
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics
 ```
 

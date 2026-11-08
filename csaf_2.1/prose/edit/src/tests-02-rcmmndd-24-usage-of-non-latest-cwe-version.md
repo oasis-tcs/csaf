@@ -5,7 +5,7 @@ The test SHALL fail if a later CWE version was used.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 

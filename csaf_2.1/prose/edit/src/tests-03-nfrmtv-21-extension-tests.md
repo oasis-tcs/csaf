@@ -14,7 +14,7 @@ is not `essential`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*].category
   $.product_tree..branches[*].product.x_extensions[*].category
   $.product_tree.full_product_names[*].x_extensions[*].category
@@ -46,7 +46,7 @@ if the document is not labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -88,7 +88,7 @@ It SHALL be tested that the element `$.document.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions
 ```
 
@@ -114,7 +114,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.x_extensions
 ```
 
@@ -154,7 +154,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.full_product_names[*].x_extensions
 ```
 
@@ -181,7 +181,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
@@ -213,7 +213,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
@@ -244,7 +244,7 @@ For each item `$.vulnerabilities` it SHALL be tested that the element `x_extensi
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].x_extensions
 ```
 
@@ -272,7 +272,7 @@ It SHALL be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.x_extensions
 ```
 

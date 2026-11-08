@@ -8,7 +8,7 @@ For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*]
 ```
 

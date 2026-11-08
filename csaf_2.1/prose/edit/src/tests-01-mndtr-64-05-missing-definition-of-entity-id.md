@@ -7,7 +7,7 @@ This test SHALL ignore elements of type `$['$defs'].entity_group_id_t` in items 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].acting_entity_refs[*]
   $.document.involvement.actions[*].receiving_entity_refs[*]
   $.document.involvement.entity_groups[*].entity_ids[*]

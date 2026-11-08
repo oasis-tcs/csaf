@@ -11,7 +11,7 @@ The warning SHALL differentiate between officially registered VERS types and tho
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 

@@ -5,7 +5,7 @@ For each `full_product_name_t` element under `$.product_tree.branches`, it SHALL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].category
 ```
 

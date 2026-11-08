@@ -4,7 +4,7 @@ For each element of type `$['$defs'].lang_t` it SHALL be tested that the languag
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```

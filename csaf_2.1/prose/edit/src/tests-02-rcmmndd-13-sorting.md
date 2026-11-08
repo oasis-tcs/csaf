@@ -4,7 +4,7 @@ It SHALL be tested that all keys in a CSAF document are sorted alphabetically.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $
 ```
 

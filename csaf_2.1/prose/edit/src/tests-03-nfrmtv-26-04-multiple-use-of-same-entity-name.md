@@ -9,7 +9,7 @@ it SHALL be tested that the `name` was not already used for another entity withi
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entities[*].name
 ```
 

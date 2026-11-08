@@ -8,7 +8,7 @@ it SHALL be tested that the `entity_group_id` is referenced somewhere within the
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 

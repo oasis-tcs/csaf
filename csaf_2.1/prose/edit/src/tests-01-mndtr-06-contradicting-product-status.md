@@ -6,7 +6,7 @@ The sets formed by the contradicting groups within one vulnerability item SHALL 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 

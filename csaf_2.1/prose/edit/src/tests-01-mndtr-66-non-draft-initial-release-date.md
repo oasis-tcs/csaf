@@ -8,7 +8,7 @@ cannot be determined.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.initial_release_date
 ```
 

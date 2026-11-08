@@ -5,7 +5,7 @@ it SHALL be tested that the `action_id` was not already defined within the same 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].action_id
 ```
 

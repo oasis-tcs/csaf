@@ -5,7 +5,7 @@ SHALL be tested that the `group_id` was not already defined within the same docu
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_groups[*].group_id
 ```
 
