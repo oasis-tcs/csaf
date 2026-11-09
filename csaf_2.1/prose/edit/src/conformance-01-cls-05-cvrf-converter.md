@@ -234,6 +234,13 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
   for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
   `date` from the revision history item with a `number` of `1` or `1.0.0`.
+
+  > If the year of the `initial_release_date` changed during this conversion step
+  > it can lead to a situation where a CSAF document moves from one year folder to another
+  > (see [sec](#requirement-11-one-folder-per-year)).
+  > Issuing parties are strongly advised to double-check whether that conversion reflects the facts.
+  > If that is not the case, the issuing party should correct the mistake in the input file.
+
 - `$.product_tree.product_paths[*]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
   - The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
   - The first `prod:FullProductName` instance is converted into the `full_product_name`.
