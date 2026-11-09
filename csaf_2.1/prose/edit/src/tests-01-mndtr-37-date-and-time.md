@@ -2,7 +2,7 @@
 
 For each item of type `string` and format `date-time` it SHALL be tested that it conforms to the rules given in section [sec](#date-and-time).
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].date

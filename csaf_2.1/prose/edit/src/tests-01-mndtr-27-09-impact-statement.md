@@ -10,7 +10,7 @@ The relevant value for `$.document.category` is:
   csaf_vex
 ```
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].flags

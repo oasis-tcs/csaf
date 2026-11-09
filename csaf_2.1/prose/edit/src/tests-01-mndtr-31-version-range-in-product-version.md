@@ -26,7 +26,7 @@ the value of `name` does not contain a version range.
 >      versions
 >    ```
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name

@@ -6,7 +6,7 @@ order starting with the Product tree node.
 
 > Other branch categories can be used before, after or between the aforementioned branch categories without making the test invalid.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```{.text sequence-of="jsonpath"}
   $.product_tree.branches
@@ -28,7 +28,7 @@ The relevant paths for this test are:
                 "category": "patch_level",
                 "name": "91",
                 "product": {
-                  "product_id": "CSAFPID-0002",
+                  "product_id": "CSAFPID-9080700",
                   "name": "Example Company Product A Update 91"
                 }
               }
