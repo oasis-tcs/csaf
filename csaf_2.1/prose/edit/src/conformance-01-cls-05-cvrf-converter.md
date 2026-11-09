@@ -11,7 +11,7 @@ Firstly, the program:
   The CVRF CSAF Converter SHALL ignore that additional property during the conversion.
 - includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see also [tab](#tab:involvement-status-and-category-mapping-from-cvrf-1-2)).
 
 Secondly, the program fulfills the following for all items of:
 

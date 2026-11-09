@@ -17,7 +17,8 @@ Firstly, the program:
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
 - includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see also [tab](#tab:tlp-labels-across-csaf-versions) and
+  [tab](#tab:involvement-status-and-category-mapping-from-csaf-2-0)).
 
 Secondly, the program fulfills the following for all items of:
 
