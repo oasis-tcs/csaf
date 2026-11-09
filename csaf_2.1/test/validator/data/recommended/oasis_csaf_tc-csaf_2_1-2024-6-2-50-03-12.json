@@ -37,9 +37,9 @@
             "branches": [
               {
                 "category": "product_version_range",
-                "name": ">2.1.0|<3.16.0|>3.16.0|<4.2.0",
+                "name": ">2.1.0|!=3.16.0|<4.2.0",
                 "product": {
-                  "name": "Example Company Product A >2.1.0|<4.2.0",
+                  "name": "Example Company Product A >2.1.0|!=3.16.0|<4.2.0",
                   "product_id": "CSAFPID-9080700"
                 }
               },
