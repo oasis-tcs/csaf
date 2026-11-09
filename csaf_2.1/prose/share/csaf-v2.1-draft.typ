@@ -19,9 +19,9 @@
     stroke: (top: 0.5pt),
     columns: (1fr, 2fr, 1fr),
     align: (left + horizon, center + horizon, right + horizon),
-    text(size: 8pt)[csaf-v2.1-csd04],
+    text(size: 8pt)[csaf-v2.1-cs01],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[21 October 2026 — Page #counter(page).display()
+    text(size: 8pt)[09 November 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )
@@ -51,25 +51,25 @@
 Advisory Framework Version 2.1]
 <common-security-advisory-framework-version-2-1>
 #heading(level: 2, outlined: false, numbering: none)[Committee
-Specification Draft 04]
-<committee-specification-draft-04>
-#heading(level: 2, outlined: false, numbering: none)[21 October 2026]
-<21-october-2026>
+Specification 01]
+<committee-specification-01>
+#heading(level: 2, outlined: false, numbering: none)[09 November 2026]
+<09-november-2026>
 #heading(level: 4, outlined: false, numbering: none)[This stage]
 <this-stage>
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.md")
+(Authoritative) \
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.html")
+\
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.pdf")
+
+#heading(level: 4, outlined: false, numbering: none)[Previous stage]
+<previous-stage>
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md")
 (Authoritative) \
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html")
 \
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf")
-
-#heading(level: 4, outlined: false, numbering: none)[Previous stage]
-<previous-stage>
-#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md")
-(Authoritative) \
-#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html")
-\
-#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf")
 
 #heading(level: 4, outlined: false, numbering: none)[Latest stage]
 <latest-stage>
@@ -105,31 +105,31 @@ This prose specification is one component of a Work Product that also
 includes:
 
 - Aggregator JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/aggregator.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json").
 - CSAF JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/csaf.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json").
 - Extension Content JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/extension-content.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json").
 - Extension Metadata JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/extension-metadata.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json").
 - Extension Metaschema JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/extension-metaschema.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json").
 - Meta JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/meta.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json").
 - Provider JSON schema:
-  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json").
+  #link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/provider.json").
   \ Latest stage:
   #link("https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json").
 
@@ -204,9 +204,9 @@ be used:
 #strong[\[CSAF-v2.1\]]
 
 #emph[Common Security Advisory Framework Version 2.1]. Edited by Stefan
-Hagen and Thomas Schmidt. 21 October 2026. OASIS Committee Specification
-Draft 04.
-#link("https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html").
+Hagen and Thomas Schmidt. 09 November 2026. OASIS Committee
+Specification 01.
+#link("https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.html").
 Latest stage:
 #link("https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html").
 
@@ -1925,12 +1925,21 @@ obey to exactly one of the following options:
 
   #quote(block: true)[
   The reason for that is, that it is nearly impossible for tools to
-  reliable determine whether a given version is in the range or not.
+  reliably determine whether a given version is in the range or not.
   Also, different tools might come to different results regarding this
-  question.
+  question. This includes, but is not limited to, tests
+  #link(<upper-open-ended-product-version-range>)[6.2.49],
+  #link(<overlapping-product-version-range-with-vls-in-contradicting-product-status-group>)[6.2.50.2],
+  #link(<overlapping-product-version-range-with-vls-in-same-product-status-group>)[6.3.19.2].
   ]
 
   Tools MAY support this on best effort basis.
+
+  #quote(block: true)[
+  Consequently, situations might occur where the result is not
+  determinable by that tool which is an admissible scenario and valuable
+  information for the user.
+  ]
 
   #emph[Examples 2 (for `name` when using `product_version_range` with
   vls):]#box()<branches-type---name-under-product-version-range-eg-2>
@@ -8553,8 +8562,8 @@ exists that contains a link to an `external` source. The property
 #quote(block: true)[
 Other items MAY exist which do not contain the property `category`.
 Issuing parties are advised that tools MAY explicitly filter for or
-prioritize entries that have the contain the property `category` with
-the value of `external`.
+prioritize entries that contain the property `category` with the value
+of `external`.
 ]
 
 The relevant values for `$.document.category` are:
@@ -8834,7 +8843,7 @@ The relevant value for `$.document.category` is:
   csaf_vex
 ```
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```text
   $.vulnerabilities[*].flags
@@ -9372,7 +9381,7 @@ The note has the correct title. However, it uses the wrong category.
 It SHALL be tested that the given source language and document language
 are not the same.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```text
   $.document.lang
@@ -9525,7 +9534,7 @@ lowercase, the value of `name` satisfies the two requirements below:
   ```
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.product_tree..branches[*].name
@@ -9905,7 +9914,7 @@ test):]#box()<contradicting-remediations-eg-1>
 
 #quote(block: true)[
 The two remediations given for the product with product ID
-`CSAFPID-908070` contradict each other.
+`CSAFPID-9080700` contradict each other.
 ]
 
 #quote(block: true)[
@@ -9951,8 +9960,8 @@ test):]#box()<contradicting-product-status-remediation-combination-eg-1>
 ```
 
 #quote(block: true)[
-For the product with product ID `CSAFPID-908070` a `vendor_fix` is given
-but the product was not affected at all.
+For the product with product ID `CSAFPID-9080700` a `vendor_fix` is
+given but the product was not affected at all.
 ]
 
 === Date and Time
@@ -9961,7 +9970,7 @@ For each item of type `string` and format `date-time` it SHALL be tested
 that it conforms to the rules given in section
 #link(<date-and-time>)[2.3].
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```text
   $.document.involvement.actions[*].date
@@ -11385,7 +11394,7 @@ The action contains `EID-0001` as acting and receiving entity.
 ]
 
 #quote(block: true)[
-CSAF focusses on the exchange of information. Consequently, for
+CSAF focuses on the exchange of information. Consequently, for
 vulnerabilities found internal, i.e.~a vendor finds a vulnerability in
 its own product, either the `discoverer` part is listed independent of
 the `vendor` part which results in two entities or action is omitted as
@@ -11915,6 +11924,13 @@ The document status is `final` but the revision history item which has
 #quote(block: true)[
 A tool MAY set the `initial_release_date` from the `date` of the
 revision history item with a `number` of `1` or `1.0.0` as a quick fix.
+If the year of the `initial_release_date` changed during the quick fix
+this can lead to a situation where a CSAF document moves from one year
+folder to another (see
+#link(<requirement-11-one-folder-per-year>)[7.1.11]). Issuing parties
+are strongly advised to double-check whether this reflects the facts. If
+that is not the case, the issuing party should correct the mistake by
+updating the revision history.
 ]
 
 == Recommended Tests
@@ -12186,7 +12202,7 @@ present.
 #quote(block: true)[
 Since collision attacks exist for MD5 such value should be accompanied
 by a second cryptographically stronger hash. This will allow users to
-double check the results.
+double-check the results.
 ]
 
 The relevant paths for this test are:
@@ -12237,7 +12253,7 @@ present.
 #quote(block: true)[
 Since collision attacks exist for SHA-1 such value should be accompanied
 by a second cryptographically stronger hash. This will allow users to
-double check the results.
+double-check the results.
 ]
 
 The relevant paths for this test are:
@@ -12507,7 +12523,7 @@ and white space characters have been removed from the value of the
 property `text` whether it matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.vulnerabilities[*].ids[*]
@@ -12565,7 +12581,7 @@ It is planned to deprecate and finally remove the support for vls in
 future versions of this standard.
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.product_tree..branches[*].name
@@ -12597,7 +12613,7 @@ score of `0`. The test SHALL pass if none of the Product IDs listed
 within product status `fixed` or `first_fixed` is found in `products` of
 any item of the `metrics` element.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
 ```text
   $.vulnerabilities[*].product_status.first_fixed[*]
@@ -12997,7 +13013,7 @@ test):]#box()<discouraged-product-status-remediation-combination-eg-1>
 ```
 
 #quote(block: true)[
-For the product with product ID `CSAFPID-908070` a fix is planned but
+For the product with product ID `CSAFPID-9080700` a fix is planned but
 the product was not affected at all.
 ]
 
@@ -14595,7 +14611,8 @@ starts with as a quick fix, if applicable. If the upper open ended
 product version range consists of more than one version constraint and
 the upper open range is the last version constraint, a tool MAY convert
 it into the product version range ending with the version of the upper
-open ended product version as a quick fix, if applicable.
+open ended product version as a quick fix, if applicable. Note that a
+change of inclusion boundaries is not allowed.
 ]
 
 === Overlapping Product Version Range
@@ -14943,7 +14960,7 @@ VERS types. The differentiation will help users analyzing the result of
 the test and addressing the issue appropriately.
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.product_tree..branches[*].name
@@ -15229,7 +15246,7 @@ test):]#box()<public-openpgp-key-url-eg-1>
 ```
     "contact": {
       // ...
-      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
+      "public_openpgp_key_url": "https://data.test.csaf.dev/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
     },
 ```
 
@@ -16028,7 +16045,7 @@ Other branch categories can be used before, after or between the
 aforementioned branch categories without making the test invalid.
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.product_tree.branches
@@ -16050,7 +16067,7 @@ The relevant paths for this test are:
                 "category": "patch_level",
                 "name": "91",
                 "product": {
-                  "product_id": "CSAFPID-0002",
+                  "product_id": "CSAFPID-9080700",
                   "name": "Example Company Product A Update 91"
                 }
               }
@@ -16077,7 +16094,7 @@ a product version ranges. Therefore, it is recommended to avoid version
 ranges and enumerate versions wherever possible.
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.product_tree..branches[*].category
@@ -16109,7 +16126,7 @@ does not match the following regex:
 ```
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.product_tree..branches[*].name
@@ -16825,7 +16842,7 @@ in RVISC.
 The RVISC is available at \[#link(<RVISC>)[RVISC]\].
 ]
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
 ```text
   $.vulnerabilities[*].ids[*].system_name
@@ -17378,7 +17395,7 @@ test):]#box()<public-openpgp-key-url-user-id-eg-1>
 ```
     "contact": {
       "email": "test-6.3.24@csaf.example",
-      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
+      "public_openpgp_key_url": "https://data.test.csaf.dev/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
     },
 ```
 
@@ -17816,8 +17833,8 @@ Additional presets are defined as follows:
     - #link(<inconsistent-first-known-exploitation-dates>)[6.1.52]
     - #link(<inconsistent-exploitation-date>)[6.1.53]
     - #link(<inconsistent-discovery-date>)[6.1.62]
-    - #link(<inconsistent-future-action-date>)[6.2.56.5]
     - #link(<confirmation-before-action>)[6.2.56.1]
+    - #link(<inconsistent-future-action-date>)[6.2.56.5]
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:
@@ -18008,9 +18025,9 @@ the `index.txt` (requirement 12). Suggested locations to store the
 `provider-metadata.json` are:
 
 - #link("https://www.example.com/.well-known/csaf/provider-metadata.json")
-- #link("https://domain.tld/security/data/csaf/provider-metadata.json")
-- #link("https://psirt.domain.tld/advisories/csaf/provider-metadata.json")
-- #link("https://domain.tld/security/csaf/provider-metadata.json")
+- #link("https://domain.example/security/data/csaf/provider-metadata.json")
+- #link("https://psirt.domain.example/advisories/csaf/provider-metadata.json")
+- #link("https://domain.example/security/csaf/provider-metadata.json")
 ]
 
 #emph[Example 1 (minimal with ROLIE
@@ -18108,9 +18125,9 @@ The security.txt was published as \[#link(<RFC9116>)[RFC9116]\] in April
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
-CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/csaf/provider-metadata.json
+CSAF: https://domain.example/security/data/csaf/provider-metadata.json
+CSAF: https://psirt.domain.example/advisories/csaf/provider-metadata.json
+CSAF: https://domain.example/security/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by
@@ -18146,13 +18163,13 @@ reported as error.
 
 === Requirement 10: DNS Path
 <requirement-10-dns-path>
-Assuming that the organization's main domain is `domain.tld`, the DNS
-record `csaf.data.security.domain.tld` SHALL resolve to the IP address
-of a web server which serves directly the `provider-metadata.json`
-according to requirement 7.
+Assuming that the organization's main domain is `domain.example`, the
+DNS record `csaf.data.security.domain.example` SHALL resolve to the IP
+address of a web server which serves directly the
+`provider-metadata.json` according to requirement 7.
 
 #quote(block: true)[
-The `domain.tld` is just a placeholder for the organization's main
+The `domain.example` is just a placeholder for the organization's main
 domain. For the organization with the main domain being `example.com`,
 the necessary DNS record is `csaf.data.security.example.com`.
 ]
@@ -18388,7 +18405,7 @@ SHALL be `urn:ietf:params:rolie:category:information-type`.
       "link": [
         {
           "rel": "self",
-          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
+          "href": "https://psirt.domain.example/advisories/csaf/feed-tlp-clear.json"
         }
       ],
       "category": [
@@ -18405,15 +18422,15 @@ SHALL be `urn:ietf:params:rolie:category:information-type`.
           "link": [
             {
               "rel": "self",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json"
             },
             {
               "rel": "hash",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json.sha512"
             },
             {
               "rel": "signature",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json.asc"
             }
           ],
           "published": "2024-01-01T11:00:00.000Z",
@@ -18423,7 +18440,7 @@ SHALL be `urn:ietf:params:rolie:category:information-type`.
           },
           "content": {
             "type": "application/json",
-            "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+            "src": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
             "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
@@ -18462,7 +18479,7 @@ filename `service.json` and reside next to the `provider-metadata.json`.
           "collection": [
             {
               "title": "Example CSAF feed (TLP:CLEAR)",
-              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json",
+              "href": "https://psirt.domain.example/advisories/csaf/feed-tlp-clear.json",
               "categories": {
                 "category": [
                   {
@@ -19355,12 +19372,12 @@ The order in which targets, and their corresponding clauses appear is
 somewhat arbitrary as there is no natural order on such diverse roles
 participating in the document exchanging ecosystem.
 
-Except for the target #strong[CSAF Document], all other 33 targets span
+Except for the target #strong[CSAF Document], all other 35 targets span
 a taxonomy of the complex CSAF ecosystems existing in and between
 diverse security advisory generating, sharing, and consuming
 communities.
 
-In any case, there are no capabilities organized in increasing quality
+The capabilities are not necessarily organized in increasing quality
 levels for targets because the security advisory sharing communities
 follow the chain link model. Instead, a single minimum capability level
 for every target is given to maintain important goals of providing a
@@ -19559,7 +19576,9 @@ Firstly, the program:
 - includes in every error and warning the relevant paths and values ​​from
   the original file that triggered the alert, unless otherwise specified
   in this standard.
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see
+  also
+  #link(<tab:involvement-status-and-category-mapping-from-cvrf-1-2>)[table 5]).
 
 Secondly, the program fulfills the following for all items of:
 
@@ -19966,6 +19985,16 @@ Secondly, the program fulfills the following for all items of:
   issue a warning that an inconsistent initial release date was detected
   and replaced with the `date` from the revision history item with a
   `number` of `1` or `1.0.0`.
+
+  #quote(block: true)[
+  If the year of the `initial_release_date` changed during this
+  conversion step it can lead to a situation where a CSAF document moves
+  from one year folder to another (see
+  #link(<requirement-11-one-folder-per-year>)[7.1.11]). Issuing parties
+  are strongly advised to double-check whether that conversion reflects
+  the facts. If that is not the case, the issuing party should correct
+  the mistake in the input file.
+  ]
 
 - `$.product_tree.product_paths[*]`: For each element
   `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following
@@ -20852,7 +20881,9 @@ Firstly, the program:
   the original file that triggered the alert, unless otherwise specified
   in this standard.
 
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see
+  also #link(<tab:tlp-labels-across-csaf-versions>)[table 6] and
+  #link(<tab:involvement-status-and-category-mapping-from-csaf-2-0>)[table 7]).
 
 Secondly, the program fulfills the following for all items of:
 
@@ -20976,13 +21007,30 @@ Secondly, the program fulfills the following for all items of:
         be changed to `product_version` and
       - the version SHALL be extracted from the original value and set
         as new value of `name`.
+
+      #quote(block: true)[
+      The product version range `vers:intdot/>=1.0` is changed to the
+      product version `1.0`. Note that a conversion of
+      `vers:intdot/>1.0` to the product version `1.0` would change the
+      inclusion boundary and is not allowed.
+      ]
     + If value of `name` consists of more than one version constraint
       and the upper open range is the last version constraint:
       - the category of the original `product_version_range` item SHALL
         be kept and
+
       - the value `name` SHALL be converted into the product version
         range ending with the version of the upper open ended product
         version if that does not change the inclusion boundaries.
+
+        #quote(block: true)[
+        The product version range `vers:intdot/>0.9|<=1.0|>=2.4` is
+        changed to the product version range
+        `vers:intdot/>0.9|<=1.0|2.4`. Note that a conversion of
+        `vers:intdot/<0.3|>1.0` to the product version range
+        `vers:intdot/<0.3|1.0` would change the inclusion boundary and
+        is not allowed.
+        ]
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid
     product tree, it SHALL issue a warning that an invalid product tree
@@ -21564,6 +21612,16 @@ Secondly, the program fulfills the following for all items of:
   initial release date was detected and replaced with the `date` from
   the revision history item with a `number` of `1` or `1.0.0`.
 
+  #quote(block: true)[
+  If the year of the `initial_release_date` changed during this
+  conversion step it can lead to a situation where a CSAF document moves
+  from one year folder to another (see
+  #link(<requirement-11-one-folder-per-year>)[7.1.11]). Issuing parties
+  are strongly advised to double-check whether that conversion reflects
+  the facts. If that is not the case, the issuing party should correct
+  the mistake in the input file.
+  ]
+
 - `$.document.title`: If the value contains the
   `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL
   remove the `$.document.tracking.id` from the `$.document.title`. In
@@ -21926,7 +21984,7 @@ enforce its presence.
 
 === Conformance Clause 22: CSAF Library with Full Validation
 <conformance-clause-22-csaf-library-with-full-validation>
-A CSAF Library satisfies the "CSAF Library with Extended Validation"
+A CSAF Library satisfies the "CSAF Library with Full Validation"
 conformance profile if the CSAF Library:
 
 - satisfies the "CSAF Library" conformance profile.
@@ -22425,13 +22483,13 @@ documents.
 
 The TC carefully considered all known aspects to provide size limits for
 CSAF documents for this version of the specification with the result
-that hard limits SHOULD NOT be enforced. However, since there is the
+that hard limits should not be enforced. However, since there is the
 need for guidance to ensure interoperability in the ecosystem, the TC
 provides a set of soft limits. A CSAF document which exceeds those, can
 still be valid but it might not be processable for some parties.
 
-All #emph[CSAF consumers] SHOULD be able to process CSAF documents which
-comply with the limits below. All #emph[CSAF producers] SHOULD NOT
+All #emph[CSAF consumers] should be able to process CSAF documents which
+comply with the limits below. All #emph[CSAF producers] should not
 produce CSAF documents which exceed those limits.
 
 #quote(block: true)[
@@ -22447,7 +22505,7 @@ as they depend upon on the extension.
 #heading(level: 2, numbering: none)[C.1 File Size]
 <file-size>
 A CSAF document including any extensions used in the document in the
-specified JSON format encoded in UTF-8 SHOULD conform to known size
+specified JSON format encoded in UTF-8 should conform to known size
 limits of current technologies parsing JSON content, e.g.: 150 MiB.
 
 #quote(block: true)[
@@ -22464,7 +22522,7 @@ format.
 
 #heading(level: 2, numbering: none)[C.2 Array Length]
 <array-length>
-An array SHOULD NOT have more than:
+An array should not have more than:
 
 - 10 000 items for
   - `$.document.acknowledgments`
@@ -22571,7 +22629,7 @@ An array SHOULD NOT have more than:
 
 #heading(level: 2, numbering: none)[C.3 String Length]
 <string-length>
-A string SHOULD NOT have a length greater than:
+A string should not have a length greater than:
 
 - 1000 for
   - `$.document.acknowledgments[*].names[*]`
@@ -22927,7 +22985,7 @@ each value is not greater than 50. This applies to:
 
 #heading(level: 2, numbering: none)[C.7 URI Length]
 <uri-length>
-A string with format `uri` SHOULD NOT have a length greater than 20000.
+A string with format `uri` should not have a length greater than 20000.
 This applies to:
 
 - `$.document.acknowledgments[*].urls[*]`
@@ -22964,7 +23022,7 @@ This applies to:
 
 #heading(level: 2, numbering: none)[C.8 UUID Length]
 <uuid-length>
-A string with format `uuid` SHOULD NOT have a length greater than 50.
+A string with format `uuid` should not have a length greater than 50.
 This applies to:
 
 - `$.document.distribution.sharing_group.id` (36)
