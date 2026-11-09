@@ -1,6 +1,6 @@
 # Comment Resolution Log
 
-The table summarizes the comments that were received during the 15-day public review of the committee specification draft "[Common Security Advisory Framework Version 2.1](https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html)" and their resolution. Comments came to the csaf-comment and the CSAF TC mailing lists. [The public review did start 2026-10-23 at 00:00 UTC and did end 2026-11-06 at 23:59 UTC](https://groups.oasis-open.org/discussion/invitation-to-comment-on-csaf-v2-1-csd04-ends-6-november-2026-2).
+The table summarizes the comments that were received during the 15-day public review of the committee specification draft "[Common Security Advisory Framework Version 2.1](https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html)" and their resolution. Comments came to the csaf-comment (9 comments) and the CSAF TC (0 comments) mailing lists. [The public review did start 2026-10-23 at 00:00 UTC and did end 2026-11-06 at 23:59 UTC](https://groups.oasis-open.org/discussion/invitation-to-comment-on-csaf-v2-1-csd04-ends-6-november-2026-2).
 
 A status of "Completed" in the Disposition column indicates that the editors have implemented the changes on which the TC decided, which are outlined in the Resolution column. It also is a hyperlink to the GitHub commit notice.
 
