@@ -32,6 +32,12 @@
           "description": "Contains all details as human-readable description on how to identify the configuration.",
           "type": "string",
           "minLength": 1
+        },
+        "name": {
+          "title": "Name of the Configuration",
+          "description": "Contains a human-readable name for the configuration.",
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false
