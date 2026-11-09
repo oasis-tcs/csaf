@@ -12,6 +12,7 @@ The following abbreviations are used:
 - BR = Bernhard Reiter
 - CB = Christian Bucher
 - FB = Felix Bräunling
+- JMMR = Juan Manuel Méndez Rey
 - JP = Johannes Pein
 - TZ = Thomas Ziemek
 
@@ -19,11 +20,12 @@ The following abbreviations are used:
 | ------------- | ------------- |  ------------- |  ---------- |  ---------------- |  ------------- |  ------------- |
 | [1](https://groups.oasis-open.org/discussion/clarification-of-open-ended-and-overlaps-for-vls) | 2026-10-26 | TZ | [Clarification of open ended and overlaps for VLS](https://github.com/oasis-tcs/csaf/issues/1717) |  |  |  |
 | [2](https://groups.oasis-open.org/discussion/new-issue-typos-in-test-files-6-1-66-13-and-6-1-66-14) | 2026-10-26 | JP | [Typos in test files 6-1-66-13 and 6-1-66-14](https://github.com/oasis-tcs/csaf/issues/1718) |  |  |  |
-| [3](https://groups.oasis-open.org/discussion/csd04-6-1-66-9-1-18-converted-documents-can-change-their-year-folder-requirement-11-1) (originally posted as [3-org](https://groups.oasis-open.org/discussion/csd04-6-1-66-9-1-18-converted-documents-can-change-their-year-folder-requirement-11) on 2026-10-28, removed by OASIS TC Admins due to author's request, re-posted on 2026-10-29) | 2026-10-28 | CB | [CSD04 6.1.66 / 9.1.18: converted documents can change their year folder (Requirement 11)](https://github.com/oasis-tcs/csaf/issues/1724) |  |  |  |
-| [4](https://groups.oasis-open.org/discussion/new-issue-test-case-16-for-6-1-27-13-seems-to-contain-a-wrong-product-id) | 2026-10-30 | FB | [Test Case 16 for 6.1.27.13 seems to contain a wrong product ID](https://github.com/oasis-tcs/csaf/issues/1726) |  |  |  |
-| [5](https://groups.oasis-open.org/discussion/2-1-9-1-5-superfluous-sentence) | 2026-10-30 | BR | [9.1.5 superfluous sentence](https://github.com/oasis-tcs/csaf/issues/1727) |  |  |  |
-| [6](https://groups.oasis-open.org/discussion/new-issue-typo-in-test-file-6-1-50-14) | 2026-11-02 | JP | [Typo in test file 6-1-50-14](https://github.com/oasis-tcs/csaf/issues/1729) |  |  |  |
-| [7](https://groups.oasis-open.org/discussion/typo-in-6-1-21-wrong-expected-version-in-the-result-json) | 2026-11-05 | BD | [Typo in 6.1.21 - wrong expected version in the result.json](https://github.com/oasis-tcs/csaf/issues/1732) |  |  |  |
+| [3](https://groups.oasis-open.org/discussion/request-license-the-csaf-json-schemas-so-distributions-can-ship-them) | 2026-10-26 | JMMR | [Can the JSON schemas get a copyright licence?](https://github.com/oasis-tcs/csaf/issues/1719) |  |  |  |
+| [4](https://groups.oasis-open.org/discussion/csd04-6-1-66-9-1-18-converted-documents-can-change-their-year-folder-requirement-11-1) (originally posted as [3-org](https://groups.oasis-open.org/discussion/csd04-6-1-66-9-1-18-converted-documents-can-change-their-year-folder-requirement-11) on 2026-10-28, removed by OASIS TC Admins due to author's request, re-posted on 2026-10-29) | 2026-10-28 | CB | [CSD04 6.1.66 / 9.1.18: converted documents can change their year folder (Requirement 11)](https://github.com/oasis-tcs/csaf/issues/1724) |  |  |  |
+| [5](https://groups.oasis-open.org/discussion/new-issue-test-case-16-for-6-1-27-13-seems-to-contain-a-wrong-product-id) | 2026-10-30 | FB | [Test Case 16 for 6.1.27.13 seems to contain a wrong product ID](https://github.com/oasis-tcs/csaf/issues/1726) |  |  |  |
+| [6](https://groups.oasis-open.org/discussion/2-1-9-1-5-superfluous-sentence) | 2026-10-30 | BR | [9.1.5 superfluous sentence](https://github.com/oasis-tcs/csaf/issues/1727) |  |  |  |
+| [7](https://groups.oasis-open.org/discussion/new-issue-typo-in-test-file-6-1-50-14) | 2026-11-02 | JP | [Typo in test file 6-1-50-14](https://github.com/oasis-tcs/csaf/issues/1729) |  |  |  |
+| [8](https://groups.oasis-open.org/discussion/typo-in-6-1-21-wrong-expected-version-in-the-result-json) | 2026-11-05 | BD | [Typo in 6.1.21 - wrong expected version in the result.json](https://github.com/oasis-tcs/csaf/issues/1732) |  |  |  |
 
 ## Evaluation of Feedback
 
