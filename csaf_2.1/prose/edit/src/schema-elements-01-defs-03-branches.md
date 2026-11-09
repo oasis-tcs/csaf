@@ -209,10 +209,16 @@ The value of SHALL obey to exactly one of the following options:
     Even though `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate the versions instead.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
-    > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+    > The reason for that is, that it is nearly impossible for tools to reliably determine whether a given version is in the range or not.
     > Also, different tools might come to different results regarding this question.
+    > This includes, but is not limited to, tests [sec](#upper-open-ended-product-version-range),
+    > [sec](#overlapping-product-version-range-with-vls-in-contradicting-product-status-group),
+    > [sec](#overlapping-product-version-range-with-vls-in-same-product-status-group).
 
     Tools MAY support this on best effort basis.
+
+    > Consequently, situations might occur where the result is not determinable by that tool
+    > which is an admissible scenario and valuable information for the user.
 
     *Examples 2 (for `name` when using `product_version_range` with vls):*
 
