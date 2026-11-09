@@ -3,12 +3,12 @@
 This appendix provides informative guidance on the size of CSAF documents.
 
 The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with
-the result that hard limits SHOULD NOT be enforced.
+the result that hard limits should not be enforced.
 However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits.
 A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
-All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with the limits below.
-All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits.
+All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below.
+All _CSAF producers_ should not produce CSAF documents which exceed those limits.
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
@@ -18,7 +18,7 @@ as they depend upon on the extension.
 
 ## C.1 File Size
 
-A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 SHOULD
+A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 should
 conform to known size limits of current technologies parsing JSON content,
 e.g.: 150 MiB.
 
@@ -32,7 +32,7 @@ e.g.: 150 MiB.
 
 ## C.2 Array Length
 
-An array SHOULD NOT have more than:
+An array should not have more than:
 
 - 10 000 items for
   - `$.document.acknowledgments`
@@ -143,7 +143,7 @@ An array SHOULD NOT have more than:
 
 ## C.3 String Length
 
-A string SHOULD NOT have a length greater than:
+A string should not have a length greater than:
 
 - 1000 for
   - `$.document.acknowledgments[*].names[*]`
@@ -439,7 +439,7 @@ This applies to:
 
 ## C.7 URI Length
 
-A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
+A string with format `uri` should not have a length greater than 20000. This applies to:
 
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
@@ -475,6 +475,6 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 
 ## C.8 UUID Length
 
-A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
+A string with format `uuid` should not have a length greater than 50. This applies to:
 
 - `$.document.distribution.sharing_group.id` (36)
