@@ -6,7 +6,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].disclosure_date
 ```
 

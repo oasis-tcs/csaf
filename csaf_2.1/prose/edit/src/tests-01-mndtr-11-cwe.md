@@ -7,7 +7,7 @@ Any `id` that refers to a CWE Category or View SHALL fail the test.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 

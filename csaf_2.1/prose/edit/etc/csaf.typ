@@ -37,9 +37,9 @@ $endfor$
     stroke: (top: 0.5pt),
     columns: (1fr, 2fr, 1fr),
     align: (left + horizon, center + horizon, right + horizon),
-    text(size: 8pt)[csaf-v2.1-csd04],
+    text(size: 8pt)[csaf-v2.1-cs01],
     text(size: 8pt)[Copyright © OASIS Open 2026. All Rights Reserved.],
-    text(size: 8pt)[21 October 2026 — Page #counter(page).display()
+    text(size: 8pt)[09 November 2026 — Page #counter(page).display()
       of #counter(page).final().first()],
   ),
 )

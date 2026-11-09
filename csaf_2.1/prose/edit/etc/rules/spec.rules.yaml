@@ -229,3 +229,31 @@ rules:
   # extensively. Citation fragment IDs are not section labels, so
   # references-resolve would produce false positives for all citation links.
   # Use 'nide harvest' and inspect the section LUTs to verify section links.
+
+  # ── Fenced code block processing instructions (see pi: in etc/nide.yaml) ──
+
+  - id: CSAF-PI-SEQUENCE-OF
+    severity: BLOCKER
+    description: >-
+      Every line of a {.text sequence-of="jsonpath"} block and every inline
+      `$`/`$.…` code span must be a valid RFC 9535 JSONPath (successor of the
+      list-of-jsonpaths marker and of test/jsonpath/check_jsonpaths.py).
+    check:
+      type: pi
+      name: [sequence-of, inline-jsonpath]
+
+  - id: CSAF-PI-OUTLINES
+    severity: WARN
+    description: >-
+      YAML type-outlines annotated {.yaml json-path(s)="..."} should match the
+      JSON schema shape at the given path (best effort, see validate-outlines.py).
+    check:
+      type: pi
+      name: [json-path, json-paths]
+
+  - id: CSAF-PI-LEGACY-SYNTAX
+    severity: WARN
+    description: No fenced code block PI may use the retired HTML-comment form.
+    check:
+      type: pi
+      mode: deprecated-syntax

@@ -7,7 +7,7 @@ Entity Refs (`entity_refs_t`), Extensions (`extensions_t`), Full Product Name (`
 Language (`lang_t`), Notes (`notes_t`), Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`),
 Product ID (`product_id_t`), Products (`products_t`), References (`references_t`), Subpath (`subpath_t`) and Version (`version_t`).
 
-```yaml <!--json-path($['$defs'])-->
+```{.yaml json-path="$['$defs']"}
 $defs:
   acknowledgments_t: Sequence
   action_id_t: String.Pattern

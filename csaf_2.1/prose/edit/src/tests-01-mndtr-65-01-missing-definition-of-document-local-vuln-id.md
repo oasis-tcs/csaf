@@ -6,7 +6,7 @@ it SHALL be tested that the vulnerability element with the matching `dl_vuln_id`
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].dl_vuln_ids[*]
 ```
 

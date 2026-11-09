@@ -4,7 +4,7 @@ It SHALL be tested that items of the revision history do not contain the same ve
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history
 ```
 

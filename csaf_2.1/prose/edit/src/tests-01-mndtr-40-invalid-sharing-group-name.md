@@ -4,7 +4,7 @@ It SHALL be tested that the value of sharing group name does not equal the reser
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.name
 ```
 

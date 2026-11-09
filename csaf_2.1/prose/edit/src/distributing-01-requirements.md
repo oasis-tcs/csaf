@@ -65,9 +65,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > Suggested locations to store the `provider-metadata.json` are:
 >
 > - <https://www.example.com/.well-known/csaf/provider-metadata.json>
-> - <https://domain.tld/security/data/csaf/provider-metadata.json>
-> - <https://psirt.domain.tld/advisories/csaf/provider-metadata.json>
-> - <https://domain.tld/security/csaf/provider-metadata.json>
+> - <https://domain.example/security/data/csaf/provider-metadata.json>
+> - <https://psirt.domain.example/advisories/csaf/provider-metadata.json>
+> - <https://domain.example/security/csaf/provider-metadata.json>
 
 *Example 1 (minimal with ROLIE document):*
 
@@ -145,9 +145,9 @@ See [cite](#SECURITY-TXT) for more details.
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
-CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/csaf/provider-metadata.json
+CSAF: https://domain.example/security/data/csaf/provider-metadata.json
+CSAF: https://psirt.domain.example/advisories/csaf/provider-metadata.json
+CSAF: https://domain.example/security/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
@@ -175,10 +175,10 @@ Such state is intended and SHALL NOT be reported as error.
 
 ### Requirement 10: DNS Path
 
-Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
+Assuming that the organization's main domain is `domain.example`, the DNS record `csaf.data.security.domain.example` SHALL resolve
 to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
 
-> The `domain.tld` is just a placeholder for the organization's main domain.
+> The `domain.example` is just a placeholder for the organization's main domain.
 > For the organization with the main domain being `example.com`, the necessary DNS record is `csaf.data.security.example.com`.
 
 That implies that redirects SHALL NOT be used.
@@ -370,7 +370,7 @@ The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:informat
       "link": [
         {
           "rel": "self",
-          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
+          "href": "https://psirt.domain.example/advisories/csaf/feed-tlp-clear.json"
         }
       ],
       "category": [
@@ -387,15 +387,15 @@ The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:informat
           "link": [
             {
               "rel": "self",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json"
             },
             {
               "rel": "hash",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json.sha512"
             },
             {
               "rel": "signature",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json.asc"
             }
           ],
           "published": "2024-01-01T11:00:00.000Z",
@@ -405,7 +405,7 @@ The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:informat
           },
           "content": {
             "type": "application/json",
-            "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+            "src": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
             "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
@@ -440,7 +440,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
           "collection": [
             {
               "title": "Example CSAF feed (TLP:CLEAR)",
-              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json",
+              "href": "https://psirt.domain.example/advisories/csaf/feed-tlp-clear.json",
               "categories": {
                 "category": [
                   {

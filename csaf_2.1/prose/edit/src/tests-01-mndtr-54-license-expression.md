@@ -9,7 +9,7 @@ It SHALL be tested that the license expression is valid.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.license_expression
 ```
 

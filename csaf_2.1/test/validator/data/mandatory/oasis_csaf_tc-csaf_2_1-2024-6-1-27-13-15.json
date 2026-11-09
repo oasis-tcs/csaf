@@ -71,7 +71,7 @@
         "beginning_product_reference": "CSAFPID-9080700",
         "full_product_name": {
           "name": "Example Company Product A 4.2 installed with Example Company Hotfix for Product A 47-11",
-          "product_id": "CSAFPID-0009"
+          "product_id": "CSAFPID-9080702"
         },
         "subpaths": [
           {
@@ -93,7 +93,7 @@
       ],
       "product_status": {
         "first_fixed": [
-          "CSAFPID-9080701"
+          "CSAFPID-9080702"
         ],
         "known_affected": [
           "CSAFPID-9080700"

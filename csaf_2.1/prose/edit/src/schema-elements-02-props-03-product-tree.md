@@ -5,7 +5,7 @@ can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
 and Product Paths (`product_paths`).
 
-```yaml <!--json-path($..product_tree.properties)-->
+```{.yaml json-path="$..product_tree.properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -28,7 +28,7 @@ list of full product names.
 
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
-```yaml <!--json-path($..product_tree..product_groups)-->
+```{.yaml json-path="$..product_tree..product_groups"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -40,7 +40,7 @@ List of product groups (`product_groups`) of value type `array` with `1` or more
 The product group items are of value type `object` with the two mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
 the optional Summary (`summary`) property.
 
-```yaml <!--json-path($..product_tree..product_groups..properties)-->
+```{.yaml json-path="$..product_tree..product_groups..properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -73,7 +73,7 @@ the product_ids of those products which are known as one group in the document.
 
 List of product paths (`product_paths`) of value type `array` with `1` or more items contains a list of product paths.
 
-```yaml <!--json-path($..product_tree..product_paths)-->
+```{.yaml json-path="$..product_tree..product_paths"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -88,7 +88,7 @@ Full Product Name (`full_product_name`), and Subpaths (`subpaths`).
 The Product path item establishes a path along existing full_product_name_t elements,
 allowing the document producer to define a path of multiple products that form a new full_product_name entry.
 
-```yaml <!--json-path($..product_tree..product_paths..properties)-->
+```{.yaml json-path="$..product_tree..product_paths..properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -117,7 +117,7 @@ List of product subpaths (`subpaths`) of value type `array` with `1` or more ite
 contains an ordered list of product subpaths,
 each one relating to the path defined by all previous elements up to the beginning node of the product path.
 
-```yaml <!--json-paths($..product_tree..product_paths..properties..subpaths, $['$defs'].subpath_t..properties)-->
+```{.yaml json-paths="$..product_tree..product_paths..properties..subpaths, $['$defs'].subpath_t..properties"}
 <csaf-instance>:
   # ...
   product_tree:

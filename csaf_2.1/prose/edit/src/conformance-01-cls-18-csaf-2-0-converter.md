@@ -17,7 +17,8 @@ Firstly, the program:
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
 - includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see also [tab](#tab:tlp-labels-across-csaf-versions) and
+  [tab](#tab:involvement-status-and-category-mapping-from-csaf-2-0)).
 
 Secondly, the program fulfills the following for all items of:
 
@@ -90,10 +91,18 @@ Secondly, the program fulfills the following for all items of:
     1. If value of `name` consists only of one version constraint:
        - the category of the original `product_version_range` item SHALL be changed to `product_version` and
        - the version SHALL be extracted from the original value and set as new value of `name`.
+
+       > The product version range `vers:intdot/>=1.0` is changed to the product version `1.0`.
+       > Note that a conversion of `vers:intdot/>1.0` to the product version `1.0` would change the inclusion boundary and is not allowed.
+
     2. If value of `name` consists of more than one version constraint and the upper open range is the last version constraint:
        - the category of the original `product_version_range` item SHALL be kept and
        - the value `name` SHALL be converted into the product version range ending with the version of the upper open ended product version
          if that does not change the inclusion boundaries.
+
+         > The product version range `vers:intdot/>0.9|<=1.0|>=2.4` is changed to the product version range `vers:intdot/>0.9|<=1.0|2.4`.
+         > Note that a conversion of `vers:intdot/<0.3|>1.0` to the product version range `vers:intdot/<0.3|1.0`
+         > would change the inclusion boundary and is not allowed.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with an upper open ended product version range in
@@ -404,6 +413,13 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
   for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
   `date` from the revision history item with a `number` of `1` or `1.0.0`.
+
+  > If the year of the `initial_release_date` changed during this conversion step
+  > it can lead to a situation where a CSAF document moves from one year folder to another
+  > (see [sec](#requirement-11-one-folder-per-year)).
+  > Issuing parties are strongly advised to double-check whether that conversion reflects the facts.
+  > If that is not the case, the issuing party should correct the mistake in the input file.
+
 - `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
 - `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter

@@ -6,7 +6,7 @@ it SHALL be tested that the Action element with the matching `action_id` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].referenced_action_ids[*]
 ```
 

@@ -6,7 +6,7 @@ It SHALL fail if the given language is not supported.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments[*].summary
   $.document.aggregate_severity.text
   $.document.distribution.text

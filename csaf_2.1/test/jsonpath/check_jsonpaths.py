@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 FENCE = "```"
-LOJP = "list-of-jsonpaths"
+LOJP = '{.text sequence-of="jsonpath"}'
 INLINE = re.compile(r'`(\$|\$\..*?)\`')
 
 def walk_through(text: str) -> str:

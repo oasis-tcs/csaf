@@ -6,7 +6,7 @@ This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -31,7 +31,7 @@ The relevant path for this test is:
       ]
 ```
 
-> The two remediations given for the product with product ID `CSAFPID-908070` contradict each other.
+> The two remediations given for the product with product ID `CSAFPID-9080700` contradict each other.
 
 > A tool MAY apply the conversion rules from the conformance target CSAF 2.0 to CSAF 2.1 converter if applicable or
 > remove the product from the remediation with the lower priority.

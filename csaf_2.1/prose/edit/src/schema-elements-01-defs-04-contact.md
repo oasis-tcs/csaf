@@ -5,7 +5,7 @@ The properties are Contact Details (`details`), Email (`email`), Public OpenPGP 
 Contact URL (`url`).
 If the property `public_openpgp_key_url` is set, the `email` SHALL be set as well.
 
-```yaml <!--json-path($['$defs'].contact_t.properties)-->
+```{.yaml json-path="$['$defs'].contact_t.properties"}
 $defs:
   # ...
   contact_t:

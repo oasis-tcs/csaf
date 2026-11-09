@@ -5,7 +5,7 @@ it SHALL be tested that the element `receiving_entity_refs` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 

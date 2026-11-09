@@ -3,7 +3,7 @@
 Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
 properties represents a list of all relevant vulnerability information items.
 
-```yaml <!--json-path($..vulnerabilities)-->
+```{.yaml json-path="$..vulnerabilities"}
 <csaf-instance>:
   # ...
   vulnerabilities: Sequence
@@ -17,7 +17,7 @@ Document-local Vuln ID (`dl_vuln_id`), List of first known exploitation dates (`
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
-```yaml <!--json-path($..vulnerabilities..properties)-->
+```{.yaml json-path="$..vulnerabilities..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -47,7 +47,7 @@ Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_ext
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
 acknowledgment elements associated with this vulnerability item.
 
-```yaml <!--json-paths($..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -76,7 +76,7 @@ CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
 
 List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
-```yaml <!--json-path($..vulnerabilities..cwes)-->
+```{.yaml json-path="$..vulnerabilities..cwes"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -93,7 +93,7 @@ Every CWE item of value type `object` with the three mandatory properties Weakne
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 For more information cf. [cite](#CWE).
 
-```yaml <!--json-path($..vulnerabilities..cwes..properties)-->
+```{.yaml json-path="$..vulnerabilities..cwes..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -189,7 +189,7 @@ Its value SHALL be unique across all vulnerability items within the document.
 List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
 contains a list of dates of first known exploitations.
 
-```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates)-->
+```{.yaml json-path="$..vulnerabilities..first_known_exploitation_dates"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -208,7 +208,7 @@ product groups this date is applicable.
 > This information can be helpful to determine the risk of compromise.
 > It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
 
-```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates..properties)-->
+```{.yaml json-path="$..vulnerabilities..first_known_exploitation_dates..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -240,7 +240,7 @@ applies to.
 
 List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
-```yaml <!--json-path($..vulnerabilities..flags)-->
+```{.yaml json-path="$..vulnerabilities..flags"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -260,7 +260,7 @@ product groups this flag is applicable.
 
 In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
-```yaml <!--json-path($..vulnerabilities..flags..properties)-->
+```{.yaml json-path="$..vulnerabilities..flags..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -315,7 +315,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
 
-```yaml <!--json-path($..vulnerabilities..ids)-->
+```{.yaml json-path="$..vulnerabilities..ids"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -329,7 +329,7 @@ Every ID item of value type `object` with the two mandatory properties System Na
 unique label or tracking ID for the vulnerability.
 In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
-```yaml <!--json-path($..vulnerabilities..ids..properties)-->
+```{.yaml json-path="$..vulnerabilities..ids..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -389,7 +389,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
 contains metric objects for the current vulnerability.
 
-```yaml <!--json-path($..vulnerabilities..metrics)-->
+```{.yaml json-path="$..vulnerabilities..metrics"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -402,7 +402,7 @@ contains metric objects for the current vulnerability.
 Every Metric item of value type `object` with the mandatory properties `content` and `products` and
 the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
 
-```yaml <!--json-path($..vulnerabilities..metrics[*].properties)-->
+```{.yaml json-path="$..vulnerabilities..metrics[*].properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -424,7 +424,7 @@ and Metrics-content-level Extensions (`x_extensions`) specifies information abou
 for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
-```yaml <!--json-path($..vulnerabilities..metrics..content.properties)-->
+```{.yaml json-path="$..vulnerabilities..metrics..content.properties"}
 # &CERTCC-SSVC https://certcc.github.io/SSVC/data/schema/v2/
 # &FIRST-CVSS https://www.first.org/cvss/
 <csaf-instance>:
@@ -470,7 +470,7 @@ The property EPSS (`epss`) of value type `object` with the three mandatory prope
 and EPSS timestamp (`timestamp`) contains the EPSS data.
 See [cite](#EPSS) for details.
 
-```yaml <!--json-path($..vulnerabilities..metrics..content..epss.properties)-->
+```{.yaml json-path="$..vulnerabilities..metrics..content..epss.properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -548,7 +548,7 @@ See [cite](#SSVC) for details.
 The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
 valid at the metrics-content-level of the CSAF document and associated with this metric element.
 
-```yaml <!--json-paths($..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -592,7 +592,7 @@ If no source is given, then the metric was assigned by the document author.
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
-```yaml <!--json-paths($..vulnerabilities..notes, $['$defs'].notes_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..notes, $['$defs'].notes_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -633,7 +633,7 @@ The nine defined properties are First affected (`first_affected`), First fixed (
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
 Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
-```yaml <!--json-path($..vulnerabilities..product_status.properties)-->
+```{.yaml json-path="$..vulnerabilities..product_status.properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -736,7 +736,7 @@ the sets formed by the contradicting groups within one vulnerability item SHALL 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
 
-```yaml <!--json-paths($..vulnerabilities..references, $['$defs'].references_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..references, $['$defs'].references_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -755,7 +755,7 @@ list of references associated with this vulnerability item.
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
-```yaml <!--json-path($..vulnerabilities..remediations)-->
+```{.yaml json-path="$..vulnerabilities..remediations"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -773,7 +773,7 @@ products or product groups this remediation is applicable.
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
 Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
-```yaml <!--json-path($..vulnerabilities..remediations[*].properties)-->
+```{.yaml json-path="$..vulnerabilities..remediations[*].properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -934,7 +934,7 @@ discussion of the remediation.
 List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
 with `1` or more characters contains a list of entitlements.
 
-```yaml <!--json-path($..vulnerabilities..remediations..entitlements)-->
+```{.yaml json-path="$..vulnerabilities..remediations..entitlements"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -965,7 +965,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
 
-```yaml <!--json-path($..vulnerabilities..remediations..restart_required.properties)-->
+```{.yaml json-path="$..vulnerabilities..remediations..restart_required.properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -1031,7 +1031,7 @@ URL (`url`) of value type `string` with format `uri` contains the URL where to o
 List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
 
-```yaml <!--json-path($..vulnerabilities..threats)-->
+```{.yaml json-path="$..vulnerabilities..threats"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -1047,7 +1047,7 @@ the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
-```yaml <!--json-path($..vulnerabilities..threats..properties)-->
+```{.yaml json-path="$..vulnerabilities..threats..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -1107,7 +1107,7 @@ title to the vulnerability.
 Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
 at the vulnerability item level of the CSAF document and associated with this vulnerability element.
 
-```yaml <!--json-paths($..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:

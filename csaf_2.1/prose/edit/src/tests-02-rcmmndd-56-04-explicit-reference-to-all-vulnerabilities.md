@@ -15,7 +15,7 @@ it SHALL be tested that the action does not mention all vulnerability items of t
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].dl_vuln_ids[*]
 ```
 

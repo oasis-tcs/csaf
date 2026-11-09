@@ -3,11 +3,11 @@
 It SHALL be tested that the hash algorithm `sha1` is not the only one present.
 
 > Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash.
-> This will allow users to double check the results.
+> This will allow users to double-check the results.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes

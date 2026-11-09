@@ -4,7 +4,7 @@ It SHALL be tested that the `$.document.title` does not contain the `$.document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.title
 ```
 

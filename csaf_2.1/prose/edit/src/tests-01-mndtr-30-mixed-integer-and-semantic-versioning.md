@@ -10,7 +10,7 @@ implementations SHOULD ignore such a value in this test as the schema test will 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].number
   $.document.tracking.version
 ```

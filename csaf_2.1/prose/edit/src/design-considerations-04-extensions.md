@@ -54,7 +54,7 @@ The CSAF Extension Metaschema SHALL be used to validate a CSAF Extension Schema.
 An extension SHALL contain exactly the following elements:
 CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`critical`) and Content (`content`).
 
-```yaml <!--json-path($.properties)-->
+```{.yaml json-path="$.properties"}
 $schema: String
 category: String.Enum
 content: Mapping

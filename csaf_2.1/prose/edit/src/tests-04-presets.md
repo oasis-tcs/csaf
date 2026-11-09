@@ -97,7 +97,6 @@ Additional presets are defined as follows:
     - [sec](#older-current-release-date-than-revision-history)
     - [sec](#same-timestamps-in-revision-history)
     - [sec](#disclosure-date-newer-than-revision-history)
-
 - `consistent-date-times`:
   - Description: Any test that is related to timestamps in CSAF and avoids invalid situations.
   - Set:
@@ -108,8 +107,8 @@ Additional presets are defined as follows:
     - [sec](#inconsistent-first-known-exploitation-dates)
     - [sec](#inconsistent-exploitation-date)
     - [sec](#inconsistent-discovery-date)
-    - [sec](#inconsistent-future-action-date)
     - [sec](#confirmation-before-action)
+    - [sec](#inconsistent-future-action-date)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:

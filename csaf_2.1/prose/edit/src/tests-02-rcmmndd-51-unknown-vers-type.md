@@ -9,9 +9,9 @@ The warning SHALL differentiate between officially registered VERS types and tho
 > However, it is expected that the test is able to recognize all officially registered VERS types.
 > The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 

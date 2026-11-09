@@ -3,7 +3,7 @@
 Full Product Name (`full_product_name_t`) of value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
-```yaml <!--json-path($['$defs'].full_product_name_t.properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t.properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -37,7 +37,7 @@ one method which aids in identifying the product in an asset database.
 Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purls`, `sbom_urls`, `serial_numbers`, `skus`,
 and `x_generic_uris`, `1` is mandatory.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper.properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper.properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -81,7 +81,7 @@ See [CPE23-N] for details.
 List of hashes (`hashes`) of value type `array` with `1` or more unique items
 contains a list of cryptographic hashes usable to identify files.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes"}
 $defs:
   # ...
   full_product_name_t:
@@ -96,7 +96,7 @@ $defs:
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
 Any cryptographic hashes object has the two mandatory properties `file_hashes` and `filename`.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -113,7 +113,7 @@ $defs:
 List of file hashes (`file_hashes`) of value type `array` with `1` or more unique items
 contains a list of cryptographic hashes for this file.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes"}
 $defs:
   # ...
   full_product_name_t:
@@ -130,7 +130,7 @@ $defs:
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified.
 Any File hash object has the two mandatory properties `algorithm` and `value`.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes..properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -226,7 +226,7 @@ or the model numbers change during update.
 This can also be used to identify hardware.
 If necessary, the software, or any other related part, SHALL be bind to that via a product path.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..model_numbers)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..model_numbers"}
 $defs:
   # ...
   full_product_name_t:
@@ -268,7 +268,7 @@ As part of the model number, the special characters `?`, `*` and `\` SHALL be es
 
 List of PURLs (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..purls)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..purls"}
 $defs:
   # ...
   full_product_name_t:
@@ -305,7 +305,7 @@ contains a list of URLs where SBOMs for this product can be retrieved.
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..sbom_urls)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..sbom_urls"}
 $defs:
   # ...
   full_product_name_t:
@@ -334,7 +334,7 @@ contains a list of serial numbers.
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
 or the serial numbers change during update.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..serial_numbers)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..serial_numbers"}
 $defs:
   # ...
   full_product_name_t:
@@ -381,7 +381,7 @@ In the latter case the remediations SHALL include the new stock keeping units or
 > The use of the list of product paths in the first case is important.
 > Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..skus)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..skus"}
 $defs:
   # ...
   full_product_name_t:
@@ -424,7 +424,7 @@ List of generic URIs (`x_generic_uris`) of value type `array` with `1` or more u
 contains a list of identifiers which are
 either vendor-specific or derived from a standard not yet supported.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..x_generic_uris"}
 $defs:
   # ...
   full_product_name_t:
@@ -437,7 +437,7 @@ $defs:
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris..properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..x_generic_uris..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -485,7 +485,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 Product-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the full product name element level of the CSAF document and associated with this full product name element.
 
-```yaml <!--json-paths($['$defs'].full_product_name_t..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$['$defs'].full_product_name_t..x_extensions, $['$defs'].extensions_t..properties"}
 $defs:
   # ...
   full_product_name_t:

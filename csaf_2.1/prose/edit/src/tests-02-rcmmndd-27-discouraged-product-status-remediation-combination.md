@@ -6,7 +6,7 @@ This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -29,4 +29,4 @@ The relevant path for this test is:
       ]
 ```
 
-> For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.
+> For the product with product ID `CSAFPID-9080700` a fix is planned but the product was not affected at all.

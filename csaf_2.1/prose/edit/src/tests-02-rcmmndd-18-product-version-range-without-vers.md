@@ -18,9 +18,9 @@ For more details, see sections [sec](#branches-type---category) and [sec](#branc
 
 > It is planned to deprecate and finally remove the support for vls in future versions of this standard.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 

@@ -9,9 +9,9 @@ the value of `name` does not start with `v` or `V` before the version.
 >   ^[vV][0-9]
 > ```
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 

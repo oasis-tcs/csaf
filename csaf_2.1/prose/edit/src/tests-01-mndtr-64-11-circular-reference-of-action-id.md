@@ -6,7 +6,7 @@ This also includes actions containing their own `action_id` in the `referenced_a
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 

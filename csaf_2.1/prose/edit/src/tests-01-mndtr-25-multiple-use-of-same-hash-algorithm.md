@@ -4,7 +4,7 @@ It SHALL be tested that the same hash algorithm is not used multiple times in on
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes

@@ -7,7 +7,7 @@ it SHALL be tested that the `name` was not already used for another entity group
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entity_groups[*].name
 ```
 

@@ -7,7 +7,7 @@ upper open ended product version range.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -28,3 +28,4 @@ The relevant path for this test is:
 > If the upper open ended product version range consists of more than one version constraint and the upper open range is the last version
 > constraint, a tool MAY convert it into the product version range ending with the version of the upper open ended product version as a quick
 > fix, if applicable.
+> Note that a change of inclusion boundaries is not allowed.

@@ -2,9 +2,9 @@
 
 It SHALL be tested that the given source language and document language are not the same.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```

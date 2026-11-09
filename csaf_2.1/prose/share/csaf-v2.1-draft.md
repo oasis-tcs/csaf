@@ -3,19 +3,19 @@
 
 # Common Security Advisory Framework Version 2.1<a id='common-security-advisory-framework-version-2-1'></a>
 
-## Committee Specification Draft 04<a id='committee-specification-draft-04'></a>
+## Committee Specification 01<a id='committee-specification-01'></a>
 
-## 21 October 2026<a id='21-october-2026'></a>
+## 09 November 2026<a id='09-november-2026'></a>
 
 #### This stage<a id='this-stage'></a>
+<https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.md> (Authoritative) \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.html> \
+<https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.pdf>
+
+#### Previous stage<a id='previous-stage'></a>
 <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.md> (Authoritative) \
 <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html> \
 <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.pdf>
-
-#### Previous stage<a id='previous-stage'></a>
-<https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.md> (Authoritative) \
-<https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.html> \
-<https://docs.oasis-open.org/csaf/csaf/v2.1/csd03/csaf-v2.1-csd03.pdf>
 
 #### Latest stage<a id='latest-stage'></a>
 <https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.md> (Authoritative) \
@@ -37,19 +37,19 @@ Thomas Schmidt (thomas.schmidt@bsi.bund.de), [Federal Office for Information Sec
 #### Additional artifacts<a id='additional-artifacts'></a>
 This prose specification is one component of a Work Product that also includes:
 
-- Aggregator JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/aggregator.json>. \
+- Aggregator JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/aggregator.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/aggregator.json>.
-- CSAF JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/csaf.json>. \
+- CSAF JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/csaf.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json>.
-- Extension Content JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-content.json>. \
+- Extension Content JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/extension-content.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-content.json>.
-- Extension Metadata JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metadata.json>. \
+- Extension Metadata JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/extension-metadata.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metadata.json>.
-- Extension Metaschema JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/extension-metaschema.json>. \
+- Extension Metaschema JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/extension-metaschema.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/extension-metaschema.json>.
-- Meta JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/meta.json>. \
+- Meta JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/meta.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/meta.json>.
-- Provider JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/schema/provider.json>. \
+- Provider JSON schema: <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/schema/provider.json>. \
 Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/schema/provider.json>.
 
 #### Related work<a id='related-work'></a>
@@ -84,7 +84,7 @@ When referencing this specification the following citation format should be used
 
 **[CSAF-v2.1]**
 
-_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 21 October 2026. OASIS Committee Specification Draft 04. <https://docs.oasis-open.org/csaf/csaf/v2.1/csd04/csaf-v2.1-csd04.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html>.
+_Common Security Advisory Framework Version 2.1_. Edited by Stefan Hagen and Thomas Schmidt. 09 November 2026. OASIS Committee Specification 01. <https://docs.oasis-open.org/csaf/csaf/v2.1/cs01/csaf-v2.1-cs01.html>. Latest stage: <https://docs.oasis-open.org/csaf/csaf/v2.1/csaf-v2.1.html>.
 
 ---
 
@@ -1406,7 +1406,7 @@ The CSAF Extension Metaschema SHALL be used to validate a CSAF Extension Schema.
 An extension SHALL contain exactly the following elements:
 CSAF Extension Schema (`$schema`), Extension Category (`category`), Critical (`critical`) and Content (`content`).
 
-```yaml <!--json-path($.properties)-->
+```{.yaml json-path="$.properties"}
 $schema: String
 category: String.Enum
 content: Mapping
@@ -1519,7 +1519,7 @@ Entity Refs (`entity_refs_t`), Extensions (`extensions_t`), Full Product Name (`
 Language (`lang_t`), Notes (`notes_t`), Product Group ID (`product_group_id_t`), Product Groups (`product_groups_t`),
 Product ID (`product_id_t`), Products (`products_t`), References (`references_t`), Subpath (`subpath_t`) and Version (`version_t`).
 
-```yaml <!--json-path($['$defs'])-->
+```{.yaml json-path="$['$defs']"}
 $defs:
   acknowledgments_t: Sequence
   action_id_t: String.Pattern
@@ -1547,7 +1547,7 @@ $defs:
 List of Acknowledgments (`acknowledgments_t`) type instances of value type `array` with `1` or more elements contain
 a list of `Acknowledgment` elements.
 
-```yaml <!--json-path($['$defs'].acknowledgments_t)-->
+```{.yaml json-path="$['$defs'].acknowledgments_t"}
 $defs:
   acknowledgments_t: Sequence
   # ...
@@ -1557,7 +1557,7 @@ The value type of Acknowledgment is `object` with at least `1` and at most four 
 describing those that contributed.
 The properties are: `names`, `organization`, `summary`, and `urls`.
 
-```yaml <!--json-path($['$defs'].acknowledgments_t[*].properties)-->
+```{.yaml json-path="$['$defs'].acknowledgments_t[*].properties"}
 $defs:
   acknowledgments_t:
   - # <acknowledgment-instance>:
@@ -1667,7 +1667,7 @@ It SHALL conform to `pattern` (regular expression):
 
 The value contains a token required to identify an action uniquely in the context of the current document so that it can be referred to from other parts in the document.
 
-```yaml <!--json-path($['$defs'].action_id_t)-->
+```{.yaml json-path="$['$defs'].action_id_t"}
 $defs:
   # ...
   action_id_t: String.Pattern
@@ -1687,7 +1687,7 @@ $defs:
 
 List of branches (`branches_t`) with value type `array` contains `1` or more branch elements as children of the current element.
 
-```yaml <!--json-path($['$defs'].branches_t)-->
+```{.yaml json-path="$['$defs'].branches_t"}
 $defs:
   # ...
   branches_t: Sequence
@@ -1697,7 +1697,7 @@ $defs:
 Every Branch holds exactly `3` properties and is a part of the hierarchical structure of the product tree.
 The properties `name` and `category` are mandatory. In addition, the object contains either a `branches` or a `product` property.
 
-```yaml <!--json-path($['$defs'].branches_t[*].properties)-->
+```{.yaml json-path="$['$defs'].branches_t[*].properties"}
 $defs:
   # ...
   branches_t:
@@ -1894,10 +1894,16 @@ The value of SHALL obey to exactly one of the following options:
     Even though `1.0.0|1.1.0` is considered valid vls, it is RECOMMENDED to enumerate the versions instead.
     It is a fallback option and SHOULD NOT be used unless really necessary.
 
-    > The reason for that is, that it is nearly impossible for tools to reliable determine whether a given version is in the range or not.
+    > The reason for that is, that it is nearly impossible for tools to reliably determine whether a given version is in the range or not.
     > Also, different tools might come to different results regarding this question.
+    > This includes, but is not limited to, tests [6.2.49](#upper-open-ended-product-version-range),
+    > [6.2.50.2](#overlapping-product-version-range-with-vls-in-contradicting-product-status-group),
+    > [6.3.19.2](#overlapping-product-version-range-with-vls-in-same-product-status-group).
 
     Tools MAY support this on best effort basis.
+
+    > Consequently, situations might occur where the result is not determinable by that tool
+    > which is an admissible scenario and valuable information for the user.
 
     *Examples 2 (for `name` when using `product_version_range` with vls):*<a id='branches-type---name-under-product-version-range-eg-2'></a><a id='sec-3-1-3-3-2-eg-2'></a><a id='example-14'></a>
 
@@ -1921,7 +1927,7 @@ The properties are Contact Details (`details`), Email (`email`), Public OpenPGP 
 Contact URL (`url`).
 If the property `public_openpgp_key_url` is set, the `email` SHALL be set as well.
 
-```yaml <!--json-path($['$defs'].contact_t.properties)-->
+```{.yaml json-path="$['$defs'].contact_t.properties"}
 $defs:
   # ...
   contact_t:
@@ -2013,7 +2019,7 @@ It SHALL conform to `pattern` (regular expression):
 The value contains a token required to identify a vulnerability uniquely in the context of the current document so that it can be referred to from other parts in the document.
 It SHOULD NOT to be used to refer to a vulnerability from outside of the CSAF document.
 
-```yaml <!--json-path($['$defs'].dl_vuln_id_t)-->
+```{.yaml json-path="$['$defs'].dl_vuln_id_t"}
 $defs:
   # ...
   dl_vuln_id_t: String.Pattern
@@ -2040,7 +2046,7 @@ It SHALL conform to `pattern` (regular expression):
 The value contains a token required to identify a group of entities uniquely in the context of the current document
 so that it can be referred to from other parts in the document.
 
-```yaml <!--json-path($['$defs'].entity_group_id_t)-->
+```{.yaml json-path="$['$defs'].entity_group_id_t"}
 $defs:
   # ...
   entity_group_id_t: String.Pattern
@@ -2068,7 +2074,7 @@ It SHALL conform to `pattern` (regular expression):
 The value contains a token required to identify an entity uniquely in the context of the current document
 so that it can be referred to from other parts in the document.
 
-```yaml <!--json-path($['$defs'].entity_id_t)-->
+```{.yaml json-path="$['$defs'].entity_id_t"}
 $defs:
   # ...
   entity_id_t: String.Pattern
@@ -2089,7 +2095,7 @@ $defs:
 List of entity references (`entity_refs_t`) of value type `array` with `1` or more unique items (a `set`)
 specifies a list of `entity_ids` or `entity_group_ids` to give context to the parent item.
 
-```yaml <!--json-path($['$defs'].entity_refs_t)-->
+```{.yaml json-path="$['$defs'].entity_refs_t"}
 $defs:
   # ...
   entity_refs_t: Sequence
@@ -2098,7 +2104,7 @@ $defs:
 
 Value type of every such entity reference item is any of Entity Group ID Type (`entity_group_id_t`) or Entity ID Type (`entity_id_t`).
 
-```yaml <!--json-path($['$defs'].entity_refs_t[*].properties)-->
+```{.yaml json-path="$['$defs'].entity_refs_t[*].properties"}
 $defs:
   # ...
   entity_refs_t:
@@ -2120,7 +2126,7 @@ This type allows to reference Entity IDs directly and indirectly via an Entity G
 List of extensions (`extensions_t`) of value type `array` with `1` or more unique items (a `set`) contains a list of extension elements
 for the current context.
 
-```yaml <!--json-path($['$defs'].extensions_t)-->
+```{.yaml json-path="$['$defs'].extensions_t"}
 $defs:
   # ...
   extensions_t: Sequence
@@ -2136,7 +2142,7 @@ through its `$schema` property.
 Full Product Name (`full_product_name_t`) of value type `object` specifies information about the product and assigns the product ID.
 The properties `name` and `product_id` are required. The property `product_identification_helper` is optional.
 
-```yaml <!--json-path($['$defs'].full_product_name_t.properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t.properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -2170,7 +2176,7 @@ one method which aids in identifying the product in an asset database.
 Of the given eight properties `cpe`, `hashes`, `model_numbers`, `purls`, `sbom_urls`, `serial_numbers`, `skus`,
 and `x_generic_uris`, `1` is mandatory.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper.properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper.properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -2214,7 +2220,7 @@ See [CPE23-N] for details.
 List of hashes (`hashes`) of value type `array` with `1` or more unique items
 contains a list of cryptographic hashes usable to identify files.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes"}
 $defs:
   # ...
   full_product_name_t:
@@ -2229,7 +2235,7 @@ $defs:
 Cryptographic hashes of value type `object` contains all information to identify a file based on its cryptographic hash values.
 Any cryptographic hashes object has the two mandatory properties `file_hashes` and `filename`.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -2246,7 +2252,7 @@ $defs:
 List of file hashes (`file_hashes`) of value type `array` with `1` or more unique items
 contains a list of cryptographic hashes for this file.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes"}
 $defs:
   # ...
   full_product_name_t:
@@ -2263,7 +2269,7 @@ $defs:
 Each File hash of value type `object` contains one hash value and algorithm of the file to be identified.
 Any File hash object has the two mandatory properties `algorithm` and `value`.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes..properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..hashes..file_hashes..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -2359,7 +2365,7 @@ or the model numbers change during update.
 This can also be used to identify hardware.
 If necessary, the software, or any other related part, SHALL be bind to that via a product path.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..model_numbers)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..model_numbers"}
 $defs:
   # ...
   full_product_name_t:
@@ -2401,7 +2407,7 @@ As part of the model number, the special characters `?`, `*` and `\` SHALL be es
 
 List of PURLs (`purls`) of value type `array` with `1` or more unique items contains a list of Package-URL (PURL) identifiers.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..purls)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..purls"}
 $defs:
   # ...
   full_product_name_t:
@@ -2438,7 +2444,7 @@ contains a list of URLs where SBOMs for this product can be retrieved.
 
 > The SBOMs might differ in format or depth of detail. Currently supported formats are SPDX, CycloneDX, and SWID.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..sbom_urls)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..sbom_urls"}
 $defs:
   # ...
   full_product_name_t:
@@ -2467,7 +2473,7 @@ contains a list of serial numbers.
 A list of serial numbers SHOULD only be used if a certain range of serial numbers with its corresponding software version is affected,
 or the serial numbers change during update.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..serial_numbers)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..serial_numbers"}
 $defs:
   # ...
   full_product_name_t:
@@ -2514,7 +2520,7 @@ In the latter case the remediations SHALL include the new stock keeping units or
 > The use of the list of product paths in the first case is important.
 > Otherwise, the end user is unable to identify which version (the affected or the not affected / fixed one) is used.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..skus)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..skus"}
 $defs:
   # ...
   full_product_name_t:
@@ -2557,7 +2563,7 @@ List of generic URIs (`x_generic_uris`) of value type `array` with `1` or more u
 contains a list of identifiers which are
 either vendor-specific or derived from a standard not yet supported.
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..x_generic_uris"}
 $defs:
   # ...
   full_product_name_t:
@@ -2570,7 +2576,7 @@ $defs:
 
 Any such Generic URI item of value type `object` provides the two mandatory properties Namespace (`namespace`) and URI (`uri`).
 
-```yaml <!--json-path($['$defs'].full_product_name_t..product_identification_helper..x_generic_uris..properties)-->
+```{.yaml json-path="$['$defs'].full_product_name_t..product_identification_helper..x_generic_uris..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -2618,7 +2624,7 @@ The URI (`uri`) of value type `string` with format `uri` contains the identifier
 Product-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the full product name element level of the CSAF document and associated with this full product name element.
 
-```yaml <!--json-paths($['$defs'].full_product_name_t..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$['$defs'].full_product_name_t..x_extensions, $['$defs'].extensions_t..properties"}
 $defs:
   # ...
   full_product_name_t:
@@ -2666,7 +2672,7 @@ CSAF validators SHALL treat subtags as case-insensitive unless stated otherwise 
 
 List of notes (`notes_t`) of value type `array` with `1` or more items of type `Note` contains notes which are specific to the current context.
 
-```yaml <!--json-path($['$defs'].notes_t)-->
+```{.yaml json-path="$['$defs'].notes_t"}
 $defs:
   # ...
   notes_t: Sequence
@@ -2677,7 +2683,7 @@ Value type of every such Note item is `object` with the mandatory properties `ca
 all manner of text blobs related to the current context.
 A Note `object` MAY provide the optional properties `audience`, `group_ids`, `product_ids` and `title`.
 
-```yaml <!--json-path($['$defs'].notes_t[*].properties)-->
+```{.yaml json-path="$['$defs'].notes_t[*].properties"}
 $defs:
   # ...
   notes_t:
@@ -2760,7 +2766,7 @@ The value is a token required to identify a group of products so that it can be 
 There is no predefined or required format for the Product Group ID (`product_group_id`) as long as it uniquely identifies
 a product group in the context of the current document.
 
-```yaml <!--json-path($['$defs'].product_group_id_t)-->
+```{.yaml json-path="$['$defs'].product_group_id_t"}
 $defs:
   # ...
   product_group_id_t: String
@@ -2783,7 +2789,7 @@ $defs:
 List of Product Group ID (`product_groups_t`) of value type `array` with `1` or more unique items (a `set`) of type
 Product Group ID (`product_group_id_t`) specifies a list of `product_group_ids` to give context to the parent item.
 
-```yaml <!--json-path($['$defs'].product_groups_t)-->
+```{.yaml json-path="$['$defs'].product_groups_t"}
 $defs:
   # ...
   product_groups_t: Sequence
@@ -2797,7 +2803,7 @@ The value is a token required to identify a `full_product_name` so that it can b
 There is no predefined or required format for the Product ID (`product_id`) as long as it uniquely identifies a product in the context of
 the current document.
 
-```yaml <!--json-path($['$defs'].product_id_t)-->
+```{.yaml json-path="$['$defs'].product_id_t"}
 $defs:
   # ...
   product_id_t: String
@@ -2819,7 +2825,7 @@ $defs:
 List of Product IDs (`products_t`) of value type `array` with `1` or more unique items (a `set`) of type
 Product ID (`product_id_t`) specifies a list of `product_ids` to give context to the parent item.
 
-```yaml <!--json-path($['$defs'].products_t)-->
+```{.yaml json-path="$['$defs'].products_t"}
 $defs:
   # ...
   products_t: Sequence
@@ -2830,7 +2836,7 @@ $defs:
 
 List of references (`references_t`) of value type `array` with `1` or more items of type Reference holds a list of Reference objects.
 
-```yaml <!--json-path($['$defs'].references_t)-->
+```{.yaml json-path="$['$defs'].references_t"}
 $defs:
   # ...
   references_t: Sequence
@@ -2842,7 +2848,7 @@ papers, advisories, and other resources that are related and considered related 
 the entire document and to be of value to the document consumer.
 A reference `object` MAY provide the optional property `category`.
 
-```yaml <!--json-path($['$defs'].references_t[*].properties)-->
+```{.yaml json-path="$['$defs'].references_t[*].properties"}
 $defs:
   # ...
   references:
@@ -2879,7 +2885,7 @@ URL of reference (`url`) of value type `string` with format `uri` provides the U
 Subpath (`subpath_t`) of value type `object` contains the next node along the current path and its relationship to the previous node.
 The properties `category` and `next_product_reference` are required.
 
-```yaml <!--json-path($['$defs'].subpath_t)-->
+```{.yaml json-path="$['$defs'].subpath_t"}
 $defs:
   # ...
   subpath_t:
@@ -3131,7 +3137,7 @@ Aggregate Severity (`aggregate_severity`), Involvement (`involvement`), Language
 License expression (`license_expression`), Notes (`notes`), References (`references`),
 Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 
-```yaml <!--json-path($..document.properties)-->
+```{.yaml json-path="$..document.properties"}
 <csaf-instance>:
   document:
     acknowledgments: $defs.acknowledgments_t
@@ -3156,7 +3162,7 @@ Source Language (`source_lang`), and Document-level Extensions (`x_extensions`).
 Document acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains
 a list of acknowledgment elements associated with the whole document.
 
-```yaml <!--json-paths($..document..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+```{.yaml json-paths="$..document..acknowledgments, $['$defs'].acknowledgments_t..properties"}
 <csaf-instance>:
   document:
     acknowledgements:  # $defs.acknowledgments_t
@@ -3177,7 +3183,7 @@ criticality with which the one or more vulnerabilities reported should be addres
 It is a document-level metric and applied to the document as a whole — not any specific vulnerability.
 The range of values in this field is defined according to the document producer's policies and procedures.
 
-```yaml <!--json-path($..document..aggregate_severity.properties)-->
+```{.yaml json-path="$..document..aggregate_severity.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3212,7 +3218,7 @@ Document category defines a short canonical name, chosen by the document produce
 
 > It is directly related to the profiles defined in section [4](#profiles).
 
-```yaml <!--json-path($..document.properties.category)-->
+```{.yaml json-path="$..document.properties.category"}
 <csaf-instance>:
   document:
     # ...
@@ -3244,7 +3250,7 @@ The value for this `const` is:
 Rules for document sharing (`distribution`) of value type `object` with the mandatory property Traffic Light Protocol (TLP) (`tlp`) and the
 optional properties Sharing Group (`sharing_group`) and Text (`text`) describes any constraints on how this document might be shared.
 
-```yaml <!--json-path($..document..distribution.properties)-->
+```{.yaml json-path="$..document..distribution.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3275,7 +3281,7 @@ Therefore, the Sharing Group MAY also be used to convey special TLP restrictions
 Sharing Group (`sharing_group`) of value type `object` with the mandatory property Sharing Group ID (`id`) and
 the optional property Sharing Group Name (`name`) contains information about the group this document is intended to be shared with.
 
-```yaml <!--json-path($..document..distribution..sharing_group.properties)-->
+```{.yaml json-path="$..document..distribution..sharing_group.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3355,7 +3361,7 @@ The Textual description (`text`) of value type `string` with `1` or more charact
 Traffic Light Protocol (TLP) (`tlp`) of value type `object` with the mandatory property Label (`label`) and
 the optional property URL (`url`) provides details about the TLP classification of the document.
 
-```yaml <!--json-path($..document..distribution..tlp.properties)-->
+```{.yaml json-path="$..document..distribution..tlp.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3408,7 +3414,7 @@ Involvement (`involvement`) of value type `object` with the mandatory properties
 List of entities (`entities`) contains the coordination record stating entities and actions between them.
 The optional property is List of entity groups (`entity_groups`).
 
-```yaml <!--json-path($..document..involvement.properties)-->
+```{.yaml json-path="$..document..involvement.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3424,7 +3430,7 @@ The optional property is List of entity groups (`entity_groups`).
 List of actions (`actions`) of value type `array` with `1` or more unique items (a `set`) contains the timeline of actions.
 
 
-```yaml <!--json-path($..document..involvement..actions)-->
+```{.yaml json-path="$..document..involvement..actions"}
 <csaf-instance>:
   document:
     # ...
@@ -3440,7 +3446,7 @@ contains details about a single event in the timeline.
 In addition, any Action item MAY expose the optional properties List of document-local vuln IDs `dl_vuln_ids`, Group IDs (`group_ids`), Product IDs (`product_ids`),
 List of receiving entities (`receiving_entity_refs`), List of referenced actions (`referenced_action_ids`), Summary of the action (`summary`), and Action status (`status`).
 
-```yaml <!--json-path($..document..involvement..actions..properties)-->
+```{.yaml json-path="$..document..involvement..actions..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3599,7 +3605,7 @@ The value `planned` indicates that the a party waits for this action. The status
 
 List of entities (`entities`) of value type `array` with `1` or more unique items (a `set`) contains a list of entities related.
 
-```yaml <!--json-path($..document..involvement..entities)-->
+```{.yaml json-path="$..document..involvement..entities"}
 <csaf-instance>:
   document:
     # ...
@@ -3613,7 +3619,7 @@ List of entities (`entities`) of value type `array` with `1` or more unique item
 Every Entity item of value type `object` with the two mandatory properties Entity category (`category`) and Entity ID (`entity_id`) contains information about a single entity.
 In addition, any Entity item MAY expose the optional properties Contact of the entity (`contact`) and Name of the entity (`name`).
 
-```yaml <!--json-path($..document..involvement..entities..properties)-->
+```{.yaml json-path="$..document..involvement..entities..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3671,7 +3677,7 @@ An `adversary` is permitted as a recipient, because a `notification` to an adver
 
 Contact of the entity (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the entity.
 
-```yaml <!--json-paths($..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties)-->
+```{.yaml json-paths="$..document..involvement..entities..properties.contact, $['$defs'].contact_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3698,7 +3704,7 @@ Contains an ID for the entity (`name`) of value type `string` with `1` or more c
 
 List of entity groups (`entity_groups`) of value type `array` with `1` or more unique items (a `set`) contains a list of entity groups.
 
-```yaml <!--json-path($..document..involvement..entity_groups)-->
+```{.yaml json-path="$..document..involvement..entity_groups"}
 <csaf-instance>:
   document:
     # ...
@@ -3713,7 +3719,7 @@ List of Entity IDs (`entity_ids`), and Name of the entity group (`name`) defines
 that can then be referred to in other parts of the document to address a group of entities with a single identifier.
 In addition, any Entity group item MAY expose the optional property Summary of the entity group (`summary`).
 
-```yaml <!--json-path($..document..involvement..entity_groups..properties)-->
+```{.yaml json-path="$..document..involvement..entity_groups..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3811,7 +3817,7 @@ through the ecosystem.
 
 Document notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with the whole document.
 
-```yaml <!--json-paths($..document..notes, $['$defs'].notes_t..properties)-->
+```{.yaml json-paths="$..document..notes, $['$defs'].notes_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3861,7 +3867,7 @@ Publisher (`publisher`) of value type `object` with the mandatory properties Cat
 Namespace (`namespace`) provides information on the publishing entity.
 The two other optional properties are: `contact` and `issuing_authority`.
 
-```yaml <!--json-path($..document..publisher.properties)-->
+```{.yaml json-path="$..document..publisher.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3924,7 +3930,7 @@ open source projects as well as product resellers and distributors, including au
 
 Contact (`contact`) of value type Contact Type (`contact_t`) contains information on how to contact the publisher.
 
-```yaml <!--json-paths($..document..publisher.properties.contact.properties, $['$defs'].contact_t..properties)-->
+```{.yaml json-paths="$..document..publisher.properties.contact.properties, $['$defs'].contact_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -3995,7 +4001,7 @@ an incremented (patch) version which has no other changes than:
 
 Document references (`references`) of value type References Type (`references_t`) holds a list of references associated with the whole document.
 
-```yaml <!--json-paths($..document..references, $['$defs'].references_t..properties)-->
+```{.yaml json-paths="$..document..references, $['$defs'].references_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -4039,7 +4045,7 @@ Identifier (`id`), Initial Release Date (`initial_release_date`), Revision Histo
 and Version (`version`) is a container designated to hold all management attributes necessary to track a CSAF document as a whole.
 The two optional additional properties are Aliases (`aliases`) and Generator (`generator`).
 
-```yaml <!--json-path($..document..tracking.properties)-->
+```{.yaml json-path="$..document..tracking.properties"}
 <csaf-instance>:
   document:
     # ...
@@ -4059,7 +4065,7 @@ The two optional additional properties are Aliases (`aliases`) and Generator (`g
 Aliases (`aliases`) of value type `array` with `1` or more unique items (a `set`) representing Alternate Names contains a
 list of alternate names for the same document.
 
-```yaml <!--json-path($..document..tracking..aliases)-->
+```{.yaml json-path="$..document..tracking..aliases"}
 <csaf-instance>:
   document:
     # ...
@@ -4088,7 +4094,7 @@ Document Generator (`generator`) of value type `object` with mandatory property 
 optional property Date (`date`) is a container to hold all elements related to the generation of the document.
 These items will reference when the document was actually created, including the date it was generated and the entity that generated it.
 
-```yaml <!--json-path($..document..tracking..generator.properties)-->
+```{.yaml json-path="$..document..tracking..generator.properties"}
 <csaf-instance>:
   document:
     tracking:
@@ -4106,7 +4112,7 @@ this field MAY be different from the Initial Release Date and Current Release Da
 Engine of document generation (`engine`) of value type `object` with mandatory property Engine name (`name`) and
 optional property Engine version (`version`) contains information about the engine that generated the CSAF document.
 
-```yaml <!--json-path($..document..tracking..generator..engine.properties)-->
+```{.yaml json-path="$..document..tracking..generator..engine.properties"}
 <csaf-instance>:
   document:
     tracking:
@@ -4188,7 +4194,7 @@ This change SHALL be tracked with a new entry in the revision history.
 The Revision History (`revision_history`) with value type `array` of `1` or more Revision History Entries holds one revision item
 for each version of the CSAF document, including the initial one.
 
-```yaml <!--json-path($..document..tracking..revision_history)-->
+```{.yaml json-path="$..document..tracking..revision_history"}
 <csaf-instance>:
   document:
     # ...
@@ -4203,7 +4209,7 @@ Revision History Entry items are of value type `object` with the three mandatory
 and Summary (`summary`).
 In addition, a Revision MAY expose the optional property `legacy_version`.
 
-```yaml <!--json-path($..document..tracking..revision_history..properties)-->
+```{.yaml json-path="$..document..tracking..revision_history..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -4278,7 +4284,7 @@ Version has the value type Version (`version_t`).
 Document-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains list of extensions valid
 at the document property level of the CSAF document and associated with this document metadata.
 
-```yaml <!--json-paths($..document..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..document..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   document:
     # ...
@@ -4298,7 +4304,7 @@ can be referenced elsewhere in the document.
 The properties are Branches (`branches`), Full Product Names (`full_product_names`), Product Groups (`product_groups`),
 and Product Paths (`product_paths`).
 
-```yaml <!--json-path($..product_tree.properties)-->
+```{.yaml json-path="$..product_tree.properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -4321,7 +4327,7 @@ list of full product names.
 
 List of product groups (`product_groups`) of value type `array` with `1` or more items of value type `object` contains a list of product groups.
 
-```yaml <!--json-path($..product_tree..product_groups)-->
+```{.yaml json-path="$..product_tree..product_groups"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -4333,7 +4339,7 @@ List of product groups (`product_groups`) of value type `array` with `1` or more
 The product group items are of value type `object` with the two mandatory properties Group ID (`group_id`) and Product IDs (`product_ids`) and
 the optional Summary (`summary`) property.
 
-```yaml <!--json-path($..product_tree..product_groups..properties)-->
+```{.yaml json-path="$..product_tree..product_groups..properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -4366,7 +4372,7 @@ the product_ids of those products which are known as one group in the document.
 
 List of product paths (`product_paths`) of value type `array` with `1` or more items contains a list of product paths.
 
-```yaml <!--json-path($..product_tree..product_paths)-->
+```{.yaml json-path="$..product_tree..product_paths"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -4381,7 +4387,7 @@ Full Product Name (`full_product_name`), and Subpaths (`subpaths`).
 The Product path item establishes a path along existing full_product_name_t elements,
 allowing the document producer to define a path of multiple products that form a new full_product_name entry.
 
-```yaml <!--json-path($..product_tree..product_paths..properties)-->
+```{.yaml json-path="$..product_tree..product_paths..properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -4410,7 +4416,7 @@ List of product subpaths (`subpaths`) of value type `array` with `1` or more ite
 contains an ordered list of product subpaths,
 each one relating to the path defined by all previous elements up to the beginning node of the product path.
 
-```yaml <!--json-paths($..product_tree..product_paths..properties..subpaths, $['$defs'].subpath_t..properties)-->
+```{.yaml json-paths="$..product_tree..product_paths..properties..subpaths, $['$defs'].subpath_t..properties"}
 <csaf-instance>:
   # ...
   product_tree:
@@ -4471,7 +4477,7 @@ each one relating to the path defined by all previous elements up to the beginni
 Vulnerabilities (`vulnerabilities`) of value type `array` with `1` or more objects representing vulnerabilities by providing one or more
 properties represents a list of all relevant vulnerability information items.
 
-```yaml <!--json-path($..vulnerabilities)-->
+```{.yaml json-path="$..vulnerabilities"}
 <csaf-instance>:
   # ...
   vulnerabilities: Sequence
@@ -4485,7 +4491,7 @@ Document-local Vuln ID (`dl_vuln_id`), List of first known exploitation dates (`
 Metrics (`metrics`), Notes (`notes`), Product Status (`product_status`), References (`references`), Remediations (`remediations`),
 Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_extensions`).
 
-```yaml <!--json-path($..vulnerabilities..properties)-->
+```{.yaml json-path="$..vulnerabilities..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4515,7 +4521,7 @@ Threats (`threats`), Title (`title`), and Vulnerability-level Extensions (`x_ext
 Vulnerability acknowledgments (`acknowledgments`) of value type Acknowledgments Type (`acknowledgments_t`) contains a list of
 acknowledgment elements associated with this vulnerability item.
 
-```yaml <!--json-paths($..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..acknowledgments, $['$defs'].acknowledgments_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4544,7 +4550,7 @@ CVE holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking
 
 List of CWEs (`cwes`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of CWEs.
 
-```yaml <!--json-path($..vulnerabilities..cwes)-->
+```{.yaml json-path="$..vulnerabilities..cwes"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4561,7 +4567,7 @@ Every CWE item of value type `object` with the three mandatory properties Weakne
 holds the MITRE standard Common Weakness Enumeration (CWE) for the weakness associated.
 For more information cf. \[[CWE](#CWE)\].
 
-```yaml <!--json-path($..vulnerabilities..cwes..properties)-->
+```{.yaml json-path="$..vulnerabilities..cwes..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4657,7 +4663,7 @@ Its value SHALL be unique across all vulnerability items within the document.
 List of first known exploitation dates (`first_known_exploitation_dates`) of value type `array` with `1` or more unique items (a set)
 contains a list of dates of first known exploitations.
 
-```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates)-->
+```{.yaml json-path="$..vulnerabilities..first_known_exploitation_dates"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4676,7 +4682,7 @@ product groups this date is applicable.
 > This information can be helpful to determine the risk of compromise.
 > It can also be used to provide an indication for the time frame to be considered in a threat hunt for the exploitation this vulnerability.
 
-```yaml <!--json-path($..vulnerabilities..first_known_exploitation_dates..properties)-->
+```{.yaml json-path="$..vulnerabilities..first_known_exploitation_dates..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4708,7 +4714,7 @@ applies to.
 
 List of flags (`flags`) of value type `array` with `1` or more unique items (a set) of value type `object` contains a list of machine readable flags.
 
-```yaml <!--json-path($..vulnerabilities..flags)-->
+```{.yaml json-path="$..vulnerabilities..flags"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4728,7 +4734,7 @@ product groups this flag is applicable.
 
 In addition, any Flag item MAY provide the three optional properties Date (`date`), Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
-```yaml <!--json-path($..vulnerabilities..flags..properties)-->
+```{.yaml json-path="$..vulnerabilities..flags..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4783,7 +4789,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 List of IDs (`ids`) of value type `array` with `1` or more unique ID items of value type `object` represents a list of unique labels or
 tracking IDs for the vulnerability (if such information exists).
 
-```yaml <!--json-path($..vulnerabilities..ids)-->
+```{.yaml json-path="$..vulnerabilities..ids"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4797,7 +4803,7 @@ Every ID item of value type `object` with the two mandatory properties System Na
 unique label or tracking ID for the vulnerability.
 In addition, any ID item MAY expose the optional properties Group IDs (`group_ids`) and Product IDs (`product_ids`).
 
-```yaml <!--json-path($..vulnerabilities..ids..properties)-->
+```{.yaml json-path="$..vulnerabilities..ids..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4857,7 +4863,7 @@ Text (`text`) of value type `string` with `1` or more characters is unique label
 List of metrics (`metrics`) of value type `array` with `1` or more unique items (a set)
 contains metric objects for the current vulnerability.
 
-```yaml <!--json-path($..vulnerabilities..metrics)-->
+```{.yaml json-path="$..vulnerabilities..metrics"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4870,7 +4876,7 @@ contains metric objects for the current vulnerability.
 Every Metric item of value type `object` with the mandatory properties `content` and `products` and
 the optional property `source` contains all metadata about the metric including products it applies to and the source and the content itself.
 
-```yaml <!--json-path($..vulnerabilities..metrics[*].properties)-->
+```{.yaml json-path="$..vulnerabilities..metrics[*].properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -4892,7 +4898,7 @@ and Metrics-content-level Extensions (`x_extensions`) specifies information abou
 for the given products regarding the current vulnerability.
 A Content object has at least `1` property.
 
-```yaml <!--json-path($..vulnerabilities..metrics..content.properties)-->
+```{.yaml json-path="$..vulnerabilities..metrics..content.properties"}
 # &CERTCC-SSVC https://certcc.github.io/SSVC/data/schema/v2/
 # &FIRST-CVSS https://www.first.org/cvss/
 <csaf-instance>:
@@ -4938,7 +4944,7 @@ The property EPSS (`epss`) of value type `object` with the three mandatory prope
 and EPSS timestamp (`timestamp`) contains the EPSS data.
 See \[[EPSS](#EPSS)\] for details.
 
-```yaml <!--json-path($..vulnerabilities..metrics..content..epss.properties)-->
+```{.yaml json-path="$..vulnerabilities..metrics..content..epss.properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5016,7 +5022,7 @@ See \[[SSVC](#SSVC)\] for details.
 The property Metrics-content-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions
 valid at the metrics-content-level of the CSAF document and associated with this metric element.
 
-```yaml <!--json-paths($..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..metrics..content..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5060,7 +5066,7 @@ If no source is given, then the metric was assigned by the document author.
 
 Vulnerability notes (`notes`) of value type Notes Type (`notes_t`) holds notes associated with this vulnerability item.
 
-```yaml <!--json-paths($..vulnerabilities..notes, $['$defs'].notes_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..notes, $['$defs'].notes_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5102,7 +5108,7 @@ The nine defined properties are First affected (`first_affected`), First fixed (
 Known not affected (`known_not_affected`), Last affected (`last_affected`), Recommended (`recommended`),
 Under investigation (`under_investigation`) and Unknown (`unknown`) are all of value type Products (`products_t`).
 
-```yaml <!--json-path($..vulnerabilities..product_status.properties)-->
+```{.yaml json-path="$..vulnerabilities..product_status.properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5205,7 +5211,7 @@ the sets formed by the contradicting groups within one vulnerability item SHALL 
 Vulnerability references (`references`) of value type References Type (`references_t`) holds a
 list of references associated with this vulnerability item.
 
-```yaml <!--json-paths($..vulnerabilities..references, $['$defs'].references_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities..references, $['$defs'].references_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5224,7 +5230,7 @@ list of references associated with this vulnerability item.
 
 List of remediations (`remediations`) of value type `array` with `1` or more Remediation items contains a list of remediations.
 
-```yaml <!--json-path($..vulnerabilities..remediations)-->
+```{.yaml json-path="$..vulnerabilities..remediations"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5242,7 +5248,7 @@ products or product groups this remediation is applicable.
 In addition, any Remediation MAY expose the six optional properties Date (`date`), Entitlements (`entitlements`), Group IDs (`group_ids`),
 Product IDs (`product_ids`), Restart required (`restart_required`), and URL (`url`).
 
-```yaml <!--json-path($..vulnerabilities..remediations[*].properties)-->
+```{.yaml json-path="$..vulnerabilities..remediations[*].properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5403,7 +5409,7 @@ discussion of the remediation.
 List of entitlements (`entitlements`) of value type `array` with `1` or more items of type Entitlement of the remediation as `string`
 with `1` or more characters contains a list of entitlements.
 
-```yaml <!--json-path($..vulnerabilities..remediations..entitlements)-->
+```{.yaml json-path="$..vulnerabilities..remediations..entitlements"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5434,7 +5440,7 @@ Product IDs (`product_ids`) are of value type Products (`products_t`) and contai
 Restart required by remediation (`restart_required`) of value type `object` with the one mandatory property Category (`category`) and
 the optional property Details (`details`) provides information on the category of restart required by this remediation to become effective.
 
-```yaml <!--json-path($..vulnerabilities..remediations..restart_required.properties)-->
+```{.yaml json-path="$..vulnerabilities..remediations..restart_required.properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5500,7 +5506,7 @@ URL (`url`) of value type `string` with format `uri` contains the URL where to o
 List of threats (`threats`) of value type `array` with `1` or more items of value type `object` contains
 information about a vulnerability that can change with time.
 
-```yaml <!--json-path($..vulnerabilities..threats)-->
+```{.yaml json-path="$..vulnerabilities..threats"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5516,7 +5522,7 @@ the vulnerability kinetic information.
 This information can change as the vulnerability ages and new information becomes available.
 In addition, any Threat item MAY expose the three optional properties Date (`date`), Group IDs (`group_ids`), and Product IDs (`product_ids`).
 
-```yaml <!--json-path($..vulnerabilities..threats..properties)-->
+```{.yaml json-path="$..vulnerabilities..threats..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5576,7 +5582,7 @@ title to the vulnerability.
 Vulnerability-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
 at the vulnerability item level of the CSAF document and associated with this vulnerability element.
 
-```yaml <!--json-paths($..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..vulnerabilities[*]..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   # ...
   vulnerabilities:
@@ -5596,7 +5602,7 @@ at the vulnerability item level of the CSAF document and associated with this vu
 Root-level Extensions (`x_extensions`) of value type Extensions Type (`extensions_t`) contains a list of extensions valid
 at the root-level of the CSAF document and associated with this CSAF document.
 
-```yaml <!--json-paths($..x_extensions, $['$defs'].extensions_t..properties)-->
+```{.yaml json-paths="$..x_extensions, $['$defs'].extensions_t..properties"}
 <csaf-instance>:
   # ...
   x_extensions:  # $defs.extensions_t
@@ -6040,7 +6046,7 @@ The keys within a CSAF document SHOULD be sorted alphabetically.
 
 The use of GitHub-flavored Markdown is permitted in the following fields:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments[*].summary
   $.document.distribution.text
   $.document.involvement.actions[*].summary
@@ -6067,7 +6073,7 @@ Other fields SHALL NOT contain Markdown.
 
 The `$.product_tree` uses a nested structure for `branches`. Along a single path to a leaf, the recursion of `branches` is limited to 30 repetitions. Therefore, the longest path to a leaf is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].branches[*].product
 ```
 
@@ -6227,7 +6233,7 @@ The same applies for all items of elements of type `$['$defs'].products_t`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].product_ids[*]
   $.document.notes[*].product_ids[*]
   $.product_tree.product_groups[*].product_ids[*]
@@ -6276,7 +6282,7 @@ SHALL be tested that the `product_id` was not already defined within the same do
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id
@@ -6308,7 +6314,7 @@ SHALL be tested that the `product_id` does not end up in a circle.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_paths[*].full_product_name.product_id
 ```
 
@@ -6354,7 +6360,7 @@ The same applies for all items of elements of type `$['$defs'].product_groups_t`
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].group_ids[*]
   $.document.notes[*].group_ids[*]
   $.vulnerabilities[*].first_known_exploitation_dates[*].group_ids[*]
@@ -6400,7 +6406,7 @@ SHALL be tested that the `group_id` was not already defined within the same docu
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_groups[*].group_id
 ```
 
@@ -6451,7 +6457,7 @@ The sets formed by the contradicting groups within one vulnerability item SHALL 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -6492,7 +6498,7 @@ For each item in `$.vulnerabilities` it SHALL be tested that the same Product ID
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -6550,7 +6556,7 @@ The test SHALL fail if the object contains additional properties not defined in 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.cvss_v2
   $.vulnerabilities[*].metrics[*].content.cvss_v3
   $.vulnerabilities[*].metrics[*].content.cvss_v4
@@ -6579,7 +6585,7 @@ It SHALL be tested that the given CVSS object has the values computed correctly 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.cvss_v2.baseScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.temporalScore
   $.vulnerabilities[*].metrics[*].content.cvss_v2.environmentalScore
@@ -6617,7 +6623,7 @@ It SHALL be tested that the given CVSS properties do not contradict the CVSS vec
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.cvss_v2
   $.vulnerabilities[*].metrics[*].content.cvss_v3
   $.vulnerabilities[*].metrics[*].content.cvss_v4
@@ -6655,7 +6661,7 @@ Any `id` that refers to a CWE Category or View SHALL fail the test.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -6683,7 +6689,7 @@ and those that contain only subtags from the registry but the compiled language 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```
@@ -6708,7 +6714,7 @@ It SHALL be tested that all given PURLs are valid.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
@@ -6751,7 +6757,7 @@ The aforementioned rules are solely used during the processing to create consist
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history
 ```
 
@@ -6782,7 +6788,7 @@ not being present at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.source_lang
 ```
 
@@ -6816,7 +6822,7 @@ Any pre-release part is also ignored if the document status is `draft`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.version
 ```
 
@@ -6852,7 +6858,7 @@ It SHALL be tested that document status is `draft` if the document version is `0
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.status
 ```
 
@@ -6876,7 +6882,7 @@ It SHALL be tested that no item of the revision history has a `number` of `0` or
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].number
 ```
 
@@ -6912,7 +6918,7 @@ It SHALL be tested that no item of the revision history has a `number` which inc
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].number
 ```
 
@@ -6945,7 +6951,7 @@ It SHALL be tested that document version does not contain a pre-release part if 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.version
 ```
 
@@ -6993,7 +6999,7 @@ The aforementioned rules are solely used during the processing to create consist
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history
 ```
 
@@ -7025,7 +7031,7 @@ It SHALL be tested that items of the revision history do not contain the same ve
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history
 ```
 
@@ -7054,7 +7060,7 @@ It SHALL be tested that a CVE is not used in multiple vulnerability items.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cve
 ```
 
@@ -7098,7 +7104,7 @@ As the timestamps might use different timezones, the comparison SHALL take timez
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions
 ```
 
@@ -7143,7 +7149,7 @@ It SHALL be tested that the same hash algorithm is not used multiple times in on
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
@@ -7227,7 +7233,7 @@ This is the only mandatory test related to the profile "CSAF Base" as the requir
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.category
 ```
 
@@ -7279,7 +7285,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -7303,7 +7309,7 @@ It SHALL be tested that at least one item in `$.document.references` exists that
 The property `category` SHALL be present for this item.
 
 > Other items MAY exist which do not contain the property `category`.
-> Issuing parties are advised that tools MAY explicitly filter for or prioritize entries that have the contain
+> Issuing parties are advised that tools MAY explicitly filter for or prioritize entries that contain
 > the property `category` with the value of `external`.
 
 The relevant values for `$.document.category` are:
@@ -7316,7 +7322,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references
 ```
 
@@ -7348,7 +7354,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities
 ```
 
@@ -7381,7 +7387,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree
 ```
 
@@ -7414,7 +7420,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].notes
 ```
 
@@ -7448,7 +7454,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -7477,7 +7483,7 @@ The relevant value for `$.document.category` is:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.fixed
   $.vulnerabilities[*].product_status.known_affected
   $.vulnerabilities[*].product_status.known_not_affected
@@ -7520,7 +7526,7 @@ The relevant values for `$.document.category` are:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cve
   $.vulnerabilities[*].ids
 ```
@@ -7549,9 +7555,9 @@ The relevant value for `$.document.category` is:
   csaf_vex
 ```
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].flags
   $.vulnerabilities[*].threats
 ```
@@ -7624,7 +7630,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations
 ```
 
@@ -7699,7 +7705,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities
 ```
 
@@ -7731,7 +7737,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.known_affected
 ```
 
@@ -7765,7 +7771,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.known_affected
 ```
 
@@ -7826,7 +7832,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -7857,7 +7863,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree
 ```
 
@@ -7884,7 +7890,7 @@ The relevant values for `$.document.category` are:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history
 ```
 
@@ -7916,7 +7922,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -7948,7 +7954,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -7980,7 +7986,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references
 ```
 
@@ -8013,7 +8019,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerability[*].notes
 ```
 
@@ -8035,9 +8041,9 @@ The relevant path for this test is:
 
 It SHALL be tested that the given source language and document language are not the same.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```
@@ -8066,7 +8072,7 @@ For each item in `$.vulnerabilities[*].remediations` it SHALL be tested that it 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -8097,7 +8103,7 @@ implementations SHOULD ignore such a value in this test as the schema test will 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].number
   $.document.tracking.version
 ```
@@ -8157,9 +8163,9 @@ the value of `name` does not contain a version range.
 >      versions
 >    ```
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -8183,7 +8189,7 @@ For each item in `$.vulnerabilities[*].flags` it SHALL be tested that it include
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].flags[*]
 ```
 
@@ -8210,7 +8216,7 @@ This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].flags
 ```
 
@@ -8275,7 +8281,7 @@ does not contain more than 30 instances of `branches`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product
 ```
 
@@ -8486,7 +8492,7 @@ This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -8511,7 +8517,7 @@ The relevant path for this test is:
       ]
 ```
 
-> The two remediations given for the product with product ID `CSAFPID-908070` contradict each other.
+> The two remediations given for the product with product ID `CSAFPID-9080700` contradict each other.
 
 > A tool MAY apply the conversion rules from the conformance target CSAF 2.0 to CSAF 2.1 converter if applicable or
 > remove the product from the remediation with the lower priority.
@@ -8526,7 +8532,7 @@ This takes indirect relations through product groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -8549,15 +8555,15 @@ The relevant path for this test is:
       ]
 ```
 
-> For the product with product ID `CSAFPID-908070` a `vendor_fix` is given but the product was not affected at all.
+> For the product with product ID `CSAFPID-9080700` a `vendor_fix` is given but the product was not affected at all.
 
 ### 6.1.37 Date and Time<a id='mandatory-tests--date-and-time'></a>
 
 For each item of type `string` and format `date-time` it SHALL be tested that it conforms to the rules given in section [2.3](#date-and-time).
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].date
   $.document.tracking.current_release_date
   $.document.tracking.generator.date
@@ -8588,7 +8594,7 @@ It SHALL be tested that a CSAF document using Max UUID as sharing group ID has t
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.tlp.label
 ```
 
@@ -8617,7 +8623,7 @@ The test SHALL pass if no sharing group is present or the Nil UUID is used and t
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.id
 ```
 
@@ -8644,7 +8650,7 @@ It SHALL be tested that the value of sharing group name does not equal the reser
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.name
 ```
 
@@ -8670,7 +8676,7 @@ It SHALL be tested that the sharing group name exists and equals the predefined 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.name
 ```
 
@@ -8695,7 +8701,7 @@ For each `product_identification_helper` object containing multiple PURLs it SHA
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
   $.product_tree.full_product_names[*].product_identification_helper.purls[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.purls[*]
@@ -8730,7 +8736,7 @@ For each model number it SHALL be tested that it does not contain multiple unesc
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.model_numbers[*]
   $.product_tree.full_product_names[*].product_identification_helper.model_numbers[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.model_numbers[*]
@@ -8754,7 +8760,7 @@ For each serial number it SHALL be tested that it does not contain multiple unes
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.serial_numbers[*]
   $.product_tree.full_product_names[*].product_identification_helper.serial_numbers[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.serial_numbers[*]
@@ -8778,7 +8784,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].disclosure_date
 ```
 
@@ -8825,7 +8831,7 @@ and those that contain only subtags from the registry but the compiled language 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2
 ```
 
@@ -8848,7 +8854,7 @@ The test SHALL fail, if the target ID equals the `$.document.tracking.id` and th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.target_ids[*]
 ```
 
@@ -8904,7 +8910,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
@@ -8946,7 +8952,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.timestamp
 ```
 
@@ -8997,7 +9003,7 @@ Nevertheless, all other rules SHALL be checked to the extent possible.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -9021,7 +9027,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
@@ -9080,7 +9086,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].first_known_exploitation_dates[*].date
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
@@ -9128,7 +9134,7 @@ As the timestamps might use different timezones, the comparison SHALL take timez
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].first_known_exploitation_dates[*].exploitation_date
 ```
 
@@ -9157,7 +9163,7 @@ It SHALL be tested that the license expression is valid.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.license_expression
 ```
 
@@ -9180,7 +9186,7 @@ The category of this item SHALL be `legal_disclaimer`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -9212,7 +9218,7 @@ and source.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -9266,7 +9272,7 @@ Therefore, `product_family` SHALL be ignored in the test.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].category
 ```
 
@@ -9301,7 +9307,7 @@ For each `full_product_name_t` element under `$.product_tree.branches`, it SHALL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].category
 ```
 
@@ -9336,7 +9342,7 @@ identify only a single version.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -9367,7 +9373,7 @@ For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -9401,7 +9407,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -9446,7 +9452,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions
   $.product_tree..branches[*].product.x_extensions
   $.product_tree.full_product_names[*].x_extensions
@@ -9486,7 +9492,7 @@ For each stock keeping unit it SHALL be tested that it does not contain multiple
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.skus[*]
   $.product_tree.full_product_names[*].product_identification_helper.skus[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.skus[*]
@@ -9512,7 +9518,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].discovery_date
 ```
 
@@ -9553,7 +9559,7 @@ and those not mentioned there.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*]
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*]
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*]
@@ -9601,7 +9607,7 @@ it SHALL be tested that the element `receiving_entity_refs` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -9648,7 +9654,7 @@ As the timestamps might use different timezones, the comparison SHALL take timez
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions
 ```
 
@@ -9694,7 +9700,7 @@ it SHALL be tested that the element `receiving_entity_refs` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -9722,7 +9728,7 @@ This takes indirect relations through entity groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -9746,7 +9752,7 @@ The relevant path for this test is:
 
 > The action contains `EID-0001` as acting and receiving entity.
 
-> CSAF focusses on the exchange of information.
+> CSAF focuses on the exchange of information.
 > Consequently, for vulnerabilities found internal, i.e. a vendor finds a vulnerability in its own product,
 > either the `discoverer` part is listed independent of the `vendor` part which results in two entities
 > or action is omitted as no information exchange happened, i.e. both parts are the same.
@@ -9760,7 +9766,7 @@ This test SHALL ignore elements of type `$['$defs'].entity_group_id_t` in items 
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].acting_entity_refs[*]
   $.document.involvement.actions[*].receiving_entity_refs[*]
   $.document.involvement.entity_groups[*].entity_ids[*]
@@ -9805,7 +9811,7 @@ it SHALL be tested that the `entity_id` was not already defined within the same 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entities[*].entity_id
 ```
 
@@ -9838,7 +9844,7 @@ This test SHALL ignore elements of type `$['$defs'].entity_id_t` in items of ele
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].acting_entity_refs[*]
   $.document.involvement.actions[*].receiving_entity_refs[*]
 ```
@@ -9886,7 +9892,7 @@ it SHALL be tested that the `entity_group_id` was not already defined within the
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 
@@ -9923,7 +9929,7 @@ it SHALL be tested that the Action element with the matching `action_id` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].referenced_action_ids[*]
 ```
 
@@ -9959,7 +9965,7 @@ it SHALL be tested that the `action_id` was not already defined within the same 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].action_id
 ```
 
@@ -9991,7 +9997,7 @@ This also includes actions containing their own `action_id` in the `referenced_a
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -10019,7 +10025,7 @@ This takes indirect relations through entity groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -10068,7 +10074,7 @@ it SHALL be tested that the element `referenced_action_ids` exists.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -10107,7 +10113,7 @@ it SHALL be tested that the vulnerability element with the matching `dl_vuln_id`
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].dl_vuln_ids[*]
 ```
 
@@ -10150,7 +10156,7 @@ it SHALL be tested that the `dl_vuln_id` was not already defined within the same
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].dl_vuln_id
 ```
 
@@ -10179,7 +10185,7 @@ cannot be determined.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.initial_release_date
 ```
 
@@ -10206,6 +10212,10 @@ The relevant path for this test is:
 > than given through the `initial_release_date`.
 
 > A tool MAY set the `initial_release_date` from the `date` of the revision history item with a `number` of `1` or `1.0.0` as a quick fix.
+> If the year of the `initial_release_date` changed during the quick fix
+> this can lead to a situation where a CSAF document moves from one year folder to another (see [7.1.11](#requirement-11-one-folder-per-year)).
+> Issuing parties are strongly advised to double-check whether this reflects the facts.
+> If that is not the case, the issuing party should correct the mistake by updating the revision history.
 
 ## 6.2 Recommended Tests<a id='recommended-tests'></a>
 
@@ -10222,7 +10232,7 @@ This test SHALL be skipped for CSAF documents conforming the profile "Informatio
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_id
   $.product_tree.full_product_names[*].product_id
   $.product_tree.product_paths[*].full_product_name.product_id
@@ -10254,7 +10264,7 @@ a remediation exists.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.first_affected[*]
   $.vulnerabilities[*].product_status.known_affected[*]
   $.vulnerabilities[*].product_status.last_affected[*]
@@ -10292,7 +10302,7 @@ a metric object exists which covers this product.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.first_affected[*]
   $.vulnerabilities[*].product_status.known_affected[*]
   $.vulnerabilities[*].product_status.last_affected[*]
@@ -10328,7 +10338,7 @@ For each item in revision history it SHALL be tested that `number` does not incl
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].number
 ```
 
@@ -10353,7 +10363,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.initial_release_date
 ```
 
@@ -10389,7 +10399,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.current_release_date
 ```
 
@@ -10431,11 +10441,11 @@ The relevant path for this test is:
 It SHALL be tested that the hash algorithm `md5` is not the only one present.
 
 > Since collision attacks exist for MD5 such value should be accompanied by a second cryptographically stronger hash.
-> This will allow users to double check the results.
+> This will allow users to double-check the results.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
@@ -10474,11 +10484,11 @@ The relevant paths for this test are:
 It SHALL be tested that the hash algorithm `sha1` is not the only one present.
 
 > Since collision attacks exist for SHA-1 such value should be accompanied by a second cryptographically stronger hash.
-> This will allow users to double check the results.
+> This will allow users to double-check the results.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes
@@ -10532,7 +10542,7 @@ It SHALL be tested that the CSAF document has a canonical URL.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references
 ```
 
@@ -10569,7 +10579,7 @@ not being present at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
 ```
 
@@ -10602,7 +10612,7 @@ It SHALL be tested that all keys in a CSAF document are sorted alphabetically.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $
 ```
 
@@ -10626,7 +10636,7 @@ For each element of type `$['$defs'].lang_t` it SHALL be tested that the languag
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```
@@ -10647,7 +10657,7 @@ For each element of type `$['$defs'].lang_t` it SHALL be tested that the languag
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.lang
   $.document.source_lang
 ```
@@ -10668,7 +10678,7 @@ For each element of type `$['$defs'].full_product_name_t` it SHALL be tested tha
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name
@@ -10695,9 +10705,9 @@ For each item in `$.vulnerabilities[*].ids` it SHALL be tested that it is not a 
 > after invisible and white space characters have been removed from the value of the property `text`
 > whether it matches the regex `^CVE-[0-9]{4}-[0-9]{4,}$`.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].ids[*]
 ```
 
@@ -10737,9 +10747,9 @@ For more details, see sections [3.1.3.2](#branches-type---category) and [3.1.3.3
 
 > It is planned to deprecate and finally remove the support for vls in future versions of this standard.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -10764,9 +10774,9 @@ a CVSS applying to this product has an overall score of `0`.
 The test SHALL pass if none of the Product IDs listed within product status `fixed` or
 `first_fixed` is found in `products` of any item of the `metrics` element.
 
-The relevant path for this test is:
+The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status.first_fixed[*]
   $.vulnerabilities[*].product_status.fixed[*]
 ```
@@ -10838,7 +10848,7 @@ Such warning SHALL differentiate between the different classes of extensions.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $
 ```
 
@@ -10868,7 +10878,7 @@ As the timestamps might use different timezones, the comparison SHALL take timez
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.tracking.revision_history[*].date
 ```
 
@@ -10897,7 +10907,7 @@ It SHALL be tested that the `$.document.title` does not contain the `$.document.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.title
 ```
 
@@ -10923,7 +10933,7 @@ For each item in the CWE array it SHALL be tested that the CWE is not deprecated
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -10950,7 +10960,7 @@ The test SHALL fail if a later CWE version was used.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -10993,7 +11003,7 @@ For each item in the CWE array it SHALL be tested that the vulnerability mapping
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -11027,7 +11037,7 @@ The test SHALL NOT fail on items that are not allowed at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes[*]
 ```
 
@@ -11053,7 +11063,7 @@ This takes indirect relations through Product Groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].remediations[*]
 ```
 
@@ -11076,7 +11086,7 @@ The relevant path for this test is:
       ]
 ```
 
-> For the product with product ID `CSAFPID-908070` a fix is planned but the product was not affected at all.
+> For the product with product ID `CSAFPID-9080700` a fix is planned but the product was not affected at all.
 
 ### 6.2.28 Usage of Max UUID<a id='usage-of-max-uuid'></a>
 
@@ -11084,7 +11094,7 @@ It SHALL be tested that the Max UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.id
 ```
 
@@ -11110,7 +11120,7 @@ It SHALL be tested that the Nil UUID is not used as sharing group id.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group.id
 ```
 
@@ -11136,7 +11146,7 @@ It SHALL be tested that no sharing group is used if the document is `TLP:CLEAR`.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.sharing_group
 ```
 
@@ -11170,7 +11180,7 @@ that a product path exists referencing this product.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product
   $.product_tree.full_product_names[*]
   $.product_tree.product_paths[*].full_product_name
@@ -11230,7 +11240,7 @@ For each Product Identification Helper category it SHALL be tested that the same
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper
   $.product_tree.full_product_names[*].product_id.product_identification_helper
   $.product_tree.product_paths[*].full_product_name.product_id.product_identification_helper
@@ -11296,7 +11306,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].disclosure_date
 ```
 
@@ -11347,7 +11357,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -11381,7 +11391,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -11437,7 +11447,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -11498,7 +11508,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.decision_point_resources
 ```
 
@@ -11538,7 +11548,7 @@ It SHALL be tested that the `$.document.category` does not start with `csaf_depr
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.category
 ```
 
@@ -11575,7 +11585,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -11625,7 +11635,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -11660,7 +11670,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -11695,7 +11705,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references
 ```
 
@@ -11726,7 +11736,7 @@ The relevant values for `$.document.category` are:
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions
   $.x_extensions
 ```
@@ -11766,7 +11776,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].notes
 ```
 
@@ -11801,7 +11811,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments
 ```
 
@@ -11836,7 +11846,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.aggregate_severity
 ```
 
@@ -11871,7 +11881,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.distribution.tlp.label
 ```
 
@@ -11903,7 +11913,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics
 ```
 
@@ -11937,7 +11947,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].references
 ```
 
@@ -11967,7 +11977,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].threats
 ```
 
@@ -11997,7 +12007,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].title
 ```
 
@@ -12026,7 +12036,7 @@ product description is known.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes[*]
 ```
 
@@ -12052,7 +12062,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.epss.timestamp
 ```
 
@@ -12125,7 +12135,7 @@ Information that cannot be represented in the specific product identification he
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.cpe
   $.product_tree..branches[*].product.product_identification_helper.purls[*]
 ```
@@ -12184,7 +12194,7 @@ not being present at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.license_expression
 ```
 
@@ -12214,7 +12224,7 @@ The test MAY be skipped for other license inventoring entities.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.license_expression
 ```
 
@@ -12234,7 +12244,7 @@ The test MAY be skipped for other license inventoring entities.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.license_expression
 ```
 
@@ -12256,7 +12266,7 @@ If no language specific translation has been recorded, the test SHALL be skipped
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.notes
 ```
 
@@ -12290,7 +12300,7 @@ For each item in `metrics` provided by the issuing party it SHALL be tested that
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -12341,7 +12351,7 @@ before the case insensitive match.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -12378,7 +12388,7 @@ upper open ended product version range.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -12399,6 +12409,7 @@ The relevant path for this test is:
 > If the upper open ended product version range consists of more than one version constraint and the upper open range is the last version
 > constraint, a tool MAY convert it into the product version range ending with the version of the upper open ended product version as a quick
 > fix, if applicable.
+> Note that a change of inclusion boundaries is not allowed.
 
 ### 6.2.50 Overlapping Product Version Range<a id='overlapping-product-version-range'></a>
 
@@ -12457,7 +12468,7 @@ member of a contradicting product status groups (see section [3.2.4.12](#vulnera
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -12524,7 +12535,7 @@ member of a contradicting product status groups (see section [3.2.4.12](#vulnera
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -12591,7 +12602,7 @@ member of a contradicting product status groups (see section [3.2.4.12](#vulnera
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -12661,9 +12672,9 @@ The warning SHALL differentiate between officially registered VERS types and tho
 > However, it is expected that the test is able to recognize all officially registered VERS types.
 > The differentiation will help users analyzing the result of the test and addressing the issue appropriately.  
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -12694,7 +12705,7 @@ and those not mentioned there.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].algorithm
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].algorithm
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].algorithm
@@ -12722,7 +12733,7 @@ it SHALL be tested that the `text` in the CSAF document matches the `text_patter
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].ids[*].text
 ```
 
@@ -12754,7 +12765,7 @@ The test SHALL be skipped for official CSAF Extensions.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -12783,7 +12794,7 @@ For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -12814,7 +12825,7 @@ For each item in an element of type `$['$defs'].extensions_t` it SHALL be tested
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*].critical
   $.product_tree..branches[*].product.x_extensions[*].critical
   $.product_tree.full_product_names[*].x_extensions[*].critical
@@ -12844,7 +12855,7 @@ if the document is labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -12890,7 +12901,7 @@ The test SHALL be skipped if the URL results in a client or server error.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.publisher.contact.public_openpgp_key_url
 ```
 
@@ -12899,7 +12910,7 @@ The relevant path for this test is:
 ```
     "contact": {
       // ...
-      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
+      "public_openpgp_key_url": "https://data.test.csaf.dev/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
     },
 ```
 
@@ -12921,7 +12932,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -12973,7 +12984,7 @@ it SHALL be tested that the `entity_group_id` is referenced somewhere within the
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 
@@ -13028,7 +13039,7 @@ it SHALL be tested that the `entity_id` is referenced somewhere within the same 
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entities[*].entity_id
 ```
 
@@ -13090,7 +13101,7 @@ it SHALL be tested that the action does not mention all vulnerability items of t
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].dl_vuln_ids[*]
 ```
 
@@ -13141,7 +13152,7 @@ As the timestamps might use different timezones, the sorting and comparison SHAL
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*].date
 ```
 
@@ -13198,7 +13209,7 @@ it SHALL be tested that the `dl_vuln_id` is referenced somewhere within the same
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].dl_vuln_id
 ```
 
@@ -13277,7 +13288,7 @@ The test SHALL pass if a second scoring object is available regarding the specif
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics
 ```
 
@@ -13324,7 +13335,7 @@ For each item in the list of metrics which contains the `cvss_v3` object under `
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.cvss_v3.version
   $.vulnerabilities[*].metrics[*].content.cvss_v3.vectorString
 ```
@@ -13359,7 +13370,7 @@ and not being present at all.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cve
 ```
 
@@ -13387,7 +13398,7 @@ It SHALL be tested that at least one CWE is given.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].cwes
 ```
 
@@ -13410,7 +13421,7 @@ It SHALL be tested that the length of the hash value is not shorter than 64 char
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.full_product_names[*].product_identification_helper.hashes[*].file_hashes[*].value
   $.product_tree.product_paths[*].full_product_name.product_identification_helper.hashes[*].file_hashes[*].value
@@ -13454,7 +13465,7 @@ the 2xx (Successful) or 3xx (Redirection) class.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments[*].urls[*]
   $.document.aggregate_severity.namespace
   $.document.distribution.tlp.url
@@ -13502,7 +13513,7 @@ the URL referenced resolves with a HTTP status code less than 400.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.references[*].url
   $.vulnerabilities[*].references[*].url
 ```
@@ -13530,7 +13541,7 @@ The value of `$.document.category` SHOULD NOT be tested if the CSAF document doe
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments[*].names[*]
   $.document.acknowledgments[*].organization
   $.document.acknowledgments[*].summary
@@ -13598,9 +13609,9 @@ order starting with the Product tree node.
 
 > Other branch categories can be used before, after or between the aforementioned branch categories without making the test invalid.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.branches
 ```
 
@@ -13620,7 +13631,7 @@ The relevant paths for this test are:
                 "category": "patch_level",
                 "name": "91",
                 "product": {
-                  "product_id": "CSAFPID-0002",
+                  "product_id": "CSAFPID-9080700",
                   "name": "Example Company Product A Update 91"
                 }
               }
@@ -13640,9 +13651,9 @@ For each element of type `$['$defs'].branches_t` it SHALL be tested that the `ca
 > It is usually hard decide for machines whether a product version matches a product version ranges.
 > Therefore, it is recommended to avoid version ranges and enumerate versions wherever possible.
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].category
 ```
 
@@ -13665,9 +13676,9 @@ the value of `name` does not start with `v` or `V` before the version.
 >   ^[vV][0-9]
 > ```
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -13693,7 +13704,7 @@ any CVSS object.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content
 ```
 
@@ -13743,7 +13754,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
@@ -13778,7 +13789,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -13834,7 +13845,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*].namespace
 ```
 
@@ -13887,7 +13898,7 @@ It SHALL fail if the given language is not supported.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.acknowledgments[*].summary
   $.document.aggregate_severity.text
   $.document.distribution.text
@@ -13944,7 +13955,7 @@ or AboutCode's "ScanCode LicenseDB".
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.license_expression
 ```
 
@@ -13969,7 +13980,7 @@ For each item in `metrics` it SHALL be tested that it does not use the qualitati
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*]
 ```
 
@@ -14017,7 +14028,7 @@ member of the same product status group (see section [3.2.4.12](#vulnerabilities
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -14082,7 +14093,7 @@ member of the same product status group (see section [3.2.4.12](#vulnerabilities
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -14147,7 +14158,7 @@ member of the same product status group (see section [3.2.4.12](#vulnerabilities
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].product_status
 ```
 
@@ -14211,7 +14222,7 @@ For each `EPVR` (as `CTPVR`), it SHALL be tested that all product version ranges
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -14250,7 +14261,7 @@ For each `EPVR` (as `CTPVR`), it SHALL be tested that all product versions of el
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].name
 ```
 
@@ -14287,9 +14298,9 @@ registered vulnerability ID system in RVISC.
 
 > The RVISC is available at \[[RVISC](#RVISC)\].
 
-The relevant paths for this test are:
+The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].ids[*].system_name
 ```
 
@@ -14322,7 +14333,7 @@ is not `essential`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*].category
   $.product_tree..branches[*].product.x_extensions[*].category
   $.product_tree.full_product_names[*].x_extensions[*].category
@@ -14354,7 +14365,7 @@ if the document is not labeled `TLP:CLEAR`.
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions[*]
   $.product_tree..branches[*].product.x_extensions[*]
   $.product_tree.full_product_names[*].x_extensions[*]
@@ -14396,7 +14407,7 @@ It SHALL be tested that the element `$.document.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.x_extensions
 ```
 
@@ -14422,7 +14433,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree..branches[*].product.x_extensions
 ```
 
@@ -14462,7 +14473,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.full_product_names[*].x_extensions
 ```
 
@@ -14489,7 +14500,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_paths[*].full_product_name.x_extensions
 ```
 
@@ -14521,7 +14532,7 @@ It SHALL be tested that the element `x_extensions` does not exist in any path th
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.x_extensions
 ```
 
@@ -14552,7 +14563,7 @@ For each item `$.vulnerabilities` it SHALL be tested that the element `x_extensi
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].x_extensions
 ```
 
@@ -14580,7 +14591,7 @@ It SHALL be tested that the element `$.x_extensions` does not exist.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.x_extensions
 ```
 
@@ -14608,7 +14619,7 @@ For each item in `$.product_tree.product_paths[*]` it SHALL be tested that all r
 
 The relevant paths for this test are:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.product_tree.product_paths[*].beginning_product_reference
   $.product_tree.product_paths[*].subpaths[*].next_product_reference
 ```
@@ -14685,7 +14696,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement
 ```
 
@@ -14726,7 +14737,7 @@ The relevant value for `$.document.category` is:
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].disclosure_date
 ```
 
@@ -14759,7 +14770,7 @@ The test SHALL report if the user ID is not set or empty.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.publisher.contact.public_openpgp_key_url
 ```
 
@@ -14768,7 +14779,7 @@ The relevant path for this test is:
 ```
     "contact": {
       "email": "test-6.3.24@csaf.example",
-      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
+      "public_openpgp_key_url": "https://data.test.csaf.dev/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
     },
 ```
 
@@ -14802,7 +14813,7 @@ Namespaces reserved for special purpose SHALL be treated as per their definition
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*].metrics[*].content.ssvc_v2.selections[*]
 ```
 
@@ -14841,7 +14852,7 @@ This takes implicit coverage through omitting `dl_vuln_ids` into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.vulnerabilities[*]
 ```
 
@@ -14897,7 +14908,7 @@ it SHALL be tested that the `entity_group_id` is referenced somewhere within the
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entity_groups[*].entity_group_id
 ```
 
@@ -14954,7 +14965,7 @@ it SHALL be tested that the `name` was not already used for another entity group
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entity_groups[*].name
 ```
 
@@ -14994,7 +15005,7 @@ it SHALL be tested that the `name` was not already used for another entity withi
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.entities[*].name
 ```
 
@@ -15117,7 +15128,6 @@ Additional presets are defined as follows:
     - [6.2.6](#older-current-release-date-than-revision-history)
     - [6.2.21](#same-timestamps-in-revision-history)
     - [6.2.33](#disclosure-date-newer-than-revision-history)
-
 - `consistent-date-times`:
   - Description: Any test that is related to timestamps in CSAF and avoids invalid situations.
   - Set:
@@ -15128,8 +15138,8 @@ Additional presets are defined as follows:
     - [6.1.52](#inconsistent-first-known-exploitation-dates)
     - [6.1.53](#inconsistent-exploitation-date)
     - [6.1.62](#inconsistent-discovery-date)
-    - [6.2.56.5](#inconsistent-future-action-date)
     - [6.2.56.1](#confirmation-before-action)
+    - [6.2.56.5](#inconsistent-future-action-date)
 - `ssvc`:
   - Description: Any test that is related to SSVC in CSAF.
   - Set:
@@ -15276,9 +15286,9 @@ CSAF aggregator SHOULD display over any individual `publisher` values in the CSA
 > Suggested locations to store the `provider-metadata.json` are:
 >
 > - <https://www.example.com/.well-known/csaf/provider-metadata.json>
-> - <https://domain.tld/security/data/csaf/provider-metadata.json>
-> - <https://psirt.domain.tld/advisories/csaf/provider-metadata.json>
-> - <https://domain.tld/security/csaf/provider-metadata.json>
+> - <https://domain.example/security/data/csaf/provider-metadata.json>
+> - <https://psirt.domain.example/advisories/csaf/provider-metadata.json>
+> - <https://domain.example/security/csaf/provider-metadata.json>
 
 *Example 1 (minimal with ROLIE document):*<a id='requirement-7-provider-metadata-json-eg-1'></a><a id='sec-7-1-7-eg-1'></a><a id='example-289'></a>
 
@@ -15356,9 +15366,9 @@ See \[[SECURITY-TXT](#SECURITY-TXT)\] for more details.
 
 ```
 CSAF: https://www.example.com/.well-known/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/data/csaf/provider-metadata.json
-CSAF: https://psirt.domain.tld/advisories/csaf/provider-metadata.json
-CSAF: https://domain.tld/security/csaf/provider-metadata.json
+CSAF: https://domain.example/security/data/csaf/provider-metadata.json
+CSAF: https://psirt.domain.example/advisories/csaf/provider-metadata.json
+CSAF: https://domain.example/security/csaf/provider-metadata.json
 ```
 
 It is possible to advertise more than one `provider-metadata.json` by adding multiple `CSAF` fields,
@@ -15386,10 +15396,10 @@ Such state is intended and SHALL NOT be reported as error.
 
 ### 7.1.10 Requirement 10: DNS Path<a id='requirement-10-dns-path'></a>
 
-Assuming that the organization's main domain is `domain.tld`, the DNS record `csaf.data.security.domain.tld` SHALL resolve
+Assuming that the organization's main domain is `domain.example`, the DNS record `csaf.data.security.domain.example` SHALL resolve
 to the IP address of a web server which serves directly the `provider-metadata.json` according to requirement 7.
 
-> The `domain.tld` is just a placeholder for the organization's main domain.
+> The `domain.example` is just a placeholder for the organization's main domain.
 > For the organization with the main domain being `example.com`, the necessary DNS record is `csaf.data.security.example.com`.
 
 That implies that redirects SHALL NOT be used.
@@ -15581,7 +15591,7 @@ The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:informat
       "link": [
         {
           "rel": "self",
-          "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json"
+          "href": "https://psirt.domain.example/advisories/csaf/feed-tlp-clear.json"
         }
       ],
       "category": [
@@ -15598,15 +15608,15 @@ The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:informat
           "link": [
             {
               "rel": "self",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json"
             },
             {
               "rel": "hash",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.sha512"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json.sha512"
             },
             {
               "rel": "signature",
-              "href": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json.asc"
+              "href": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json.asc"
             }
           ],
           "published": "2024-01-01T11:00:00.000Z",
@@ -15616,7 +15626,7 @@ The `scheme` for this category SHALL be `urn:ietf:params:rolie:category:informat
           },
           "content": {
             "type": "application/json",
-            "src": "https://psirt.domain.tld/advisories/csaf/2024/esa-2024-001.json"
+            "src": "https://psirt.domain.example/advisories/csaf/2024/esa-2024-001.json"
           },
           "format": {
             "schema": "https://docs.oasis-open.org/csaf/csaf/v2.1/schema/csaf.json",
@@ -15651,7 +15661,7 @@ The ROLIE service document SHOULD use the filename `service.json` and reside nex
           "collection": [
             {
               "title": "Example CSAF feed (TLP:CLEAR)",
-              "href": "https://psirt.domain.tld/advisories/csaf/feed-tlp-clear.json",
+              "href": "https://psirt.domain.example/advisories/csaf/feed-tlp-clear.json",
               "categories": {
                 "category": [
                   {
@@ -16314,10 +16324,10 @@ The clauses, matching the targets one to one, are listed in separate sub-subsect
 > The order in which targets, and their corresponding clauses appear is somewhat arbitrary as there is
 > no natural order on such diverse roles participating in the document exchanging ecosystem.
 >
-> Except for the target **CSAF Document**, all other 33 targets span a taxonomy of the complex CSAF ecosystems existing
+> Except for the target **CSAF Document**, all other 35 targets span a taxonomy of the complex CSAF ecosystems existing
 > in and between diverse security advisory generating, sharing, and consuming communities.
 >
-> In any case, there are no capabilities organized in increasing quality levels for targets because
+> The capabilities are not necessarily organized in increasing quality levels for targets because
 > the security advisory sharing communities follow the chain link model.
 > Instead, a single minimum capability level for every target is given to maintain important goals of providing
 > a common framework for security advisories:
@@ -16438,7 +16448,7 @@ Firstly, the program:
   The CVRF CSAF Converter SHALL ignore that additional property during the conversion.
 - includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see also [table 5](#tab:involvement-status-and-category-mapping-from-cvrf-1-2)).
 
 Secondly, the program fulfills the following for all items of:
 
@@ -16661,6 +16671,13 @@ Secondly, the program fulfills the following for all items of:
   the CVRF CSAF Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
   for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
   `date` from the revision history item with a `number` of `1` or `1.0.0`.
+
+  > If the year of the `initial_release_date` changed during this conversion step
+  > it can lead to a situation where a CSAF document moves from one year folder to another
+  > (see [7.1.11](#requirement-11-one-folder-per-year)).
+  > Issuing parties are strongly advised to double-check whether that conversion reflects the facts.
+  > If that is not the case, the issuing party should correct the mistake in the input file.
+
 - `$.product_tree.product_paths[*]`: For each element `prod:Relationship`, the CVRF CSAF Converter SHALL apply the following rules:
   - The value of the attribute `ProductReference` is set as the value of `beginning_product_reference`.
   - The first `prod:FullProductName` instance is converted into the `full_product_name`.
@@ -17222,7 +17239,8 @@ Firstly, the program:
   The CSAF 2.0 to CSAF 2.1 Converter SHALL ignore that additional property during the conversion.
 - includes in every error and warning the relevant paths and values ​​from the original file that triggered the alert,
   unless otherwise specified in this standard.
-- additionally satisfies the normative requirements given below.
+- additionally satisfies the normative requirements given below (see also [table 6](#tab:tlp-labels-across-csaf-versions) and
+  [table 7](#tab:involvement-status-and-category-mapping-from-csaf-2-0)).
 
 Secondly, the program fulfills the following for all items of:
 
@@ -17295,10 +17313,18 @@ Secondly, the program fulfills the following for all items of:
     1. If value of `name` consists only of one version constraint:
        - the category of the original `product_version_range` item SHALL be changed to `product_version` and
        - the version SHALL be extracted from the original value and set as new value of `name`.
+
+       > The product version range `vers:intdot/>=1.0` is changed to the product version `1.0`.
+       > Note that a conversion of `vers:intdot/>1.0` to the product version `1.0` would change the inclusion boundary and is not allowed.
+
     2. If value of `name` consists of more than one version constraint and the upper open range is the last version constraint:
        - the category of the original `product_version_range` item SHALL be kept and
        - the value `name` SHALL be converted into the product version range ending with the version of the upper open ended product version
          if that does not change the inclusion boundaries.
+
+         > The product version range `vers:intdot/>0.9|<=1.0|>=2.4` is changed to the product version range `vers:intdot/>0.9|<=1.0|2.4`.
+         > Note that a conversion of `vers:intdot/<0.3|>1.0` to the product version range `vers:intdot/<0.3|1.0`
+         > would change the inclusion boundary and is not allowed.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with an upper open ended product version range in
@@ -17609,6 +17635,13 @@ Secondly, the program fulfills the following for all items of:
   the CSAF 2.0 to CSAF 2.1 Converter SHALL set the `date` of the revision history item with a `number` of `1` or `1.0.0` as value
   for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
   `date` from the revision history item with a `number` of `1` or `1.0.0`.
+
+  > If the year of the `initial_release_date` changed during this conversion step
+  > it can lead to a situation where a CSAF document moves from one year folder to another
+  > (see [7.1.11](#requirement-11-one-folder-per-year)).
+  > Issuing parties are strongly advised to double-check whether that conversion reflects the facts.
+  > If that is not the case, the issuing party should correct the mistake in the input file.
+
 - `$.document.title`: If the value contains the `$.document.tracking.id`, the CSAF 2.0 to CSAF 2.1 Converter SHALL remove the `$.document.tracking.id`
   from the `$.document.title`. In addition, separating characters including but not limited to white space, colon, dash and brackets SHALL be removed.
 - `$.product_tree.product_paths[*]`: For each element in `$.product_tree.relationships[*]`, the CSAF 2.0 to CSAF 2.1 Converter
@@ -17825,7 +17858,7 @@ program for the "CSAF Extended Validator" part and does not enforce its presence
 
 ### 9.1.22 Conformance Clause 22: CSAF Library with Full Validation<a id='conformance-clause-22-csaf-library-with-full-validation'></a>
 
-A CSAF Library satisfies the "CSAF Library with Extended Validation" conformance profile if the CSAF Library:
+A CSAF Library satisfies the "CSAF Library with Full Validation" conformance profile if the CSAF Library:
 
 - satisfies the "CSAF Library" conformance profile.
 - satisfies the "CSAF Full Validator" conformance profile.
@@ -18179,12 +18212,12 @@ Revision tracking is publicly available in the version control system at
 This appendix provides informative guidance on the size of CSAF documents.
 
 The TC carefully considered all known aspects to provide size limits for CSAF documents for this version of the specification with
-the result that hard limits SHOULD NOT be enforced.
+the result that hard limits should not be enforced.
 However, since there is the need for guidance to ensure interoperability in the ecosystem, the TC provides a set of soft limits.
 A CSAF document which exceeds those, can still be valid but it might not be processable for some parties.
 
-All _CSAF consumers_ SHOULD be able to process CSAF documents which comply with the limits below.
-All _CSAF producers_ SHOULD NOT produce CSAF documents which exceed those limits.
+All _CSAF consumers_ should be able to process CSAF documents which comply with the limits below.
+All _CSAF producers_ should not produce CSAF documents which exceed those limits.
 
 > If you come across a case where these limits are exceeded, please provide feedback to the TC.
 
@@ -18194,7 +18227,7 @@ as they depend upon on the extension.
 
 ## C.1 File Size<a id='file-size'></a>
 
-A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 SHOULD
+A CSAF document including any extensions used in the document in the specified JSON format encoded in UTF-8 should
 conform to known size limits of current technologies parsing JSON content,
 e.g.: 150 MiB.
 
@@ -18208,7 +18241,7 @@ e.g.: 150 MiB.
 
 ## C.2 Array Length<a id='array-length'></a>
 
-An array SHOULD NOT have more than:
+An array should not have more than:
 
 - 10 000 items for
   - `$.document.acknowledgments`
@@ -18319,7 +18352,7 @@ An array SHOULD NOT have more than:
 
 ## C.3 String Length<a id='string-length'></a>
 
-A string SHOULD NOT have a length greater than:
+A string should not have a length greater than:
 
 - 1000 for
   - `$.document.acknowledgments[*].names[*]`
@@ -18615,7 +18648,7 @@ This applies to:
 
 ## C.7 URI Length<a id='uri-length'></a>
 
-A string with format `uri` SHOULD NOT have a length greater than 20000. This applies to:
+A string with format `uri` should not have a length greater than 20000. This applies to:
 
 - `$.document.acknowledgments[*].urls[*]`
 - `$.document.aggregate_severity.namespace`
@@ -18651,7 +18684,7 @@ A string with format `uri` SHOULD NOT have a length greater than 20000. This app
 
 ## C.8 UUID Length<a id='uuid-length'></a>
 
-A string with format `uuid` SHOULD NOT have a length greater than 50. This applies to:
+A string with format `uuid` should not have a length greater than 50. This applies to:
 
 - `$.document.distribution.sharing_group.id` (36)
 

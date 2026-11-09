@@ -5,7 +5,7 @@ This takes indirect relations through entity groups into account.
 
 The relevant path for this test is:
 
-```list-of-jsonpaths
+```{.text sequence-of="jsonpath"}
   $.document.involvement.actions[*]
 ```
 
@@ -29,7 +29,7 @@ The relevant path for this test is:
 
 > The action contains `EID-0001` as acting and receiving entity.
 
-> CSAF focusses on the exchange of information.
+> CSAF focuses on the exchange of information.
 > Consequently, for vulnerabilities found internal, i.e. a vendor finds a vulnerability in its own product,
 > either the `discoverer` part is listed independent of the `vendor` part which results in two entities
 > or action is omitted as no information exchange happened, i.e. both parts are the same.

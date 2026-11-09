@@ -11,7 +11,7 @@ It SHALL conform to `pattern` (regular expression):
 The value contains a token required to identify a group of entities uniquely in the context of the current document
 so that it can be referred to from other parts in the document.
 
-```yaml <!--json-path($['$defs'].entity_group_id_t)-->
+```{.yaml json-path="$['$defs'].entity_group_id_t"}
 $defs:
   # ...
   entity_group_id_t: String.Pattern
