@@ -20,7 +20,7 @@ The relevant path for this test is:
 ```
     "contact": {
       "email": "test-6.3.24@csaf.example",
-      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
+      "public_openpgp_key_url": "https://data.test.csaf.dev/csaf_2.1/test/validator/auxiliary/openpgp/5-years-valid.asc"
     },
 ```
 

@@ -17,7 +17,7 @@ The relevant path for this test is:
 ```
     "contact": {
       // ...
-      "public_openpgp_key_url": "https://raw.githubusercontent.com/oasis-tcs/csaf/refs/heads/master/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
+      "public_openpgp_key_url": "https://data.test.csaf.dev/csaf_2.1/test/validator/auxiliary/openpgp/expired.asc"
     },
 ```
 
