@@ -90,10 +90,18 @@ Secondly, the program fulfills the following for all items of:
     1. If value of `name` consists only of one version constraint:
        - the category of the original `product_version_range` item SHALL be changed to `product_version` and
        - the version SHALL be extracted from the original value and set as new value of `name`.
+
+       > The product version range `vers:intdot/>=1.0` is changed to the product version `1.0`.
+       > Note that a conversion of `vers:intdot/>1.0` to the product version `1.0` would change the inclusion boundary and is not allowed.
+
     2. If value of `name` consists of more than one version constraint and the upper open range is the last version constraint:
        - the category of the original `product_version_range` item SHALL be kept and
        - the value `name` SHALL be converted into the product version range ending with the version of the upper open ended product version
          if that does not change the inclusion boundaries.
+
+         > The product version range `vers:intdot/>0.9|<=1.0|>=2.4` is changed to the product version range `vers:intdot/>0.9|<=1.0|2.4`.
+         > Note that a conversion of `vers:intdot/<0.3|>1.0` to the product version range `vers:intdot/<0.3|1.0`
+         > would change the inclusion boundary and is not allowed.
 
     If the CSAF 2.0 to CSAF 2.1 Converter is able to create a valid product tree,
     it SHALL issue a warning that an invalid product tree with an upper open ended product version range in
