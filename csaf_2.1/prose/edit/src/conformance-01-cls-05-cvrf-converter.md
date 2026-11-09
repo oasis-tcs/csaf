@@ -235,7 +235,8 @@ Secondly, the program fulfills the following for all items of:
   for the `initial_release_date` and issue a warning that an inconsistent initial release date was detected and replaced with the
   `date` from the revision history item with a `number` of `1` or `1.0.0`.
 
-  > This conversion can lead to a situation where a CSAF document moves from one year folder to another
+  > If the year of the `initial_release_date` changed during this conversion step
+  > it can lead to a situation where a CSAF document moves from one year folder to another
   > (see [sec](#requirement-11-one-folder-per-year)).
   > Issuing parties are strongly advised to double-check whether that conversion reflects the facts.
   > If that is not the case, the issuing party should correct the mistake in the input file.
