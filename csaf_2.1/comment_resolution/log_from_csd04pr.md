@@ -24,11 +24,12 @@ The following abbreviations are used:
 | [4](https://groups.oasis-open.org/discussion/csd04-6-1-66-9-1-18-converted-documents-can-change-their-year-folder-requirement-11-1) (originally posted as [3-org](https://groups.oasis-open.org/discussion/csd04-6-1-66-9-1-18-converted-documents-can-change-their-year-folder-requirement-11) on 2026-10-28, removed by OASIS TC Admins due to author's request, re-posted on 2026-10-29) | 2026-10-28 | CB | [CSD04 6.1.66 / 9.1.18: converted documents can change their year folder (Requirement 11)](https://github.com/oasis-tcs/csaf/issues/1724) |  |  |  |
 | [5](https://groups.oasis-open.org/discussion/new-issue-test-case-16-for-6-1-27-13-seems-to-contain-a-wrong-product-id) | 2026-10-30 | FB | [Test Case 16 for 6.1.27.13 seems to contain a wrong product ID](https://github.com/oasis-tcs/csaf/issues/1726) |  |  |  |
 | [6](https://groups.oasis-open.org/discussion/2-1-9-1-5-superfluous-sentence) | 2026-10-30 | BR | [9.1.5 superfluous sentence](https://github.com/oasis-tcs/csaf/issues/1727) |  |  |  |
-| [7](https://groups.oasis-open.org/discussion/new-issue-typo-in-test-file-6-1-50-14) | 2026-11-02 | JP | [Typo in test file 6-1-50-14](https://github.com/oasis-tcs/csaf/issues/1729) |  |  |  |
-| [8](https://groups.oasis-open.org/discussion/typo-in-6-1-21-wrong-expected-version-in-the-result-json) | 2026-11-05 | BD | [Typo in 6.1.21 - wrong expected version in the result.json](https://github.com/oasis-tcs/csaf/issues/1732) |  |  |  |
+| [7](https://groups.oasis-open.org/discussion/typo-in-6-1-27-2-informative-comment) | 2026-11-02 | JP | [Comment on Editors' Editorial Issue adding regarding to "6.1.27.2 informative comment"](https://github.com/oasis-tcs/csaf/issues/1728#issuecomment-6600274171) |  |  |  |
+| [8](https://groups.oasis-open.org/discussion/new-issue-typo-in-test-file-6-1-50-14) | 2026-11-02 | JP | [Typo in test file 6-1-50-14](https://github.com/oasis-tcs/csaf/issues/1729) |  |  |  |
+| [9](https://groups.oasis-open.org/discussion/typo-in-6-1-21-wrong-expected-version-in-the-result-json) | 2026-11-05 | BD | [Typo in 6.1.21 - wrong expected version in the result.json](https://github.com/oasis-tcs/csaf/issues/1732) |  |  |  |
 
 ## Evaluation of Feedback
 
-The TC considers above public comments as well as other more editorial feedback documented in issue [#1720](https://github.com/oasis-tcs/csaf/issues/1720) and classified/considered per pull request [#????](https://github.com/oasis-tcs/csaf/pull/????) as **Non-Material**/**Material** per OASIS TC process.
+The TC considers above public comments as well as other more editorial feedback documented in issue [#1720](https://github.com/oasis-tcs/csaf/issues/1720) and classified/considered per pull request [#1747](https://github.com/oasis-tcs/csaf/pull/1747) as **Non-Material**/**Material** per OASIS TC process.
 
 To ease verification by anyone and to support the administration this comment resolution log is provided as an individual document as per this artifact.
