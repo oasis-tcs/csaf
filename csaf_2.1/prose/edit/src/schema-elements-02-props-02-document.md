@@ -567,9 +567,9 @@ Contact of the entity (`contact`) of value type Contact Type (`contact_t`) conta
     # ...
 ```
 
-Entity ID (`entity_id`) value type Entity ID (`entity_id_t`) contains an ID for the entity.
+Entity ID (`entity_id`) of value type Entity ID (`entity_id_t`) contains an ID for the entity.
 
-Contains an ID for the entity (`name`) of value type `string` with `1` or more characters contains the name of the entity.
+Name of the entity (`name`) of value type `string` with `1` or more characters contains the name of the entity.
 
 ##### Document Property - Involvement - Entity Groups
 
